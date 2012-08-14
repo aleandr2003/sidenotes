@@ -1,0 +1,37 @@
+﻿@model List<BookCommentatorModel>
+@{
+    Layout = null;
+}
+
+<ul class="recentComments_list" id="commentatorsList">
+@foreach (var item in Model)
+{
+	<li class="commentator_item userblock">
+		<a href="@Url.Action("View", "User", new { Id = item.user.Id})" class="userblock_avatar_link">
+			@UserAvatar.Small(item.user, "userblock_avatar")
+		</a>
+		<a href="@Url.Action("View", "User", new { Id = item.user.Id})" class="userblock_name">@item.user.Name</a>
+        @{
+            <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = item.user.Id})"
+                 class="commentCounter">@item.commentCount @InclineService.Comment(item.commentCount)</a>
+        }
+        @*@if (item.user.Id != ViewBag.CurrentUserId)
+        {
+            if (item.IsFriend)
+            {
+                <form method="post" action="@Url.Action("RemoveFriend", "User")" >
+                    <input type="hidden" name="UserId" value="@item.user.Id" />
+                    <input type="submit" value="отписаться" />
+                </form>
+            }
+            else
+            {
+                <form method="post" action="@Url.Action("MakeFriend", "User")">
+                    <input type="hidden" name="UserId" value="@item.user.Id" />
+                    <input type="submit" value="подписаться" />
+                </form>
+            }
+        }*@
+	</li>
+}
+</ul>

@@ -1,0 +1,64 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="lightbox" id="addHeadCommentBox">
+    <a href="#" class="lightbox_close">x</a>
+    <div class="bookBlock"></div>
+    <div class="shareBlockLine">
+        <div class="shareBlockLabel">Поделиться цитатой: </div>
+        <div class="shareBlock">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <h2>Добавить комментарий</h2>
+    <form action="@Url.Action("AddHead", "Comment")" method="post"
+        class="ajaxForm reloadable errorable" id="addHeadCommentBoxForm">
+        <input type="hidden" name="entityId" class="inputEntityId"/>
+        <input type="hidden" name="entityType" class="inputEntityType"/>
+	    <textarea name="commentText" class="requiredField newCommentTextArea"></textarea>
+        <br/>
+        <div class="commentBoxBottomLine" id="commentBoxSubmitLine">
+            <input type="checkbox" name="isPrivate"/>
+            <label for="isPrivate" class="checkboxLabel">Оставить приватным</label>
+            <input type="submit" class="submitButton" value="Сказать!" />
+            <div id="SNLoginBox" style="display:none;">
+                <label>Укажите свой профиль:</label>
+                <div class="SNLoginForm">
+                    <input type="image" src="@Url.Content("~/Content/img/logo/vkontakte-16.png")" action="@Url.Action("PostComment", "VkontakteLogin", null)" alt="Vkontakte" class = "socialNetworkLogo"/>
+                </div>
+                <div class="SNLoginForm">
+                    <input type="image" src="@Url.Content("~/Content/img/logo/facebook-16.gif")" action="@Url.Action("PostComment", "FacebookLogin", null)" alt="Facebook" class = "socialNetworkLogo"/>
+                </div>
+                <div class="SNLoginForm">
+                    <input type="image" src="@Url.Content("~/Content/img/logo/twitter-16.gif")" action="@Url.Action("PostComment", "TwitterLogin", null)" alt="Twitter" class = "socialNetworkLogo"/>
+                </div>
+            </div>
+        </div>
+        
+        <div id="errorMessage" class="errorMessage"></div>
+    </form>
+</div>
+<script type="text/javascript">
+    $(function () {
+        if (!IsAuthenticated) {
+            $('#addHeadCommentBoxForm input[type=submit]').click(function (event) {
+                event.preventDefault();
+                $(this).hide();
+                $('#SNLoginBox').show();
+            });
+        }
+        $('.commentBoxBottomLine .socialNetworkLogo').click(function (event) {
+            event.preventDefault();
+            var form = $('#addHeadCommentBoxForm');
+            form.attr('action', $(this).attr('action'));
+
+            var callbackInput = $('<input type="hidden" name="callbackUri"/>');
+            callbackInput.attr('value', window.location);
+            callbackInput.appendTo(form);
+            //form.submit();
+            document.forms['addHeadCommentBoxForm'].submit();
+        });
+    });
+</script>

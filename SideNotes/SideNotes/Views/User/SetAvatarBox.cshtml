@@ -1,0 +1,14 @@
+﻿@model User
+@{
+    Layout = null;
+}
+<div class="lightbox" id="setAvatarBox">
+    <a href="#" class="lightbox_close">x</a>
+    <h2>Выберите аватар</h2>
+@using (Html.BeginForm<UserController>(x => x.SetAvatar(Model.Id, null, null), FormMethod.Post,
+    new { enctype = "multipart/form-data", id = "setAvatarBoxForm" }))
+  {
+        <input type="file" name="file" class="requiredField"/>
+		@Html.SubmitButton(null, "Загрузить", new { @class = "submitButton" })
+  }
+</div>

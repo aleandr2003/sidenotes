@@ -1,0 +1,22 @@
+﻿@model NotificationSettingsModel
+@{
+    Layout = null;
+}
+
+<div class="lightbox" id="notificationSettingsBox">
+    <a href="#" class="lightbox_close">x</a>
+    @using (Html.BeginForm<UserController>(x => x.UpdateNotificationSettings(null, null), FormMethod.Post,
+    new { @class = "ajaxForm errorable closable", id = "notificationSettingsBoxForm" }))
+  {
+		<fieldset>
+			<div class="clear">
+            @Html.CheckBoxFor(x => x.NotifyAuthorCommentReplied)
+		    @Html.LabelFor(x => x.NotifyAuthorCommentReplied, "Когда отвечают на мой комментарий")
+		    </div>
+		</fieldset>
+		<div id="errorMessage" class="errorMessage"></div>
+		@Html.SubmitButton(null, "Отправить", new { @class = "submitButton" })
+  }
+
+</div>
+

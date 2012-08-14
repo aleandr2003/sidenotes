@@ -1,0 +1,17 @@
+﻿@model Paragraph
+@{
+    ViewBag.Title = "Комментарии";
+}
+<div id="main">
+@Abzats.Render(Model)
+@Html.ActionLink("Назад", "Start", "Book", new { id = Model.Book_Id}, null)
+
+@{
+    var parameters = new { 
+        entityType = (int)EntityType.Paragraph, entityId = Model.Id, 
+        filter = (int)ViewBag.Filter, json = false 
+    };
+    @Html.Action("Index", "Comment", parameters)
+}
+
+</div>

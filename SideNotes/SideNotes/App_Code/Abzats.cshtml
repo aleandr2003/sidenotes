@@ -1,0 +1,68 @@
+﻿@using SideNotes.Models;
+@using SideNotes.Services;
+
+@helper Render(Paragraph paragraph)
+    {
+    if (paragraph is EmptyLine)
+    {
+        <p class="bookParagraphEmptyLine">&nbsp;</p>
+    }
+    /*else if (paragraph.FormatType == (int)FormatType.Image)*/
+    else if (paragraph is ImageParagraph)
+    {
+        var imgParagraph = paragraph as ImageParagraph;
+        var width = 700;
+        var imgWidth = imgParagraph.Width;
+        <p>
+            <img src="@imgParagraph.Url" alt="" width="@(imgWidth > width ? width : imgWidth)px" />
+        </p>
+    }
+    else if (paragraph is Title)
+    {
+        <h2 class="bookTextAbzac bookParagraphTitle">
+         @{
+        var Html = ((System.Web.Mvc.WebViewPage)WebPageContext.Current.Page).Html;
+        var content = paragraph.Content;
+                @Html.Raw(content);
+            }
+        </h2>
+    }
+    else if (paragraph is FootNote)
+    {
+        <div class="bookTextAbzac bookParagraphFootNote">
+            @{
+        var Html = ((System.Web.Mvc.WebViewPage)WebPageContext.Current.Page).Html;
+        var content = paragraph.Content;
+                @Html.Raw(content);
+            }
+        </div>
+    }
+    else
+    {
+        string pClass = "bookParagraph";
+        if (paragraph is Epigraph)
+        {
+            pClass = "bookParagraphEpigraph";
+        }else if(paragraph is EpigraphAuthor){
+            pClass = "bookParagraphEpigraphAuthor";
+        }else if(paragraph is Cite){
+            pClass = "bookParagraphCite";
+        }else if(paragraph is CiteAuthor){
+            pClass = "bookParagraphCiteAuthor";
+        }else if(paragraph is Poem){
+            pClass = "bookParagraphPoem";
+        }else if(paragraph is PoemAuthor){
+            pClass = "bookParagraphPoemAuthor";
+        }else if(paragraph is FootNote){
+            pClass = "bookParagraphFootNote";
+        }
+        <p class="bookTextAbzac @pClass">
+            @{
+             var Html = ((System.Web.Mvc.WebViewPage)WebPageContext.Current.Page).Html;
+             var content = paragraph.Content;
+                @Html.Raw(content);
+            }
+        </p>
+    }
+}
+

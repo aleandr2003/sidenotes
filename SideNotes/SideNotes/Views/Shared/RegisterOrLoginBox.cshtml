@@ -1,0 +1,31 @@
+﻿@model RegisterModel
+@{
+    Layout = null;
+}
+
+<div class="lightbox" id="registerOrLoginBox">
+    <a href="#" class="lightbox_close">x</a>
+@using (Html.BeginForm<UserController>(x => x.Register(null, Request.Url.AbsoluteUri, null), FormMethod.Post,
+    new { @class = "ajaxForm errorable redirectable", id = "registerOrLoginBoxForm" }))
+{
+		<fieldset>
+			@Html.LabelFor(x => x.Name, "Отображаемое имя")
+			@Html.TextBoxFor(x => x.Name, new { placeholder = "Александр Пушкин", @class = "requiredField" })
+            <br/>
+            @Html.ValidationMessageFor(x => x.Name)
+
+			@Html.LabelFor(x => x.Email, "E-mail")
+			@Html.TextBoxFor(x => x.Email, new { placeholder = "alepush@gmail.com", @class = "requiredField" })
+            <br/>
+            @Html.ValidationMessageFor(x => x.Email)
+
+			@Html.Label("Password", "Пароль")
+			@Html.PasswordFor(x => x.Password, new { placeholder = "придумайте пароль", @class = "requiredField" })
+            <br/>
+			@Html.ValidationMessageFor(x => x.Password)
+		</fieldset>
+		<div id="errorMessage" class="errorMessage"></div>
+		@Html.SubmitButton(null, "Зарегистрироваться", new { @class = "submitButton" })
+}
+  <label>или <a href="#" class="showLightBox_link" rel="loginBox">Войти</a></label>
+  </div>

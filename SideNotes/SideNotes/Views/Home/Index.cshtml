@@ -1,0 +1,36 @@
+﻿@model Tuple<List<Book>, List<int>>
+@{
+    ViewBag.Title = "Заметки на полях";
+}
+
+<div id="main">
+@if (Model.Item1.Count == 0)
+{
+    <span>Нет ни одной книжки</span>
+}
+else
+{
+<h2>Самые популярные книжки</h2>
+<ul class="bookList">
+@foreach (var book in Model.Item1)
+{
+    var url = Model.Item2.Contains(book.Id) ? Url.Action("Start", "Book", new { id = book.Id }) : Url.Action("Annotation", "Book", new { id = book.Id });
+    <li class="bookListItem">
+        <a href="@url">
+            <div class="bookListItemContainer">
+                @BookAvatar.Large(book, "book_avatar")<br/>
+                <div class="mainListBookTitle">@book.Title</div>
+                <div class="mainListBookAuthor">(@book.Author)</div>
+                @Html.ActionLink("Аннотация", "Annotation", "Book", new { Id = book.Id }, new { @class = "mainListAnnotationLink" })
+            </div>
+        </a>
+    </li>
+}
+</ul>
+<div class="clearBoth"></div>
+if (ViewBag.HasMore)
+{
+        @Html.ActionLink("Все книжки >>", "Index", "Book", null, null);
+    }
+}
+</div>

@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ошипка</title>
+    <link href="/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/SideNotesStyles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="main_outer">
+    <div id="header">
+        <div id="header_inner">
+            <div id="LayoutHeader">
+                <h1>Читайте и комментируйте</h1>
+                <ul id="headerNavigator">
+                    <li class="headerNavigator_item"><a href="/Home/Index">Главная</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+	<div id="main">
+        <div class="prop"></div>
+        <h2>Ошипка</h2>
+        <span>Приносим свои извинения. У нас произошла ошипка, но мы её уже исправляем</span>
+        <br />
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <span>@ViewBag.ErrorMessage</span>
+        }
+        <div class="clearBoth"></div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+﻿@model Book
+@{
+    ViewBag.Title = "Комментарии к '" + Model.Title + "'";
+}
+<div id="main">
+@Html.Partial("BookProfile", Model)
+@Html.Action("AllCommentsPartial", "Book", new { Id = Model.Id, page = ViewBag.Page})
+</div>

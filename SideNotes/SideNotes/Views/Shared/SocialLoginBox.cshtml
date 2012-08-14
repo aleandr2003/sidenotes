@@ -1,0 +1,59 @@
+﻿@model LoginModel
+@{
+    Layout = null;
+}
+<div class="lightbox" id="socialLoginBox" style="text-align:center">
+    <h2>Пожалуйста, укажите свой профиль в социальной сети</h2>
+    <div class="loginBoxFloatDummy">&nbsp;</div>
+    <div class="SNLoginFormBig">
+        <form action="@Url.Action("SendRequest", "FacebookLogin", new { callbackUri = Request.Url.AbsoluteUri })" 
+            method="post">
+            <input type="image" src="@Url.Content("~/Content/img/logo/fb-64.jpg")" 
+                alt="Facebook" class="socialNetworkLogo submitInUnclosableBox"/>
+        </form>
+    </div>
+    <div class="SNLoginFormBig">
+        <form action="@Url.Action("SendRequest", "TwitterLogin", new { callbackUri = Request.Url.AbsoluteUri })" 
+            method="post">
+            <input type="image" src="@Url.Content("~/Content/img/logo/twit-64.jpg")" 
+                alt="Twitter" class="socialNetworkLogo submitInUnclosableBox"/>
+        </form>
+    </div>
+    <div class="SNLoginFormBig">
+        <form action="@Url.Action("SendRequest", "VkontakteLogin", new { callbackUri = Request.Url.AbsoluteUri })" 
+            method="post">
+            <input type="image" src="@Url.Content("~/Content/img/logo/vk-64.jpg")" 
+                alt="Twitter" class="socialNetworkLogo submitInUnclosableBox"/>
+        </form>
+    </div>
+    <div style="clear:both;height:1px;">&nbsp;</div>
+    <h2 id="OrLoginCaption">или <a href="javascript:void()" id="OrLoginLink">Войдите</a></h2>
+    <div id="orLoginFormContainer">
+    @using (Html.BeginForm<LoginController>(x => x.LogIn(null, Request.Url.AbsoluteUri, null), FormMethod.Post,
+    new { @class = "ajaxForm errorable redirectable", id = "orLoginBoxForm" }))
+  {
+		<fieldset>
+			@Html.LabelFor(x => x.Email, "E-mail")
+			@Html.TextBoxFor(x => x.Email, new { placeholder = "alepush@gmail.com", @class = "requiredField" })
+            @Html.ValidationMessageFor(x => x.Email)
+
+			<br />
+			@Html.LabelFor(x => x.Password, "Пароль")
+			@Html.PasswordFor(x => x.Password, new { placeholder = "введите пароль", @class = "requiredField" })
+			@Html.ValidationMessageFor(x => x.Password)
+		</fieldset>
+		<div id="errorMessage" class="errorMessage"></div>
+		@Html.SubmitButton(null, "Отправить", new { @class = "submitButton" })
+  }
+  </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#orLoginBoxForm').hide();
+        $('#OrLoginLink').click(function () {
+            $('#orLoginBoxForm').show();
+            $('#OrLoginCaption').hide();
+        });
+
+    });
+</script>

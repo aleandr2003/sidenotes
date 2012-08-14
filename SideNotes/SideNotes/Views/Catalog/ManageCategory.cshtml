@@ -1,0 +1,20 @@
+﻿@model Category
+@{
+    Layout = null;
+}
+
+<a href="@Url.Action("ManageCategoryContent", "Catalog", new { Id = Model.Id })" class="categoryName">@Model.Name</a> 
+<form method="post" action="@Url.Action("DeleteCategory", "Catalog", new { Id = Model.Id})" 
+    class="ajaxForm reloadable deleteCategoryForm">
+    <input type="submit" value="Удалить"/>
+</form>
+<a href="javascript:void(0)" class="showLightBox_link editCategoryLink" rel="editCategoryBox" categoryId="@Model.Id">Ред.</a>
+@if (Model.Children.Any())
+{
+<ul class="categoryList">
+@foreach (var category in Model.Children)
+{
+    <li>@Html.Partial("ManageCategory", category)</li>
+}
+</ul>
+}

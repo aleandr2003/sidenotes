@@ -1,0 +1,20 @@
+﻿@model NotificationSettingsModel
+@{
+    ViewBag.Title = "Настройка уведомлений";
+}
+<div id="main">
+<div>@UserAvatar.Large(ViewBag.CurrentUser, "user_avatar")</div>
+
+<h2>Настройка уведомлений</h2>
+
+@using (Html.BeginForm<UserController>(x => x.UpdateNotificationSettings(null, null), FormMethod.Post))
+  {
+	<fieldset>
+        <div class="clear">
+        @Html.CheckBoxFor(x => x.NotifyAuthorCommentReplied)
+		@Html.LabelFor(x => x.NotifyAuthorCommentReplied, "Когда отвечают на мой комментарий")
+		</div>
+	</fieldset>
+	@Html.SubmitButton(null, "Сохранить", new { @class = "submitButton" })
+  }		
+  </div>

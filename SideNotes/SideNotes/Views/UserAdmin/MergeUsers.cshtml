@@ -1,0 +1,33 @@
+﻿@model List<User>
+@{
+    ViewBag.Title = "Соединить пользователей";
+}
+
+<div id="main">
+<h2>Соединить пользователей</h2>
+
+<form action="@Url.Action("MergeUsers", "UserAdmin")" method="post">
+    <table>
+    <tr>
+        <td>
+            <select name="Id1">
+            @foreach (var user in Model)
+            {
+                <option value="@user.Id">@user.Name</option>
+            }
+            </select>
+        </td>
+        <td>
+            <select name="Id2">
+            @foreach (var user in Model)
+            {
+                <option value="@user.Id">@user.Name</option>
+            }
+            </select>
+        </td>
+    </tr>
+    </table>
+    <input type="submit" value="Соединить" />
+</form>
+</div>
+

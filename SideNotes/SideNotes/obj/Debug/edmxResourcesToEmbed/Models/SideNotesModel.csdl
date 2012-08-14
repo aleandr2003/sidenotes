@@ -1,0 +1,643 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SideNotesModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="SideNotesEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Avatars" EntityType="SideNotesModel.Avatar" />
+    <EntitySet Name="Bookmarks" EntityType="SideNotesModel.Bookmark" />
+    <EntitySet Name="Books" EntityType="SideNotesModel.Book" />
+    <EntitySet Name="BuiltInComments" EntityType="SideNotesModel.BuiltInComment" />
+    <EntitySet Name="Chapters" EntityType="SideNotesModel.Chapter" />
+    <EntitySet Name="Paragraphs" EntityType="SideNotesModel.Paragraph" />
+    <AssociationSet Name="FK_Books_Avatars" Association="SideNotesModel.FK_Books_Avatars">
+      <End Role="Avatars" EntitySet="Avatars" />
+      <End Role="Books" EntitySet="Books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bookmarks_Paragraphs" Association="SideNotesModel.FK_Bookmarks_Paragraphs">
+      <End Role="Paragraphs" EntitySet="Paragraphs" />
+      <End Role="Bookmarks" EntitySet="Bookmarks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Paragraphs_Books" Association="SideNotesModel.FK_Paragraphs_Books">
+      <End Role="Books" EntitySet="Books" />
+      <End Role="Paragraphs" EntitySet="Paragraphs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChaptersTree" Association="SideNotesModel.FK_ChaptersTree">
+      <End Role="Chapters" EntitySet="Chapters" />
+      <End Role="Chapters1" EntitySet="Chapters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TopParagraph" Association="SideNotesModel.FK_TopParagraph">
+      <End Role="Paragraphs" EntitySet="Paragraphs" />
+      <End Role="Chapters" EntitySet="Chapters" />
+    </AssociationSet>
+    <EntitySet Name="Users" EntityType="SideNotesModel.User" />
+    <AssociationSet Name="FK_Users_Avatars" Association="SideNotesModel.FK_Users_Avatars">
+      <End Role="Avatar" EntitySet="Avatars" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookmarkOwner" Association="SideNotesModel.FK_BookmarkOwner">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Bookmark" EntitySet="Bookmarks" />
+    </AssociationSet>
+    <AssociationSet Name="UserFriends" Association="SideNotesModel.UserFriends">
+      <End Role="User" EntitySet="Users" />
+      <End Role="User1" EntitySet="Users" />
+    </AssociationSet>
+    <EntitySet Name="Photos" EntityType="SideNotesModel.Photo" />
+    <AssociationSet Name="FK_AvatarLarge" Association="SideNotesModel.FK_AvatarLarge">
+      <End Role="Photo" EntitySet="Photos" />
+      <End Role="Avatar" EntitySet="Avatars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AvatarPhoto" Association="SideNotesModel.FK_AvatarPhoto">
+      <End Role="Photo" EntitySet="Photos" />
+      <End Role="Avatar" EntitySet="Avatars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AvatarSmall" Association="SideNotesModel.FK_AvatarSmall">
+      <End Role="Photo" EntitySet="Photos" />
+      <End Role="Avatar" EntitySet="Avatars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chapter_Book" Association="SideNotesModel.FK_Chapter_Book">
+      <End Role="Book" EntitySet="Books" />
+      <End Role="Chapter" EntitySet="Chapters" />
+    </AssociationSet>
+    <FunctionImport Name="DeleteBook">
+      <Parameter Name="BookId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Autosaves" EntityType="SideNotesModel.Autosave" />
+    <AssociationSet Name="FK_Autosaves_Books" Association="SideNotesModel.FK_Autosaves_Books">
+      <End Role="Book" EntitySet="Books" />
+      <End Role="Autosave" EntitySet="Autosaves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Autosaves_Paragraphs" Association="SideNotesModel.FK_Autosaves_Paragraphs">
+      <End Role="Paragraph" EntitySet="Paragraphs" />
+      <End Role="Autosave" EntitySet="Autosaves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Autosaves_Users" Association="SideNotesModel.FK_Autosaves_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Autosave" EntitySet="Autosaves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BuiltInCommentAuthor" Association="SideNotesModel.FK_BuiltInCommentAuthor">
+      <End Role="User" EntitySet="Users" />
+      <End Role="BuiltInComment" EntitySet="BuiltInComments" />
+    </AssociationSet>
+    <EntitySet Name="Comments" EntityType="SideNotesModel.Comment" />
+    <EntitySet Name="HeadComments" EntityType="SideNotesModel.HeadComment" />
+    <AssociationSet Name="FK_CommentAuthor" Association="SideNotesModel.FK_CommentAuthor">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_HeadComments" Association="SideNotesModel.FK_Comments_HeadComments">
+      <End Role="HeadComment" EntitySet="HeadComments" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParentComment" Association="SideNotesModel.FK_ParentComment">
+      <End Role="Comment" EntitySet="Comments" />
+      <End Role="Comment1" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HeadCommentAuthor" Association="SideNotesModel.FK_HeadCommentAuthor">
+      <End Role="User" EntitySet="Users" />
+      <End Role="HeadComment" EntitySet="HeadComments" />
+    </AssociationSet>
+    <EntitySet Name="Notifications" EntityType="SideNotesModel.Notification" />
+    <EntitySet Name="SentNotifications" EntityType="SideNotesModel.SentNotification" />
+    <AssociationSet Name="FK_AvatarMedium" Association="SideNotesModel.FK_AvatarMedium">
+      <End Role="Photo" EntitySet="Photos" />
+      <End Role="Avatar" EntitySet="Avatars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AvatarTiny" Association="SideNotesModel.FK_AvatarTiny">
+      <End Role="Photo" EntitySet="Photos" />
+      <End Role="Avatar" EntitySet="Avatars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Paragraphs_Chapters" Association="SideNotesModel.FK_Paragraphs_Chapters">
+      <End Role="Chapter" EntitySet="Chapters" />
+      <End Role="Paragraph" EntitySet="Paragraphs" />
+    </AssociationSet>
+    <EntitySet Name="Categories" EntityType="SideNotesModel.Category" />
+    <AssociationSet Name="CatalogEntry" Association="SideNotesModel.CatalogEntry">
+      <End Role="Book" EntitySet="Books" />
+      <End Role="Category" EntitySet="Categories" />
+    </AssociationSet>
+    <EntitySet Name="RequestLogs" EntityType="SideNotesModel.RequestLog" />
+    <EntitySet Name="DailyHits" EntityType="SideNotesModel.DailyHit" />
+    <EntitySet Name="DailyHitsArchives" EntityType="SideNotesModel.DailyHitsArchive" />
+    <EntitySet Name="TempAnonymousComments" EntityType="SideNotesModel.TempAnonymousComment" />
+  </EntityContainer>
+  <EntityType Name="Avatar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Original_Id" Type="Int32" Nullable="false" />
+    <Property Name="Large_Id" Type="Int32" Nullable="false" />
+    <Property Name="Small_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Large" Relationship="SideNotesModel.FK_AvatarLarge" FromRole="Avatar" ToRole="Photo" />
+    <NavigationProperty Name="Original" Relationship="SideNotesModel.FK_AvatarPhoto" FromRole="Avatar" ToRole="Photo" />
+    <NavigationProperty Name="Small" Relationship="SideNotesModel.FK_AvatarSmall" FromRole="Avatar" ToRole="Photo" />
+    <Property Type="Int32" Name="Medium_Id" />
+    <Property Type="Int32" Name="Tiny_Id" />
+    <NavigationProperty Name="Medium" Relationship="SideNotesModel.FK_AvatarMedium" FromRole="Avatar" ToRole="Photo" />
+    <NavigationProperty Name="Tiny" Relationship="SideNotesModel.FK_AvatarTiny" FromRole="Avatar" ToRole="Photo" />
+  </EntityType>
+  <EntityType Name="Bookmark">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Owner_Id" Type="Int32" Nullable="false" />
+    <Property Name="Paragraph_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Paragraph" Relationship="SideNotesModel.FK_Bookmarks_Paragraphs" FromRole="Bookmarks" ToRole="Paragraphs" />
+    <NavigationProperty Name="Owner" Relationship="SideNotesModel.FK_BookmarkOwner" FromRole="Bookmark" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Annotation" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="ISBN" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Author" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Avatar_Id" Type="Int32" />
+    <NavigationProperty Name="Avatar" Relationship="SideNotesModel.FK_Books_Avatars" FromRole="Books" ToRole="Avatars" />
+    <NavigationProperty Name="Paragraphs" Relationship="SideNotesModel.FK_Paragraphs_Books" FromRole="Books" ToRole="Paragraphs" />
+    <NavigationProperty Name="Chapters" Relationship="SideNotesModel.FK_Chapter_Book" FromRole="Book" ToRole="Chapter" />
+    <Property Type="String" Name="AuthorsEmail" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="HashTag" MaxLength="140" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Popularity" Nullable="false" />
+    <NavigationProperty Name="Categories" Relationship="SideNotesModel.CatalogEntry" FromRole="Book" ToRole="Category" />
+    <Property Type="Int32" Name="PropertyStatus" Nullable="false" />
+    <Property Type="String" Name="DonationMessage" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DonationForm" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CustomStyles" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BuiltInComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContentNumber" Type="Int32" Nullable="false" />
+    <Property Name="EntityId" Type="Int32" Nullable="false" />
+    <Property Name="EntityType" Type="Int32" Nullable="false" />
+    <Property Type="Int32" Name="Author_Id" Nullable="false" />
+    <NavigationProperty Name="Author" Relationship="SideNotesModel.FK_BuiltInCommentAuthor" FromRole="BuiltInComment" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Chapter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+    <Property Name="ParentChapter_Id" Type="Int32" />
+    <Property Name="TopParagraph_Id" Type="Int32" />
+    <NavigationProperty Name="ParentChapter" Relationship="SideNotesModel.FK_ChaptersTree" FromRole="Chapters1" ToRole="Chapters" />
+    <Property Type="Int32" Name="Book_Id" />
+    <NavigationProperty Name="Book" Relationship="SideNotesModel.FK_Chapter_Book" FromRole="Chapter" ToRole="Book" />
+    <Property Type="Int32" Name="HeadCommentsCount" Nullable="false" />
+    <NavigationProperty Name="Paragraphs" Relationship="SideNotesModel.FK_Paragraphs_Chapters" FromRole="Chapter" ToRole="Paragraph" />
+  </EntityType>
+  <EntityType Name="Paragraph">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+    <Property Name="Content" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Book_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Book" Relationship="SideNotesModel.FK_Paragraphs_Books" FromRole="Paragraphs" ToRole="Books" />
+    <Property Type="Int32" Name="ChapterId" Nullable="false" />
+    <NavigationProperty Name="Chapter" Relationship="SideNotesModel.FK_Paragraphs_Chapters" FromRole="Paragraph" ToRole="Chapter" />
+  </EntityType>
+  <Association Name="FK_Books_Avatars">
+    <End Role="Avatars" Type="SideNotesModel.Avatar" Multiplicity="0..1" />
+    <End Role="Books" Type="SideNotesModel.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Avatars">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Books">
+        <PropertyRef Name="Avatar_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bookmarks_Paragraphs">
+    <End Role="Paragraphs" Type="SideNotesModel.Paragraph" Multiplicity="1" />
+    <End Role="Bookmarks" Type="SideNotesModel.Bookmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paragraphs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bookmarks">
+        <PropertyRef Name="Paragraph_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Paragraphs_Books">
+    <End Role="Books" Type="SideNotesModel.Book" Multiplicity="1" />
+    <End Role="Paragraphs" Type="SideNotesModel.Paragraph" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Books">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Paragraphs">
+        <PropertyRef Name="Book_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChaptersTree">
+    <End Role="Chapters" Type="SideNotesModel.Chapter" Multiplicity="0..1" />
+    <End Role="Chapters1" Type="SideNotesModel.Chapter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chapters">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Chapters1">
+        <PropertyRef Name="ParentChapter_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TopParagraph">
+    <End Role="Paragraphs" Type="SideNotesModel.Paragraph" Multiplicity="0..1" />
+    <End Role="Chapters" Type="SideNotesModel.Chapter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paragraphs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Chapters">
+        <PropertyRef Name="TopParagraph_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Login" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Binary" Name="PasswordHash" Nullable="true" MaxLength="Max" FixedLength="false" />
+    <Property Type="Binary" Name="PasswordSeed" Nullable="true" MaxLength="Max" FixedLength="false" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FacebookProfileUrl" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="VkontakteProfileUrl" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Avatar_Id" />
+    <Property Type="Int32" Name="AccountSourceInt" Nullable="false" />
+    <NavigationProperty Name="Avatar" Relationship="SideNotesModel.FK_Users_Avatars" FromRole="User" ToRole="Avatar" />
+    <NavigationProperty Name="Friends" Relationship="SideNotesModel.UserFriends" FromRole="User" ToRole="User1" />
+    <Property Type="Boolean" Name="IsAdmin" Nullable="false" />
+    <Property Type="Boolean" Name="IsFamous" Nullable="false" />
+    <Property Type="Boolean" Name="NotifyAuthorCommentReplied" Nullable="false" />
+    <Property Type="String" Name="VkontakteId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FacebookId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LivejournalId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TwitterId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="YandexId" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AccessTokenVkontakte" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="AccessTokenTwitter" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="AccessTokenYandex" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="AccessTokenFacebook" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FacebookUsername" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="VkontakteUsername" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TwitterProfileUrl" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TwitterUsername" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="YandexProfileUrl" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="YandexUsername" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LivejournalProfileUrl" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LivejournalUsername" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="LastLoginSourceInt" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Users_Avatars">
+    <End Type="SideNotesModel.Avatar" Role="Avatar" Multiplicity="0..1" />
+    <End Type="SideNotesModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Avatar">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Avatar_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookmarkOwner">
+    <End Type="SideNotesModel.User" Role="User" Multiplicity="1" />
+    <End Type="SideNotesModel.Bookmark" Role="Bookmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bookmark">
+        <PropertyRef Name="Owner_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserFriends">
+    <End Type="SideNotesModel.User" Role="User" Multiplicity="*" />
+    <End Type="SideNotesModel.User" Role="User1" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Photo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Location" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Url" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="width" Nullable="false" />
+    <Property Type="Int32" Name="height" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AvatarLarge">
+    <End Type="SideNotesModel.Photo" Role="Photo" Multiplicity="1" />
+    <End Type="SideNotesModel.Avatar" Role="Avatar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Avatar">
+        <PropertyRef Name="Large_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AvatarPhoto">
+    <End Type="SideNotesModel.Photo" Role="Photo" Multiplicity="1" />
+    <End Type="SideNotesModel.Avatar" Role="Avatar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Avatar">
+        <PropertyRef Name="Original_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AvatarSmall">
+    <End Type="SideNotesModel.Photo" Role="Photo" Multiplicity="1" />
+    <End Type="SideNotesModel.Avatar" Role="Avatar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Avatar">
+        <PropertyRef Name="Small_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chapter_Book">
+    <End Type="SideNotesModel.Book" Role="Book" Multiplicity="0..1" />
+    <End Type="SideNotesModel.Chapter" Role="Chapter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Chapter">
+        <PropertyRef Name="Book_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Autosave">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="Book_Id" Nullable="false" />
+    <Property Type="Int32" Name="Owner_Id" Nullable="false" />
+    <Property Type="Int32" Name="Paragraph_Id" Nullable="false" />
+    <NavigationProperty Name="Paragraph" Relationship="SideNotesModel.FK_Autosaves_Paragraphs" FromRole="Autosave" ToRole="Paragraph" />
+    <Property Type="DateTime" Name="DateUpdated" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Autosaves_Books">
+    <End Type="SideNotesModel.Book" Role="Book" Multiplicity="1" />
+    <End Type="SideNotesModel.Autosave" Role="Autosave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Autosave">
+        <PropertyRef Name="Book_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Autosaves_Paragraphs">
+    <End Type="SideNotesModel.Paragraph" Role="Paragraph" Multiplicity="1" />
+    <End Type="SideNotesModel.Autosave" Role="Autosave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paragraph">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Autosave">
+        <PropertyRef Name="Paragraph_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Autosaves_Users">
+    <End Type="SideNotesModel.User" Role="User" Multiplicity="1" />
+    <End Type="SideNotesModel.Autosave" Role="Autosave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Autosave">
+        <PropertyRef Name="Owner_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BuiltInCommentAuthor">
+    <End Type="SideNotesModel.User" Role="User" Multiplicity="1" />
+    <End Type="SideNotesModel.BuiltInComment" Role="BuiltInComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BuiltInComment">
+        <PropertyRef Name="Author_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DateCreated" Nullable="false" />
+    <Property Type="Int32" Name="Author_Id" Nullable="true" />
+    <Property Type="Int32" Name="ParentCommentId" />
+    <Property Type="Int32" Name="HeadCommentId" Nullable="false" />
+    <NavigationProperty Name="Author" Relationship="SideNotesModel.FK_CommentAuthor" FromRole="Comment" ToRole="User" />
+    <NavigationProperty Name="HeadComment" Relationship="SideNotesModel.FK_Comments_HeadComments" FromRole="Comment" ToRole="HeadComment" />
+    <NavigationProperty Name="ParentComment" Relationship="SideNotesModel.FK_ParentComment" FromRole="Comment1" ToRole="Comment" />
+  </EntityType>
+  <EntityType Name="HeadComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Text" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DateCreated" Nullable="false" />
+    <Property Type="Int32" Name="Author_Id" Nullable="true" />
+    <Property Type="Boolean" Name="IsPrivate" Nullable="false" />
+    <Property Type="Int32" Name="EntityId" Nullable="false" />
+    <Property Type="Int32" Name="EntityType" Nullable="false" />
+    <NavigationProperty Name="Author" Relationship="SideNotesModel.FK_HeadCommentAuthor" FromRole="HeadComment" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_CommentAuthor">
+    <End Type="SideNotesModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="SideNotesModel.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="Author_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_HeadComments">
+    <End Type="SideNotesModel.HeadComment" Role="HeadComment" Multiplicity="1" />
+    <End Type="SideNotesModel.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HeadComment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="HeadCommentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParentComment">
+    <End Type="SideNotesModel.Comment" Role="Comment" Multiplicity="0..1" />
+    <End Type="SideNotesModel.Comment" Role="Comment1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment1">
+        <PropertyRef Name="ParentCommentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HeadCommentAuthor">
+    <End Type="SideNotesModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="SideNotesModel.HeadComment" Role="HeadComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HeadComment">
+        <PropertyRef Name="Author_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Subject" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Body" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SentNotification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Subject" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Body" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Date" />
+  </EntityType>
+  <Association Name="FK_AvatarMedium">
+    <End Type="SideNotesModel.Photo" Role="Photo" Multiplicity="0..1" />
+    <End Type="SideNotesModel.Avatar" Role="Avatar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Avatar">
+        <PropertyRef Name="Medium_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AvatarTiny">
+    <End Type="SideNotesModel.Photo" Role="Photo" Multiplicity="0..1" />
+    <End Type="SideNotesModel.Avatar" Role="Avatar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Avatar">
+        <PropertyRef Name="Tiny_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Paragraphs_Chapters">
+    <End Type="SideNotesModel.Chapter" Role="Chapter" Multiplicity="1" />
+    <End Type="SideNotesModel.Paragraph" Role="Paragraph" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chapter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Paragraph">
+        <PropertyRef Name="ChapterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ParentId" />
+    <NavigationProperty Name="Books" Relationship="SideNotesModel.CatalogEntry" FromRole="Category" ToRole="Book" />
+  </EntityType>
+  <Association Name="CatalogEntry">
+    <End Type="SideNotesModel.Book" Role="Book" Multiplicity="*" />
+    <End Type="SideNotesModel.Category" Role="Category" Multiplicity="*" />
+  </Association>
+  <EntityType Name="RequestLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="RequestDate" Nullable="false" />
+    <Property Type="String" Name="Referer" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Url" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="HttpFrom" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Remote_addr" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CurrentUser" MaxLength="1024" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DailyHit">
+    <Key>
+      <PropertyRef Name="CampaignId" />
+    </Key>
+    <Property Type="String" Name="CampaignId" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="hits" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DailyHitsArchive">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CampaignId" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="hits" Nullable="false" />
+    <Property Type="DateTime" Name="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TempAnonymousComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Text" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="EntityId" Nullable="false" />
+    <Property Type="Int32" Name="EntityType" Nullable="false" />
+    <Property Type="Boolean" Name="isPrivate" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ImageParagraph" BaseType="SideNotesModel.Paragraph" />
+  <EntityType Name="EmptyLine" BaseType="SideNotesModel.Paragraph" />
+  <EntityType Name="Title" BaseType="SideNotesModel.Paragraph" />
+  <EntityType Name="Epigraph" BaseType="SideNotesModel.Paragraph" />
+  <EntityType Name="EpigraphAuthor" BaseType="SideNotesModel.Paragraph" />
+  <EntityType Name="Cite" BaseType="SideNotesModel.Paragraph" />
+  <EntityType Name="CiteAuthor" BaseType="SideNotesModel.Paragraph" />
+  <EntityType Name="Poem" BaseType="SideNotesModel.Paragraph" />
+  <EntityType Name="PoemAuthor" BaseType="SideNotesModel.Paragraph" />
+  <EntityType Name="FootNote" BaseType="SideNotesModel.Paragraph" />
+</Schema>

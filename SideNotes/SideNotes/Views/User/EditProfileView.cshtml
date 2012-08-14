@@ -1,0 +1,28 @@
+﻿@model EditProfileModel
+@{
+    ViewBag.Title = "Изменить профиль - " + ViewBag.CurrentUser.Name;
+}
+<div id="main">
+<h2>Изменить профиль - @ViewBag.CurrentUser.Name</h2>
+
+<div>@UserAvatar.Large(ViewBag.CurrentUser, "user_avatar")</div>
+
+<div>@ViewBag.CurrentUser.Name</div>
+<div>@ViewBag.CurrentUser.Email</div>
+
+@using (Html.BeginForm<UserController>(x => x.EditProfile(null, null), FormMethod.Post))
+  {
+		<fieldset>
+			@Html.LabelFor(x => x.Name, "Отображаемое имя")
+			@Html.TextBoxFor(x => x.Name, new { placeholder = "Александр Пушкин", value = Model.Name})
+            @Html.ValidationMessageFor(x => x.Name)
+
+			<br />
+			@Html.LabelFor(x => x.Email, "E-mail")
+			@Html.TextBoxFor(x => x.Email, new { placeholder = "alepush@gmail.com", value = Model.Email })
+            @Html.ValidationMessageFor(x => x.Email)
+		</fieldset>
+		<div id="errorMessage" class="errorMessage"></div>
+		@Html.SubmitButton(null, "Отправить")
+  }
+  </div>

@@ -1,0 +1,51 @@
+﻿@model Catalog
+@{
+    Layout = null;
+}
+
+<h2>Каталог - управление</h2>
+
+@if (Model.RootCategories.Any())
+{
+    <ul class="categoryList" style="padding-left:0; margin-bottom: 2em;">
+        @foreach (var category in Model.RootCategories)
+        {
+            <li>@Html.Partial("ManageCategory", category)</li>
+        }
+    </ul>
+}
+
+<form action="@Url.Action("AddCategory", "Catalog")" method="post" class="ajaxForm reloadable addCategoryForm">
+    <h2>Добавить категорию</h2>
+    <label>Родительская</label> @Html.Partial("SelectCategory", Model.Index)
+    <br/>
+    <label>Название</label> <input type="text" name="name" />
+    <br/>
+    <input type="submit" value="Добавить"/>
+</form>
+
+<div class="lightbox" id="editCategoryBox">
+    <a href="#" class="lightbox_close">x</a>
+    <form class="ajaxForm errorable reloadable" id="editCategoryBoxForm" method="post"
+            action="@Url.Action("EditCategory", "Catalog")">
+		<fieldset>
+			<h2>Редактировать категорию</h2>
+            <label>Родительская</label> @Html.Partial("SelectCategory", Model.Index)
+            <br/>
+            <br/>
+            <label>Название</label> <input type="text" name="name" />
+            <input type="hidden" name="Id"/>
+		</fieldset>
+		<div id="errorMessage" class="errorMessage"></div>
+		<input type="submit" class="submitButton" value="Сохранить"/>
+        </form>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('.editCategoryLink').click(function () {
+            $('#editCategoryBoxForm').find('input[name=Id]').val($(this).attr('categoryId'));
+            $('#editCategoryBoxForm').find('input[name=name]').val($(this).siblings('.categoryName').text());
+        });
+    });
+</script>

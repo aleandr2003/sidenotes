@@ -1,0 +1,97 @@
+﻿@model User
+@{
+    Layout = null;
+}
+
+@if (Model == null)
+{
+    <div id="header_userinfo" class="loginblock">
+        <div class="SNLoginForm">
+        <form action="@Url.Action("SendRequest", "VkontakteLogin", new { callbackUri = Request.Url.AbsoluteUri })" method="post">
+            <input type="image" src="@Url.Content("~/Content/img/logo/vkontakte-16.png")" alt="Vkontakte" class = "socialNetworkLogo"/>
+        </form>
+        </div>
+        <div class="SNLoginForm">
+        <form action="@Url.Action("SendRequest", "FacebookLogin", new { callbackUri = Request.Url.AbsoluteUri })" method="post">
+            <input type="image" src="@Url.Content("~/Content/img/logo/facebook-16.gif")" alt="Facebook" class = "socialNetworkLogo"/>
+        </form>
+        </div>
+        <div class="SNLoginForm">
+        <form action="@Url.Action("SendRequest", "TwitterLogin", new { callbackUri = Request.Url.AbsoluteUri })" method="post">
+            <input type="image" src="@Url.Content("~/Content/img/logo/twitter-16.gif")" alt="Twitter" class = "socialNetworkLogo"/>
+        </form>
+        </div>
+        @*<div class="SNLoginForm">
+        <form action="@Url.Action("SendRequest", "LivejournalLogin", new { callbackUri = Request.Url.AbsoluteUri })" method="post">
+            <input type="image" src="@Url.Content("~/Content/img/logo/livejournal-16.gif")" alt="Livejournal" class = "socialNetworkLogo"/>
+        </form>
+        </div>
+        <div class="SNLoginForm">
+        <form action="@Url.Action("SendRequest", "YandexLogin", new { callbackUri = Request.Url.AbsoluteUri })" method="post">
+            <input type="image" src="@Url.Content("~/Content/img/logo/yandex.png")" alt="Yandex" class = "socialNetworkLogo"/>
+        </form>
+        </div>*@
+        @*<div style="clear:both; height:1px;"></div>*@
+        @*<div style="width:200px; height:1px;"></div>*@
+        @Html.ActionLink("войти", "Index", "Login", new { returnUrl = Request.Url.AbsoluteUri },
+             new { id = "LoginLink", @class = "showLightBox_link loginblock_loginlink", rel = "loginBox" })
+        @Html.ActionLink("регистрация", "Register", "User", null,
+             new { id = "RegisterLink", @class = "showLightBox_link loginblock_registerlink", rel = "registerBox" })
+    </div>
+}
+else
+{
+    <div id="header_userinfo" class="userblock">
+        <div class="LogOutForm">
+            <form action="@Url.Action("LogOut", "Login", null)" method="post">
+                <input type="image" src="@Url.Content("~/Content/img/exit.gif")" alt="выйти"/>
+            </form>
+        </div>
+	    @*<a herf="#" class="userblock_newsCount">3</a>*@
+	    <a href="@Url.Action("View", "User", new { id = Model.Id })" class="userblock_avatar_link">
+            @UserAvatar.Tiny(Model, "userblock_avatar")
+	    </a>
+	    <a href="@Url.Action("View", "User", new { id = Model.Id })" class="userblock_login">@Model.Name</a>
+        
+    </div>
+}
+
+<ul id="siteNavigator">
+    <li class="siteNavigator_item @(ViewBag.SelectedTab == HeaderTabs.Home ? "siteNavigator_item_current" : "")">
+        @Html.ActionLink("Главная", "Index", "Home", null, new { @class = "siteNavigator_item_link" })
+    </li>
+    <li class="siteNavigator_item @(ViewBag.SelectedTab == HeaderTabs.Catalog ? "siteNavigator_item_current" : "")">
+        @Html.ActionLink("Книжки", "Index", "Catalog", null, new { @class = "siteNavigator_item_link" })
+    </li>
+    <li class="siteNavigator_item @(ViewBag.SelectedTab == HeaderTabs.Users ? "siteNavigator_item_current" : "")">
+        @Html.ActionLink("Читатели", "Index", "User", null, new { @class = "siteNavigator_item_link" })
+    </li>
+    <li class="siteNavigator_item @(ViewBag.SelectedTab == HeaderTabs.Authors ? "siteNavigator_item_current" : "")">
+        @Html.ActionLink("Авторам", "ForAuthors", "Home", null, new { @class = "siteNavigator_item_link" })
+    </li>
+    @if (Model != null)
+    {
+        @*<li class="siteNavigator_item">@Html.ActionLink("Уведомления", "UpdateNotificationSettings", "User", null, new { id = "NotificationSettingsLink", @class = "showLightBox_link siteNavigator_item_link", rel = "notificationSettingsBox" })</li>*@
+        if (Model.IsAdmin)
+        {
+            <li class="siteNavigator_item @(ViewBag.SelectedTab == HeaderTabs.Admin ? "siteNavigator_item_current" : "")">
+                @Html.ActionLink("Управление", "Index", "BookAdmin", null, new { @class = "siteNavigator_item_link" })
+            </li>
+        }
+    }
+</ul>
+@if (Model != null)
+{
+    @Html.Partial("UpdateNotificationSettingsBox", new NotificationSettingsModel(Model), new ViewDataDictionary())
+}
+else
+{
+    @*@Html.Partial("LoginBox", null, new ViewDataDictionary())
+    @Html.Partial("RegisterBox", null, new ViewDataDictionary())
+    @Html.Partial("RegisterOrLoginBox", null, new ViewDataDictionary())*@
+}
+@Html.Partial("CommentatorsPopup")
+<script type="text/javascript">
+    var IsAuthenticated = @(Model == null ? "false":"true");
+    var currentUserId = @(Model == null ? "null" : ""+Model.Id);
+</script>
