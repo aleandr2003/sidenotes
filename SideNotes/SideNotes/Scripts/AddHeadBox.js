@@ -1,4 +1,5 @@
-﻿var tweetLimit = 110;
+﻿//testing git
+var tweetLimit = 110;
 var facebookLimit = 490;
 var vkontakteLimit = 340;
 var LJLimit = 340;
