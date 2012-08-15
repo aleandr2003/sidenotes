@@ -449,6 +449,7 @@ namespace SideNotes.Controllers
         {
             using (var context = new SideNotesEntities())
             {
+                if (entityIds == null) return Json(new List<int>());
                 List<int> commentatorIds = new List<int>();
                 if (UserIds != null && UserIds.Count > 0) commentatorIds.AddRange(UserIds);
                 if (userSession.IsAuthenticated && !commentatorIds.Contains(userSession.CurrentUser.Id))
