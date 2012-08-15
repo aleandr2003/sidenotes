@@ -1,28 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
   <publishProfile publishUrl="D:\работа\sidenotes\deployment" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Views/User/RecentReadBooks.cshtml" publishTime="03/29/2012 20:15:42" />
     <file relUrl="Scripts/MicrosoftAjax.js" publishTime="09/01/2011 15:34:16" />
     <file relUrl="Scripts/RightFrame.js" publishTime="06/15/2012 22:30:36" />
     <file relUrl="bin/DotNetOpenAuth.xml" publishTime="05/01/2011 17:29:44" />
     <file relUrl="Scripts/jExpandFilter/src/img/arrow_right_expand.png" publishTime="09/23/2011 11:03:58" />
     <file relUrl="Views/User/Index.cshtml" publishTime="04/01/2012 19:19:18" />
     <file relUrl="Views/User/ChangePasswordView.cshtml" publishTime="03/20/2012 16:33:43" />
+    <file relUrl="Scripts/Catalog/BookList.js" publishTime="05/06/2012 13:04:24" />
     <file relUrl="Views/Book/CommentsThread.cshtml" publishTime="04/08/2012 08:21:21" />
-    <file relUrl="Scripts/MicrosoftMvcValidation.js" publishTime="09/01/2011 15:34:16" />
+    <file relUrl="Views/Shared/_Layout.cshtml" publishTime="07/13/2012 15:09:27" />
     <file relUrl="Views/Comment/AddHead.cshtml" publishTime="03/15/2012 16:11:17" />
     <file relUrl="Views/Book/Page.cshtml" publishTime="11/09/2011 12:06:17" />
     <file relUrl="Views/User/BestComment.cshtml" publishTime="06/03/2012 23:11:16" />
+    <file relUrl="Views/Feed/Index.cshtml" publishTime="08/15/2012 08:24:39" />
     <file relUrl="Views/Shared/UpdateNotificationSettingsBox.cshtml" publishTime="02/08/2012 19:39:44" />
     <file relUrl="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png" publishTime="09/01/2011 15:34:16" />
-    <file relUrl="Views/Book/AcceptDonation.cshtml" publishTime="08/06/2012 16:39:12" />
     <file relUrl="Content/img/nextCommentsHover.png" publishTime="07/03/2012 14:56:34" />
     <file relUrl="Views/BookAdmin/DeleteParagraph.cshtml" publishTime="03/20/2012 16:29:30" />
     <file relUrl="Views/Web.config" publishTime="10/11/2011 20:41:48" />
-    <file relUrl="Scripts/jquery-1.6.4.js" publishTime="10/21/2011 12:10:08" />
-    <file relUrl="Content/img/logo/vk-64.jpg" publishTime="04/19/2012 14:24:24" />
     <file relUrl="Scripts/jquery.validate.js" publishTime="09/01/2011 15:34:16" />
-    <file relUrl="Scripts/CommentatorsDropdown.js" publishTime="07/13/2012 14:33:38" />
-    <file relUrl="Content/img/no_avatar_large.gif" publishTime="09/06/2011 14:02:52" />
     <file relUrl="Views/User/RecentComments.cshtml" publishTime="08/10/2012 02:11:20" />
     <file relUrl="Views/Error/Index.cshtml" publishTime="03/20/2012 16:05:40" />
     <file relUrl="Content/img/blank.png" publishTime="07/03/2012 15:37:51" />
@@ -32,10 +30,11 @@
     <file relUrl="Views/Home/Index.cshtml" publishTime="03/20/2012 20:13:35" />
     <file relUrl="Views/Book/RightFrame.cshtml" publishTime="11/05/2011 18:48:20" />
     <file relUrl="Scripts/jquery-ui.min.js" publishTime="09/01/2011 15:34:16" />
-    <file relUrl="Views/Feed/Header.cshtml" publishTime="08/06/2012 19:36:16" />
     <file relUrl="Scripts/Catalog/BestCommentList.js" publishTime="06/03/2012 02:23:50" />
+    <file relUrl="Views/Comment/CommentTreeNode.cshtml" publishTime="04/08/2012 08:01:39" />
     <file relUrl="Content/img/bookmark.gif" publishTime="11/09/2011 23:29:43" />
     <file relUrl="Views/Shared/Error.cshtml" publishTime="09/01/2011 15:34:17" />
+    <file relUrl="App_Code/LeftFrame.cshtml" publishTime="02/08/2012 19:40:03" />
     <file relUrl="Views/Shared/LayoutHeader.cshtml" publishTime="08/07/2012 01:37:37" />
     <file relUrl="Views/Comment/ParagraphCommentFilter.cshtml" publishTime="11/06/2011 22:29:31" />
     <file relUrl="Views/User/View.cshtml" publishTime="05/04/2012 17:32:21" />
@@ -43,11 +42,12 @@
     <file relUrl="Views/User/CompleteRegistrationBox.cshtml" publishTime="02/08/2012 19:39:44" />
     <file relUrl="Content/css/default.css" publishTime="01/30/2012 07:39:52" />
     <file relUrl="Content/img/logo/lj-logo-tiny.gif" publishTime="04/15/2012 18:09:39" />
-    <file relUrl="Content/img/commentator_label.gif" publishTime="01/18/2012 23:22:25" />
     <file relUrl="Content/img/up-arrow copy.png" publishTime="06/16/2012 15:01:54" />
+    <file relUrl="Views/Shared/CommentatorsPopup.cshtml" publishTime="02/08/2012 19:40:37" />
     <file relUrl="Views/Shared/SocialLoginBox.cshtml" publishTime="04/19/2012 14:27:27" />
     <file relUrl="Views/User/FriendsPage.cshtml" publishTime="04/02/2012 01:34:08" />
     <file relUrl="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png" publishTime="09/01/2011 15:34:16" />
+    <file relUrl="Content/img/no_bookavatar_large.jpg" publishTime="03/22/2012 14:44:10" />
     <file relUrl="Scripts/jExpandFilter/jExpandFilter.min.js" publishTime="11/12/2011 02:48:20" />
     <file relUrl="Scripts/LeftFrame.js" publishTime="03/20/2012 16:10:42" />
     <file relUrl="Content/img/logo/livejournal-16.gif" publishTime="10/10/2011 01:58:53" />
@@ -66,15 +66,13 @@
     <file relUrl="Scripts/MicrosoftMvcAjax.js" publishTime="09/01/2011 15:34:16" />
     <file relUrl="bin/DotNetOpenAuth.dll" publishTime="05/01/2011 17:30:02" />
     <file relUrl="bin/Newtonsoft.Json.dll" publishTime="07/31/2011 23:55:29" />
-    <file relUrl="bin/MySql.Data.dll" publishTime="07/31/2011 23:55:40" />
     <file relUrl="Scripts/commentListFunctions.js" publishTime="04/06/2012 17:17:35" />
     <file relUrl="Views/Shared/RegisterBox.cshtml" publishTime="04/15/2012 06:09:27" />
+    <file relUrl="Views/Comment/HeadIndex.cshtml" publishTime="11/11/2011 20:21:52" />
     <file relUrl="Scripts/toolTip.jQuery.js" publishTime="04/07/2012 04:55:22" />
     <file relUrl="bin/Castle.Windsor.dll" publishTime="07/31/2011 23:55:44" />
-    <file relUrl="Views/Comment/IndexBuiltInEdit.cshtml" publishTime="11/10/2011 13:59:39" />
     <file relUrl="Views/Shared/CommentFilter.cshtml" publishTime="11/20/2011 01:19:58" />
     <file relUrl="Scripts/jquery-1.4.4.min.js" publishTime="09/01/2011 15:34:16" />
-    <file relUrl="Content/img/closeBox.png" publishTime="04/05/2012 16:59:58" />
     <file relUrl="Global.asax" publishTime="09/01/2011 17:13:06" />
     <file relUrl="Content/img/logo/twitter-16.gif" publishTime="10/09/2011 00:58:01" />
     <file relUrl="bin/Elmah.pdb" publishTime="07/31/2011 23:55:40" />
@@ -84,26 +82,30 @@
     <file relUrl="Views/User/CompleteExternalRegistration.cshtml" publishTime="03/20/2012 16:33:54" />
     <file relUrl="bin/Microsoft.Web.Mvc.dll" publishTime="07/31/2011 23:55:31" />
     <file relUrl="Views/User/OtherSocialProfiles.cshtml" publishTime="12/31/2011 02:55:27" />
-    <file relUrl="Web.config" publishTime="08/10/2012 21:35:42" />
+    <file relUrl="Web.config" publishTime="08/15/2012 08:23:44" />
     <file relUrl="Scripts/MicrosoftMvcValidation.debug.js" publishTime="09/01/2011 15:34:16" />
     <file relUrl="bin/System.Data.SqlServerCe.dll" publishTime="07/31/2011 23:55:40" />
     <file relUrl="Content/css/reset.css" publishTime="03/22/2012 20:19:19" />
-    <file relUrl="Content/img/commentLink.png" publishTime="07/31/2011 23:55:50" />
+    <file relUrl="bin/Elmah.dll" publishTime="07/31/2011 23:55:40" />
     <file relUrl="App_Code/Abzats.cshtml" publishTime="07/03/2012 01:47:53" />
-    <file relUrl="Views/Book/ParagraphContainer.cshtml" publishTime="07/04/2012 01:04:09" />
+    <file relUrl="Views/Book/ParagraphContainer.cshtml" publishTime="08/15/2012 05:59:24" />
     <file relUrl="Content/img/logo/fb-64.jpg" publishTime="02/11/2012 18:01:47" />
     <file relUrl="bin/Npgsql.dll" publishTime="07/31/2011 23:55:40" />
     <file relUrl="Views/BookAdmin/DeleteChapter.cshtml" publishTime="03/20/2012 16:29:15" />
-    <file relUrl="Scripts/BookPage.js" publishTime="07/13/2012 14:33:57" />
+    <file relUrl="Views/Catalog/ManageCategory.cshtml" publishTime="04/27/2012 14:18:02" />
+    <file relUrl="Scripts/BookPage.js" publishTime="08/15/2012 07:46:07" />
     <file relUrl="Scripts/jExpandFilter/index.html" publishTime="09/28/2011 15:37:18" />
     <file relUrl="Scripts/jquery-1.7.1.min.js" publishTime="01/24/2012 23:09:10" />
     <file relUrl="Content/themes/base/images/ui-icons_222222_256x240.png" publishTime="09/01/2011 15:34:16" />
-    <file relUrl="Content/css/markup.css" publishTime="08/10/2012 02:49:41" />
+    <file relUrl="Content/css/markup.css" publishTime="08/15/2012 08:22:08" />
+    <file relUrl="Content/SideNotesStyles.css" publishTime="07/03/2012 01:52:04" />
     <file relUrl="Views/Shared/UpdateNotificationSettingsView.cshtml" publishTime="03/20/2012 16:33:08" />
     <file relUrl="Scripts/Comments.js" publishTime="04/05/2012 14:43:23" />
     <file relUrl="Views/Book/Annotation.cshtml" publishTime="08/10/2012 21:34:54" />
     <file relUrl="Views/Book/Comments.cshtml" publishTime="03/20/2012 16:26:56" />
     <file relUrl="Scripts/jquery.validate.unobtrusive.min.js" publishTime="09/01/2011 15:34:16" />
+    <file relUrl="Views/Comment/Reply.cshtml" publishTime="03/20/2012 16:30:28" />
+    <file relUrl="Content/img/prevComments.png" publishTime="07/03/2012 14:55:53" />
     <file relUrl="bin/Mono.Security.dll" publishTime="07/31/2011 23:55:40" />
     <file relUrl="Views/Book/BookNotFound.cshtml" publishTime="03/20/2012 16:25:14" />
     <file relUrl="bin/Ionic.Zip.Reduced.dll" publishTime="08/06/2011 22:01:56" />
@@ -120,7 +122,6 @@
     <file relUrl="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png" publishTime="09/01/2011 15:34:16" />
     <file relUrl="favicon.ico" publishTime="04/13/2012 20:43:45" />
     <file relUrl="Scripts/jquery.validate-vsdoc.js" publishTime="09/01/2011 15:34:16" />
-    <file relUrl="Scripts/jquery.validate.min.js" publishTime="09/01/2011 15:34:16" />
     <file relUrl="Scripts/jquery.unobtrusive-ajax.js" publishTime="09/01/2011 15:34:16" />
     <file relUrl="Content/img/lightboxClose.gif" publishTime="07/31/2011 23:55:50" />
     <file relUrl="Views/Shared/CommentatorsDropdown.cshtml" publishTime="07/09/2012 02:14:48" />
@@ -138,7 +139,8 @@
     <file relUrl="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png" publishTime="09/01/2011 15:34:16" />
     <file relUrl="bin/Castle.Windsor.pdb" publishTime="07/31/2011 23:55:44" />
     <file relUrl="bin/sr/DotNetOpenAuth.resources.dll" publishTime="05/01/2011 17:29:12" />
-    <file relUrl="Views/Shared/_Layout.cshtml" publishTime="07/13/2012 15:09:27" />
+    <file relUrl="Views/Book/Navigation.cshtml" publishTime="03/10/2012 18:03:03" />
+    <file relUrl="Content/img/commentLink.png" publishTime="07/31/2011 23:55:50" />
     <file relUrl="Views/Catalog/ManageCategoryContent.cshtml" publishTime="04/27/2012 14:34:47" />
     <file relUrl="Content/img/lj-gradient.gif" publishTime="04/15/2012 17:40:51" />
     <file relUrl="Views/Book/CommentsByUser.cshtml" publishTime="04/08/2012 10:48:52" />
@@ -148,35 +150,35 @@
     <file relUrl="Scripts/SideNotesCustom.js" publishTime="06/20/2012 16:40:23" />
     <file relUrl="Content/img/spinner_small.gif" publishTime="11/09/2011 21:41:02" />
     <file relUrl="Views/Catalog/Index.cshtml" publishTime="05/06/2012 14:20:36" />
-    <file relUrl="Scripts/jquery-1.6.4.min.js" publishTime="10/21/2011 12:11:06" />
     <file relUrl="Views/Book/Index.cshtml" publishTime="04/08/2012 06:35:32" />
-    <file relUrl="App_Code/LeftFrame.cshtml" publishTime="02/08/2012 19:40:03" />
+    <file relUrl="Scripts/MicrosoftMvcValidation.js" publishTime="09/01/2011 15:34:16" />
     <file relUrl="Content/img/8.png" publishTime="01/04/2012 00:30:15" />
     <file relUrl="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png" publishTime="09/01/2011 15:34:16" />
     <file relUrl="bin/Castle.Core.xml" publishTime="07/31/2011 23:55:44" />
-    <file relUrl="Scripts/Catalog/BookList.js" publishTime="05/06/2012 13:04:24" />
+    <file relUrl="Views/Book/AcceptDonation.cshtml" publishTime="08/06/2012 16:39:12" />
     <file relUrl="Views/User/CommentsPage.cshtml" publishTime="08/10/2012 02:48:28" />
     <file relUrl="Views/Book/Header.cshtml" publishTime="08/06/2012 19:36:21" />
-    <file relUrl="Views/User/RecentReadBooks.cshtml" publishTime="03/29/2012 20:15:42" />
+    <file relUrl="bin/MySql.Data.dll" publishTime="07/31/2011 23:55:40" />
     <file relUrl="Views/Book/CommentParagraph.cshtml" publishTime="03/20/2012 16:26:44" />
     <file relUrl="Views/Login/Index.cshtml" publishTime="03/20/2012 16:32:12" />
     <file relUrl="Views/Book/RecentComments.cshtml" publishTime="03/30/2012 00:13:56" />
     <file relUrl="bin/System.Data.SQLite.dll" publishTime="07/31/2011 23:55:40" />
+    <file relUrl="App_Code/InclineService.cshtml" publishTime="03/26/2012 20:42:50" />
     <file relUrl="Views/User/EditProfileBox.cshtml" publishTime="02/08/2012 19:39:43" />
-    <file relUrl="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png" publishTime="09/01/2011 15:34:16" />
-    <file relUrl="bin/SideNotes.dll" publishTime="08/10/2012 21:35:19" />
+    <file relUrl="Scripts/jquery-1.6.4.min.js" publishTime="10/21/2011 12:11:06" />
+    <file relUrl="bin/SideNotes.dll" publishTime="08/15/2012 07:32:56" />
     <file relUrl="Content/sn-user/sn-user.css" publishTime="08/04/2012 16:31:30" />
     <file relUrl="Views/Shared/AddHeadCommentBox.cshtml" publishTime="06/10/2012 23:12:40" />
     <file relUrl="Views/Statistics/OKView.cshtml" publishTime="04/13/2012 21:15:34" />
     <file relUrl="Content/img/exit.gif" publishTime="04/08/2012 02:55:48" />
     <file relUrl="Views/Home/ForAuthors.cshtml" publishTime="08/07/2012 02:10:59" />
     <file relUrl="Content/img/no_bookavatar_medium.jpg" publishTime="03/22/2012 14:44:10" />
-    <file relUrl="Content/img/sidenotes_logo.jpg" publishTime="12/21/2011 02:31:35" />
-    <file relUrl="Views/Shared/CommentatorsPopup.cshtml" publishTime="02/08/2012 19:40:37" />
-    <file relUrl="Views/Feed/Index.cshtml" publishTime="08/08/2012 16:56:07" />
+    <file relUrl="Views/Comment/IndexBuiltInEdit.cshtml" publishTime="11/10/2011 13:59:39" />
+    <file relUrl="Content/img/closeBox.png" publishTime="04/05/2012 16:59:58" />
+    <file relUrl="Content/img/no_avatar_large.gif" publishTime="09/06/2011 14:02:52" />
     <file relUrl="Scripts/jquery.validate.unobtrusive.js" publishTime="09/01/2011 15:34:16" />
     <file relUrl="Views/User/AllReadBooks.cshtml" publishTime="04/02/2012 03:10:24" />
-    <file relUrl="Views/Catalog/ManageCategory.cshtml" publishTime="04/27/2012 14:18:02" />
+    <file relUrl="Content/img/commentator_label.gif" publishTime="01/18/2012 23:22:25" />
     <file relUrl="App_Code/BuiltIn.cshtml" publishTime="11/10/2011 13:52:40" />
     <file relUrl="Content/img/no_bookavatar_small.jpg" publishTime="03/22/2012 14:44:10" />
     <file relUrl="Scripts/MicrosoftAjax.debug.js" publishTime="09/01/2011 15:34:16" />
@@ -185,26 +187,25 @@
     <file relUrl="Content/img/logo/twit-64.jpg" publishTime="02/11/2012 18:00:40" />
     <file relUrl="Content/img/logo/yandex.png" publishTime="11/29/2011 19:46:20" />
     <file relUrl="Views/Shared/SelectCategory.cshtml" publishTime="04/24/2012 03:13:00" />
-    <file relUrl="Content/img/no_bookavatar_large.jpg" publishTime="03/22/2012 14:44:10" />
+    <file relUrl="Views/Feed/Header.cshtml" publishTime="08/06/2012 19:36:16" />
     <file relUrl="Views/Book/ChapterTree.cshtml" publishTime="04/04/2012 15:13:58" />
     <file relUrl="Content/img/quote.png" publishTime="03/26/2012 23:01:42" />
     <file relUrl="Scripts/shorten.jQuery.js" publishTime="03/23/2012 00:02:39" />
+    <file relUrl="Views/Book/AllComments.cshtml" publishTime="03/20/2012 16:24:15" />
     <file relUrl="Content/img/prevCommentsHover.png" publishTime="07/03/2012 14:55:31" />
-    <file relUrl="Views/BookAdmin/EditBook.cshtml" publishTime="08/08/2012 16:50:41" />
     <file relUrl="Views/Shared/CommentsListTemplates.cshtml" publishTime="06/16/2012 02:09:42" />
     <file relUrl="Views/Catalog/Manage.cshtml" publishTime="04/26/2012 03:49:47" />
     <file relUrl="Views/Book/AllCommentsPartial.cshtml" publishTime="11/20/2011 22:46:19" />
     <file relUrl="Content/img/logo/vkontakte-16.png" publishTime="07/31/2011 23:55:50" />
     <file relUrl="Content/themes/base/images/ui-icons_888888_256x240.png" publishTime="09/01/2011 15:34:16" />
     <file relUrl="bin/Castle.Core.pdb" publishTime="07/31/2011 23:55:44" />
-    <file relUrl="Scripts/jquery-1.4.4.js" publishTime="09/01/2011 15:34:16" />
     <file relUrl="Content/LightBox.css" publishTime="07/13/2012 14:59:06" />
-    <file relUrl="Scripts/AddHeadBox.js" publishTime="04/15/2012 18:13:30" />
+    <file relUrl="Scripts/AddHeadBox.js" publishTime="08/15/2012 07:37:31" />
     <file relUrl="Views/Book/CommentatorsPage.cshtml" publishTime="03/26/2012 20:53:58" />
     <file relUrl="Views/Book/SelectedCommentators.cshtml" publishTime="03/27/2012 02:34:00" />
     <file relUrl="Content/img/spinner.gif" publishTime="11/06/2011 01:02:12" />
-    <file relUrl="bin/Elmah.dll" publishTime="07/31/2011 23:55:40" />
-    <file relUrl="Content/SideNotesStyles.css" publishTime="07/03/2012 01:52:04" />
+    <file relUrl="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png" publishTime="09/01/2011 15:34:16" />
+    <file relUrl="Content/img/logo/vk-64.jpg" publishTime="04/19/2012 14:24:24" />
     <file relUrl="Content/img/no_avatar_tiny.gif" publishTime="03/22/2012 02:29:28" />
     <file relUrl="Scripts/UnclosableBox.js" publishTime="02/11/2012 23:52:34" />
     <file relUrl="bin/Elmah.xml" publishTime="07/31/2011 23:55:40" />
@@ -217,17 +218,16 @@
     <file relUrl="Content/Site.css" publishTime="06/10/2012 23:32:22" />
     <file relUrl="Views/Notification/OKView.cshtml" publishTime="10/01/2011 17:08:32" />
     <file relUrl="Scripts/jExpandFilter/src/img/arrow_down_expand.png" publishTime="09/23/2011 11:04:06" />
-    <file relUrl="Views/Book/AllComments.cshtml" publishTime="03/20/2012 16:24:15" />
+    <file relUrl="Views/BookAdmin/EditBook.cshtml" publishTime="08/08/2012 16:50:41" />
     <file relUrl="Views/UserAdmin/MergeUsers.cshtml" publishTime="08/10/2012 03:22:24" />
     <file relUrl="Scripts/LightBox.js" publishTime="04/15/2012 05:52:37" />
-    <file relUrl="Views/Book/View.cshtml" publishTime="08/08/2012 16:53:48" />
+    <file relUrl="Views/Book/View.cshtml" publishTime="08/15/2012 07:32:23" />
     <file relUrl="Views/Comment/Index.cshtml" publishTime="11/19/2011 23:05:05" />
-    <file relUrl="Views/Comment/CommentTreeNode.cshtml" publishTime="04/08/2012 08:01:39" />
-    <file relUrl="Content/img/prevComments.png" publishTime="07/03/2012 14:55:53" />
+    <file relUrl="Scripts/jquery.validate.min.js" publishTime="09/01/2011 15:34:16" />
+    <file relUrl="Scripts/CommentatorsDropdown.js" publishTime="07/13/2012 14:33:38" />
     <file relUrl="Scripts/jExpandFilter/style.css" publishTime="11/12/2011 02:48:20" />
+    <file relUrl="Content/img/sidenotes_logo.jpg" publishTime="12/21/2011 02:31:35" />
     <file relUrl="Scripts/PopupBox.js" publishTime="11/11/2011 21:29:22" />
-    <file relUrl="Views/Book/Navigation.cshtml" publishTime="03/10/2012 18:03:03" />
-    <file relUrl="Views/Comment/HeadIndex.cshtml" publishTime="11/11/2011 20:21:52" />
     <file relUrl="Scripts/jquery-ui.js" publishTime="09/01/2011 15:34:16" />
     <file relUrl="Views/User/Register.cshtml" publishTime="03/20/2012 16:34:47" />
     <file relUrl="Scripts/jquery.unobtrusive-ajax.min.js" publishTime="09/01/2011 15:34:16" />
@@ -235,10 +235,11 @@
     <file relUrl="Views/Shared/AddCommentBox.cshtml" publishTime="04/08/2012 04:48:31" />
     <file relUrl="Views/Comment/IndexBuiltIn.cshtml" publishTime="09/26/2011 01:59:57" />
     <file relUrl="Content/img/no_avatar_small.gif" publishTime="03/22/2012 02:27:26" />
-    <file relUrl="bin/SideNotes.pdb" publishTime="08/10/2012 21:35:19" />
-    <file relUrl="App_Code/InclineService.cshtml" publishTime="03/26/2012 20:42:50" />
+    <file relUrl="bin/SideNotes.pdb" publishTime="08/15/2012 07:32:56" />
+    <file relUrl="Scripts/jquery-1.4.4.js" publishTime="09/01/2011 15:34:16" />
     <file relUrl="Views/User/SetAvatarBox.cshtml" publishTime="02/08/2012 19:39:43" />
     <file relUrl="Views/LivejournalLogin/LogOn.cshtml" publishTime="03/20/2012 16:31:59" />
-    <file relUrl="Views/Comment/Reply.cshtml" publishTime="03/20/2012 16:30:28" />
+    <file relUrl="Scripts/ShareBlock.js" publishTime="08/15/2012 08:20:09" />
+    <file relUrl="Scripts/jquery-1.6.4.js" publishTime="10/21/2011 12:10:08" />
   </publishProfile>
 </publishData>

@@ -1748,6 +1748,12 @@ body {
     vertical-align:top;
     float:left;
 }
+.shareBlockLayout
+{
+    margin-left:1em;
+    margin-top: 1em;
+}
+
 .shareBlockLabel
 {
     display:inline-block;
@@ -1761,6 +1767,11 @@ body {
 {
     padding:0.5em 0;
     margin-bottom:0.5em;
+}
+.shareButtonContainer
+{
+    float:left;
+    margin-right:0.5em;
 }
 
 .facebook-share-button
@@ -1981,6 +1992,7 @@ body {
     left:30em;*/
     width:100px;
     margin-left:2em;
+    margin-top:-2em;
     /*top:-8em;*/
 }
 

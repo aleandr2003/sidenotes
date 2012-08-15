@@ -326,6 +326,7 @@
     <Content Include="Scripts\PopupBox.js" />
     <Content Include="Scripts\RightFrame.js" />
     <Content Include="Scripts\LightBox.js" />
+    <Content Include="Scripts\ShareBlock.js" />
     <Content Include="Scripts\shorten.jQuery.js" />
     <Content Include="Scripts\SideNotesCustom.js" />
     <Content Include="Scripts\ToolBar.js" />

@@ -14,18 +14,18 @@
                 @if (/*ViewBag.IsAuthenticated == */true)
                 {
 				    <a href="@(ViewBag.IsAuthenticated == true ? Url.Action("CommentParagraph", "Book", new { paragraphId = Model.Id }) : Url.Action("Register", "User"))" 
-                        class="commentCounter_counter @*showLightBox_link*@ addHeadLink positionBoxAbsolute"
+                        class="commentCounter_counter @*showLightBox_link*@ addHeadLink @*positionBoxAbsolute*@"
                         paragraphId = "@Model.Id"
                         @*frameUrl = "@Url.ActionAbsolute("AddHead", "Comment", new { entityType = (int)EntityType.Paragraph, entityId = Model.Id })"*@
                         title = "комментировать"
-                        rel="addHeadCommentBox"
+                        @*rel="addHeadCommentBox"*@
                         >+</a>
                 }
                 else
                 {
 				    <a href="@Url.Action("Register", "User")" 
-                        class="commentCounter_counter showLightBox_link"
-                        rel = "registerOrLoginBox"
+                        class="commentCounter_counter @*showLightBox_link*@"
+                        @*rel = "registerOrLoginBox"*@
                         title = "комментировать"
                         >+</a>
                 }
