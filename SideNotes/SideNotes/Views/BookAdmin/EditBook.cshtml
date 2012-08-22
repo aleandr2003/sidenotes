@@ -39,6 +39,15 @@
 			@Html.TextAreaFor(x => x.DonationForm, new { value = Model.DonationForm, cols = 50, rows = 10 })
             @Html.ValidationMessageFor(x => x.DonationForm)
             <br />
+            @Html.LabelFor(x => x.Keywords, "Meta keywords")
+			@Html.TextAreaFor(x => x.Keywords, new { value = Model.Keywords, cols = 50, rows = 10 })
+            @Html.ValidationMessageFor(x => x.Keywords)
+            <br />
+            @Html.LabelFor(x => x.Description, "Meta description")
+			@Html.TextAreaFor(x => x.Description, new { value = Model.Description, cols = 50, rows = 10 })
+            @Html.ValidationMessageFor(x => x.Description)
+
+            <br />
 		</fieldset>
 		<div id="errorMessage" class="errorMessage"></div>
 		@Html.SubmitButton(null, "Сохранить", new { @class = "submitButton" })

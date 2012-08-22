@@ -174,6 +174,8 @@
           <Property Name="DonationMessage" Type="nvarchar(max)" />
           <Property Name="DonationForm" Type="nvarchar(max)" />
           <Property Name="CustomStyles" Type="nvarchar(max)" />
+          <Property Name="MetaKeywords" Type="nvarchar(max)" />
+          <Property Name="MetaDescription" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="BuiltInComments">
           <Key>
@@ -836,6 +838,8 @@
           <Property Type="String" Name="DonationMessage" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="DonationForm" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="CustomStyles" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MetaKeywords" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MetaDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="BuiltInComment">
           <Key>
@@ -1331,7 +1335,9 @@
             <ScalarProperty Name="Paragraph_Id" ColumnName="Paragraph_Id" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Books"><EntityTypeMapping TypeName="SideNotesModel.Book"><MappingFragment StoreEntitySet="Books">
-            <ScalarProperty Name="CustomStyles" ColumnName="CustomStyles" />
+            <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+                <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+                <ScalarProperty Name="CustomStyles" ColumnName="CustomStyles" />
                 <ScalarProperty Name="DonationForm" ColumnName="DonationForm" />
                 <ScalarProperty Name="DonationMessage" ColumnName="DonationMessage" />
                 <ScalarProperty Name="PropertyStatus" ColumnName="PropertyStatus" />

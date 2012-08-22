@@ -24,6 +24,10 @@ namespace SideNotes.ViewModels
 
         public int PropertyStatus { get; set; }
 
+        public string Keywords { get; set; }
+
+        public string Description { get; set; }
+
         [StringLength(100, ErrorMessage = "Хештег должен быть не длиннее 100 символов")]
         public string HashTag { get; set; }
     }

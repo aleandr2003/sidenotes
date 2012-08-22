@@ -115,6 +115,8 @@ namespace SideNotes.Controllers
                 model.DonationForm = book.DonationForm;
                 model.DonationMessage = book.DonationMessage;
                 model.PropertyStatus = book.PropertyStatus;
+                model.Description = book.MetaDescription;
+                model.Keywords = book.MetaKeywords;
                 model.CustomStyles = book.CustomStyles;
                 return View(model);
             }
@@ -137,6 +139,8 @@ namespace SideNotes.Controllers
                 book.DonationMessage = model.DonationMessage;
                 book.DonationForm = model.DonationForm;
                 book.CustomStyles = model.CustomStyles;
+                book.MetaKeywords = model.Keywords;
+                book.MetaDescription = model.Description;
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
