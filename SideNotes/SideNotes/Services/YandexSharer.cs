@@ -9,6 +9,7 @@ using System.IO;
 using SideNotes.Extensions;
 using System.Text;
 using SideNotes.OAuth;
+using System.Text.RegularExpressions;
 
 namespace SideNotes.Services
 {
@@ -45,7 +46,7 @@ namespace SideNotes.Services
             
             data.Append("<div style=\"background-color:#ccc; border-style:solid; border-color:#000; width:600px;\">");
             data.Append("<span style=\"font-style:italic;\">");
-            data.Append(paragraph.Content);
+            data.Append(Regex.Replace(paragraph.Content, @"<(.|\n)*?>", string.Empty));
             data.Append("</span>");
             data.Append("<br/>");
             data.Append("<span>");

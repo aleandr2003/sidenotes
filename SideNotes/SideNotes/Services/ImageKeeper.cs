@@ -33,7 +33,7 @@ namespace SideNotes.Services
 
         private string CleanName(string name)
         {
-            return name.Replace(":", " ").Replace("?", "");
+            return name.Replace(":", " ").Replace("?", "").Replace("№", "").Replace("/", "");
         }
 
         public void Delete(Photo photo)

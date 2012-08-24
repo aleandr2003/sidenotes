@@ -8,6 +8,7 @@ using System.Net;
 using System.IO;
 using SideNotes.Extensions;
 using SideNotes.OAuth;
+using System.Text.RegularExpressions;
 
 namespace SideNotes.Services
 {
@@ -35,7 +36,7 @@ namespace SideNotes.Services
 
             if (!(paragraph is ImageParagraph) && !(paragraph is EmptyLine))
             {
-                bookText = paragraph.Content;
+                bookText = Regex.Replace(paragraph.Content, @"<(.|\n)*?>", string.Empty);
             }
             if (bookText.Length > bookTextLength) bookText = bookText.Substring(0, bookTextLength) + "...";
 
