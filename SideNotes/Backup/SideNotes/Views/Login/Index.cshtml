@@ -1,0 +1,28 @@
+﻿@model LoginModel
+@{
+    ViewBag.Title = "Вход";
+}
+<div id="main">
+<h2>Вход</h2>
+
+@using (Html.BeginForm<LoginController>(x => x.LogIn(null, null, null), FormMethod.Post))
+  {
+		<fieldset>
+            @Html.Hidden("returnUrl", (string)ViewBag.returnUrl)
+			<br />
+			@Html.LabelFor(x => x.Email, "E-mail")
+			@Html.TextBoxFor(x => x.Email, new { placeholder = "alepush@gmail.com" })
+            @Html.ValidationMessageFor(x => x.Email)
+
+			<br />
+			@Html.LabelFor(x => x.Password, "Пароль")
+			@Html.PasswordFor(x => x.Password, new { placeholder = "введите пароль" })
+			@Html.ValidationMessageFor(x => x.Password)
+		</fieldset>
+        if (ViewBag.ErrorMessage != null)
+        {
+		<div id="errorMessage" class="errorMessage">@ViewBag.ErrorMessage</div>
+        }
+		@Html.SubmitButton(null, "Отправить")
+  }
+  </div>

@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Каталог";
+}
+
+@section HEAD{
+    <script src="@Url.Content("~/Scripts/Catalog/Catalog.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Catalog/CategoryTree.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Catalog/BookList.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Catalog/BestCommentList.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/BestComment.js")" type="text/javascript"></script>
+}
+
+<div id="main" class="bookCatalog">
+<div id="leftCol">
+    <h2>&nbsp;</h2>
+    <div id="catalogCategoryTree"></div>
+</div>
+<div id="centerCol">
+    <h2>Книги</h2>
+    <div id="bookList"></div>
+</div>
+<div id="rightCol">
+    <h2>Лучшие комментарии</h2>
+    <div id="bestCommentList"></div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var rootUrl = '@Url.Action("Category", "Catalog")/';
+    var catalogUrl = '@Url.Action("GetCategoriesJson", "Catalog")';
+    var booksUrl = '@Url.Action("GetBooksJson", "Catalog")';
+    var bestCommentUrl = '@Url.Action("BestCommentJson", "Book")';
+    var selectedCategory = '@ViewBag.SelectedCategory';
+    $(function () {
+        var catalog = new Catalog(catalogUrl, booksUrl);
+        var categoryTree = new CategoryTree($('#catalogCategoryTree')[0], catalog, rootUrl);
+        var bookList = new BookList($('#bookList')[0], catalog);
+        var bestCommentList = new BestCommentList($('#bestCommentList')[0], catalog, bestCommentUrl);
+        if (selectedCategory != '') {
+            catalog.CategoriesLoaded(function (data) { categoryTree.SelectCategoryById(selectedCategory); });
+        } else {
+            catalog.LoadBooks();
+        }
+        catalog.LoadCategories();
+    });
+</script>

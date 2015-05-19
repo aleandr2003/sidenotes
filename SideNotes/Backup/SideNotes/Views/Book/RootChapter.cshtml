@@ -1,0 +1,25 @@
+﻿@model Chapter
+@{
+    Layout = null;
+}
+
+@if (Model.TopParagraph != null)
+{
+    @Html.ActionLink("Начало", "View", "Book",
+        new { id = Model.Book_Id, skip = Model.TopParagraph.OrderNumber - 1 },
+            new { @class = "chapterTreeLink rootChapterLink" })
+    if (Model.HeadCommentsCount > 0)
+    {
+        <div class="commentCounter_counter">@Model.HeadCommentsCount</div>
+    }
+}
+
+@if (Model.ChildChapters.Count > 0)
+{
+    <ul class="chapterTreeSection">
+    @foreach (var child in Model.ChildChapters)
+    {
+        <li class="chapterTreeItem">@Html.Partial("ChapterTree", child)</li>
+    }
+    </ul>
+}

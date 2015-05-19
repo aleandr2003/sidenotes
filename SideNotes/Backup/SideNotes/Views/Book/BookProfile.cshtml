@@ -1,0 +1,15 @@
+﻿@model Book
+@{
+    Layout = null;
+}
+
+<div class="profileAvatarContainer">
+@BookAvatar.Large(Model, "book_avatar")
+</div>
+<h1>@Model.Title</h1>
+<span>(@Model.Author)</span>
+<br/>
+@Html.ActionLink("Аннотация", "Annotation", "Book", new { Id = Model.Id }, new { @class = "commentsListAnnotationLink" })
+<br/>
+<br/>
+<h1>@Html.ActionLink("ЧИТАТЬ", "Start", "Book", new { id = Model.Id }, new { @class = "book_buyLink_description" })</h1>

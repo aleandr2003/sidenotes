@@ -1,0 +1,17 @@
+﻿@model List<User>
+@{
+    Layout = null;
+}
+@foreach (var user in Model)
+{
+	<li class="commentator_item userblock">
+		<a href="@Url.Action("View", "User", new { Id = user.Id })" class="userblock_avatar_link">
+			@UserAvatar.Small(user, "userblock_avatar")
+		</a>
+		<a href="@Url.Action("View", "User", new { Id = user.Id })" class="userblock_name">@user.Name</a>
+        @{
+            var commentCount = user.CommentsCount();
+		    <a href="@Url.Action("View", "User", new { Id = user.Id })" class="commentCounter">@commentCount @InclineService.Comment(commentCount)</a>
+        }
+	</li>
+}

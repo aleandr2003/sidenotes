@@ -1,0 +1,55 @@
+﻿@model Paragraph
+@{
+    Layout = null;
+}
+@{
+<div class="bookBlock" reloadLink="@Url.ActionAbsolute("Paragraph", "Book", new {Id = Model.Id })" 
+    externalLink="@Url.ActionAbsolute("View", "Book", new { Id = Model.Book_Id, skip = Model.OrderNumber - 1 })" 
+    orderNumber="@Model.OrderNumber" paragraphId = "@Model.Id">
+@if (!(Model is EmptyLine))
+        {
+            <span class="floatDummy">&nbsp;</span>
+            <span class="commentAdd_container">
+                <span class="commentCounter">
+                @if (/*ViewBag.IsAuthenticated == */true)
+                {
+				    <a href="@(ViewBag.IsAuthenticated == true ? Url.Action("CommentParagraph", "Book", new { paragraphId = Model.Id }) : Url.Action("Register", "User"))" 
+                        class="commentCounter_counter @*showLightBox_link*@ addHeadLink @*positionBoxAbsolute*@"
+                        paragraphId = "@Model.Id"
+                        @*frameUrl = "@Url.ActionAbsolute("AddHead", "Comment", new { entityType = (int)EntityType.Paragraph, entityId = Model.Id })"*@
+                        title = "комментировать"
+                        @*rel="addHeadCommentBox"*@
+                        >+</a>
+                }
+                else
+                {
+				    <a href="@Url.Action("Register", "User")" 
+                        class="commentCounter_counter @*showLightBox_link*@"
+                        @*rel = "registerOrLoginBox"*@
+                        title = "комментировать"
+                        >+</a>
+                }
+                </span>
+                <span class="hideCommentListButton" style="display:none;">скрыть <img src="../../Content/img/up-arrow%20copy.png" /></span>
+		    </span>
+        }
+    <div class="bookBlock_highlight">
+        <div class="bookBlock_inner">
+            @Abzats.Render(Model)
+        </div>
+        @{
+            var commentCount = Model.GetChildCommentsCount((int?)ViewBag.CurrentUserId);
+            <div class="commentInfo_container" 
+                paragraphId = "@Model.Id"
+                @*frameUrl = "@Url.ActionAbsolute("Index", "Comment", new { entityType = (int)EntityType.Paragraph, entityId = Model.Id, filter = (int)CommentFilter.All })"*@
+                @*popupUrl = "@Url.ActionAbsolute("EntityCommentators", "Comment", new { entityType = (int)EntityType.Paragraph })"*@
+                count="@commentCount">
+            
+                <div class="commentInfoBlock"></div>
+          
+                <span class="hideCommentListButton" style="display:none;">скрыть <img src="../../Content/img/up-arrow%20copy.png" /></span>
+            </div>
+        }
+    </div>
+</div>
+}

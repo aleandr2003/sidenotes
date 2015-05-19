@@ -1,0 +1,45 @@
+﻿@model Dictionary<IComment, Paragraph>
+@{
+    Layout = null;
+}
+@Html.Partial("CommentFilter")
+@if (Model.Count > 0)
+{
+    foreach (var kvp in Model.OrderByDescending(e => e.Key.DateCreated))
+    {
+        var comment = kvp.Key;
+        var paragraph = kvp.Value;
+      
+    <div class="commentContainer commentContainerStyle" >
+        <div class="comment">
+            <div class="commentAuthor">
+                <a href="@Url.Action("View", "User", new { Id = comment.Author.Id })" class="commentAuthorLinkStyle">
+                    @UserAvatar.Small(comment.Author, "user_avatar")
+                    <span class="commentAuthorName">@comment.Author.Name</span>
+                </a>
+            </div>
+            <span class="commentDate">@comment.DateCreated.ToString("yyyy MMM dd hh:mm")</span>
+            <br/>
+            <span class="commentContent">@comment.Text</span>
+        </div>
+        @if (comment is HeadComment)
+        {
+                @Html.ActionLink("к тексту", "View", "Book", new { Id = paragraph.Book_Id, skip = paragraph.OrderNumber - 1 }, null)
+        }
+        else if (comment is Comment)
+        {
+            var comm = comment as Comment;
+                @Html.ActionLink("открыть ветку", "CommentsThread", "Book", new { headCommentId = comm.HeadCommentId }, null);
+        }
+        
+     </div>
+    }
+    @Html.Partial("Pager")
+<script type="text/javascript">
+    $('.commentContainer:even').addClass('commentContainerAlterStyle');
+</script>
+}
+else
+{
+    <span>Нет комментариев</span>
+}

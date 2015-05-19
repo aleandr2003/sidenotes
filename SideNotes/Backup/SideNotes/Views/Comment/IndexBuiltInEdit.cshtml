@@ -1,0 +1,59 @@
+﻿@model Tuple<Dictionary<BuiltInCommentEnum, int>, List<BuiltInCommentEnum>>
+@{
+    Layout = null;
+}
+<div class="builtInsListEdit">
+@foreach (var kvp in Model.Item1)
+{
+    string styleAdd = "";
+    string styleDelete = "";
+    if(Model.Item2.Contains(kvp.Key)){
+        styleDelete = "display:none";
+    }else{
+        styleAdd = "display:none";
+    }
+    <div class="builtInsListItem builtInsListItemStyle">
+        <form method="post" class="ajaxForm addBuiltInCommentForm" style="@styleAdd"
+            action="@Url.Action("DeleteBuiltInComment", "Comment", new { entityId = ViewBag.EntityId, entityType = ViewBag.EntityType })">
+            <input type="hidden" name="commentType" value="@((int)kvp.Key)" />
+            <span>@BuiltIn.Render(kvp.Key)</span>
+            <input type="submit" value="X"/>
+            <span class="BuiltInCount">@kvp.Value</span>
+        </form>
+        <form method="post" class="ajaxForm deleteBuiltInCommentForm" style="@styleDelete"
+            action="@Url.Action("AddBuiltInComment", "Comment", new { entityId = ViewBag.EntityId, entityType = ViewBag.EntityType })">
+            <input type="hidden" name="commentType" value="@((int)kvp.Key)" />
+            <input type="submit" value="@BuiltIn.Render(kvp.Key)"/>
+            <span class="BuiltInCount">@kvp.Value</span>
+        </form>
+    </div>
+}
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('.addBuiltInCommentForm').each(function () {
+            var form = this;
+            form.success = function (data) {
+                var container = $(form).closest('.builtInsListItem');
+                if (data != null && data.Count != null) {
+                    container.find('.BuiltInCount').html(data.Count);
+                }
+                $(form).hide();
+                container.find('.deleteBuiltInCommentForm').show();
+                $('#lightbox_shadow').click();
+            };
+        });
+        $('.deleteBuiltInCommentForm').each(function () {
+            var form = this;
+            form.success = function (data) {
+                var container = $(form).closest('.builtInsListItem');
+                if (data != null && data.Count != null) {
+                    container.find('.BuiltInCount').html(data.Count);
+                }
+                $(form).hide();
+                container.find('.addBuiltInCommentForm').show();
+                $('#lightbox_shadow').click();
+            };
+        });
+    });
+</script>

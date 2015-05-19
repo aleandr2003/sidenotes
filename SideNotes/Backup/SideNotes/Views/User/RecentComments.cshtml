@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+<ul class="commentList" id="freshCommentsList">
+    @Html.Action("CommentsPage", "User", new { Id = ViewBag.UserId, Page = 1})
+</ul>
+@*@if (ViewBag.IsAuthenticated == true)
+{
+    @Html.Partial("AddCommentBox", null, new ViewDataDictionary())
+}*@
+<div id="MoreRecentCommentsButton" class="navigationButtonSmall" 
+    href="@Url.Action("CommentsPage", "User", new { Id = ViewBag.UserId })" page="1" >Ещё</div>
+<script type="text/javascript">
+    $(function () {
+        initReplyLinksWithBox($('.reply'));
+        function getCommentsPageSuccess(data) {
+            var elements = $(data).appendTo('.commentList');
+            var links = elements.find('.reply');
+            initLightBoxLinks(links);
+            initReplyLinksWithBox(links);
+            
+            if (!(elements.length > 0)) {
+                $('#MoreRecentCommentsButton').hide();
+            }
+        }
+        $('#MoreRecentCommentsButton').click(function () {
+            downloadPage(this, getCommentsPageSuccess);
+        });
+    });
+</script>

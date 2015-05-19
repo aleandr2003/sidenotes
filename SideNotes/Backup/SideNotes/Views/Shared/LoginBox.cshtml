@@ -1,0 +1,24 @@
+﻿@model LoginModel
+@{
+    Layout = null;
+}
+<div class="lightbox" id="loginBox">
+    <a href="#" class="lightbox_close">x</a>
+@using (Html.BeginForm<LoginController>(x => x.LogIn(null, Request.Url.AbsoluteUri, null), FormMethod.Post,
+    new { @class = "ajaxForm errorable redirectable", id = "loginBoxForm" }))
+  {
+		<fieldset>
+			@Html.LabelFor(x => x.Email, "E-mail")
+			@Html.TextBoxFor(x => x.Email, new { placeholder = "alepush@gmail.com", @class = "requiredField" })
+            <br />
+            @Html.ValidationMessageFor(x => x.Email)
+
+			@Html.LabelFor(x => x.Password, "Пароль")
+			@Html.PasswordFor(x => x.Password, new { placeholder = "введите пароль", @class = "requiredField" })
+            <br />
+			@Html.ValidationMessageFor(x => x.Password)
+		</fieldset>
+		<div id="errorMessage" class="errorMessage"></div>
+		@Html.SubmitButton(null, "Войти", new { @class = "submitButton" })
+  }
+</div>

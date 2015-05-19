@@ -1,0 +1,71 @@
+﻿@model EditBookModel
+@{
+    ViewBag.Title = "Редактирование книги '" + Model.Title + "'";
+}
+<div id="main">
+<h2>Редактирование книги '@Model.Title'</h2>
+@Html.ActionLink("Назад", "Index")
+@using (Html.BeginForm<BookAdminController>(x => x.EditBook(null), FormMethod.Post))
+  {
+		<fieldset>
+            @Html.LabelFor(x => x.Annotation, "Аннотация")
+			@Html.TextAreaFor(x => x.Annotation, new { value = Model.Annotation, cols=50, rows=10 })
+            @Html.ValidationMessageFor(x => x.Annotation)
+            <br />
+			@Html.LabelFor(x => x.AuthorEmail, "E-mail автора")
+			@Html.TextBoxFor(x => x.AuthorEmail, new { value = Model.AuthorEmail })
+            @Html.ValidationMessageFor(x => x.AuthorEmail)
+            <br />
+			@Html.LabelFor(x => x.HashTag, "Хэштег")
+			@Html.TextBoxFor(x => x.HashTag, new { value = Model.HashTag })
+            @Html.ValidationMessageFor(x => x.HashTag)
+            <br />
+            @Html.LabelFor(x => x.PropertyStatus, "Тип собственности")
+            <select name="PropertyStatus">
+                <option value="@((int) PropertyStatus.Public)" @(Model.PropertyStatus == (int)PropertyStatus.Public ? "selected='selected'": "")>Бесплатная</option>
+                <option value="@((int) PropertyStatus.Donatable)" @(Model.PropertyStatus == (int)PropertyStatus.Donatable ? "selected='selected'": "")>С пожертвованиями</option>
+                <option value="@((int) PropertyStatus.Private)" @(Model.PropertyStatus == (int)PropertyStatus.Private ? "selected='selected'": "")>Платная</option>
+            </select>
+            <br />
+            @Html.LabelFor(x => x.CustomStyles, "Внутренние стили")
+			@Html.TextAreaFor(x => x.CustomStyles, new { value = Model.CustomStyles, cols = 50, rows = 10 })
+            @Html.ValidationMessageFor(x => x.CustomStyles)
+            <br />
+            @Html.LabelFor(x => x.DonationMessage, "Сообщение жертвователю")
+			@Html.TextAreaFor(x => x.DonationMessage, new { value = Model.DonationMessage, cols = 50, rows = 10 })
+            @Html.ValidationMessageFor(x => x.DonationMessage)
+            <br />
+            @Html.LabelFor(x => x.DonationForm, "Форма для пожертвования")
+			@Html.TextAreaFor(x => x.DonationForm, new { value = Model.DonationForm, cols = 50, rows = 10 })
+            @Html.ValidationMessageFor(x => x.DonationForm)
+            <br />
+            @Html.LabelFor(x => x.Keywords, "Meta keywords")
+			@Html.TextAreaFor(x => x.Keywords, new { value = Model.Keywords, cols = 50, rows = 10 })
+            @Html.ValidationMessageFor(x => x.Keywords)
+            <br />
+            @Html.LabelFor(x => x.Description, "Meta description")
+			@Html.TextAreaFor(x => x.Description, new { value = Model.Description, cols = 50, rows = 10 })
+            @Html.ValidationMessageFor(x => x.Description)
+
+            <br />
+		</fieldset>
+		<div id="errorMessage" class="errorMessage"></div>
+		@Html.SubmitButton(null, "Сохранить", new { @class = "submitButton" })
+  }
+  <br/>
+  <br/>
+  <h2>Выбрать аватар</h2>
+  <br/>
+  <form method="post" action="@Url.Action("SetAvatar", "BookAdmin")" enctype="multipart/form-data">
+    <input type="hidden" name="Id" value="@Model.Id"/>
+    <input type="file" name="file" />
+    <input type="submit" value="Загрузить" />
+</form>
+
+  <br/>
+  <br/>
+
+  <h2>Разделы каталога</h2>
+  
+  @Html.Action("ManageBookCategories", "Catalog", new { BookId = Model.Id })
+  </div>

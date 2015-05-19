@@ -1,0 +1,14 @@
+﻿@model List<CatalogEntry>
+
+<select name="parentId">
+    <option selected="selected"></option>
+    @foreach (var entry in Model)
+    {
+        string dummy = "";
+        for (int i = 0; i < entry.depth; i++)
+        {
+            dummy += "--";
+        }
+        <option value="@entry.category.Id">@dummy @entry.category.Name</option>
+    }
+</select>

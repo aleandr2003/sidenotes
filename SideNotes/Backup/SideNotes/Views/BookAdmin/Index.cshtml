@@ -1,0 +1,41 @@
+﻿@model List<Book>
+@{
+    ViewBag.Title = "Книги (управление)";
+}
+<div id="main">
+<h2>Книги (управление)</h2>
+
+@Html.Action("Manage", "Catalog")
+
+@if (Model.Count == 0)
+{
+    <span>Нет ни одной книжки</span>
+}
+else
+{
+<table>
+@foreach (var book in Model)
+{
+    <tr>
+        <td>@{var url = Url.Action("EditBook", "BookAdmin", new { id = book.Id });
+    
+            <a href="@url">@BookAvatar.Small(book, "book_avatar_small")</a>@:&nbsp;
+            <a href="@url" class="admin_bookname_link">@String.Format("{0} ({1})", book.Title, book.Author)</a>
+            }
+        </td>
+        <td>
+            <form method="post" action="@Url.Action("DeleteBook")">
+                <input type="hidden" name="Id" value="@book.Id"/>
+                <input type="submit" value="удалить" />
+            </form>
+        </td>
+    </tr>
+}
+</table>
+}
+
+<form action="@Url.Action("AddBook")" method="post" name="newbook" enctype="multipart/form-data">
+<input type="file" name="ebookfile"/>
+<input type="submit" value="Сохранить" />
+</form>
+</div>

@@ -1,0 +1,16 @@
+﻿@model Book
+@{
+    ViewBag.Title = "Большое Вам Спасибо!";
+}
+<div id="main" class="donationPage">
+    <div id="leftCol" style="width:15em;">
+	    <div class="book_cover_container">
+		    @BookAvatar.Large(Model, "book_cover")
+	    </div>
+    </div>
+    <div id="centerCol" style="width:45em;">
+        <h2>Большое Вам Спасибо!</h2>
+        <p>@Html.Raw(Model.DonationMessage)</p>
+        <p>@Html.Raw(Model.DonationForm)</p>
+    </div>
+</div>

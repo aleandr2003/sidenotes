@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SideNotesModelStoreContainer" CdmEntityContainer="SideNotesEntities">
+    <EntitySetMapping Name="Avatars">
+      <EntityTypeMapping TypeName="SideNotesModel.Avatar">
+        <MappingFragment StoreEntitySet="Avatars">
+          <ScalarProperty Name="Tiny_Id" ColumnName="Tiny_Id" />
+          <ScalarProperty Name="Medium_Id" ColumnName="Medium_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Original_Id" ColumnName="Original_Id" />
+          <ScalarProperty Name="Large_Id" ColumnName="Large_Id" />
+          <ScalarProperty Name="Small_Id" ColumnName="Small_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bookmarks">
+      <EntityTypeMapping TypeName="SideNotesModel.Bookmark">
+        <MappingFragment StoreEntitySet="Bookmarks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Owner_Id" ColumnName="Owner_Id" />
+          <ScalarProperty Name="Paragraph_Id" ColumnName="Paragraph_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="SideNotesModel.Book">
+        <MappingFragment StoreEntitySet="Books">
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+          <ScalarProperty Name="CustomStyles" ColumnName="CustomStyles" />
+          <ScalarProperty Name="DonationForm" ColumnName="DonationForm" />
+          <ScalarProperty Name="DonationMessage" ColumnName="DonationMessage" />
+          <ScalarProperty Name="PropertyStatus" ColumnName="PropertyStatus" />
+          <ScalarProperty Name="Popularity" ColumnName="Popularity" />
+          <ScalarProperty Name="HashTag" ColumnName="HashTag" />
+          <ScalarProperty Name="AuthorsEmail" ColumnName="AuthorsEmail" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Annotation" ColumnName="Annotation" />
+          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Avatar_Id" ColumnName="Avatar_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuiltInComments">
+      <EntityTypeMapping TypeName="SideNotesModel.BuiltInComment">
+        <MappingFragment StoreEntitySet="BuiltInComments">
+          <ScalarProperty Name="Author_Id" ColumnName="Author_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ContentNumber" ColumnName="ContentNumber" />
+          <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+          <ScalarProperty Name="EntityType" ColumnName="EntityType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chapters">
+      <EntityTypeMapping TypeName="SideNotesModel.Chapter">
+        <MappingFragment StoreEntitySet="Chapters">
+          <ScalarProperty Name="HeadCommentsCount" ColumnName="HeadCommentsCount" />
+          <ScalarProperty Name="Book_Id" ColumnName="Book_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="ParentChapter_Id" ColumnName="ParentChapter_Id" />
+          <ScalarProperty Name="TopParagraph_Id" ColumnName="TopParagraph_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paragraphs">
+      <EntityTypeMapping TypeName="IsTypeOf(SideNotesModel.ImageParagraph)">
+        <MappingFragment StoreEntitySet="Paragraphs">
+          <ScalarProperty Name="ChapterId" ColumnName="ChapterId" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Book_Id" ColumnName="Book_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <Condition ColumnName="FormatType" Value="9" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(SideNotesModel.EmptyLine)">
+        <MappingFragment StoreEntitySet="Paragraphs">
+          <ScalarProperty Name="ChapterId" ColumnName="ChapterId" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Book_Id" ColumnName="Book_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <Condition ColumnName="FormatType" Value="8" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(SideNotesModel.Title)">
+        <MappingFragment StoreEntitySet="Paragraphs">
+          <ScalarProperty Name="ChapterId" ColumnName="ChapterId" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Book_Id" ColumnName="Book_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <Condition ColumnName="FormatType" Value="1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(SideNotesModel.Epigraph)">
+        <MappingFragment StoreEntitySet="Paragraphs">
+          <ScalarProperty Name="ChapterId" ColumnName="ChapterId" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Book_Id" ColumnName="Book_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <Condition ColumnName="FormatType" Value="2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(SideNotesModel.EpigraphAuthor)">
+        <MappingFragment StoreEntitySet="Paragraphs">
+          <ScalarProperty Name="ChapterId" ColumnName="ChapterId" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Book_Id" ColumnName="Book_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <Condition ColumnName="FormatType" Value="3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(SideNotesModel.Cite)">
+        <MappingFragment StoreEntitySet="Paragraphs">
+          <ScalarProperty Name="ChapterId" ColumnName="ChapterId" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Book_Id" ColumnName="Book_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <Condition ColumnName="FormatType" Value="4" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(SideNotesModel.CiteAuthor)">
+        <MappingFragment StoreEntitySet="Paragraphs">
+          <ScalarProperty Name="ChapterId" ColumnName="ChapterId" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Book_Id" ColumnName="Book_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <Condition ColumnName="FormatType" Value="5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(SideNotesModel.Poem)">
+        <MappingFragment StoreEntitySet="Paragraphs">
+          <ScalarProperty Name="ChapterId" ColumnName="ChapterId" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Book_Id" ColumnName="Book_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <Condition ColumnName="FormatType" Value="6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(SideNotesModel.PoemAuthor)">
+        <MappingFragment StoreEntitySet="Paragraphs">
+          <ScalarProperty Name="ChapterId" ColumnName="ChapterId" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Book_Id" ColumnName="Book_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <Condition ColumnName="FormatType" Value="7" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(SideNotesModel.FootNote)">
+        <MappingFragment StoreEntitySet="Paragraphs">
+          <ScalarProperty Name="ChapterId" ColumnName="ChapterId" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Book_Id" ColumnName="Book_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <Condition ColumnName="FormatType" Value="10" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="SideNotesModel.Paragraph">
+        <MappingFragment StoreEntitySet="Paragraphs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ChapterId" ColumnName="ChapterId" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Book_Id" ColumnName="Book_Id" />
+          <Condition ColumnName="FormatType" Value="0" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="SideNotesModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="LastLoginSourceInt" ColumnName="LastLoginSourceInt" />
+          <ScalarProperty Name="LivejournalUsername" ColumnName="LivejournalUsername" />
+          <ScalarProperty Name="LivejournalProfileUrl" ColumnName="LivejournalProfileUrl" />
+          <ScalarProperty Name="YandexUsername" ColumnName="YandexUsername" />
+          <ScalarProperty Name="YandexProfileUrl" ColumnName="YandexProfileUrl" />
+          <ScalarProperty Name="TwitterUsername" ColumnName="TwitterUsername" />
+          <ScalarProperty Name="TwitterProfileUrl" ColumnName="TwitterProfileUrl" />
+          <ScalarProperty Name="VkontakteUsername" ColumnName="VkontakteUsername" />
+          <ScalarProperty Name="FacebookUsername" ColumnName="FacebookUsername" />
+          <ScalarProperty Name="AccessTokenFacebook" ColumnName="AccessTokenFacebook" />
+          <ScalarProperty Name="AccessTokenYandex" ColumnName="AccessTokenYandex" />
+          <ScalarProperty Name="AccessTokenTwitter" ColumnName="AccessTokenTwitter" />
+          <ScalarProperty Name="AccessTokenVkontakte" ColumnName="AccessTokenVkontakte" />
+          <ScalarProperty Name="YandexId" ColumnName="YandexId" />
+          <ScalarProperty Name="TwitterId" ColumnName="TwitterId" />
+          <ScalarProperty Name="LivejournalId" ColumnName="LivejournalId" />
+          <ScalarProperty Name="FacebookId" ColumnName="FacebookId" />
+          <ScalarProperty Name="VkontakteId" ColumnName="VkontakteId" />
+          <ScalarProperty Name="NotifyAuthorCommentReplied" ColumnName="NotifyAuthorCommentReplied" />
+          <ScalarProperty Name="IsFamous" ColumnName="IsFamous" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="AccountSourceInt" ColumnName="AccountSourceInt" />
+          <ScalarProperty Name="Avatar_Id" ColumnName="Avatar_Id" />
+          <ScalarProperty Name="VkontakteProfileUrl" ColumnName="VkontakteProfileUrl" />
+          <ScalarProperty Name="FacebookProfileUrl" ColumnName="FacebookProfileUrl" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PasswordSeed" ColumnName="PasswordSeed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UserFriends" TypeName="SideNotesModel.UserFriends" StoreEntitySet="UserFriends">
+      <EndProperty Name="User1">
+        <ScalarProperty Name="Id" ColumnName="User_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Friend_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="SideNotesModel.Photo">
+        <MappingFragment StoreEntitySet="Photos">
+          <ScalarProperty Name="height" ColumnName="height" />
+          <ScalarProperty Name="width" ColumnName="width" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteBook" FunctionName="SideNotesModel.Store.DeleteBook" />
+    <EntitySetMapping Name="Autosaves">
+      <EntityTypeMapping TypeName="SideNotesModel.Autosave">
+        <MappingFragment StoreEntitySet="Autosaves">
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+          <ScalarProperty Name="Paragraph_Id" ColumnName="Paragraph_Id" />
+          <ScalarProperty Name="Owner_Id" ColumnName="Owner_Id" />
+          <ScalarProperty Name="Book_Id" ColumnName="Book_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="SideNotesModel.Comment">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="HeadCommentId" ColumnName="HeadCommentId" />
+          <ScalarProperty Name="ParentCommentId" ColumnName="ParentCommentId" />
+          <ScalarProperty Name="Author_Id" ColumnName="Author_Id" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HeadComments">
+      <EntityTypeMapping TypeName="SideNotesModel.HeadComment">
+        <MappingFragment StoreEntitySet="HeadComments">
+          <ScalarProperty Name="EntityType" ColumnName="EntityType" />
+          <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+          <ScalarProperty Name="IsPrivate" ColumnName="IsPrivate" />
+          <ScalarProperty Name="Author_Id" ColumnName="Author_Id" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="SideNotesModel.Notification">
+        <MappingFragment StoreEntitySet="Notifications">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SentNotifications">
+      <EntityTypeMapping TypeName="SideNotesModel.SentNotification">
+        <MappingFragment StoreEntitySet="SentNotifications">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="SideNotesModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CatalogEntry" TypeName="SideNotesModel.CatalogEntry" StoreEntitySet="CatalogEntry">
+      <EndProperty Name="Category">
+        <ScalarProperty Name="Id" ColumnName="CategoryId" />
+      </EndProperty>
+      <EndProperty Name="Book">
+        <ScalarProperty Name="Id" ColumnName="BookId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="RequestLogs">
+      <EntityTypeMapping TypeName="SideNotesModel.RequestLog">
+        <MappingFragment StoreEntitySet="RequestLog">
+          <ScalarProperty Name="CurrentUser" ColumnName="CurrentUser" />
+          <ScalarProperty Name="Remote_addr" ColumnName="Remote_addr" />
+          <ScalarProperty Name="HttpFrom" ColumnName="HttpFrom" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Referer" ColumnName="Referer" />
+          <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DailyHits">
+      <EntityTypeMapping TypeName="SideNotesModel.DailyHit">
+        <MappingFragment StoreEntitySet="DailyHits">
+          <ScalarProperty Name="hits" ColumnName="hits" />
+          <ScalarProperty Name="CampaignId" ColumnName="CampaignId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DailyHitsArchives">
+      <EntityTypeMapping TypeName="SideNotesModel.DailyHitsArchive">
+        <MappingFragment StoreEntitySet="DailyHitsArchive">
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="hits" ColumnName="hits" />
+          <ScalarProperty Name="CampaignId" ColumnName="CampaignId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempAnonymousComments">
+      <EntityTypeMapping TypeName="SideNotesModel.TempAnonymousComment">
+        <MappingFragment StoreEntitySet="TempAnonymousComments">
+          <ScalarProperty Name="isPrivate" ColumnName="isPrivate" />
+          <ScalarProperty Name="EntityType" ColumnName="EntityType" />
+          <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

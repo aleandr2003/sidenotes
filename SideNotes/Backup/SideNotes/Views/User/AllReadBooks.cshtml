@@ -1,0 +1,19 @@
+﻿@model List<Book>
+@{
+    Layout = null;
+}
+
+<ul Id="AllBooksRead">
+@foreach (var book in Model)
+{
+	<li class="booksReadList_item">
+		<div class="book">
+			<a href="@Url.Action("Annotation", "Book", new { Id = book.Id})" class="book_cover_link">
+				@BookAvatar.Small(book, "book_cover")
+			</a>
+            <h3 class="book_author_list">@book.Author</h3>
+			<h3 class="book_name">@book.Title</h3>
+		</div>
+	</li>
+}
+</ul>

@@ -1,0 +1,45 @@
+﻿@using SideNotes.Services;
+@model Book
+@{
+    Layout = null;
+}
+@section HEAD{
+    
+}
+
+<div id="book_header">
+	<div id="book_info">
+		<a href="@Url.Action("Annotation", "Book", new { Id = Model.Id})" class="book_cover_link">
+            @BookAvatar.Small(Model, "header_book_cover")
+        </a>
+		<h1 class="book_name @(Model.PropertyStatus == (int)PropertyStatus.Donatable ? "book_name_thin" : "")"><a href="@Url.Action("Start", "Book", new { Id = Model.Id})">@Model.Title</a></h1>
+		<div class="book_author_list"><a href="@Url.Action("Start", "Book", new { Id = Model.Id})">@Model.Author</a></div>
+        @if (Model.PropertyStatus == (int)PropertyStatus.Donatable)
+        {
+        <div class="book_buyLink_container">
+			<a href="@Url.Action("AcceptDonation", "Book", new { Id = Model.Id })" class="book_buyLink" target="_blank">Пожертвовать</a>
+		</div>
+        }
+	</div>
+	<div id="commentCounter_container" reloadUrl="@Url.Action("CommentCount", "Book", new {Id = Model.Id })">
+        @{
+            var commentCount = Model.GetCommentsCount(null);
+		<div class="commentCounter">
+            <a href="@Url.Action("Index", "Feed", new { Id = Model.Id})">
+			    <span class="commentCounter_description">@InclineService.Comment(commentCount) к книге</span>
+            </a>
+			<a href="@Url.Action("Index", "Feed", new { Id = Model.Id})">
+                <span class="commentCounter_counter">@commentCount</span>
+            </a>
+		</div>
+        }
+	</div>
+	<div id="book_workContainer">
+	    @Html.Partial("CommentatorsDropdown")
+    </div>
+</div>
+<script type="text/javascript">
+    var bookTitle = '@(Model.Title)';
+    var bookAuthor = '@(Model.Author)';
+    var bookAvatarMedium = '@(Url.Absolute(VirtualPathUtility.ToAbsolute(Model.Avatar != null ? Model.Avatar.Medium.Url : BookAvatarService.NoAvatarMedium)))';
+</script>

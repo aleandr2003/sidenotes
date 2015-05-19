@@ -1,0 +1,98 @@
+﻿@model List<HeadComment>
+@{
+    Layout = null;
+}
+
+@*@if (ViewBag.EntityType == (int)EntityType.Paragraph && ViewBag.NoJS == true)
+{
+    @Html.Partial("ParagraphCommentFilter")
+}
+else*@
+
+    @Html.Partial("CommentFilter")
+
+
+<h2>Комментарии</h2>
+
+@foreach (var comment in Model)
+{
+    var commentCount = comment.GetChildCommentsCount();
+if (commentCount > 0 || !comment.IsDeleted)
+{
+<div class="commentContainer commentContainerStyle">
+    <div class="comment">
+        <div class="commentAuthor">
+        @if (comment.Author != null)
+        {
+            <a href="@Url.Action("View", "User", new { Id = comment.Author.Id })" class="commentAuthorLinkStyle">
+                @UserAvatar.Small(comment.Author, "user_avatar")
+                <span class="commentAuthorName">@comment.Author.Name</span>
+            </a>
+        }
+        </div>
+        <span class="commentDate">@comment.DateCreated.ToString("yyyy MMM dd hh:mm")</span>
+        <br/>
+        <span class="commentContent">@comment.Text</span>
+    </div>
+     
+         
+         @if (commentCount > 0)
+         {
+             if (comment.EntityType == (int)EntityType.Paragraph)
+             {
+                 @Html.ActionLink(String.Format("ещё {0} комментов", commentCount), "CommentsThread", "Book", 
+                 new { headCommentId = comment.Id },
+                 new {@class = "showPopupBox_link",
+                     popupUrl = Url.ActionAbsolute("ThreadCommentators", "Comment", new { headCommentId = comment.Id }),
+                 rel = "commentatorsPopupBox" })
+             }
+             else
+             {
+                 @Html.ActionLink(String.Format("ещё {0} комментов", commentCount), "HeadIndex", "Comment", 
+                 new { headCommentId = comment.Id },
+                 new { @class = "showPopupBox_link",
+                     popupUrl = Url.ActionAbsolute("ThreadCommentators", "Comment", new { headCommentId = comment.Id }),
+                 rel = "commentatorsPopupBox" })
+             }
+             @:&nbsp; &nbsp;
+         }
+     
+    @if (!comment.IsDeleted && !comment.IsPrivate)
+    {
+        if (ViewBag.IsAuthenticated == true)
+        {
+                @Html.ActionLink("ответить", "Reply", "Comment",
+                    new { commentId = comment.Id, commentType = (int)EntityType.HeadComment },
+                    new { @class = "replyLink commentAction", headCommentId = comment.Id })
+                if (ViewBag.CurrentUserId == comment.Author.Id)
+                {
+                    <form method="post" action="@Url.Action("DeleteHead", "Comment", new { Id = comment.Id })"
+                        class="ajaxForm removeCommentForm commentAction">
+                        <input type="submit" value="удалить"/>
+                    </form>
+                }
+        }
+        else
+        {
+            @Html.ActionLink("ответить", "Register", "User", null, new { @class = "showLightBox_link commentAction", rel = "registerOrLoginBox" })
+        }
+    }
+</div>
+}
+}
+<div style="display:none">
+    @Html.Partial("AddComment")
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        initCommentList();
+        //initPopupBoxLinks($('.showPopupBox_link'));
+    });
+</script>
+
+
+@if (ViewBag.IsAuthenticated == true)
+{
+@Html.Partial("AddHead")
+}

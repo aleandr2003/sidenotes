@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D12F215C-45D4-460F-B88F-797D89EA6A66}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SideNotes</RootNamespace>
+    <AssemblyName>SideNotes</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\Libs\Castle\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\Libs\Castle\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth, Version=3.5.0.10357, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\DotNetOpenOAuth\DotNetOpenAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\Libs\Elmah\x86\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip.Reduced">
+      <HintPath>..\Libs\DotNetZipLib-DevKit-v1.9\zip-v1.9-Reduced\Release\Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc">
+      <HintPath>..\Libs\MVC\Microsoft.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Libs\JSON40r2\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages" />
+    <Reference Include="System.Web.Helpers" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionResults\SidenotesJsonResult.cs" />
+    <Compile Include="Application\SideNotesApplication.cs" />
+    <Compile Include="Application\Validation\DataTypeAttributeAdapter.cs" />
+    <Compile Include="Application\Validation\ModelClientValidationEmailRule.cs" />
+    <Compile Include="Application\WebApplication.cs" />
+    <Compile Include="Application\Windsor\Installers\ApplicationComponentsInstaller.cs" />
+    <Compile Include="Application\Windsor\Installers\ControllersInstaller.cs" />
+    <Compile Include="Application\Windsor\Installers\WebSecurityInstaller.cs" />
+    <Compile Include="Application\Windsor\WindsorControllerFactory.cs" />
+    <Compile Include="Application\Windsor\WindsorExtensions.cs" />
+    <Compile Include="Controllers\Abstract\SidenotesController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\BookAdminController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\BookController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\CatalogController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\CommentController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\ErrorController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\FacebookLoginController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\FeedController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\HomeController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\LayoutController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\LivejournalLoginController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\LoginController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\NotificationController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\OAuthLoginController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\StatisticsController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\TwitterLoginController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\UserAdminController.cs" />
+    <Compile Include="Controllers\UserController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\VkontakteLoginController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\YandexLoginController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\IEnumerableExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\UriExtension.cs" />
+    <Compile Include="Extensions\UrlHelperExtensions.cs" />
+    <Compile Include="Extensions\XElementExtensions.cs" />
+    <Compile Include="JsonConverters\CategoryConverter.cs" />
+    <Compile Include="Models\AccountInfo.cs" />
+    <Compile Include="Models\AccountSource.cs" />
+    <Compile Include="Models\Avatar.cs" />
+    <Compile Include="Models\BuiltInComment.cs" />
+    <Compile Include="Models\Catalog.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Chapter.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\IComment.cs" />
+    <Compile Include="Models\HeadComment.cs" />
+    <Compile Include="Models\Helpers\EntitiesHelper.cs" />
+    <Compile Include="Models\Helpers\BookIndexBuilder.cs" />
+    <Compile Include="Models\ImageParagraph.cs" />
+    <Compile Include="Models\Paragraph.cs" />
+    <Compile Include="Models\Password.cs" />
+    <Compile Include="Models\Queries\EntityListCommentatorsQuery.cs" />
+    <Compile Include="Models\Queries\ThreadCommentatorsQuery.cs" />
+    <Compile Include="Models\Queries\EntityCommentatorsQuery.cs" />
+    <Compile Include="Models\Queries\GetOwnedBookIdsQuery.cs" />
+    <Compile Include="Models\Queries\GetForeignAccountQuery.cs" />
+    <Compile Include="Models\SideNotesModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SideNotesModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs" />
+    <Compile Include="OAuth\YandexClient.cs" />
+    <Compile Include="OAuth\FacebookClient.cs" />
+    <Compile Include="OAuth\FacebookTokenManagerFactory.cs" />
+    <Compile Include="OAuth\InMemoryTokenManager.cs" />
+    <Compile Include="OAuth\LivejournalClient.cs" />
+    <Compile Include="OAuth\TokenManagerFactory.cs" />
+    <Compile Include="OAuth\TwitterClient.cs" />
+    <Compile Include="OAuth\TwitterTokenManagerFactory.cs" />
+    <Compile Include="OAuth\VkontakteClient.cs" />
+    <Compile Include="OAuth\VkontakteTokenManagerFactory.cs" />
+    <Compile Include="OAuth\YandexTokenManagerFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Abstract\IBookBuilder.cs" />
+    <Compile Include="Services\Abstract\IEBookParser.cs" />
+    <Compile Include="Services\Abstract\IImageKeeper.cs" />
+    <Compile Include="Services\Abstract\INotificationSender.cs" />
+    <Compile Include="Services\Abstract\IUserSession.cs" />
+    <Compile Include="Services\Abstract\AvatarService.cs" />
+    <Compile Include="Services\Abstract\IAuthorizationService.cs" />
+    <Compile Include="Services\Abstract\Sharer.cs" />
+    <Compile Include="Services\AuthorizationService.cs" />
+    <Compile Include="Services\BookAuthorNotifier.cs" />
+    <Compile Include="Services\BookBuilder.cs" />
+    <Compile Include="Services\BookBuilderDummy.cs" />
+    <Compile Include="Services\CommentManager.cs" />
+    <Compile Include="Services\CommentNotifier.cs" />
+    <Compile Include="Services\FacebookSharer.cs" />
+    <Compile Include="Services\FB2Builder.cs" />
+    <Compile Include="Services\PhotoFixer.cs" />
+    <Compile Include="Services\SharerFactory.cs" />
+    <Compile Include="Services\TwitterSharer.cs" />
+    <Compile Include="Services\UserAvatarService.cs" />
+    <Compile Include="Services\FB2Parser.cs" />
+    <Compile Include="Services\ImageKeeper.cs" />
+    <Compile Include="Services\NotificationSender.cs" />
+    <Compile Include="Services\ParserFactory.cs" />
+    <Compile Include="Services\BookAvatarService.cs" />
+    <Compile Include="Services\UserSession.cs" />
+    <Compile Include="Services\VkontakteSharer.cs" />
+    <Compile Include="Services\YandexSharer.cs" />
+    <Compile Include="TestClasses\IDummy.cs" />
+    <Compile Include="TestClasses\PlasticDummy.cs" />
+    <Compile Include="TestClasses\WoodenDummy.cs" />
+    <Compile Include="TestClasses\XElementTest.cs" />
+    <Compile Include="ViewModels\AddCommentModel.cs" />
+    <Compile Include="ViewModels\ChangePasswordModel.cs" />
+    <Compile Include="ViewModels\CommentatorModel.cs" />
+    <Compile Include="ViewModels\EditBookModel.cs" />
+    <Compile Include="ViewModels\EditProfileModel.cs" />
+    <Compile Include="ViewModels\HeaderTabs.cs" />
+    <Compile Include="ViewModels\LoginModel.cs" />
+    <Compile Include="ViewModels\NavigationModel.cs" />
+    <Compile Include="ViewModels\NotificationSettingsModel.cs" />
+    <Compile Include="ViewModels\RegisterModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\default.css" />
+    <Content Include="Content\css\markup.css" />
+    <Content Include="Content\css\reset.css" />
+    <Content Include="Content\img\8.png" />
+    <Content Include="Content\img\blank.png" />
+    <Content Include="Content\img\bookmark.gif" />
+    <Content Include="Content\img\closeBox.png" />
+    <Content Include="Content\img\commentator_label.gif" />
+    <Content Include="Content\img\commentLink.png" />
+    <Content Include="Content\img\exit.gif" />
+    <Content Include="Content\img\lightboxClose.gif" />
+    <Content Include="Content\img\lj-gradient.gif" />
+    <Content Include="Content\img\logo\facebook-16.gif" />
+    <Content Include="Content\img\logo\fb-64.jpg" />
+    <Content Include="Content\img\logo\livejournal-16.gif" />
+    <Content Include="Content\img\logo\lj-logo-tiny.gif" />
+    <Content Include="Content\img\logo\twit-64.jpg" />
+    <Content Include="Content\img\logo\twitter-16.gif" />
+    <Content Include="Content\img\logo\vk-64.jpg" />
+    <Content Include="Content\img\logo\vkontakte-16.png" />
+    <Content Include="Content\img\logo\yandex.png" />
+    <Content Include="Content\img\nextComments.png" />
+    <Content Include="Content\img\nextCommentsHover.png" />
+    <Content Include="Content\img\no_avatar_large.gif" />
+    <Content Include="Content\img\no_avatar_small.gif" />
+    <Content Include="Content\img\no_avatar_tiny.gif" />
+    <Content Include="Content\img\no_bookavatar_large.jpg" />
+    <Content Include="Content\img\no_bookavatar_medium.jpg" />
+    <Content Include="Content\img\no_bookavatar_small.jpg" />
+    <Content Include="Content\img\prevComments.png" />
+    <Content Include="Content\img\prevCommentsHover.png" />
+    <Content Include="Content\img\quote.png" />
+    <Content Include="Content\img\sidenotes_logo.gif" />
+    <Content Include="Content\img\sidenotes_logo.jpg" />
+    <Content Include="Content\img\spinner.gif" />
+    <Content Include="Content\img\spinner_small.gif" />
+    <Content Include="Content\img\up-arrow copy.png" />
+    <Content Include="Content\LightBox.css" />
+    <Content Include="Content\SideNotesStyles.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\sn-user\sn-user.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\AddHeadBox.js" />
+    <Content Include="Scripts\AjaxForm.js" />
+    <Content Include="Scripts\BestComment.js" />
+    <Content Include="Scripts\BookHeader.js" />
+    <Content Include="Scripts\BookPage.js" />
+    <Content Include="Scripts\Catalog\BestCommentList.js" />
+    <Content Include="Scripts\Catalog\BookList.js" />
+    <Content Include="Scripts\Catalog\Catalog.js" />
+    <Content Include="Scripts\Catalog\CategoryTree.js" />
+    <Content Include="Scripts\CommentatorsDropdown.js" />
+    <Content Include="Scripts\CommentInfo.js" />
+    <Content Include="Scripts\CommentList.js" />
+    <Content Include="Scripts\commentListFunctions.js" />
+    <Content Include="Scripts\Comments.js" />
+    <Content Include="Scripts\Feed.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\LeftFrame.js" />
+    <Content Include="Scripts\jExpandFilter\index.html" />
+    <Content Include="Scripts\jExpandFilter\jExpandFilter.js" />
+    <Content Include="Scripts\jExpandFilter\jExpandFilter.min.js" />
+    <Content Include="Scripts\jExpandFilter\src\img\arrow_down_expand.png" />
+    <Content Include="Scripts\jExpandFilter\src\img\arrow_right_expand.png" />
+    <Content Include="Scripts\jExpandFilter\style.css" />
+    <Content Include="Scripts\jquery-1.6.4.js" />
+    <Content Include="Scripts\jquery-1.6.4.min.js" />
+    <Content Include="Scripts\Main.js" />
+    <Content Include="Scripts\Observable.js" />
+    <Content Include="Scripts\PopupBox.js" />
+    <Content Include="Scripts\RightFrame.js" />
+    <Content Include="Scripts\LightBox.js" />
+    <Content Include="Scripts\ShareBlock.js" />
+    <Content Include="Scripts\shorten.jQuery.js" />
+    <Content Include="Scripts\SideNotesCustom.js" />
+    <Content Include="Scripts\ToolBar.js" />
+    <Content Include="Scripts\toolTip.jQuery.js" />
+    <Content Include="Scripts\UnclosableBox.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery-1.4.4.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Code\BookAvatar.cshtml" />
+    <Content Include="App_Code\BuiltIn.cshtml" />
+    <Content Include="App_Code\Abzats.cshtml" />
+    <Content Include="App_Code\UserAvatar.cshtml" />
+    <Content Include="App_Code\LeftFrame.cshtml" />
+    <Content Include="App_Code\RightFrame.cshtml" />
+    <Content Include="App_Code\InclineService.cshtml" />
+    <None Include="App_Data\Elmah.SQLite.db" />
+    <EntityDeploy Include="Models\SideNotesModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SideNotesModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\Shared\LayoutHeader.cshtml" />
+    <Content Include="Views\User\View.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\User\SetAvatar.cshtml" />
+    <Content Include="Views\BookAdmin\Index.cshtml" />
+    <Content Include="Views\Book\Index.cshtml" />
+    <Content Include="Views\Book\Annotation.cshtml" />
+    <Content Include="Views\Book\View.cshtml" />
+    <Content Include="Views\Book\ChapterTree.cshtml" />
+    <Content Include="Views\Book\Bookmarks.cshtml" />
+    <Content Include="Views\Comment\AddComment.cshtml" />
+    <Content Include="Views\Comment\Reply.cshtml" />
+    <Content Include="Views\Book\CommentParagraph.cshtml" />
+    <Content Include="Views\Comment\AddHead.cshtml" />
+    <Content Include="Views\Comment\Index.cshtml" />
+    <Content Include="Views\Comment\HeadIndex.cshtml" />
+    <Content Include="Views\Comment\CommentTreeNode.cshtml" />
+    <Content Include="Views\Book\Comments.cshtml" />
+    <Content Include="Views\Book\CommentsThread.cshtml" />
+    <Content Include="Views\Comment\IndexBuiltIn.cshtml" />
+    <Content Include="Views\Comment\IndexBuiltInEdit.cshtml" />
+    <Content Include="Views\Shared\CommentFilter.cshtml" />
+    <Content Include="Views\Comment\ParagraphCommentFilter.cshtml" />
+    <Content Include="Views\Notification\OKView.cshtml" />
+    <Content Include="Views\Book\Navigation.cshtml" />
+    <Content Include="Views\Book\Commentators.cshtml" />
+    <Content Include="Views\Book\CommentsByUser.cshtml" />
+    <Content Include="Views\BookAdmin\DeleteChapter.cshtml" />
+    <Content Include="Views\BookAdmin\DeleteParagraph.cshtml" />
+    <Content Include="Views\LivejournalLogin\LogOn.cshtml" />
+    <Content Include="Views\Book\RecentComments.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Shared\Pager.cshtml" />
+    <Content Include="Views\User\RecentReadBooks.cshtml" />
+    <Content Include="Views\Book\BookNotFound.cshtml" />
+    <Content Include="Views\Shared\LoginBox.cshtml" />
+    <Content Include="Views\Shared\RegisterBox.cshtml" />
+    <Content Include="Views\User\EditProfileBox.cshtml" />
+    <Content Include="Views\User\EditProfileView.cshtml" />
+    <Content Include="Views\Shared\UpdateNotificationSettingsView.cshtml" />
+    <Content Include="Views\Shared\UpdateNotificationSettingsBox.cshtml" />
+    <Content Include="Views\User\SetAvatarBox.cshtml" />
+    <Content Include="Views\Book\AddBookmarkBox.cshtml" />
+    <Content Include="Views\Book\LeftFrame.cshtml" />
+    <Content Include="Views\Book\RightFrame.cshtml" />
+    <Content Include="Views\Book\ParagraphContainer.cshtml" />
+    <Content Include="Views\User\ChangePasswordView.cshtml" />
+    <Content Include="Views\User\ChangePasswordBox.cshtml" />
+    <Content Include="Views\Shared\RegisterOrLoginBox.cshtml" />
+    <Content Include="Views\Comment\CommentatorsList.cshtml" />
+    <Content Include="Views\Shared\CommentatorsPopup.cshtml" />
+    <Content Include="Views\Book\Page.cshtml" />
+    <Content Include="Views\Book\CommentsByUserPartial.cshtml" />
+    <Content Include="Views\Book\AllComments.cshtml" />
+    <Content Include="Views\Book\BookProfile.cshtml" />
+    <Content Include="Views\Book\AllCommentsPartial.cshtml" />
+    <Content Include="Views\BookAdmin\EditBook.cshtml" />
+    <Content Include="Views\User\MySocialProfiles.cshtml" />
+    <Content Include="Views\User\OtherSocialProfiles.cshtml" />
+    <Content Include="Views\LivejournalLogin\GetNickname.cshtml" />
+    <Content Include="Views\User\CompleteExternalRegistration.cshtml" />
+    <Content Include="Views\User\CompleteRegistrationBox.cshtml" />
+    <Content Include="Views\Book\AnnotationShort.cshtml" />
+    <Content Include="Views\Shared\SocialLoginBox.cshtml" />
+    <Content Include="Views\Feed\Index.cshtml" />
+    <Content Include="Views\Book\SelectedCommentators.cshtml" />
+    <Content Include="Views\Book\CommentatorsPage.cshtml" />
+    <Content Include="Views\Book\BestComment.cshtml" />
+    <Content Include="Views\Book\RootChapter.cshtml" />
+    <Content Include="Views\User\BestComment.cshtml" />
+    <Content Include="Views\User\FriendsListShort.cshtml" />
+    <Content Include="Views\User\RecentComments.cshtml" />
+    <Content Include="Views\Shared\AddCommentBox.cshtml" />
+    <Content Include="Views\User\CommentsPage.cshtml" />
+    <Content Include="Views\User\FriendsPage.cshtml" />
+    <Content Include="Views\User\AllReadBooks.cshtml" />
+    <Content Include="Views\Book\Header.cshtml" />
+    <Content Include="Views\Shared\AddHeadCommentBox.cshtml" />
+    <Content Include="Views\Feed\Header.cshtml" />
+    <Content Include="Views\Statistics\OKView.cshtml" />
+    <Content Include="Views\Catalog\Manage.cshtml" />
+    <Content Include="Views\Catalog\ManageCategory.cshtml" />
+    <Content Include="Views\Shared\SelectCategory.cshtml" />
+    <Content Include="Views\Catalog\ManageBookCategories.cshtml" />
+    <Content Include="Views\Catalog\ManageCategoryContent.cshtml" />
+    <Content Include="Views\Catalog\Index.cshtml" />
+    <Content Include="Views\Shared\CommentsListTemplates.cshtml" />
+    <Content Include="Views\Shared\CommentatorsDropdown.cshtml" />
+    <Content Include="Views\Book\AcceptDonation.cshtml" />
+    <Content Include="Views\Home\ForAuthors.cshtml" />
+    <Content Include="Views\UserAdmin\MergeUsers.cshtml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>42004</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

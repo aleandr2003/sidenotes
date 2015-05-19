@@ -1,0 +1,72 @@
+﻿@model IComment
+@{
+    Layout = null;
+}
+<div class="commentContainer commentContainerStyle" >
+    <div class="prop" style="height:6em;"></div>
+    <div class="comment">
+        
+        @if (Model.Author != null)
+        {
+            <a href="@Url.Action("View", "User", new { Id = Model.Author.Id })" class="commentAuthorLinkStyle">
+                @UserAvatar.Small(Model.Author, "user_avatar")
+            </a>
+            <a href="@Url.Action("View", "User", new { Id = Model.Author.Id })" class="commentAuthorLinkStyle">
+                <span class="commentAuthorName">@Model.Author.Name</span>
+            </a>
+        }
+        <div class="commentDateContainer"><span class="commentDate">@Model.DateCreated.ToString("yyyy MMM dd hh:mm")</span></div>
+        <span class="commentContent">@Model.Text</span>
+        
+    </div>
+@if (ViewBag.IsAuthenticated == true)
+{
+    if (Model is Comment)
+    {
+        var comment = Model as Comment;
+        if (!Model.IsDeleted)
+        {
+            @Html.ActionLink("ответить", "Reply", "Comment", new { commentId = Model.Id, commentType = (int)EntityType.Comment },
+                new { @class = "replyLink commentAction reply", headCommentId = comment.HeadCommentId, commentId = comment.Id })
+            if (ViewBag.CurrentUserId == Model.Author.Id)
+            {
+                <form method="post" action="@Url.Action("DeleteComment", "Comment", new { Id = Model.Id })" 
+                    class="ajaxForm removeCommentForm commentAction">
+                    <input type="submit" value="удалить" class="delete"/>
+                </form>
+            }
+        }
+    }
+    else if (Model is HeadComment)
+    {
+        var comment = Model as HeadComment;
+        if (!Model.IsDeleted)
+        {
+            @Html.ActionLink("ответить", "Reply", "Comment", new { commentId = Model.Id, commentType = (int)EntityType.HeadComment },
+                new { @class = "replyLink commentAction reply", headCommentId = comment.Id })
+            if (ViewBag.CurrentUserId == Model.Author.Id)
+            {
+                <form method="post" action="@Url.Action("DeleteHead", "Comment", new { Id = Model.Id })"
+                    class="ajaxForm removeCommentForm commentAction">
+                    <input type="submit" value="удалить" class="delete"/>
+                </form>
+            }
+        }
+    }
+
+}
+else
+{
+    if (!Model.IsDeleted)
+    {
+    @Html.ActionLink("ответить", "Register", "User", null, new { @class = "showLightBox_link reply", rel = "registerOrLoginBox" })
+    }
+}
+    <div class="clearBoth"></div>
+</div>
+<ul class="commentTreeList">
+ @foreach (var comment in Model.ChildComments.OrderBy(c => c.DateCreated))
+ {
+     <li>@Html.Partial("CommentTreeNode", comment)</li>
+ }
+</ul>

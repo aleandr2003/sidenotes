@@ -1,0 +1,7 @@
+﻿@model Book
+@{
+    Layout = null;
+}
+<div class="annotationContainer">
+	@(String.IsNullOrEmpty(Model.Annotation) ? "Нет аннотации" : Model.Annotation)
+</div>
