@@ -21,6 +21,13 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
     <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <UseIISExpress>false</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -231,10 +238,6 @@
     <Compile Include="Services\UserSession.cs" />
     <Compile Include="Services\VkontakteSharer.cs" />
     <Compile Include="Services\YandexSharer.cs" />
-    <Compile Include="TestClasses\IDummy.cs" />
-    <Compile Include="TestClasses\PlasticDummy.cs" />
-    <Compile Include="TestClasses\WoodenDummy.cs" />
-    <Compile Include="TestClasses\XElementTest.cs" />
     <Compile Include="ViewModels\AddCommentModel.cs" />
     <Compile Include="ViewModels\ChangePasswordModel.cs" />
     <Compile Include="ViewModels\CommentatorModel.cs" />
