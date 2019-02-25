@@ -5,7 +5,6 @@ using System.Web;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Castle.MicroKernel.SubSystems.Configuration;
-using SideNotes.TestClasses;
 using SideNotes.Services;
 using SideNotes.Services.Abstract;
 

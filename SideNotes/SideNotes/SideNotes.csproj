@@ -307,6 +307,7 @@
     <Content Include="Content\themes\base\jquery-ui.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Models\SideNotesModel.edmx.sql" />
     <Content Include="Scripts\AddHeadBox.js" />
     <Content Include="Scripts\AjaxForm.js" />
     <Content Include="Scripts\BestComment.js" />
