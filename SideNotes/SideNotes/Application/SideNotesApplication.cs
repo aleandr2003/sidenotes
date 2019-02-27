@@ -56,6 +56,12 @@ namespace SideNotes.Application
             }
             catch{}
         }
+        protected void Application_Error()
+        {
+            var ex = Server.GetLastError();
+            //log the error!
+        }
+
         protected void WriteRequestLog()
         {
             using (var context = new SideNotesEntities())

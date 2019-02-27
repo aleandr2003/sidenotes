@@ -30,20 +30,34 @@ namespace SideNotes.Controllers
             List<Book> topBooks= null;
             int totalBooksCount = 0;
             List<int> ownedBookIds = new List<int>();
+            topBooks = GetMostPopularBooks();
             using (var context = new SideNotesEntities())
             {
-                int topPopularity = context.Books.Max(b => b.Popularity);
-                topBooks = context.Books.Include("Avatar.Large")
-                    .Where(b => b.Popularity == topPopularity)
-                    .Take(topBooksCount).ToList();
                 totalBooksCount = context.Books.Count();
                 if (userSession.IsAuthenticated)
                 {
                     ownedBookIds = new GetOwnedBookIdsQuery(userSession.CurrentUser.Id).Load(context);
                 }
             }
-            ViewBag.HasMore = totalBooksCount > topBooksCount;
+            ViewBag.HasMore = totalBooksCount > topBooks.Count();
             return View(Tuple.Create(topBooks, ownedBookIds));
+        }
+
+        private List<Book> GetMostPopularBooks()
+        {
+            using (var context = new SideNotesEntities())
+            {
+                if (context.Books.Any()){ 
+                    int topPopularity = context.Books.Max(b => b.Popularity);
+                    return context.Books.Include("Avatar.Large")
+                        .Where(b => b.Popularity == topPopularity)
+                        .Take(topBooksCount).ToList();
+                }
+                else
+                {
+                    return new List<Book>();
+                }
+            }
         }
 
         public ActionResult Exception()
