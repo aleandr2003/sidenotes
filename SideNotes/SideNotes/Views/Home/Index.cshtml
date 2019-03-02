@@ -1,16 +1,16 @@
 ﻿@model Tuple<List<Book>, List<int>>
 @{
-    ViewBag.Title = "Заметки на полях";
+    ViewBag.Title = SideNotes.Resources.Home.Title;
 }
 
 <div id="main">
 @if (Model.Item1.Count == 0)
 {
-    <span>Нет ни одной книжки</span>
+    <span>@SideNotes.Resources.Home.NoBooksMessage</span>
 }
 else
 {
-<h2>Самые популярные книжки</h2>
+    <h2>@SideNotes.Resources.Home.MostPopularBooksMessage</h2>
 <ul class="bookList">
 @foreach (var book in Model.Item1)
 {
@@ -21,7 +21,7 @@ else
                 @BookAvatar.Large(book, "book_avatar")<br/>
                 <div class="mainListBookTitle">@book.Title</div>
                 <div class="mainListBookAuthor">(@book.Author)</div>
-                @Html.ActionLink("Аннотация", "Annotation", "Book", new { Id = book.Id }, new { @class = "mainListAnnotationLink" })
+                @Html.ActionLink(@SideNotes.Resources.Home.AnnotationLinkText, "Annotation", "Book", new { Id = book.Id }, new { @class = "mainListAnnotationLink" })
             </div>
         </a>
     </li>
@@ -30,7 +30,7 @@ else
 <div class="clearBoth"></div>
 if (ViewBag.HasMore)
 {
-        @Html.ActionLink("Все книжки >>", "Index", "Book", null, null);
+        @Html.ActionLink(@SideNotes.Resources.Home.AllBooksLinkText + " >>", "Index", "Book", null, null);
     }
 }
 </div>
