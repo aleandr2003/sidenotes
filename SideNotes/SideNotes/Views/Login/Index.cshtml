@@ -1,9 +1,9 @@
 ﻿@model LoginModel
 @{
-    ViewBag.Title = "Вход";
+    ViewBag.Title = SideNotes.Resources.Login.Title;
 }
 <div id="main">
-<h2>Вход</h2>
+    <h2>@SideNotes.Resources.Login.Heading</h2>
 
 @using (Html.BeginForm<LoginController>(x => x.LogIn(null, null, null), FormMethod.Post))
   {
@@ -15,14 +15,14 @@
             @Html.ValidationMessageFor(x => x.Email)
 
 			<br />
-			@Html.LabelFor(x => x.Password, "Пароль")
-			@Html.PasswordFor(x => x.Password, new { placeholder = "введите пароль" })
+			@Html.LabelFor(x => x.Password, @SideNotes.Resources.Login.PasswordFieldTitle)
+			@Html.PasswordFor(x => x.Password, new { placeholder = @SideNotes.Resources.Login.PasswordPlaceholder })
 			@Html.ValidationMessageFor(x => x.Password)
 		</fieldset>
         if (ViewBag.ErrorMessage != null)
         {
 		<div id="errorMessage" class="errorMessage">@ViewBag.ErrorMessage</div>
         }
-		@Html.SubmitButton(null, "Отправить")
+		@Html.SubmitButton(null, @SideNotes.Resources.Login.SubmitButtonText)
   }
   </div>

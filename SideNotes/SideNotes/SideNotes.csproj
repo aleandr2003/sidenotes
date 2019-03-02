@@ -125,6 +125,21 @@
     <Compile Include="Application\Windsor\Installers\WebSecurityInstaller.cs" />
     <Compile Include="Application\Windsor\WindsorControllerFactory.cs" />
     <Compile Include="Application\Windsor\WindsorExtensions.cs" />
+    <Compile Include="Resources\Login.de.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.de.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Login.Designer.cs">
+      <DependentUpon>Login.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Login.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.en.resx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\Abstract\SidenotesController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -394,7 +409,18 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Login.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Login.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>SideNotes.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Login.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Login.en.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>SideNotes.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
@@ -505,6 +531,13 @@
     <Content Include="Views\Home\ForAuthors.cshtml" />
     <Content Include="Views\UserAdmin\MergeUsers.cshtml" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Login.de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Login.de.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>SideNotes.Resources</CustomToolNamespace>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
