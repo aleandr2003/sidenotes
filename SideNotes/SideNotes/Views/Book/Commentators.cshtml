@@ -2,11 +2,11 @@
 
 @if (Model.Item1.Any() || Model.Item2.Any() || Model.Item3.Any())
 {
-    <span class="helperMessage">Нажмите на аватар, чтобы прочитать все комментарии пользователя</span>
+    <span class="helperMessage">@SideNotes.Resources.Book.CommentatorsReadAllFromUserMessage</span>
 
     if (ViewBag.IsAuthenticated == true && Model.Item2.Any())
     {
-        <h2>Друзья</h2>
+        <h2>@SideNotes.Resources.Book.CommentatorsFriendsHeading</h2>
         <div class="avatarblock">
         @foreach (var user in Model.Item2)
         {
@@ -17,7 +17,7 @@
 
     if (Model.Item1.Any())
     {
-        <h2>Знаменитости</h2>
+        <h2>@SideNotes.Resources.Book.CommentatorsCelebritiesHeading</h2>
         <div class="avatarblock">
         @foreach (var user in Model.Item1)
         {
@@ -29,7 +29,7 @@
     {
         if ((ViewBag.IsAuthenticated == true && Model.Item2.Any()) || Model.Item1.Any())
         {
-            <h2>Остальные</h2>
+            <h2>@SideNotes.Resources.Book.CommentatorsRestHeading</h2>
         }
         <div class="avatarblock">
         @foreach (var user in Model.Item3)

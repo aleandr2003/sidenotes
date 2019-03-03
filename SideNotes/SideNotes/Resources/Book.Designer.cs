@@ -250,6 +250,348 @@ namespace SideNotes.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Знаменитости ähnelt.
+        /// </summary>
+        public static string CommentatorsCelebritiesHeading {
+            get {
+                return ResourceManager.GetString("CommentatorsCelebritiesHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Друзья ähnelt.
+        /// </summary>
+        public static string CommentatorsFriendsHeading {
+            get {
+                return ResourceManager.GetString("CommentatorsFriendsHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Аннотация ähnelt.
+        /// </summary>
+        public static string CommentatorsPageAnnotationLinkText {
+            get {
+                return ResourceManager.GetString("CommentatorsPageAnnotationLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Знаменитости ähnelt.
+        /// </summary>
+        public static string CommentatorsPageCelebritiesHeading {
+            get {
+                return ResourceManager.GetString("CommentatorsPageCelebritiesHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Друзья ähnelt.
+        /// </summary>
+        public static string CommentatorsPageFriendsHeading {
+            get {
+                return ResourceManager.GetString("CommentatorsPageFriendsHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Нажмите на аватар, чтобы прочитать все комментарии пользователя ähnelt.
+        /// </summary>
+        public static string CommentatorsPageReadAllFromUserMessage {
+            get {
+                return ResourceManager.GetString("CommentatorsPageReadAllFromUserMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ЧИТАТЬ ähnelt.
+        /// </summary>
+        public static string CommentatorsPageReadLinkText {
+            get {
+                return ResourceManager.GetString("CommentatorsPageReadLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Остальные ähnelt.
+        /// </summary>
+        public static string CommentatorsPageRestHeading {
+            get {
+                return ResourceManager.GetString("CommentatorsPageRestHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Нажмите на аватар, чтобы прочитать все комментарии пользователя ähnelt.
+        /// </summary>
+        public static string CommentatorsReadAllFromUserMessage {
+            get {
+                return ResourceManager.GetString("CommentatorsReadAllFromUserMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Остальные ähnelt.
+        /// </summary>
+        public static string CommentatorsRestHeading {
+            get {
+                return ResourceManager.GetString("CommentatorsRestHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Комментировать абзац ähnelt.
+        /// </summary>
+        public static string CommentParagraphHeading {
+            get {
+                return ResourceManager.GetString("CommentParagraphHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Комментировать абзац ähnelt.
+        /// </summary>
+        public static string CommentParagraphTitle {
+            get {
+                return ResourceManager.GetString("CommentParagraphTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Комментарии ähnelt.
+        /// </summary>
+        public static string CommentsByUserHeading {
+            get {
+                return ResourceManager.GetString("CommentsByUserHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Нет комментариев ähnelt.
+        /// </summary>
+        public static string CommentsByUserNoCommentsMessage {
+            get {
+                return ResourceManager.GetString("CommentsByUserNoCommentsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die открыть ветку ähnelt.
+        /// </summary>
+        public static string CommentsByUserOpenBranchLinkText {
+            get {
+                return ResourceManager.GetString("CommentsByUserOpenBranchLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Читать книгу с этого места ähnelt.
+        /// </summary>
+        public static string CommentsByUserReadFromHereLinkText {
+            get {
+                return ResourceManager.GetString("CommentsByUserReadFromHereLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Комментарии ähnelt.
+        /// </summary>
+        public static string CommentsByUserTitle {
+            get {
+                return ResourceManager.GetString("CommentsByUserTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Читать книгу с этого места ähnelt.
+        /// </summary>
+        public static string CommentsThreadReadFromHereLinkText {
+            get {
+                return ResourceManager.GetString("CommentsThreadReadFromHereLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Комментарии ähnelt.
+        /// </summary>
+        public static string CommentsThreadTitle {
+            get {
+                return ResourceManager.GetString("CommentsThreadTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Комментарии ähnelt.
+        /// </summary>
+        public static string CommentsTitle {
+            get {
+                return ResourceManager.GetString("CommentsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Назад ähnelt.
+        /// </summary>
+        public static string CommentsToStartLinkText {
+            get {
+                return ResourceManager.GetString("CommentsToStartLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die к книге ähnelt.
+        /// </summary>
+        public static string HeaderCommentsCountMessage {
+            get {
+                return ResourceManager.GetString("HeaderCommentsCountMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пожертвовать ähnelt.
+        /// </summary>
+        public static string HeaderDonateLinkText {
+            get {
+                return ResourceManager.GetString("HeaderDonateLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Аннотация ähnelt.
+        /// </summary>
+        public static string IndexAnnotationLinkText {
+            get {
+                return ResourceManager.GetString("IndexAnnotationLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Книги ähnelt.
+        /// </summary>
+        public static string IndexHeading {
+            get {
+                return ResourceManager.GetString("IndexHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Нет ни одной книги ähnelt.
+        /// </summary>
+        public static string IndexNoBooksMessage {
+            get {
+                return ResourceManager.GetString("IndexNoBooksMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Книги ähnelt.
+        /// </summary>
+        public static string IndexTitle {
+            get {
+                return ResourceManager.GetString("IndexTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Аннотация ähnelt.
+        /// </summary>
+        public static string LeftFrameAnnotationHeading {
+            get {
+                return ResourceManager.GetString("LeftFrameAnnotationHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Аннотация ähnelt.
+        /// </summary>
+        public static string LeftFrameAnnotationLinkText {
+            get {
+                return ResourceManager.GetString("LeftFrameAnnotationLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Закладки ähnelt.
+        /// </summary>
+        public static string LeftFrameBookmarksHeading {
+            get {
+                return ResourceManager.GetString("LeftFrameBookmarksHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Закладки ähnelt.
+        /// </summary>
+        public static string LeftFrameBookmarksLinkText {
+            get {
+                return ResourceManager.GetString("LeftFrameBookmarksLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Оглавление ähnelt.
+        /// </summary>
+        public static string LeftFrameContentHeading {
+            get {
+                return ResourceManager.GetString("LeftFrameContentHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Оглавление ähnelt.
+        /// </summary>
+        public static string LeftFrameContentLinkText {
+            get {
+                return ResourceManager.GetString("LeftFrameContentLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Аннотация ähnelt.
+        /// </summary>
+        public static string NavigationAnnotationLinkText {
+            get {
+                return ResourceManager.GetString("NavigationAnnotationLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Назад ähnelt.
+        /// </summary>
+        public static string NavigationBackwardsLinkText {
+            get {
+                return ResourceManager.GetString("NavigationBackwardsLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Начало ähnelt.
+        /// </summary>
+        public static string NavigationBeginningLinkText {
+            get {
+                return ResourceManager.GetString("NavigationBeginningLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Комментарии ähnelt.
+        /// </summary>
+        public static string NavigationCommentsLinkText {
+            get {
+                return ResourceManager.GetString("NavigationCommentsLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Дальше ähnelt.
+        /// </summary>
+        public static string NavigationForwardsLinkText {
+            get {
+                return ResourceManager.GetString("NavigationForwardsLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Книга потерялась ähnelt.
         /// </summary>
         public static string NotFoundHeading {
@@ -282,6 +624,96 @@ namespace SideNotes.Resources {
         public static string NotFoundToLibraryLinkText {
             get {
                 return ResourceManager.GetString("NotFoundToLibraryLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die комментировать ähnelt.
+        /// </summary>
+        public static string ParagraphContainerCommentLinkTip {
+            get {
+                return ResourceManager.GetString("ParagraphContainerCommentLinkTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die скрыть ähnelt.
+        /// </summary>
+        public static string ParagraphContainerHideButtonText {
+            get {
+                return ResourceManager.GetString("ParagraphContainerHideButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Аннотация ähnelt.
+        /// </summary>
+        public static string ProfileAnnotationLinkText {
+            get {
+                return ResourceManager.GetString("ProfileAnnotationLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ЧИТАТЬ ähnelt.
+        /// </summary>
+        public static string ProfileReadLinkText {
+            get {
+                return ResourceManager.GetString("ProfileReadLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Комментарии ähnelt.
+        /// </summary>
+        public static string RightFrameCommentsHeading {
+            get {
+                return ResourceManager.GetString("RightFrameCommentsHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Начало ähnelt.
+        /// </summary>
+        public static string RootChapterBeginningLinkText {
+            get {
+                return ResourceManager.GetString("RootChapterBeginningLinkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die подписаться ähnelt.
+        /// </summary>
+        public static string SelectedCommentatorsSubscribeButtonText {
+            get {
+                return ResourceManager.GetString("SelectedCommentatorsSubscribeButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die отписаться ähnelt.
+        /// </summary>
+        public static string SelectedCommentatorsUnsubscribeButtonText {
+            get {
+                return ResourceManager.GetString("SelectedCommentatorsUnsubscribeButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Далее ähnelt.
+        /// </summary>
+        public static string ViewNavigateDownButtonText {
+            get {
+                return ResourceManager.GetString("ViewNavigateDownButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Назад ähnelt.
+        /// </summary>
+        public static string ViewNavigateUpButtonText {
+            get {
+                return ResourceManager.GetString("ViewNavigateUpButtonText", resourceCulture);
             }
         }
     }

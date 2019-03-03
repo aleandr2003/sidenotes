@@ -1,9 +1,9 @@
 ﻿@model Paragraph
 @{
-    ViewBag.Title = "Комментировать абзац";
+    ViewBag.Title = SideNotes.Resources.Book.CommentParagraphTitle;
 }
 <div id="main">
-<h2>Комментировать абзац</h2>
+<h2>@SideNotes.Resources.Book.CommentParagraphHeading</h2>
 
 @Abzats.Render(Model)
 

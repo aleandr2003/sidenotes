@@ -1,14 +1,14 @@
 ﻿@model Tuple<List<Book>, List<int>>
 @{
-    ViewBag.Title = "Книги";
+    ViewBag.Title = SideNotes.Resources.Book.IndexTitle;
 }
 
 <div id="main">
-<h2>Книги</h2>
+<h2>@SideNotes.Resources.Book.IndexHeading</h2>
 
 @if (Model.Item1.Count == 0)
 {
-    <span>Нет ни одной книжки</span>
+<span>@SideNotes.Resources.Book.IndexNoBooksMessage</span>
 }
 else
 {
@@ -25,7 +25,7 @@ else
                 
             <div class="ListBookTitle"><a href="@url">@book.Title</a></div>
             <div class="ListBookAuthor"><a href="@url">(@book.Author)</a></div>
-            @Html.ActionLink("Аннотация", "Annotation", "Book", new { Id = book.Id }, new { @class = "mainListAnnotationLink" })
+            @Html.ActionLink(SideNotes.Resources.Book.IndexAnnotationLinkText, "Annotation", "Book", new { Id = book.Id }, new { @class = "mainListAnnotationLink" })
                 
         </div>
         <div class="clearBoth" ></div>

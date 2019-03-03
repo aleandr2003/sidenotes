@@ -44,12 +44,12 @@
 <div id="book_container" pageSize="@ViewBag.PageSize">
 @*@Html.Partial("Navigation", Model.Item2)*@
 <div class="navigationButton" navigationUrl="@Url.Action("Page", "Book", new { Id = Model.Item1.Id })" 
-    id="navigateUp" take="@ViewBag.PageSize">Назад</div>
+    id="navigateUp" take="@ViewBag.PageSize">@SideNotes.Resources.Book.ViewNavigateUpButtonText</div>
 @Html.Action("Page", "Book", new { Id = Model.Item1.Id, skip = Model.Item2.CurrentStart })
 <br/>
 <br/>
 <div class="navigationButton" navigationUrl="@Url.Action("Page", "Book", new { Id = Model.Item1.Id })"
-    id="navigateDown" take="@ViewBag.PageSize">Далее</div>
+     id="navigateDown" take="@ViewBag.PageSize">@SideNotes.Resources.Book.ViewNavigateDownButtonText</div>
 @*@Html.Partial("Navigation", Model.Item2)*@
 </div>
 <div class="userblock" id="userblockTemplate" style="display:none;">

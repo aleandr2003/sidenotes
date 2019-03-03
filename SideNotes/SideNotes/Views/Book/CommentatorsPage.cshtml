@@ -2,57 +2,57 @@
 <div id="main">
 <div id="leftCol">
 	<div class="book_cover_container">
-		@BookAvatar.Medium(ViewBag.Book, "book_cover")
+@BookAvatar.Medium(ViewBag.Book, "book_cover")
 	</div>
 </div>
 <div id="centerCol">
     <h1>@ViewBag.Book.Title</h1>
     <div class="book_author_list">
-        <span>@ViewBag.Book.Author</span>
+    <span>@ViewBag.Book.Author</span>
     </div>
-    @Html.ActionLink("Аннотация", "Annotation", "Book", new { id = ViewBag.BookId }, null)
+    @Html.ActionLink(SideNotes.Resources.Book.CommentatorsPageAnnotationLinkText, "Annotation", "Book", new { id = ViewBag.BookId }, null)
     <br/>
-    @Html.ActionLink("ЧИТАТЬ", "Start", "Book", new { id = ViewBag.BookId }, new { @class = "book_buyLinkLarge" })
+    @Html.ActionLink(SideNotes.Resources.Book.CommentatorsPageReadLinkText, "Start", "Book", new { id = ViewBag.BookId }, new { @class = "book_buyLinkLarge" })
     <br/>
-    
-@if (Model.Item1.Any() || Model.Item2.Any() || Model.Item3.Any())
-{
-    <span class="helperMessage">Нажмите на аватар, чтобы прочитать все комментарии пользователя</span>
 
-    if (ViewBag.IsAuthenticated == true && Model.Item2.Any())
+    @if (Model.Item1.Any() || Model.Item2.Any() || Model.Item3.Any())
     {
-        <h2>Друзья</h2>
-        <div class="avatarblock">
-        @foreach (var user in Model.Item2)
-        {
-            <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = user.Id })">@UserAvatar.Small(user, "user_avatar")</a>
-        }
-        </div>
-    }
+        <span class="helperMessage">@SideNotes.Resources.Book.CommentatorsPageReadAllFromUserMessage</span>
 
-    if (Model.Item1.Any())
-    {
-        <h2>Знаменитости</h2>
-        <div class="avatarblock">
-        @foreach (var user in Model.Item1)
+        if (ViewBag.IsAuthenticated == true && Model.Item2.Any())
         {
-            <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = user.Id })">@UserAvatar.Small(user, "user_avatar")</a>
+            <h2>@SideNotes.Resources.Book.CommentatorsPageFriendsHeading</h2>
+            <div class="avatarblock">
+            @foreach (var user in Model.Item2)
+            {
+                <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = user.Id })">@UserAvatar.Small(user, "user_avatar")</a>
+            }
+            </div>
         }
-        </div>
+
+        if (Model.Item1.Any())
+        {
+            <h2>@SideNotes.Resources.Book.CommentatorsPageCelebritiesHeading</h2>
+            <div class="avatarblock">
+            @foreach (var user in Model.Item1)
+            {
+                <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = user.Id })">@UserAvatar.Small(user, "user_avatar")</a>
+            }
+            </div>
+        }
+        if (Model.Item3.Any())
+        {
+            if ((ViewBag.IsAuthenticated == true && Model.Item2.Any()) || Model.Item1.Any())
+            {
+                <h2>@SideNotes.Resources.Book.CommentatorsPageRestHeading</h2>
+            }
+            <div class="avatarblock">
+            @foreach (var user in Model.Item3)
+            {
+                <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = user.Id })">@UserAvatar.Small(user, "user_avatar")</a>
+            }
+            </div>
+        }
     }
-    if (Model.Item3.Any())
-    {
-        if ((ViewBag.IsAuthenticated == true && Model.Item2.Any()) || Model.Item1.Any())
-        {
-            <h2>Остальные</h2>
-        }
-        <div class="avatarblock">
-        @foreach (var user in Model.Item3)
-        {
-            <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = user.Id })">@UserAvatar.Small(user, "user_avatar")</a>
-        }
-        </div>
-    }
-}
-</div>
-</div>
+    </div>
+    </div>

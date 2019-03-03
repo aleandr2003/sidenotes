@@ -18,7 +18,7 @@
         @if (Model.PropertyStatus == (int)PropertyStatus.Donatable)
         {
         <div class="book_buyLink_container">
-			<a href="@Url.Action("AcceptDonation", "Book", new { Id = Model.Id })" class="book_buyLink" target="_blank">Пожертвовать</a>
+			<a href="@Url.Action("AcceptDonation", "Book", new { Id = Model.Id })" class="book_buyLink" target="_blank">@SideNotes.Resources.Book.HeaderDonateLinkText</a>
 		</div>
         }
 	</div>
@@ -27,7 +27,7 @@
             var commentCount = Model.GetCommentsCount(null);
 		<div class="commentCounter">
             <a href="@Url.Action("Index", "Feed", new { Id = Model.Id})">
-			    <span class="commentCounter_description">@InclineService.Comment(commentCount) к книге</span>
+			    <span class="commentCounter_description">@InclineService.Comment(commentCount) @SideNotes.Resources.Book.HeaderCommentsCountMessage</span>
             </a>
 			<a href="@Url.Action("Index", "Feed", new { Id = Model.Id})">
                 <span class="commentCounter_counter">@commentCount</span>

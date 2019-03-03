@@ -1,10 +1,10 @@
 ﻿@model Paragraph
 @{
-    ViewBag.Title = "Комментарии";
+    ViewBag.Title = SideNotes.Resources.Book.CommentsTitle;
 }
 <div id="main">
 @Abzats.Render(Model)
-@Html.ActionLink("Назад", "Start", "Book", new { id = Model.Book_Id}, null)
+@Html.ActionLink(SideNotes.Resources.Book.CommentsToStartLinkText, "Start", "Book", new { id = Model.Book_Id}, null)
 
 @{
     var parameters = new { 

@@ -180,6 +180,120 @@
   <data name="BookmarksNoBookmarksMessage" xml:space="preserve">
     <value>Нет закладок</value>
   </data>
+  <data name="CommentatorsCelebritiesHeading" xml:space="preserve">
+    <value>Знаменитости</value>
+  </data>
+  <data name="CommentatorsFriendsHeading" xml:space="preserve">
+    <value>Друзья</value>
+  </data>
+  <data name="CommentatorsPageAnnotationLinkText" xml:space="preserve">
+    <value>Аннотация</value>
+  </data>
+  <data name="CommentatorsPageCelebritiesHeading" xml:space="preserve">
+    <value>Знаменитости</value>
+  </data>
+  <data name="CommentatorsPageFriendsHeading" xml:space="preserve">
+    <value>Друзья</value>
+  </data>
+  <data name="CommentatorsPageReadAllFromUserMessage" xml:space="preserve">
+    <value>Нажмите на аватар, чтобы прочитать все комментарии пользователя</value>
+  </data>
+  <data name="CommentatorsPageReadLinkText" xml:space="preserve">
+    <value>ЧИТАТЬ</value>
+  </data>
+  <data name="CommentatorsPageRestHeading" xml:space="preserve">
+    <value>Остальные</value>
+  </data>
+  <data name="CommentatorsReadAllFromUserMessage" xml:space="preserve">
+    <value>Нажмите на аватар, чтобы прочитать все комментарии пользователя</value>
+  </data>
+  <data name="CommentatorsRestHeading" xml:space="preserve">
+    <value>Остальные</value>
+  </data>
+  <data name="CommentParagraphHeading" xml:space="preserve">
+    <value>Комментировать абзац</value>
+  </data>
+  <data name="CommentParagraphTitle" xml:space="preserve">
+    <value>Комментировать абзац</value>
+  </data>
+  <data name="CommentsByUserHeading" xml:space="preserve">
+    <value>Комментарии</value>
+  </data>
+  <data name="CommentsByUserNoCommentsMessage" xml:space="preserve">
+    <value>Нет комментариев</value>
+  </data>
+  <data name="CommentsByUserOpenBranchLinkText" xml:space="preserve">
+    <value>открыть ветку</value>
+  </data>
+  <data name="CommentsByUserReadFromHereLinkText" xml:space="preserve">
+    <value>Читать книгу с этого места</value>
+  </data>
+  <data name="CommentsByUserTitle" xml:space="preserve">
+    <value>Комментарии</value>
+  </data>
+  <data name="CommentsThreadReadFromHereLinkText" xml:space="preserve">
+    <value>Читать книгу с этого места</value>
+  </data>
+  <data name="CommentsThreadTitle" xml:space="preserve">
+    <value>Комментарии</value>
+  </data>
+  <data name="CommentsTitle" xml:space="preserve">
+    <value>Комментарии</value>
+  </data>
+  <data name="CommentsToStartLinkText" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="HeaderCommentsCountMessage" xml:space="preserve">
+    <value>к книге</value>
+  </data>
+  <data name="HeaderDonateLinkText" xml:space="preserve">
+    <value>Пожертвовать</value>
+  </data>
+  <data name="IndexAnnotationLinkText" xml:space="preserve">
+    <value>Аннотация</value>
+  </data>
+  <data name="IndexHeading" xml:space="preserve">
+    <value>Книги</value>
+  </data>
+  <data name="IndexNoBooksMessage" xml:space="preserve">
+    <value>Нет ни одной книги</value>
+  </data>
+  <data name="IndexTitle" xml:space="preserve">
+    <value>Книги</value>
+  </data>
+  <data name="LeftFrameAnnotationHeading" xml:space="preserve">
+    <value>Аннотация</value>
+  </data>
+  <data name="LeftFrameAnnotationLinkText" xml:space="preserve">
+    <value>Аннотация</value>
+  </data>
+  <data name="LeftFrameBookmarksHeading" xml:space="preserve">
+    <value>Закладки</value>
+  </data>
+  <data name="LeftFrameBookmarksLinkText" xml:space="preserve">
+    <value>Закладки</value>
+  </data>
+  <data name="LeftFrameContentHeading" xml:space="preserve">
+    <value>Оглавление</value>
+  </data>
+  <data name="LeftFrameContentLinkText" xml:space="preserve">
+    <value>Оглавление</value>
+  </data>
+  <data name="NavigationAnnotationLinkText" xml:space="preserve">
+    <value>Аннотация</value>
+  </data>
+  <data name="NavigationBackwardsLinkText" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="NavigationBeginningLinkText" xml:space="preserve">
+    <value>Начало</value>
+  </data>
+  <data name="NavigationCommentsLinkText" xml:space="preserve">
+    <value>Комментарии</value>
+  </data>
+  <data name="NavigationForwardsLinkText" xml:space="preserve">
+    <value>Дальше</value>
+  </data>
   <data name="NotFoundHeading" xml:space="preserve">
     <value>Книга потерялась</value>
   </data>
@@ -191,5 +305,35 @@
   </data>
   <data name="NotFoundToLibraryLinkText" xml:space="preserve">
     <value>В библиотеку</value>
+  </data>
+  <data name="ParagraphContainerCommentLinkTip" xml:space="preserve">
+    <value>комментировать</value>
+  </data>
+  <data name="ParagraphContainerHideButtonText" xml:space="preserve">
+    <value>скрыть</value>
+  </data>
+  <data name="ProfileAnnotationLinkText" xml:space="preserve">
+    <value>Аннотация</value>
+  </data>
+  <data name="ProfileReadLinkText" xml:space="preserve">
+    <value>ЧИТАТЬ</value>
+  </data>
+  <data name="RightFrameCommentsHeading" xml:space="preserve">
+    <value>Комментарии</value>
+  </data>
+  <data name="RootChapterBeginningLinkText" xml:space="preserve">
+    <value>Начало</value>
+  </data>
+  <data name="SelectedCommentatorsSubscribeButtonText" xml:space="preserve">
+    <value>подписаться</value>
+  </data>
+  <data name="SelectedCommentatorsUnsubscribeButtonText" xml:space="preserve">
+    <value>отписаться</value>
+  </data>
+  <data name="ViewNavigateDownButtonText" xml:space="preserve">
+    <value>Далее</value>
+  </data>
+  <data name="ViewNavigateUpButtonText" xml:space="preserve">
+    <value>Назад</value>
   </data>
 </root>
