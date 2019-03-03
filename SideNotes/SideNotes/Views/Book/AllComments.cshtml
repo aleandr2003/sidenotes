@@ -1,6 +1,6 @@
 ﻿@model Book
 @{
-    ViewBag.Title = "Комментарии к '" + Model.Title + "'";
+    ViewBag.Title = SideNotes.Resources.Book.AllCommentsTitle + " '" + Model.Title + "'";
 }
 <div id="main">
 @Html.Partial("BookProfile", Model)

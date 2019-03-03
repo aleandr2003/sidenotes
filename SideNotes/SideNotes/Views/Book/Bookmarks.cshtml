@@ -15,7 +15,7 @@
         <td>
             <form method="post" action="@Url.Action("RemoveBookmark", "Book")" class="ajaxForm removeBookmarkForm">
                 <input type="hidden" name="bookmarkId" value="@bookmark.Id" />
-                <input type="submit" value="удалить" class="submitButton" />
+                <input type="submit" value="@SideNotes.Resources.Book.BookmarksDeleteButtonText" class="submitButton" />
             </form>
         </td>
     </tr>
@@ -24,7 +24,7 @@
 }
 else
 {
-    <span>Нет закладок</span>
+    <span>@SideNotes.Resources.Book.BookmarksNoBookmarksMessage</span>
 }
 <script type="text/javascript">
     $('.removeBookmarkForm').each(function () {

@@ -24,12 +24,12 @@
         </div>
         @if (comment is HeadComment)
         {
-                @Html.ActionLink("к тексту", "View", "Book", new { Id = paragraph.Book_Id, skip = paragraph.OrderNumber - 1 }, null)
+                @Html.ActionLink(SideNotes.Resources.Book.AllCommentsToTextLinkText, "View", "Book", new { Id = paragraph.Book_Id, skip = paragraph.OrderNumber - 1 }, null)
         }
         else if (comment is Comment)
         {
             var comm = comment as Comment;
-                @Html.ActionLink("открыть ветку", "CommentsThread", "Book", new { headCommentId = comm.HeadCommentId }, null);
+                @Html.ActionLink(SideNotes.Resources.Book.AllCommentsOpenBranchLinkText, "CommentsThread", "Book", new { headCommentId = comm.HeadCommentId }, null);
         }
         
      </div>
@@ -41,5 +41,5 @@
 }
 else
 {
-    <span>Нет комментариев</span>
+    <span>@SideNotes.Resources.Book.AllCommentsNoCommentsMessage</span>
 }

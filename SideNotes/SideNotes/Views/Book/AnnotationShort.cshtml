@@ -3,5 +3,5 @@
     Layout = null;
 }
 <div class="annotationContainer">
-	@(String.IsNullOrEmpty(Model.Annotation) ? "Нет аннотации" : Model.Annotation)
+	@(String.IsNullOrEmpty(Model.Annotation) ? SideNotes.Resources.Book.AnnotationShortNoAnnotationMessage : Model.Annotation)
 </div>

@@ -16,11 +16,11 @@
         <div class="book_author_list">
             <span>@Model.Author</span>
         </div>
-        <a href="@Url.Action("Start", "Book", new { id = Model.Id })" class="annotation_OrangeButton annotation_OrangeButton_Read">ЧИТАТЬ</a>
+        <a href="@Url.Action("Start", "Book", new { id = Model.Id })" class="annotation_OrangeButton annotation_OrangeButton_Read">@SideNotes.Resources.Book.AnnotationReadLinkText</a>
         @{
             var commentatorsCount = Model.GetCommentatorsCount(ViewBag.CurrentUserId);
             if (commentatorsCount > 0){
-                <a href="@Url.Action("Index", "Feed", new { id = Model.Id })" class="annotation_OrangeButton annotation_OrangeButton_Comments">КОММЕНТАРИИ</a>
+                <a href="@Url.Action("Index", "Feed", new { id = Model.Id })" class="annotation_OrangeButton annotation_OrangeButton_Comments">@SideNotes.Resources.Book.AnnotationCommentsLinkText</a>
             }
         }
         <div style="clear:both"></div>
@@ -49,10 +49,10 @@
             if (commentatorsCount > 0)
             {
                 <div id="commentatorsList_container">
-                    <h2>Книгу комментируют</h2>
+                    <h2>@SideNotes.Resources.Book.AnnotationCommentatorsHeading</h2>
                     @Html.Action("SelectedCommentators", "Book", new { Id = Model.Id })
 
-                    <span>всего 
+                    <span>@SideNotes.Resources.Book.AnnotationCommentCountMessage 
                         <a href="@Url.Action("Commentators", "Book", new { Id = Model.Id })">@commentatorsCount @InclineService.Commentator(commentatorsCount)</a>
                     </span>
                 </div>
@@ -63,10 +63,10 @@
             if (commentsCount > 0)
             {
                 <div id="recentCommentsList_container">
-                    <h2>Свежие комментарии</h2>
+                    <h2>@SideNotes.Resources.Book.AnnotationRecentCommentsHeading</h2>
                     @Html.Action("RecentComments", "Book", new { BookId = Model.Id })
 
-                    <span>всего 
+                    <span>@SideNotes.Resources.Book.AnnotationRecentCommentCountMessage 
                         <a href="@Url.Action("Index", "Feed", new { Id = Model.Id })">@commentsCount @InclineService.Comment(commentsCount)</a>
                     </span>
                 </div>
@@ -85,7 +85,7 @@
 <script type="text/javascript">
     
     $(function () {
-        $('#book_annotation').shorten({ limit: 200, expandText: 'вся аннотация', collapseText: 'скрыть', breakLine: true });
+        $('#book_annotation').shorten({ limit: 200, expandText: '@SideNotes.Resources.Book.AnnotationShowAllLinkText', collapseText: '@SideNotes.Resources.Book.AnnotationHideAllLinkText', breakLine: true });
     });
 </script>
 </div>
