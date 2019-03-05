@@ -8,7 +8,7 @@
     <li><a href="@Url.Action("ManageCategoryContent", "Catalog", new { Id = category.Id})" class="categoryName">@category.Name</a>
         <form method="post" class="ajaxForm reloadable deleteCategoryForm"
             action="@Url.Action("RemoveBookCategory", "Catalog", new { BookId = Model.Item1.Id, CatId = category.Id })">
-            <input type="submit" value="Удалить"/>
+            <input type="submit" value="@SideNotes.Resources.Catalog.ManageBookCategoriesDeleteButtonText"/>
         </form> 
     </li>
 }
@@ -16,9 +16,9 @@
 <br/>
 <br/>
 <form action="@Url.Action("AddBookCategory", "Catalog")" method="post" class="ajaxForm reloadable addCategoryForm">
-    <h2>Добавить категорию</h2>
-    <label>Категория</label> @Html.Partial("SelectCategory", Model.Item2.Index)
+    <h2>@SideNotes.Resources.Catalog.ManageBookCategoriesAddCategoryHeading</h2>
+    <label>@SideNotes.Resources.Catalog.ManageBookCategoriesCategoryNameFieldName</label> @Html.Partial("SelectCategory", Model.Item2.Index)
     <input type="hidden" name="BookId" value="@Model.Item1.Id"/>
-    <input type="submit" value="Добавить"/>
+    <input type="submit" value="@SideNotes.Resources.Catalog.ManageBookCategoriesAddButtonText"/>
 </form>
 </div>

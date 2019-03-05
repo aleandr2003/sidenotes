@@ -1,15 +1,15 @@
 ﻿@model List<Book>
 @{
-    ViewBag.Title = "Книги (управление)";
+    ViewBag.Title = SideNotes.Resources.BookAdmin.IndexTitle;
 }
 <div id="main">
-<h2>Книги (управление)</h2>
+<h2>@SideNotes.Resources.BookAdmin.IndexHeading</h2>
 
 @Html.Action("Manage", "Catalog")
 
 @if (Model.Count == 0)
 {
-    <span>Нет ни одной книжки</span>
+<span>@SideNotes.Resources.BookAdmin.IndexNoBooksMessage</span>
 }
 else
 {
@@ -26,7 +26,7 @@ else
         <td>
             <form method="post" action="@Url.Action("DeleteBook")">
                 <input type="hidden" name="Id" value="@book.Id"/>
-                <input type="submit" value="удалить" />
+                <input type="submit" value="@SideNotes.Resources.BookAdmin.IndexDeleteButtonText" />
             </form>
         </td>
     </tr>
@@ -36,6 +36,6 @@ else
 
 <form action="@Url.Action("AddBook")" method="post" name="newbook" enctype="multipart/form-data">
 <input type="file" name="ebookfile"/>
-<input type="submit" value="Сохранить" />
+<input type="submit" value="@SideNotes.Resources.BookAdmin.IndexSaveButtonText" />
 </form>
 </div>

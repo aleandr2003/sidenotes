@@ -1,14 +1,14 @@
 ﻿@{
-    ViewBag.Title = "Удалить главу";
+    ViewBag.Title = SideNotes.Resources.BookAdmin.DeleteChapterTitle;
 }
 <div id="main">
-<h2>Удалить главу</h2>
+<h2>@SideNotes.Resources.BookAdmin.DeleteChapterHeading</h2>
 
 <span>@ViewBag.Message</span>
 <br/>
 <br/>
 <form method="post" action="@Url.Action("DeleteChapter", "BookAdmin")">
 <input type="text" name="Id"/>
-<input type="submit" value="Удалить" />
+<input type="submit" value="@SideNotes.Resources.BookAdmin.DeleteChapterSubmitButtonText" />
 </form>
 </div>

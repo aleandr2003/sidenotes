@@ -6,9 +6,9 @@
 <a href="@Url.Action("ManageCategoryContent", "Catalog", new { Id = Model.Id })" class="categoryName">@Model.Name</a> 
 <form method="post" action="@Url.Action("DeleteCategory", "Catalog", new { Id = Model.Id})" 
     class="ajaxForm reloadable deleteCategoryForm">
-    <input type="submit" value="Удалить"/>
+    <input type="submit" value="@SideNotes.Resources.Catalog.ManageCategoryDeleteButtonText"/>
 </form>
-<a href="javascript:void(0)" class="showLightBox_link editCategoryLink" rel="editCategoryBox" categoryId="@Model.Id">Ред.</a>
+<a href="javascript:void(0)" class="showLightBox_link editCategoryLink" rel="editCategoryBox" categoryId="@Model.Id">@SideNotes.Resources.Catalog.ManageCategoryEditButtonText</a>
 @if (Model.Children.Any())
 {
 <ul class="categoryList">

@@ -1,19 +1,19 @@
 ﻿@model Tuple<Category, List<Book>>
 @{
-    ViewBag.Title = "Книги в категории " + Model.Item1.Name;
+    ViewBag.Title = SideNotes.Resources.Catalog.ManageCategoryContentTitle + " " + Model.Item1.Name;
 }
 <div id="main">
-<h2>Книги в категории @Model.Item1.Name</h2>
+<h2>@SideNotes.Resources.Catalog.ManageCategoryContentHeading @Model.Item1.Name</h2>
 
 @if (Model.Item1.Books.Count + Model.Item2.Count == 0)
 {
-    <span>Нет ни одной книжки</span>
+<span>@SideNotes.Resources.Catalog.ManageCategoryContentNoBooksMessage</span>
 }
 else
 {
     if (Model.Item1.Books.Count > 0)
     {
-        <h3>Книги в категории</h3>
+<h3>@SideNotes.Resources.Catalog.ManageCategoryContentBooksInCategoryHeading</h3>
         <table>
         @foreach (var book in Model.Item1.Books)
         {
@@ -27,7 +27,7 @@ else
                 <td>
                     <form method="post" action="@Url.Action("DeleteBook")">
                         <input type="hidden" name="Id" value="@book.Id"/>
-                        <input type="submit" value="удалить" />
+                        <input type="submit" value="@SideNotes.Resources.Catalog.ManageCategoryContentDeleteButtonText" />
                     </form>
                 </td>
                  
@@ -37,7 +37,7 @@ else
     }
     if (Model.Item2.Count > 0)
     {
-        <h3>Книги во вложенных категориях</h3>
+        <h3>@SideNotes.Resources.Catalog.ManageCategoryContentBooksInChildCategoriesHeading</h3>
         <table>
         @foreach (var book in Model.Item2)
         {
@@ -51,7 +51,7 @@ else
                 <td>
                     <form method="post" action="@Url.Action("DeleteBook")">
                         <input type="hidden" name="Id" value="@book.Id"/>
-                        <input type="submit" value="удалить" />
+                        <input type="submit" value="@SideNotes.Resources.Catalog.ManageCategoryContentDeleteButtonText" />
                     </form>
                 </td>
                  

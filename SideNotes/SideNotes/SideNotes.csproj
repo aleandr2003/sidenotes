@@ -130,6 +130,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Book.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\BookAdmin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookAdmin.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Catalog.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Catalog.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Home.de.Designer.cs">
       <DependentUpon>Home.de.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -449,6 +459,14 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Book.Designer.cs</LastGenOutput>
       <CustomToolNamespace>SideNotes.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\BookAdmin.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BookAdmin.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Catalog.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Catalog.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Home.de.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

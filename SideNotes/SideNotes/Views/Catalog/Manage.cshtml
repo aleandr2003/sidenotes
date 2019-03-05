@@ -3,7 +3,7 @@
     Layout = null;
 }
 
-<h2>Каталог - управление</h2>
+<h2>@SideNotes.Resources.Catalog.ManageHeading</h2>
 
 @if (Model.RootCategories.Any())
 {
@@ -16,12 +16,12 @@
 }
 
 <form action="@Url.Action("AddCategory", "Catalog")" method="post" class="ajaxForm reloadable addCategoryForm">
-    <h2>Добавить категорию</h2>
-    <label>Родительская</label> @Html.Partial("SelectCategory", Model.Index)
+    <h2>@SideNotes.Resources.Catalog.ManageAddCategoryHeading</h2>
+    <label>@SideNotes.Resources.Catalog.ManageParentCategoryFieldName</label> @Html.Partial("SelectCategory", Model.Index)
     <br/>
-    <label>Название</label> <input type="text" name="name" />
+    <label>@SideNotes.Resources.Catalog.ManageCategoryNameFieldName</label> <input type="text" name="name" />
     <br/>
-    <input type="submit" value="Добавить"/>
+    <input type="submit" value="@SideNotes.Resources.Catalog.ManageAddCategorySubmitButtonText"/>
 </form>
 
 <div class="lightbox" id="editCategoryBox">
@@ -29,15 +29,15 @@
     <form class="ajaxForm errorable reloadable" id="editCategoryBoxForm" method="post"
             action="@Url.Action("EditCategory", "Catalog")">
 		<fieldset>
-			<h2>Редактировать категорию</h2>
-            <label>Родительская</label> @Html.Partial("SelectCategory", Model.Index)
+            <h2>@SideNotes.Resources.Catalog.ManageEditCategoryHeading</h2>
+            <label>@SideNotes.Resources.Catalog.ManageParentCategoryFieldName</label> @Html.Partial("SelectCategory", Model.Index)
             <br/>
             <br/>
-            <label>Название</label> <input type="text" name="name" />
+            <label>@SideNotes.Resources.Catalog.ManageCategoryNameFieldName</label> <input type="text" name="name" />
             <input type="hidden" name="Id"/>
 		</fieldset>
 		<div id="errorMessage" class="errorMessage"></div>
-		<input type="submit" class="submitButton" value="Сохранить"/>
+		<input type="submit" class="submitButton" value="@SideNotes.Resources.Catalog.ManageEditCategorySubmitButtonText"/>
         </form>
 </div>
 
