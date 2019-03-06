@@ -140,6 +140,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Catalog.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Comment.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Comment.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Error.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Error.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Feed.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Feed.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Home.de.Designer.cs">
       <DependentUpon>Home.de.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -467,6 +482,18 @@
     <EmbeddedResource Include="Resources\Catalog.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Catalog.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Comment.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Comment.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Error.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Error.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Feed.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Feed.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Home.de.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

@@ -6,17 +6,17 @@
 
 @*@Html.Action("IndexBuiltIn", "Comment", new { entityId = ViewBag.EntityId, entityType = ViewBag.EntityType })*@
 <div id="AddNewHeadFormContainer">
-<h2>Добавить комментарий</h2>
+<h2>@SideNotes.Resources.Comment.AddHeadHeading</h2>
 
 <form method="post" action="@Url.Action("AddHead", "Comment")" class="addHeadCommentForm ajaxForm redirectable errorable">
 <input type="hidden" name="entityId" value="@ViewBag.EntityId"/>
 <input type="hidden" name="entityType" value="@ViewBag.EntityType"/>
 <textarea class="newCommentTextArea" name="commentText" rows="10"></textarea>
 <br/>
-Добавить скрытым:
+@SideNotes.Resources.Comment.AddHeadHiddenHeading:
 <input type="checkbox" name="isPrivate"/>
 <br/>
-<input type="submit" value="Сохранить" class="submitButton"/>
+<input type="submit" value="@SideNotes.Resources.Comment.AddHeadSaveButtonText" class="submitButton"/>
 <div id="errorMessage" class="errorMessage"></div>
 </form>
 </div>

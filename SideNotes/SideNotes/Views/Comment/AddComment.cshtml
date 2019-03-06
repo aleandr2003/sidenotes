@@ -3,14 +3,14 @@
 }
 
 <div class="AddNewCommentFormContainer">
-<h2>Ответить</h2>
+<h2>@SideNotes.Resources.Comment.AddCommentHeading</h2>
 @* функция initCommentList в Comments.js заменяет класс redirectable на reloadable в этой форме*@
 <form method="post" action="@Url.Action("AddComment", "Comment")" class="AddNewCommentForm ajaxForm redirectable errorable">
 <input type="hidden" name="parentCommentId" value="@ViewBag.ParentCommentId" class="inputParentCommentId"/>
 <input type="hidden" name="headCommentId" value="@ViewBag.HeadCommentId" class="inputHeadCommentId"/>
 <textarea class="newCommentTextArea" name="commentText"></textarea>
 <br/>
-<input type="submit" value="Сохранить" class="submitButton"/>
+<input type="submit" value="@SideNotes.Resources.Comment.AddCommentSaveButtonText" class="submitButton"/>
 <div id="errorMessage" class="errorMessage"></div>
 </form>
 </div>
