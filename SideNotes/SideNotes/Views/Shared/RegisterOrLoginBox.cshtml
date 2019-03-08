@@ -9,8 +9,8 @@
     new { @class = "ajaxForm errorable redirectable", id = "registerOrLoginBoxForm" }))
 {
 		<fieldset>
-			@Html.LabelFor(x => x.Name, "Отображаемое имя")
-			@Html.TextBoxFor(x => x.Name, new { placeholder = "Александр Пушкин", @class = "requiredField" })
+			@Html.LabelFor(x => x.Name, SideNotes.Resources.Shared.RegisterOrLoginBoxNameFieldName)
+			@Html.TextBoxFor(x => x.Name, new { placeholder = SideNotes.Resources.Shared.RegisterOrLoginBoxNamePlaceholder, @class = "requiredField" })
             <br/>
             @Html.ValidationMessageFor(x => x.Name)
 
@@ -19,13 +19,13 @@
             <br/>
             @Html.ValidationMessageFor(x => x.Email)
 
-			@Html.Label("Password", "Пароль")
-			@Html.PasswordFor(x => x.Password, new { placeholder = "придумайте пароль", @class = "requiredField" })
+			@Html.Label("Password", SideNotes.Resources.Shared.RegisterOrLoginBoxPasswordFieldName)
+			@Html.PasswordFor(x => x.Password, new { placeholder = SideNotes.Resources.Shared.RegisterOrLoginBoxPasswordPlaceholder, @class = "requiredField" })
             <br/>
 			@Html.ValidationMessageFor(x => x.Password)
 		</fieldset>
 		<div id="errorMessage" class="errorMessage"></div>
-		@Html.SubmitButton(null, "Зарегистрироваться", new { @class = "submitButton" })
+		@Html.SubmitButton(null, SideNotes.Resources.Shared.RegisterOrLoginBoxRegisterButtonText, new { @class = "submitButton" })
 }
-  <label>или <a href="#" class="showLightBox_link" rel="loginBox">Войти</a></label>
+        <label>@SideNotes.Resources.Shared.RegisterOrLoginBoxOrMessage <a href="#" class="showLightBox_link" rel="loginBox">@SideNotes.Resources.Shared.RegisterOrLoginBoxSignInLinkText</a></label>
   </div>

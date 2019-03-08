@@ -10,16 +10,16 @@
     if (ViewBag.Filter == CommentFilter.Friends) { friendsTabClass = "selectedTab"; }
     if (ViewBag.Filter == CommentFilter.Famous) { famousTabClass = "selectedTab"; }
     Uri baseUrl = ViewBag.BaseUrl;
-    <a href="@baseUrl.SetParameter("filter", ((int)CommentFilter.All).ToString())" 
-        class="@allTabClass commentsFilterLink">Все</a>
+    <a href="@baseUrl.SetParameter("filter", ((int)CommentFilter.All).ToString())"
+       class="@allTabClass commentsFilterLink">@SideNotes.Resources.Shared.CommentFilterAllOption</a>
     if (ViewBag.IsAuthenticated == true)                                                                         
     {
         @:&nbsp|&nbsp
-        <a href="@baseUrl.SetParameter("filter", ((int)CommentFilter.Friends).ToString())" 
-            class="@friendsTabClass commentsFilterLink">Друзья</a>
+    <a href="@baseUrl.SetParameter("filter", ((int)CommentFilter.Friends).ToString())"
+       class="@friendsTabClass commentsFilterLink">@SideNotes.Resources.Shared.CommentFilterFriendsOption</a>
     }
     @:&nbsp|&nbsp
-    <a href="@baseUrl.SetParameter("filter", ((int)CommentFilter.Famous).ToString())" 
-        class="@famousTabClass commentsFilterLink">Звезды</a>
+    <a href="@baseUrl.SetParameter("filter", ((int)CommentFilter.Famous).ToString())"
+       class="@famousTabClass commentsFilterLink">@SideNotes.Resources.Shared.CommentFilterCelebsOption</a>
 }
 </div>

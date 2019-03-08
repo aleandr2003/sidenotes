@@ -1,14 +1,14 @@
 ﻿@{
-    ViewBag.Title = "Логин через Живой журнал";
+    ViewBag.Title = SideNotes.Resources.LivejournalLogin.LogOnTitle;
 }
 <div id="main">
-<h2>Логин через Живой журнал</h2>
+<h2>@SideNotes.Resources.LivejournalLogin.LogOnHeading</h2>
 
 <form method="post" action="@Url.Action("SendRequest", "LivejournalLogin")">
 <input type="hidden" name="callbackUri" value="@ViewBag.CallbackUri" />
-Ваш ник в живом журнале:
+@SideNotes.Resources.LivejournalLogin.LogOnYourNickMessage:
 <input type="text" name="nickname" />
-<input type="submit" value="Войти" />
+<input type="submit" value="@SideNotes.Resources.LivejournalLogin.LogOnSigninButtonText" />
 </form>
 
 </div>

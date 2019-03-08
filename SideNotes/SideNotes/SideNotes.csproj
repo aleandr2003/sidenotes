@@ -170,6 +170,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Home.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\LivejournalLogin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LivejournalLogin.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Login.de.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -288,6 +293,11 @@
     <Compile Include="OAuth\VkontakteTokenManagerFactory.cs" />
     <Compile Include="OAuth\YandexTokenManagerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Shared.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Shared.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\ToAuthors.de.Designer.cs">
       <DependentUpon>ToAuthors.de.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -510,6 +520,10 @@
       <LastGenOutput>Home.Designer.cs</LastGenOutput>
       <CustomToolNamespace>SideNotes.Resources</CustomToolNamespace>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\LivejournalLogin.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LivejournalLogin.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Login.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Login.Designer.cs</LastGenOutput>
@@ -519,6 +533,10 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Login.en.Designer.cs</LastGenOutput>
       <CustomToolNamespace>SideNotes.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Shared.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Shared.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ToAuthors.de.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

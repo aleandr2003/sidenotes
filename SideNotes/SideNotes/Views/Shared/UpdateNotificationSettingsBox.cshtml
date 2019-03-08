@@ -11,11 +11,11 @@
 		<fieldset>
 			<div class="clear">
             @Html.CheckBoxFor(x => x.NotifyAuthorCommentReplied)
-		    @Html.LabelFor(x => x.NotifyAuthorCommentReplied, "Когда отвечают на мой комментарий")
+		    @Html.LabelFor(x => x.NotifyAuthorCommentReplied, SideNotes.Resources.Shared.UpdateNotificationSettingsBoxNotifyReplyFieldName)
 		    </div>
 		</fieldset>
 		<div id="errorMessage" class="errorMessage"></div>
-		@Html.SubmitButton(null, "Отправить", new { @class = "submitButton" })
+		@Html.SubmitButton(null, SideNotes.Resources.Shared.UpdateNotificationSettingsBoxSaveButtonText, new { @class = "submitButton" })
   }
 
 </div>

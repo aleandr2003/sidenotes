@@ -6,13 +6,13 @@
     <a href="#" class="lightbox_close">x</a>
     <div class="bookBlock"></div>
     <div class="shareBlockLine">
-        <div class="shareBlockLabel">Поделиться цитатой: </div>
+        <div class="shareBlockLabel">@SideNotes.Resources.Shared.AddHeadCommentBoxShareMessage: </div>
         <div class="shareBlock">
             <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
         </div>
         <div style="clear:both;"></div>
     </div>
-    <h2>Добавить комментарий</h2>
+    <h2>@SideNotes.Resources.Shared.AddHeadCommentBoxHeading</h2>
     <form action="@Url.Action("AddHead", "Comment")" method="post"
         class="ajaxForm reloadable errorable" id="addHeadCommentBoxForm">
         <input type="hidden" name="entityId" class="inputEntityId"/>
@@ -21,10 +21,10 @@
         <br/>
         <div class="commentBoxBottomLine" id="commentBoxSubmitLine">
             <input type="checkbox" name="isPrivate"/>
-            <label for="isPrivate" class="checkboxLabel">Оставить приватным</label>
-            <input type="submit" class="submitButton" value="Сказать!" />
+            <label for="isPrivate" class="checkboxLabel">@SideNotes.Resources.Shared.AddHeadCommentBoxAsPrivateFieldName</label>
+            <input type="submit" class="submitButton" value="@SideNotes.Resources.Shared.AddHeadCommentBoxProfileFieldNameSayButtonText" />
             <div id="SNLoginBox" style="display:none;">
-                <label>Укажите свой профиль:</label>
+                <label>@SideNotes.Resources.Shared.AddHeadCommentBoxProfileFieldName:</label>
                 <div class="SNLoginForm">
                     <input type="image" src="@Url.Content("~/Content/img/logo/vkontakte-16.png")" action="@Url.Action("PostComment", "VkontakteLogin", null)" alt="Vkontakte" class = "socialNetworkLogo"/>
                 </div>

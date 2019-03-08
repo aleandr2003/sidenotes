@@ -2,32 +2,32 @@
     Layout = null;
 }
 <div class="commentBlockTemplate" style="display:none;">
-	<div class="comment_container">
+    <div class="comment_container">
         <div class="deleteButton_container">
             <form method="post" action="@Url.Action("DeleteHead", "Comment")"
-                class="ajaxForm removeCommentForm commentAction" style="display:none">
-                <input type="hidden" name="Id"/>
-                <input type="submit" value="x" class="delete"/>
+                  class="ajaxForm removeCommentForm commentAction" style="display:none">
+                <input type="hidden" name="Id" />
+                <input type="submit" value="x" class="delete" />
             </form>
             <div style="height:1px;width:2em;">&nbsp;</div>
         </div>
         <div class="commentDateCreated"></div>
-		<div class="userblock">
+        <div class="userblock">
             <a href="#" class="userblock_avatar_link">
                 <img class="userblock_avatar" />
             </a>
             <a href="#" class="userblock_name"></a>
         </div>
         <div class="commentText"></div>
-	</div>
-       
-    @*<a href="javascript:void(0)" class="reply showLightBox_link replyLink" 
-        rel="@(/*ViewBag.IsAuthenticated ==*/ true ? "addHeadCommentBox" : "registerOrLoginBox")">ответить</a>*@
-    @**@
-	@*<a href="#" class="threadLink">Прочитать всю ветку(<span class="repliesCounter_counter"></span>)</a>
-    <span>&nbsp;</span>*@
+    </div>
 
-    
+    @*<a href="javascript:void(0)" class="reply showLightBox_link replyLink"
+        rel="@(/*ViewBag.IsAuthenticated ==*/ true ? "addHeadCommentBox" : "registerOrLoginBox")">@SideNotes.Resources.Shared.CommentsListTemplatesReplyLinkText</a>*@
+    @**@
+    @*<a href="#" class="threadLink">@SideNotes.Resources.Shared.CommentsListTemplatesReadBranchLinkText(<span class="repliesCounter_counter"></span>)</a>
+        <span>&nbsp;</span>*@
+
+
 </div>
 
 <form action="@Url.Action("AddHead", "Comment")" method="post" class="ajaxForm reloadable errorable addHeadCommentFormTemplate" style="display:none">
@@ -37,9 +37,9 @@
         <br/>
         <div class="commentBoxBottomLine" id="commentBoxSubmitLine">
             <input type="hidden" name="isPrivate"/>
-            <input type="submit" class="submitButton" value="Сказать!" />
+            <input type="submit" class="submitButton" value="@SideNotes.Resources.Shared.CommentsListTemplatesSayButtonText" />
             <div class="SNLoginBox" style="display:none;">
-                <label>Укажите свой профиль:</label>
+                <label>@SideNotes.Resources.Shared.CommentsListTemplatesProfileFieldName:</label>
                 <div class="SNLoginForm">
                     <input type="image" src="@Url.Content("~/Content/img/logo/vkontakte-16.png")" action="@Url.Action("PostComment", "VkontakteLogin", null)" alt="Vkontakte" class = "socialNetworkLogo"/>
                 </div>
@@ -58,14 +58,14 @@
 <div class="lightbox" id="replyBox">
     <a href="#" class="lightbox_close">x</a>
     <div class="AddNewCommentFormContainer">
-        <h2>Ответить</h2>
+        <h2>@SideNotes.Resources.Shared.CommentsListTemplatesReplyHeading</h2>
         <form method="post" action="@Url.Action("AddComment", "Comment")" 
             class="AddNewCommentForm ajaxForm errorable" id="replyForm">
             <input type="hidden" name="headCommentId" value="" class="inputHeadCommentId"/>
             <input type="hidden" name="entityId" value="" class="inputEntityId"/>
             <textarea class="newCommentTextArea" name="commentText"></textarea>
             <br/>
-            <input type="submit" value="Сохранить" class="submitButton"/>
+            <input type="submit" value="@SideNotes.Resources.Shared.CommentsListTemplatesSaveButtonText" class="submitButton"/>
             <div id="errorMessage" class="errorMessage"></div>
         </form>
     </div>

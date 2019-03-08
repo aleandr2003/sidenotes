@@ -13,12 +13,12 @@
             <br />
             @Html.ValidationMessageFor(x => x.Email)
 
-			@Html.LabelFor(x => x.Password, "Пароль")
-			@Html.PasswordFor(x => x.Password, new { placeholder = "введите пароль", @class = "requiredField" })
+			@Html.LabelFor(x => x.Password, SideNotes.Resources.Shared.LoginBoxPasswordFieldName)
+			@Html.PasswordFor(x => x.Password, new { placeholder = SideNotes.Resources.Shared.LoginBoxEnterPasswordPlaceholder, @class = "requiredField" })
             <br />
 			@Html.ValidationMessageFor(x => x.Password)
 		</fieldset>
 		<div id="errorMessage" class="errorMessage"></div>
-		@Html.SubmitButton(null, "Войти", new { @class = "submitButton" })
+		@Html.SubmitButton(null, SideNotes.Resources.Shared.LoginBoxSigninButtonText, new { @class = "submitButton" })
   }
 </div>

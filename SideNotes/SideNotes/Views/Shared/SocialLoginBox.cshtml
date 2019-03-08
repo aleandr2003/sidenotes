@@ -3,7 +3,7 @@
     Layout = null;
 }
 <div class="lightbox" id="socialLoginBox" style="text-align:center">
-    <h2>Пожалуйста, укажите свой профиль в социальной сети</h2>
+    <h2>@SideNotes.Resources.Shared.SocialLoginBoxHeading</h2>
     <div class="loginBoxFloatDummy">&nbsp;</div>
     <div class="SNLoginFormBig">
         <form action="@Url.Action("SendRequest", "FacebookLogin", new { callbackUri = Request.Url.AbsoluteUri })" 
@@ -27,7 +27,7 @@
         </form>
     </div>
     <div style="clear:both;height:1px;">&nbsp;</div>
-    <h2 id="OrLoginCaption">или <a href="javascript:void()" id="OrLoginLink">Войдите</a></h2>
+    <h2 id="OrLoginCaption">@SideNotes.Resources.Shared.SocialLoginBoxOrMessage <a href="javascript:void()" id="OrLoginLink">@SideNotes.Resources.Shared.SocialLoginBoxSignInLinkText</a></h2>
     <div id="orLoginFormContainer">
     @using (Html.BeginForm<LoginController>(x => x.LogIn(null, Request.Url.AbsoluteUri, null), FormMethod.Post,
     new { @class = "ajaxForm errorable redirectable", id = "orLoginBoxForm" }))
@@ -38,12 +38,12 @@
             @Html.ValidationMessageFor(x => x.Email)
 
 			<br />
-			@Html.LabelFor(x => x.Password, "Пароль")
-			@Html.PasswordFor(x => x.Password, new { placeholder = "введите пароль", @class = "requiredField" })
+			@Html.LabelFor(x => x.Password, SideNotes.Resources.Shared.SocialLoginBoxPasswordFieldName)
+			@Html.PasswordFor(x => x.Password, new { placeholder = SideNotes.Resources.Shared.SocialLoginBoxPasswordPlaceholder, @class = "requiredField" })
 			@Html.ValidationMessageFor(x => x.Password)
 		</fieldset>
 		<div id="errorMessage" class="errorMessage"></div>
-		@Html.SubmitButton(null, "Отправить", new { @class = "submitButton" })
+		@Html.SubmitButton(null, SideNotes.Resources.Shared.SocialLoginBoxSaveButtonText, new { @class = "submitButton" })
   }
   </div>
 </div>

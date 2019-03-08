@@ -1,20 +1,20 @@
 ﻿@model NotificationSettingsModel
 @{
-    ViewBag.Title = "Настройка уведомлений";
+    ViewBag.Title = SideNotes.Resources.Shared.UpdateNotificationSettingsViewTitle;
 }
 <div id="main">
 <div>@UserAvatar.Large(ViewBag.CurrentUser, "user_avatar")</div>
 
-<h2>Настройка уведомлений</h2>
+<h2>@SideNotes.Resources.Shared.UpdateNotificationSettingsViewHeading</h2>
 
 @using (Html.BeginForm<UserController>(x => x.UpdateNotificationSettings(null, null), FormMethod.Post))
   {
 	<fieldset>
         <div class="clear">
         @Html.CheckBoxFor(x => x.NotifyAuthorCommentReplied)
-		@Html.LabelFor(x => x.NotifyAuthorCommentReplied, "Когда отвечают на мой комментарий")
+		@Html.LabelFor(x => x.NotifyAuthorCommentReplied, SideNotes.Resources.Shared.UpdateNotificationSettingsViewNotifyReplyFieldName)
 		</div>
 	</fieldset>
-	@Html.SubmitButton(null, "Сохранить", new { @class = "submitButton" })
+	@Html.SubmitButton(null, SideNotes.Resources.Shared.UpdateNotificationSettingsViewSaveButtonText, new { @class = "submitButton" })
   }		
   </div>

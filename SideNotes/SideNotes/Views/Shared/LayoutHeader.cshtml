@@ -33,9 +33,9 @@
         </div>*@
         @*<div style="clear:both; height:1px;"></div>*@
         @*<div style="width:200px; height:1px;"></div>*@
-        @Html.ActionLink("войти", "Index", "Login", new { returnUrl = Request.Url.AbsoluteUri },
+        @Html.ActionLink(SideNotes.Resources.Shared.LayoutHeaderSigninLinkText, "Index", "Login", new { returnUrl = Request.Url.AbsoluteUri },
              new { id = "LoginLink", @class = "showLightBox_link loginblock_loginlink", rel = "loginBox" })
-        @Html.ActionLink("регистрация", "Register", "User", null,
+        @Html.ActionLink(SideNotes.Resources.Shared.LayoutHeaderRegisterLinkText, "Register", "User", null,
              new { id = "RegisterLink", @class = "showLightBox_link loginblock_registerlink", rel = "registerBox" })
     </div>
 }
@@ -44,7 +44,7 @@ else
     <div id="header_userinfo" class="userblock">
         <div class="LogOutForm">
             <form action="@Url.Action("LogOut", "Login", null)" method="post">
-                <input type="image" src="@Url.Content("~/Content/img/exit.gif")" alt="выйти"/>
+                <input type="image" src="@Url.Content("~/Content/img/exit.gif")" alt="@SideNotes.Resources.Shared.LayoutHeaderSignOutLinkText"/>
             </form>
         </div>
 	    @*<a herf="#" class="userblock_newsCount">3</a>*@
@@ -56,30 +56,30 @@ else
     </div>
 }
 
-<ul id="siteNavigator">
-    <li class="siteNavigator_item @(ViewBag.SelectedTab == HeaderTabs.Home ? "siteNavigator_item_current" : "")">
-        @Html.ActionLink("Главная", "Index", "Home", null, new { @class = "siteNavigator_item_link" })
-    </li>
-    <li class="siteNavigator_item @(ViewBag.SelectedTab == HeaderTabs.Catalog ? "siteNavigator_item_current" : "")">
-        @Html.ActionLink("Книжки", "Index", "Catalog", null, new { @class = "siteNavigator_item_link" })
-    </li>
-    <li class="siteNavigator_item @(ViewBag.SelectedTab == HeaderTabs.Users ? "siteNavigator_item_current" : "")">
-        @Html.ActionLink("Читатели", "Index", "User", null, new { @class = "siteNavigator_item_link" })
-    </li>
-    <li class="siteNavigator_item @(ViewBag.SelectedTab == HeaderTabs.Authors ? "siteNavigator_item_current" : "")">
-        @Html.ActionLink("Авторам", "ForAuthors", "Home", null, new { @class = "siteNavigator_item_link" })
-    </li>
-    @if (Model != null)
-    {
-        @*<li class="siteNavigator_item">@Html.ActionLink("Уведомления", "UpdateNotificationSettings", "User", null, new { id = "NotificationSettingsLink", @class = "showLightBox_link siteNavigator_item_link", rel = "notificationSettingsBox" })</li>*@
-        if (Model.IsAdmin)
+    <ul id="siteNavigator">
+        <li class="siteNavigator_item @(ViewBag.SelectedTab == HeaderTabs.Home ? "siteNavigator_item_current" : "")">
+            @Html.ActionLink(SideNotes.Resources.Shared.LayoutHeaderHomeLinkText, "Index", "Home", null, new { @class = "siteNavigator_item_link" })
+        </li>
+        <li class="siteNavigator_item @(ViewBag.SelectedTab == HeaderTabs.Catalog ? "siteNavigator_item_current" : "")">
+            @Html.ActionLink(SideNotes.Resources.Shared.LayoutHeaderBooksLinkText, "Index", "Catalog", null, new { @class = "siteNavigator_item_link" })
+        </li>
+        <li class="siteNavigator_item @(ViewBag.SelectedTab == HeaderTabs.Users ? "siteNavigator_item_current" : "")">
+            @Html.ActionLink(SideNotes.Resources.Shared.LayoutHeaderReadersLinkText, "Index", "User", null, new { @class = "siteNavigator_item_link" })
+        </li>
+        <li class="siteNavigator_item @(ViewBag.SelectedTab == HeaderTabs.Authors ? "siteNavigator_item_current" : "")">
+            @Html.ActionLink(SideNotes.Resources.Shared.LayoutHeaderToAuthorsLinkText, "ForAuthors", "Home", null, new { @class = "siteNavigator_item_link" })
+        </li>
+        @if (Model != null)
         {
-            <li class="siteNavigator_item @(ViewBag.SelectedTab == HeaderTabs.Admin ? "siteNavigator_item_current" : "")">
-                @Html.ActionLink("Управление", "Index", "BookAdmin", null, new { @class = "siteNavigator_item_link" })
-            </li>
+            @*<li class="siteNavigator_item">@Html.ActionLink(SideNotes.Resources.Shared.LayoutHeaderNotificationsLinkText, "UpdateNotificationSettings", "User", null, new { id = "NotificationSettingsLink", @class = "showLightBox_link siteNavigator_item_link", rel = "notificationSettingsBox" })</li>*@
+            if (Model.IsAdmin)
+            {
+                <li class="siteNavigator_item @(ViewBag.SelectedTab == HeaderTabs.Admin ? "siteNavigator_item_current" : "")">
+                    @Html.ActionLink(SideNotes.Resources.Shared.LayoutHeaderAdminLinkText, "Index", "BookAdmin", null, new { @class = "siteNavigator_item_link" })
+                </li>
+            }
         }
-    }
-</ul>
+    </ul>
 @if (Model != null)
 {
     @Html.Partial("UpdateNotificationSettingsBox", new NotificationSettingsModel(Model), new ViewDataDictionary())

@@ -1,14 +1,14 @@
 ﻿@{
-    ViewBag.Title = "Подтверждение аккаунта в Живом журнале";
+    ViewBag.Title = SideNotes.Resources.LivejournalLogin.GetNicknameTitle;
 }
 <div id="main">
-<h2>Подтверждение аккаунта в Живом журнале</h2>
+<h2>@SideNotes.Resources.LivejournalLogin.GetNicknameHeading</h2>
 
 <form method="post" action="@Url.Action("ProveAccount", "LivejournalLogin")">
 <input type="hidden" name="callbackUri" value="@ViewBag.CallbackUri" />
-Ваш ник в живом журнале:
+@SideNotes.Resources.LivejournalLogin.GetNicknameYourNickMessage:
 <input type="text" name="nickname" />
-<input type="submit" value="Войти" />
+<input type="submit" value="@SideNotes.Resources.LivejournalLogin.GetNicknameSigninButtonText" />
 </form>
 
 </div>
