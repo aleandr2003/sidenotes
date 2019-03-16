@@ -9,7 +9,7 @@
     @Html.Partial("AddCommentBox", null, new ViewDataDictionary())
 }*@
 <div id="MoreRecentCommentsButton" class="navigationButtonSmall" 
-    href="@Url.Action("CommentsPage", "User", new { Id = ViewBag.UserId })" page="1" >Ещё</div>
+    href="@Url.Action("CommentsPage", "User", new { Id = ViewBag.UserId })" page="1" >@SideNotes.Resources.User.RecentCommentsMoreMessage</div>
 <script type="text/javascript">
     $(function () {
         initReplyLinksWithBox($('.reply'));

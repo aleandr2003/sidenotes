@@ -1,10 +1,10 @@
 ﻿@model List<User>
 @{
-    ViewBag.Title = "Соединить пользователей";
+    ViewBag.Title = SideNotes.Resources.UserAdmin.MergeUsersTitle;
 }
 
 <div id="main">
-<h2>Соединить пользователей</h2>
+<h2>@SideNotes.Resources.UserAdmin.MergeUsersHeading</h2>
 
 <form action="@Url.Action("MergeUsers", "UserAdmin")" method="post">
     <table>
@@ -27,7 +27,7 @@
         </td>
     </tr>
     </table>
-    <input type="submit" value="Соединить" />
+    <input type="submit" value="@SideNotes.Resources.UserAdmin.MergeUsersSubmitButtonText" />
 </form>
 </div>
 

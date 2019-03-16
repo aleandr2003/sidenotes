@@ -1,9 +1,9 @@
 ﻿@model List<User>
 @{
-    ViewBag.Title = "Читатели";
+    ViewBag.Title = SideNotes.Resources.User.IndexTitle;
 }
 <div id="main">
-<h2>Читатели</h2>
+    <h2>@SideNotes.Resources.User.IndexHeading</h2>
 
 @Html.Partial("Pager")
 <ul class="userList">
@@ -21,14 +21,14 @@
             {
                 <form method="post" action="@Url.Action("RemoveFriend", "User")" class="ajaxForm reloadable">
                     <input type="hidden" name="UserId" value="@user.Id" />
-                    <input type="submit" value="отписаться" class="followButton follow_off"/>
+                    <input type="submit" value="@SideNotes.Resources.User.IndexUnsubscribeButtonText" class="followButton follow_off"/>
                 </form>
             }
             else
             {
                 <form method="post" action="@Url.Action("MakeFriend", "User")" class="ajaxForm reloadable">
                     <input type="hidden" name="UserId" value="@user.Id" />
-                    <input type="submit" value="подписаться" class="followButton follow_on"/>
+                    <input type="submit" value="@SideNotes.Resources.User.IndexSubscribeButtonText" class="followButton follow_on"/>
                 </form>
             }
         }

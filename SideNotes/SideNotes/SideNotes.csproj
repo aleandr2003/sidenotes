@@ -313,6 +313,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ToAuthors.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\User.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>User.resx</DependentUpon>
+    </Compile>
     <Compile Include="Services\Abstract\IBookBuilder.cs" />
     <Compile Include="Services\Abstract\IEBookParser.cs" />
     <Compile Include="Services\Abstract\IImageKeeper.cs" />
@@ -552,6 +557,10 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ToAuthors.Designer.cs</LastGenOutput>
       <CustomToolNamespace>SideNotes.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\User.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>User.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

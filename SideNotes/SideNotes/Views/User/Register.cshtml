@@ -1,28 +1,28 @@
 ﻿@model RegisterModel
 @{
-    ViewBag.Title = "Регистрация";
+    ViewBag.Title = SideNotes.Resources.User.RegisterTitle;
 }
 <div id="main">
-<h2>Регистрация</h2>
+    <h2>@SideNotes.Resources.User.RegisterHeading</h2>
 
 @using (Html.BeginForm<UserController>(x => x.Register(null, Request.Url.AbsoluteUri, null), FormMethod.Post))
   {
 		<fieldset>
-			@Html.LabelFor(x => x.Name, "Отображаемое имя")
-			@Html.TextBoxFor(x => x.Name, new { placeholder = "Александр Пушкин" })
+			@Html.LabelFor(x => x.Name, SideNotes.Resources.User.RegisterNameFieldName)
+			@Html.TextBoxFor(x => x.Name, new { placeholder = SideNotes.Resources.User.RegisterNamePlaceholder })
             @Html.ValidationMessageFor(x => x.Name)
 
 			<br />
 			@Html.LabelFor(x => x.Email, "E-mail")
-			@Html.TextBoxFor(x => x.Email, new { placeholder = "alepush@gmail.com" })
+			@Html.TextBoxFor(x => x.Email, new { placeholder = SideNotes.Resources.User.RegisterEmailPlaceholder })
             @Html.ValidationMessageFor(x => x.Email)
 
 			<br />
-			@Html.Label("Password", "Пароль")
-			@Html.PasswordFor(x => x.Password, new { placeholder = "придумайте пароль" })
+			@Html.Label("Password", SideNotes.Resources.User.RegisterPasswordFieldName)
+			@Html.PasswordFor(x => x.Password, new { placeholder = SideNotes.Resources.User.RegisterPasswordPlaceholder })
 			@Html.ValidationMessageFor(x => x.Password)
 		</fieldset>
 		<div id="errorMessage" class="errorMessage"></div>
-		@Html.SubmitButton(null, "Отправить")
+		@Html.SubmitButton(null, SideNotes.Resources.User.RegisterSubmitButtonText)
   }
   </div>

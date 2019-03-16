@@ -29,7 +29,7 @@
     if (count > 1)
     {
 <div class="commentCounter">еще <a href="@Url.Action("CommentsByUser", "Book", new { BookId = Model.Item3.Id, UserId = Model.Item1.Author_Id })" 
-    class="commentCounter_counter">@(count - 1)</a> к этой книге
+    class="commentCounter_counter">@(count - 1)</a> @SideNotes.Resources.User.BestCommentCountMessage
 </div>
     }
 }

@@ -5,14 +5,14 @@
 @foreach (var item in Model)
 {
 	<li class="commentList_item">
-		<div class="book">
-			<span class="book_date">@item.comment.DateCreated.ToString("d MMMM")</span>
-			<h3 class="book_author_list">@item.book.Author</h3>
-			<a href="@Url.Action("Annotation", "Book", new { Id = item.book.Id})" class="book_cover_link">
-				@BookAvatar.Small(item.book, "book_cover")
-			</a>
-			<h3 class="book_name">@item.book.Title</h3>
-			<div class="comment">
+        <div class="book">
+            <span class="book_date">@item.comment.DateCreated.ToString("d MMMM")</span>
+            <h3 class="book_author_list">@item.book.Author</h3>
+            <a href="@Url.Action("Annotation", "Book", new { Id = item.book.Id})" class="book_cover_link">
+                @BookAvatar.Small(item.book, "book_cover")
+            </a>
+            <h3 class="book_name">@item.book.Title</h3>
+            <div class="comment">
                 <div class="prop" style="height:4em"></div>
                 <a href="@Url.Action("View", "Book", new {Id = item.book.Id, skip = item.paragraph.OrderNumber - 1 })">@item.comment.Text</a>
                 <div class="clearBoth"></div>
@@ -20,29 +20,29 @@
             <div class="freshCommentsItem_Controls_layout">
                 @if (item.commentCount > 1)
                 {
-			        <div class="commentCounter_container">Еще <a href="@Url.Action("CommentsByUser", "Book", new { BookId = item.book.Id, UserId = ViewBag.UserId })">@(item.commentCount - 1) @InclineService.Comment(@item.commentCount - 1)</a> этого пользователя</div>
+                    <div class="commentCounter_container">@SideNotes.Resources.User.CommentsPageMoreFromThisUserMessage <a href="@Url.Action("CommentsByUser", "Book", new { BookId = item.book.Id, UserId = ViewBag.UserId })">@(item.commentCount - 1) @InclineService.Comment(@item.commentCount - 1)</a></div>
                 }
                 <div class="toTextButton">
-                    <a href="@Url.Action("View", "Book", new { Id = item.book.Id, skip = item.paragraph.OrderNumber - 1 })" class="toTextButtonLink">Читать книгу с этого места</a>
+                    <a href="@Url.Action("View", "Book", new { Id = item.book.Id, skip = item.paragraph.OrderNumber - 1 })" class="toTextButtonLink">@SideNotes.Resources.User.CommentsPageReadFromHereLinkText</a>
                 </div>
             </div>
-           @* @if (ViewBag.IsAuthenticated == true)
+            @* @if (ViewBag.IsAuthenticated == true)
+        {
+            if (!item.comment.IsPrivate)
             {
-                if (!item.comment.IsPrivate)
+                <a href="@Url.Action("CommentsThread", "Book", new { headCommentId = item.comment.Id })"
+                    class="reply showLightBox_link" headCommentId="@item.comment.Id" rel="addCommentBox">@SideNotes.Resources.User.CommentsPageReplyLinkText</a>
+                int childrenCount = @item.comment.GetChildCommentsCount();
+                if (childrenCount > 0)
                 {
-                    <a href="@Url.Action("CommentsThread", "Book", new { headCommentId = item.comment.Id })" 
-                        class="reply showLightBox_link" headCommentId="@item.comment.Id" rel="addCommentBox">ответить</a>
-                    int childrenCount = @item.comment.GetChildCommentsCount();
-                    if (childrenCount > 0)
-                    {
-                    <a href="@Url.Action("CommentsThread", "Book", new { headCommentId = item.comment.Id })" class="threadLink">Прочитать всю ветку (@childrenCount)</a>
-                    }
+                <a href="@Url.Action("CommentsThread", "Book", new { headCommentId = item.comment.Id })" class="threadLink">@SideNotes.Resources.User.CommentsPageReadBranchLinkText (@childrenCount)</a>
                 }
-                else
-                {
-                    <span>(скрытый)</span>
-                }
-            }*@
-		</div>
+            }
+            else
+            {
+                <span>@SideNotes.Resources.User.CommentsPageHiddenMessage</span>
+            }
+        }*@
+        </div>
 	</li>
 }

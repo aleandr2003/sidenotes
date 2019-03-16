@@ -12,10 +12,6 @@ namespace SideNotes.Models
     public enum BuiltInCommentEnum
     {
         Plus1,
-        Plus100500,
-        RjuNimagu,
-        AfftarZjot,
-        VipeyYadu,
-        Tru
+        Plus100500
     }
 }

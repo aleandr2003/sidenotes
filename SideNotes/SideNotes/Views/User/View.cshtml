@@ -1,6 +1,6 @@
 ﻿@model User
 @{
-    ViewBag.Title = "Читатель";
+    ViewBag.Title = SideNotes.Resources.User.ViewTitle;
 }
 <div id="main" class="profile @if (ViewBag.EditMode == true){@("profile_edit")}">
 <div id="leftCol">
@@ -10,14 +10,14 @@
         {
             <form method="post" action="@Url.Action("RemoveFriend", "User")">
                 <input type="hidden" name="UserId" value="@Model.Id" />
-                <input type="submit" value="отписаться" class="followButton follow_off"/>
+                <input type="submit" value="@SideNotes.Resources.User.ViewUnsubscribeButtonText" class="followButton follow_off"/>
             </form>
         }
         else
         {
             <form method="post" action="@Url.Action("MakeFriend", "User")">
                 <input type="hidden" name="UserId" value="@Model.Id" />
-                <input type="submit" value="подписаться" class="followButton follow_on"/>
+                <input type="submit" value="@SideNotes.Resources.User.ViewSubscribeButtonText" class="followButton follow_on"/>
             </form>
         }
     }
@@ -25,17 +25,17 @@
         @UserAvatar.Large(Model, "profile_avatar")
         @if (ViewBag.EditMode == true)
         {
-        <a href="@Url.Action("SetAvatar", "User")" rel="setAvatarBox" id="setAvatarLink" 
-            class="showLightBox_link settingsList_item_link edit">Ред.</a>
+        <a href="@Url.Action("SetAvatar", "User")" rel="setAvatarBox" id="setAvatarLink"
+           class="showLightBox_link settingsList_item_link edit">@SideNotes.Resources.User.ViewEditLinkText</a>
         }
  	</div>
 	<div id="contactList_container">
 		<h3 id="contactList_header">
-            <span for="contactList" class="@if(ViewBag.EditMode == true){@("editLabel")}">Контакты</span>
+            <span for="contactList" class="@if(ViewBag.EditMode == true){@("editLabel")}">@SideNotes.Resources.User.ViewContactsMessage</span>
             @if (ViewBag.EditMode == true)
             {
-            <span href="@Url.Action("EditProfile", "User")" rel="editProfileBox" id="EditProfileLink" 
-                class="showLightBox_link edit">Ред.</span>
+            <span href="@Url.Action("EditProfile", "User")" rel="editProfileBox" id="EditProfileLink"
+                  class="showLightBox_link edit">@SideNotes.Resources.User.ViewEditLinkText</span>
             }
             
         </h3>
@@ -49,7 +49,7 @@
             @if (ViewBag.EditMode == true && Model.Login != Model.Email && Model.AccountSource == (int)AccountSource.SideNotes)
             {
 			<li class="contactList_item">
-				<a href="#" class="contactList_item_link">Логин: @Model.Login</a>
+                <a href="#" class="contactList_item_link">@SideNotes.Resources.User.ViewSigninLinkText: @Model.Login</a>
 			</li>
             }
             @if (Model.FacebookProfileUrl != null)
@@ -61,7 +61,7 @@
             else if (ViewBag.IsMyProfile == true && ViewBag.IsAuthenticated == true)
             {
             <li class="contactList_item contactList_item_facebook">
-				@Html.ActionLink("Добавить профиль", "ProveAccount", "FacebookLogin",
+				@Html.ActionLink(SideNotes.Resources.User.ViewAddProfileLinkText, "ProveAccount", "FacebookLogin",
                                     new { callbackUri = Url.ActionAbsolute("View", "User", new { Id = Model.Id }) }, new { @class = "contactList_item_link" })
 			</li>
             }
@@ -74,7 +74,7 @@
             else if (ViewBag.IsMyProfile == true && ViewBag.IsAuthenticated == true)
             {
             <li class="contactList_item contactList_item_twitter">
-				@Html.ActionLink("Добавить профиль", "ProveAccount", "TwitterLogin",
+				@Html.ActionLink(SideNotes.Resources.User.ViewAddProfileLinkText, "ProveAccount", "TwitterLogin",
                                     new { callbackUri = Url.ActionAbsolute("View", "User", new { Id = Model.Id }) }, new { @class = "contactList_item_link" })
 			</li>
             }
@@ -87,7 +87,7 @@
             else if (ViewBag.IsMyProfile == true && ViewBag.IsAuthenticated == true)
             {
             <li class="contactList_item contactList_item_vkontakte">
-				@Html.ActionLink("Добавить профиль", "ProveAccount", "VkontakteLogin",
+				@Html.ActionLink(SideNotes.Resources.User.ViewAddProfileLinkText, "ProveAccount", "VkontakteLogin",
                                     new { callbackUri = Url.ActionAbsolute("View", "User", new { Id = Model.Id }) }, new { @class = "contactList_item_link" })
 			</li>
             }
@@ -100,7 +100,7 @@
             else if (ViewBag.IsMyProfile == true && ViewBag.IsAuthenticated == true)
             {
             <li class="contactList_item contactList_item_yandex">
-				@Html.ActionLink("Добавить профиль", "ProveAccount", "YandexLogin",
+				@Html.ActionLink(SideNotes.Resources.User.ViewAddProfileLinkText, "ProveAccount", "YandexLogin",
                                     new { callbackUri = Url.ActionAbsolute("View", "User", new { Id = Model.Id }) }, new { @class = "contactList_item_link" })
 			</li>
             }
@@ -113,7 +113,7 @@
             else if (ViewBag.IsMyProfile == true && ViewBag.IsAuthenticated == true)
             {
             <li class="contactList_item contactList_item_lj">
-				@Html.ActionLink("Добавить профиль", "ProveAccount", "LivejournalLogin",
+				@Html.ActionLink(SideNotes.Resources.User.ViewAddProfileLinkText, "ProveAccount", "LivejournalLogin",
                                     new { callbackUri = Url.ActionAbsolute("View", "User", new { Id = Model.Id }) }, new { @class = "contactList_item_link" })
 			</li>
             }
@@ -122,14 +122,14 @@
 @if (ViewBag.EditMode == true)
 {
     <div id="settingsList_container">
-		<h3 id="settingsList_header"><label for="settingsList" class="editLabel">Настройки</label></h3>
+		<h3 id="settingsList_header"><label for="settingsList" class="editLabel">@SideNotes.Resources.User.ViewSettingsMessage</label></h3>
 		<ul id="settingsList">
 			<li class="settingsList_item">
-				@Html.ActionLink("Изменить пароль", "ChangePassword", "User", null,
+				@Html.ActionLink(SideNotes.Resources.User.ViewChangePasswordLinkText, "ChangePassword", "User", null,
                     new { id = "ChangePasswordLink", @class = "showLightBox_link settingsList_item_link", rel = "changePasswordBox" })
 			</li>
             <li class="settingsList_item">
-				@Html.ActionLink("Уведомления", "UpdateNotificationSettings", "User", null,
+				@Html.ActionLink(SideNotes.Resources.User.ViewNotificationsLinkText, "UpdateNotificationSettings", "User", null,
                     new { id = "NotificationSettingsLink_Profile", @class = "showLightBox_link settingsList_item_link", rel = "notificationSettingsBox" })
 			</li>
 		</ul>
@@ -142,19 +142,19 @@
         {
             <span class="editButton">
                 <a href="@Url.Action("EditProfile", "User")" rel="editProfileBox" id="EditNameLink" 
-                    class="showLightBox_link edit">Ред.</a>
+                    class="showLightBox_link edit">@SideNotes.Resources.User.ViewEditLinkText</a>
             </span>
         }
         @Model.Name</h1>
         <div class="RecentCommentsContainer">
-            <h2><label for="freshCommentsList">Cвежие комментарии к прочитанному</label></h2>
+            <h2><label for="freshCommentsList">@SideNotes.Resources.User.ViewRecentCommentsHeading</label></h2>
             @Html.Action("RecentComments", "User", new { Id = Model.Id })
         </div>
     @{
         var booksReadCount = Model.CountBooksRead();
         if (booksReadCount > 0){
         <div class="nowReadList_container">
-            <h2>Сейчас читает</h2>
+            <h2>@SideNotes.Resources.User.ViewReadsNowHeading</h2>
             @Html.Action("RecentReadBooks", "User", new { Id = Model.Id })
         </div>
         }
@@ -165,14 +165,14 @@
     @if (Model.HasComments())
     {
     <div class="bestComment_container">
-        <h2>Лучший комментарий</h2>
+        <h2>@SideNotes.Resources.User.ViewBestCommentHeading</h2>
         @Html.Action("BestComment", "User", new { Id = Model.Id })
     </div>
     }
     @if (Model.Friends.Count > 0)
     {
         <div id="interlocutorList_container">
-            <h2>Cобеседники <a href="@Url.Action("Index", "User")" class="adduser">Добавить</a></h2>
+            <h2>@SideNotes.Resources.User.ViewAddUserHeading <a href="@Url.Action("Index", "User")" class="adduser">@SideNotes.Resources.User.ViewAddUserLinkText</a></h2>
             @Html.Action("FriendsListShort", "User", new { Id = Model.Id })
         </div>
     }
