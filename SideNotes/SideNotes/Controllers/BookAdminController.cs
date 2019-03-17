@@ -45,7 +45,7 @@ namespace SideNotes.Controllers
         [HttpPost]
         public ActionResult AddBook(HttpPostedFileBase ebookfile)
         {
-            if (!authz.Authorize(Operation.AddBook)) throw new UnauthorizedAccessException("Нет прав на добавление книг.");
+            if (!authz.Authorize(Operation.AddBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToAddBooks);
             string ext = Path.GetExtension(ebookfile.FileName);
             Stream inputStream = null;
             string tempFileName = null;
@@ -103,8 +103,8 @@ namespace SideNotes.Controllers
             using (var context = new SideNotesEntities())
             {
                 var book = context.Books.FirstOrDefault(b => b.Id == Id);
-                if (book == null) throw new ArgumentException("Книга не найдена");
-                if (!authz.Authorize(Operation.EditBook, book)) throw new UnauthorizedAccessException("Нет прав на редактирование книги.");
+                if (book == null) throw new ArgumentException(Resources.BookAdmin.ControllerBookNotFoundException);
+                if (!authz.Authorize(Operation.EditBook, book)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBook);
 
                 var model = new EditBookModel();
                 model.Id = book.Id;
@@ -125,12 +125,12 @@ namespace SideNotes.Controllers
         [HttpPost]
         public ActionResult EditBook(EditBookModel model)
         {
-            if (!ModelState.IsValid) throw new ArgumentException("Неверный формат данных");
+            if (!ModelState.IsValid) throw new ArgumentException(Resources.BookAdmin.ControllerInvalidDataFormat);
             using (var context = new SideNotesEntities())
             {
                 var book = context.Books.FirstOrDefault(b => b.Id == model.Id);
-                if (book == null) throw new ArgumentException("Книга не найдена");
-                if (!authz.Authorize(Operation.EditBook, book)) throw new UnauthorizedAccessException("Нет прав на редактирование книги.");
+                if (book == null) throw new ArgumentException(Resources.BookAdmin.ControllerBookNotFoundException);
+                if (!authz.Authorize(Operation.EditBook, book)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBook);
                 PropertyStatus status = (PropertyStatus)model.PropertyStatus;
                 book.Annotation = model.Annotation ?? "";
                 book.AuthorsEmail = model.AuthorEmail;
@@ -151,8 +151,8 @@ namespace SideNotes.Controllers
         {
             using(var context = new SideNotesEntities()){
                 var book = context.Books.FirstOrDefault(b=> b.Id == Id);
-                if (book == null) throw new ArgumentException("Книга не найдена");
-                if (!authz.Authorize(Operation.DeleteBook, book)) throw new UnauthorizedAccessException("Нет прав на удаление книг.");
+                if (book == null) throw new ArgumentException(Resources.BookAdmin.ControllerBookNotFoundException);
+                if (!authz.Authorize(Operation.DeleteBook, book)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToDeleteBooks);
                 context.DeleteBook(Id);
             }
             return RedirectToAction("Index");
@@ -161,54 +161,54 @@ namespace SideNotes.Controllers
         [HttpGet]
         public ActionResult DeleteChapter()
         {
-            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException("Нет прав на редактирование книг.");
+            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
             return View();
         }
 
         [HttpPost]
         public ActionResult DeleteChapter(int Id)
         {
-            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException("Нет прав на редактирование книг.");
+            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
             using (var context = new SideNotesEntities())
             {
                 if (context.Chapters.Any(c => c.ParentChapter_Id == Id)) 
-                    throw new InvalidOperationException("Глава имеет вложенные главы. Нельзя удалить.");
+                    throw new InvalidOperationException(Resources.BookAdmin.ControllerCantDeleteChapter);
                 var chapter = context.Chapters.FirstOrDefault(c => c.Id == Id);
                 if (chapter == null)
-                    throw new InvalidOperationException("Глава не найдена");
+                    throw new InvalidOperationException(Resources.BookAdmin.ControllerChapterNotFound);
                 var latterChapters = context.Chapters.Where(c => c.OrderNumber > chapter.OrderNumber).ToList();
                 latterChapters.ForEach(c => c.OrderNumber--);
                 context.Chapters.DeleteObject(chapter);
                 context.SaveChanges();
             }
-            ViewBag.Message = "Глава успешно удалена";
+            ViewBag.Message = Resources.BookAdmin.ControllerChapterDeleted;
             return View();
         }
 
         [HttpGet]
         public ActionResult DeleteParagraph()
         {
-            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException("Нет прав на редактирование книг.");
+            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
             return View();
         }
 
         [HttpPost]
         public ActionResult DeleteParagraph(int Id)
         {
-            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException("Нет прав на редактирование книг.");
+            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
             using (var context = new SideNotesEntities())
             {
                 if (context.HeadComments.Any(c => c.EntityType == (int)EntityType.Paragraph && c.EntityId == Id))
-                    throw new InvalidOperationException("Абзац имеет комментарии. Нельзя удалить.");
+                    throw new InvalidOperationException(Resources.BookAdmin.ControllerCantDeleteParagraph);
                 var paragraph = context.Paragraphs.FirstOrDefault(c => c.Id == Id);
                 if (paragraph == null)
-                    throw new InvalidOperationException("Абзац не найден");
+                    throw new InvalidOperationException(Resources.BookAdmin.ControllerParagraphNotFound);
                 var latterParagraphs = context.Paragraphs.Where(p => p.OrderNumber > paragraph.OrderNumber).ToList();
                 latterParagraphs.ForEach(c => c.OrderNumber--);
                 context.Paragraphs.DeleteObject(paragraph);
                 context.SaveChanges();
             }
-            ViewBag.Message = "Абзац успешно удален";
+            ViewBag.Message = Resources.BookAdmin.ControllerParagraphDeleted;
             return View();
         }
 
@@ -220,9 +220,9 @@ namespace SideNotes.Controllers
             {
                 book = context.Books.First(u => u.Id == id);
             }
-            if (book == null) throw new ArgumentException("Книга не найдена");
+            if (book == null) throw new ArgumentException(Resources.BookAdmin.ControllerBookNotFoundException);
             if (!authz.Authorize(Operation.EditBook, book))
-                throw new UnauthorizedAccessException("Недостаточно прав для редактирования книг");
+                throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBook);
             if (file != null)
             {
                 bookAvatarService.UploadNew(id, file.InputStream);
@@ -233,7 +233,7 @@ namespace SideNotes.Controllers
 
         public ActionResult UpdateChapterAll()
         {
-            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException("Нет прав на редактирование книг.");
+            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
             using (var context = new SideNotesEntities())
             {
                 var books = context.Books.ToList();
@@ -247,7 +247,7 @@ namespace SideNotes.Controllers
 
         public ActionResult UpdateChapterIds(int BookId)
         {
-            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException("Нет прав на редактирование книг.");
+            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
             using (var context = new SideNotesEntities())
             {
                 var chaptersDic = (from chap in context.Chapters
@@ -269,7 +269,7 @@ namespace SideNotes.Controllers
 
         public ActionResult FixAvatarSize()
         {
-            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException("Нет прав на редактирование книг.");
+            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
             using (var context = new SideNotesEntities())
             {
                 var path = HostingEnvironment.MapPath(ConfigurationManager.AppSettings["TempFolder"]);
@@ -300,7 +300,7 @@ namespace SideNotes.Controllers
 
         public ActionResult FixPhotoDimensions()
         {
-            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException("Нет прав на редактирование книг.");
+            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
             using (var context = new SideNotesEntities())
             {
                 var fixer = new PhotoFixer();
@@ -327,7 +327,7 @@ namespace SideNotes.Controllers
 
         public ActionResult FixInnerComments()
         {
-            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException("Нет прав на редактирование книг.");
+            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
             using (var context = new SideNotesEntities())
             {
                 var comments = context.Comments.ToList();

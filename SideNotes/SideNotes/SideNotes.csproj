@@ -170,6 +170,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Home.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\InclineService.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InclineService.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\LivejournalLogin.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -317,6 +322,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>User.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserAdmin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserAdmin.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\Abstract\IBookBuilder.cs" />
     <Compile Include="Services\Abstract\IEBookParser.cs" />
@@ -525,6 +535,10 @@
       <LastGenOutput>Home.Designer.cs</LastGenOutput>
       <CustomToolNamespace>SideNotes.Resources</CustomToolNamespace>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\InclineService.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>InclineService.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\LivejournalLogin.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LivejournalLogin.Designer.cs</LastGenOutput>
@@ -561,6 +575,10 @@
     <EmbeddedResource Include="Resources\User.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>User.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\UserAdmin.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserAdmin.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

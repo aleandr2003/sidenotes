@@ -117,13 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="MergeUsersHeading" xml:space="preserve">
-    <value>Соединить пользователей</value>
+  <data name="Comment" xml:space="preserve">
+    <value>комментарий</value>
   </data>
-  <data name="MergeUsersSubmitButtonText" xml:space="preserve">
-    <value>Соединить</value>
+  <data name="Commentator" xml:space="preserve">
+    <value>комментатор</value>
   </data>
-  <data name="MergeUsersTitle" xml:space="preserve">
-    <value>Соединить пользователей</value>
+  <data name="Commentators1" xml:space="preserve">
+    <value>комментатора</value>
+  </data>
+  <data name="Commentators2" xml:space="preserve">
+    <value>комментаторов</value>
+  </data>
+  <data name="Comments1" xml:space="preserve">
+    <value>комментария</value>
+  </data>
+  <data name="Comments2" xml:space="preserve">
+    <value>комментариев</value>
   </data>
 </root>

@@ -61,6 +61,114 @@ namespace SideNotes.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Книга не найдена ähnelt.
+        /// </summary>
+        public static string ControllerBookNotFoundException {
+            get {
+                return ResourceManager.GetString("ControllerBookNotFoundException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Глава имеет вложенные главы. Нельзя удалить. ähnelt.
+        /// </summary>
+        public static string ControllerCantDeleteChapter {
+            get {
+                return ResourceManager.GetString("ControllerCantDeleteChapter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Абзац имеет комментарии. Нельзя удалить. ähnelt.
+        /// </summary>
+        public static string ControllerCantDeleteParagraph {
+            get {
+                return ResourceManager.GetString("ControllerCantDeleteParagraph", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Глава успешно удалена ähnelt.
+        /// </summary>
+        public static string ControllerChapterDeleted {
+            get {
+                return ResourceManager.GetString("ControllerChapterDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Глава не найдена ähnelt.
+        /// </summary>
+        public static string ControllerChapterNotFound {
+            get {
+                return ResourceManager.GetString("ControllerChapterNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Неверный формат данных ähnelt.
+        /// </summary>
+        public static string ControllerInvalidDataFormat {
+            get {
+                return ResourceManager.GetString("ControllerInvalidDataFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Нет прав на добавление книг. ähnelt.
+        /// </summary>
+        public static string ControllerNoPermissionToAddBooks {
+            get {
+                return ResourceManager.GetString("ControllerNoPermissionToAddBooks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Нет прав на удаление книг. ähnelt.
+        /// </summary>
+        public static string ControllerNoPermissionToDeleteBooks {
+            get {
+                return ResourceManager.GetString("ControllerNoPermissionToDeleteBooks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Нет прав на редактирование книги. ähnelt.
+        /// </summary>
+        public static string ControllerNoPermissionToEditBook {
+            get {
+                return ResourceManager.GetString("ControllerNoPermissionToEditBook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Нет прав на редактирование книг. ähnelt.
+        /// </summary>
+        public static string ControllerNoPermissionToEditBooks {
+            get {
+                return ResourceManager.GetString("ControllerNoPermissionToEditBooks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Абзац успешно удален ähnelt.
+        /// </summary>
+        public static string ControllerParagraphDeleted {
+            get {
+                return ResourceManager.GetString("ControllerParagraphDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Абзац не найден ähnelt.
+        /// </summary>
+        public static string ControllerParagraphNotFound {
+            get {
+                return ResourceManager.GetString("ControllerParagraphNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Удалить главу ähnelt.
         /// </summary>
         public static string DeleteChapterHeading {
