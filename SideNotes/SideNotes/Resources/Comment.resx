@@ -171,4 +171,28 @@
   <data name="ReplyTitle" xml:space="preserve">
     <value>Ответить на комментарий</value>
   </data>
+  <data name="ControllerCantAddMark" xml:space="preserve">
+    <value>Метки можно добавлять только к параграфам</value>
+  </data>
+  <data name="ControllerCommentNotFound" xml:space="preserve">
+    <value>комментарий не найден</value>
+  </data>
+  <data name="ControllerCommentRemoved" xml:space="preserve">
+    <value>Комментарий удален</value>
+  </data>
+  <data name="ControllerNeedLogin" xml:space="preserve">
+    <value>Нужно залогиниться</value>
+  </data>
+  <data name="ControllerNoPermissionToDeleteComment" xml:space="preserve">
+    <value>Только автор может удалить свой комментарий</value>
+  </data>
+  <data name="ControllerUnknownCommentType" xml:space="preserve">
+    <value>Нет такого типа комментариев</value>
+  </data>
+  <data name="ControllerUnknownFilterType" xml:space="preserve">
+    <value>такой тип фильтра не поддерживается</value>
+  </data>
+  <data name="ControllerUnknownMarkType" xml:space="preserve">
+    <value>Такой тип меток не поддерживается</value>
+  </data>
 </root>

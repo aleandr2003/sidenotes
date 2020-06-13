@@ -183,6 +183,33 @@
   <data name="CompleteRegistrationBoxSubmitButtonText" xml:space="preserve">
     <value>Отправить</value>
   </data>
+  <data name="ControllerCantChangePasswordOnExternalAccount" xml:space="preserve">
+    <value>Нельзя менять пароль на внешнем аккаунте</value>
+  </data>
+  <data name="ControllerCurrentPasswordDoesntMatch" xml:space="preserve">
+    <value>Текущий пароль введен не верно</value>
+  </data>
+  <data name="ControllerEmailIsAlreadyUsed" xml:space="preserve">
+    <value>Читатель с таким емейлом уже существует</value>
+  </data>
+  <data name="ControllerInvalidFormat" xml:space="preserve">
+    <value>Неверный формат данных</value>
+  </data>
+  <data name="ControllerMustLogin" xml:space="preserve">
+    <value>Нужно залогиниться</value>
+  </data>
+  <data name="ControllerNoPermissionsToEditUser" xml:space="preserve">
+    <value>Недостаточно прав для редактирования профиля этого пользователя</value>
+  </data>
+  <data name="ControllerPasswordConfirmationDoesntMatch" xml:space="preserve">
+    <value>Повторный ввод не совпадает с первым. Попробуйте ещё раз</value>
+  </data>
+  <data name="ControllerUserNotFound" xml:space="preserve">
+    <value>Пользователь не найден</value>
+  </data>
+  <data name="ControllerUserNotRegistered" xml:space="preserve">
+    <value>Пользователь не был зарегистрирован</value>
+  </data>
   <data name="EditProfileBoxEmailPlaceholder" xml:space="preserve">
     <value>alepush@gmail.com</value>
   </data>

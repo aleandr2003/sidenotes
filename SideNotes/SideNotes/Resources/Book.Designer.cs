@@ -439,6 +439,105 @@ namespace SideNotes.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Автор книги не принимает пожертвования ähnelt.
+        /// </summary>
+        public static string ControllerAuthorDoesNotAcceptDonations {
+            get {
+                return ResourceManager.GetString("ControllerAuthorDoesNotAcceptDonations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Закладка ähnelt.
+        /// </summary>
+        public static string ControllerBookmark {
+            get {
+                return ResourceManager.GetString("ControllerBookmark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Закладка не найдена ähnelt.
+        /// </summary>
+        public static string ControllerBookMarkNotFound {
+            get {
+                return ResourceManager.GetString("ControllerBookMarkNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die этот абзац нельзя комментировать ähnelt.
+        /// </summary>
+        public static string ControllerCantCommentParagraph {
+            get {
+                return ResourceManager.GetString("ControllerCantCommentParagraph", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Можно удалять только свои закладки ähnelt.
+        /// </summary>
+        public static string ControllerCantDeleteBookMark {
+            get {
+                return ResourceManager.GetString("ControllerCantDeleteBookMark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Этот комментарий не относится к абзацу ähnelt.
+        /// </summary>
+        public static string ControllerCommentDoesNotBelongToParagraph {
+            get {
+                return ResourceManager.GetString("ControllerCommentDoesNotBelongToParagraph", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die комментарий не найден ähnelt.
+        /// </summary>
+        public static string ControllerCommentNotFound {
+            get {
+                return ResourceManager.GetString("ControllerCommentNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die такой тип фильтра не поддерживается ähnelt.
+        /// </summary>
+        public static string ControllerFilterTypeNotSupported {
+            get {
+                return ResourceManager.GetString("ControllerFilterTypeNotSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Нужно залогиниться ähnelt.
+        /// </summary>
+        public static string ControllerMustLogin {
+            get {
+                return ResourceManager.GetString("ControllerMustLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Абзац не найден ähnelt.
+        /// </summary>
+        public static string ControllerParagraphNotFound {
+            get {
+                return ResourceManager.GetString("ControllerParagraphNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пользователь не найден ähnelt.
+        /// </summary>
+        public static string ControllerUserNotFound {
+            get {
+                return ResourceManager.GetString("ControllerUserNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die к книге ähnelt.
         /// </summary>
         public static string HeaderCommentsCountMessage {

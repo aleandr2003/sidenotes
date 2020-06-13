@@ -133,6 +133,78 @@ namespace SideNotes.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Метки можно добавлять только к параграфам ähnelt.
+        /// </summary>
+        public static string ControllerCantAddMark {
+            get {
+                return ResourceManager.GetString("ControllerCantAddMark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die комментарий не найден ähnelt.
+        /// </summary>
+        public static string ControllerCommentNotFound {
+            get {
+                return ResourceManager.GetString("ControllerCommentNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Комментарий удален ähnelt.
+        /// </summary>
+        public static string ControllerCommentRemoved {
+            get {
+                return ResourceManager.GetString("ControllerCommentRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Нужно залогиниться ähnelt.
+        /// </summary>
+        public static string ControllerNeedLogin {
+            get {
+                return ResourceManager.GetString("ControllerNeedLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Только автор может удалить свой комментарий ähnelt.
+        /// </summary>
+        public static string ControllerNoPermissionToDeleteComment {
+            get {
+                return ResourceManager.GetString("ControllerNoPermissionToDeleteComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Нет такого типа комментариев ähnelt.
+        /// </summary>
+        public static string ControllerUnknownCommentType {
+            get {
+                return ResourceManager.GetString("ControllerUnknownCommentType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die такой тип фильтра не поддерживается ähnelt.
+        /// </summary>
+        public static string ControllerUnknownFilterType {
+            get {
+                return ResourceManager.GetString("ControllerUnknownFilterType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Такой тип меток не поддерживается ähnelt.
+        /// </summary>
+        public static string ControllerUnknownMarkType {
+            get {
+                return ResourceManager.GetString("ControllerUnknownMarkType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Комментарии ähnelt.
         /// </summary>
         public static string HeadIndexHeading {

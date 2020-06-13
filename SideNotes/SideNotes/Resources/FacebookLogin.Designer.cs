@@ -22,14 +22,14 @@ namespace SideNotes.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class LivejournalLogin {
+    public class FacebookLogin {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal LivejournalLogin() {
+        internal FacebookLogin() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace SideNotes.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SideNotes.Resources.LivejournalLogin", typeof(LivejournalLogin).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SideNotes.Resources.FacebookLogin", typeof(FacebookLogin).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,74 +61,29 @@ namespace SideNotes.Resources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Подтверждение аккаунта в Живом журнале ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Этот facebook-аккаунт принадлежит другому пользователю ähnelt.
         /// </summary>
-        public static string GetNicknameHeading {
+        public static string ControllerAccountBelongsToAnotherUser {
             get {
-                return ResourceManager.GetString("GetNicknameHeading", resourceCulture);
+                return ResourceManager.GetString("ControllerAccountBelongsToAnotherUser", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Войти ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Код авторизации не получен ähnelt.
         /// </summary>
-        public static string GetNicknameSigninButtonText {
+        public static string ControllerAuthorizationCodeNotReceived {
             get {
-                return ResourceManager.GetString("GetNicknameSigninButtonText", resourceCulture);
+                return ResourceManager.GetString("ControllerAuthorizationCodeNotReceived", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Подтверждение аккаунта в Живом журнале ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Только зарегистрированный пользователь может добавить профиль в соц. сети ähnelt.
         /// </summary>
-        public static string GetNicknameTitle {
+        public static string ControllerMustRegisterToAddProfiles {
             get {
-                return ResourceManager.GetString("GetNicknameTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Ваш ник в живом журнале ähnelt.
-        /// </summary>
-        public static string GetNicknameYourNickMessage {
-            get {
-                return ResourceManager.GetString("GetNicknameYourNickMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Логин через Живой журнал ähnelt.
-        /// </summary>
-        public static string LogOnHeading {
-            get {
-                return ResourceManager.GetString("LogOnHeading", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Войти ähnelt.
-        /// </summary>
-        public static string LogOnSigninButtonText {
-            get {
-                return ResourceManager.GetString("LogOnSigninButtonText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Логин через Живой журнал ähnelt.
-        /// </summary>
-        public static string LogOnTitle {
-            get {
-                return ResourceManager.GetString("LogOnTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Ваш ник в живом журнале ähnelt.
-        /// </summary>
-        public static string LogOnYourNickMessage {
-            get {
-                return ResourceManager.GetString("LogOnYourNickMessage", resourceCulture);
+                return ResourceManager.GetString("ControllerMustRegisterToAddProfiles", resourceCulture);
             }
         }
     }

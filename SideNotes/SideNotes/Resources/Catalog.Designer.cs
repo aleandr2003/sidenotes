@@ -61,6 +61,60 @@ namespace SideNotes.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Книга не найдена ähnelt.
+        /// </summary>
+        public static string ControllerBookNotFound {
+            get {
+                return ResourceManager.GetString("ControllerBookNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Вы не можете редактировать каталог ähnelt.
+        /// </summary>
+        public static string ControllerCantEditCatalog {
+            get {
+                return ResourceManager.GetString("ControllerCantEditCatalog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Такая категория уже существует ähnelt.
+        /// </summary>
+        public static string ControllerCategoryAlreadyExists {
+            get {
+                return ResourceManager.GetString("ControllerCategoryAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Категория не найдена ähnelt.
+        /// </summary>
+        public static string ControllerCategoryNotFound {
+            get {
+                return ResourceManager.GetString("ControllerCategoryNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Категория не найдена (возможно, уже удалена) ähnelt.
+        /// </summary>
+        public static string ControllerCategoryNotFoundMaybeDeleted {
+            get {
+                return ResourceManager.GetString("ControllerCategoryNotFoundMaybeDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Родительская категория не найдена (возможно, удалена) ähnelt.
+        /// </summary>
+        public static string ControllerParentCategoryNotFound {
+            get {
+                return ResourceManager.GetString("ControllerParentCategoryNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Лучшие комментарии ähnelt.
         /// </summary>
         public static string IndexBestCommentsHeading {

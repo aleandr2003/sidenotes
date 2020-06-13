@@ -336,4 +336,37 @@
   <data name="ViewNavigateUpButtonText" xml:space="preserve">
     <value>Назад</value>
   </data>
+  <data name="ControllerAuthorDoesNotAcceptDonations" xml:space="preserve">
+    <value>Автор книги не принимает пожертвования</value>
+  </data>
+  <data name="ControllerBookmark" xml:space="preserve">
+    <value>Закладка</value>
+  </data>
+  <data name="ControllerBookMarkNotFound" xml:space="preserve">
+    <value>Закладка не найдена</value>
+  </data>
+  <data name="ControllerCantCommentParagraph" xml:space="preserve">
+    <value>этот абзац нельзя комментировать</value>
+  </data>
+  <data name="ControllerCantDeleteBookMark" xml:space="preserve">
+    <value>Можно удалять только свои закладки</value>
+  </data>
+  <data name="ControllerCommentDoesNotBelongToParagraph" xml:space="preserve">
+    <value>Этот комментарий не относится к абзацу</value>
+  </data>
+  <data name="ControllerCommentNotFound" xml:space="preserve">
+    <value>комментарий не найден</value>
+  </data>
+  <data name="ControllerFilterTypeNotSupported" xml:space="preserve">
+    <value>такой тип фильтра не поддерживается</value>
+  </data>
+  <data name="ControllerMustLogin" xml:space="preserve">
+    <value>Нужно залогиниться</value>
+  </data>
+  <data name="ControllerParagraphNotFound" xml:space="preserve">
+    <value>Абзац не найден</value>
+  </data>
+  <data name="ControllerUserNotFound" xml:space="preserve">
+    <value>Пользователь не найден</value>
+  </data>
 </root>

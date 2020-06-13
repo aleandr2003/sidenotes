@@ -34,14 +34,16 @@ namespace SideNotes.Controllers
         [HttpPost]
         public ActionResult MergeUsers(int Id1, int Id2)
         {
-            if (!authz.Authorize(Operation.ManageUsers)) throw new UnauthorizedAccessException("Нет прав на управление аккаунтами.");
+            if (!authz.Authorize(Operation.ManageUsers))
+                throw new UnauthorizedAccessException(
+                    Resources.UserAdmin.ControllerNoUserAdminPermissions);
             using (var context = new SideNotesEntities())
             {
                 if (Id1 == Id2) return RedirectToAction("MergeUsers", "UserAdmin");
                 var user1 = context.Users.Include("Avatar").FirstOrDefault(u => u.Id == Id1);
                 var user2 = context.Users.Include("Avatar").FirstOrDefault(u => u.Id == Id2);
-                if (user1 == null) throw new ArgumentException(String.Format("Пользователь {0} не найден", Id1));
-                if (user2 == null) throw new ArgumentException(String.Format("Пользователь {0} не найден", Id2));
+                if (user1 == null) throw new ArgumentException(String.Format("Id = {0}. " + Resources.UserAdmin.ControllerUserNotFound, Id1));
+                if (user2 == null) throw new ArgumentException(String.Format("Id = {0}. " + Resources.UserAdmin.ControllerUserNotFound, Id2));
 
                 if (user1.Avatar_Id == null)
                 {

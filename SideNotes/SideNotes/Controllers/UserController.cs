@@ -126,9 +126,9 @@ namespace SideNotes.Controllers
             {
                 user = context.Users.First(u => u.Id == id);
             }
-            if (user == null) throw new ArgumentException("Пользователь не найден");
+            if (user == null) throw new ArgumentException(Resources.User.ControllerUserNotFound);
             if (!authz.Authorize(Operation.EditUser, user)) 
-                throw new UnauthorizedAccessException("Недостаточно прав для редактирования профиля этого пользователя");
+                throw new UnauthorizedAccessException(Resources.User.ControllerNoPermissionsToEditUser);
             if (file != null)
             {
                 avatarService.UploadNew(id, file.InputStream);
@@ -146,13 +146,13 @@ namespace SideNotes.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel model, string returnUrl, bool? json)
         {
-            if (!ModelState.IsValid) throw new ArgumentException("Неверный формат данных");
+            if (!ModelState.IsValid) throw new ArgumentException(Resources.User.ControllerInvalidFormat);
             using (var context = new SideNotesEntities())
             {
                 try
                 {
                     if (context.Users.Any(u => u.Login == model.Email))
-                        throw new ArgumentException("Читатель с таким емейлом уже существует");
+                        throw new ArgumentException(Resources.User.ControllerEmailIsAlreadyUsed);
                     var user = new User
                     {
                         Name = model.Name,
@@ -175,8 +175,8 @@ namespace SideNotes.Controllers
                     if (ex is UpdateException ||
                         ex is ArgumentException)
                     {
-                        if (json == true) return Json(new { ErrorMessage = "Читатель с таким емейлом уже существует" });
-                        else return RedirectToAction("Index", "Error", new { message = "Читатель с таким емейлом уже существует"});
+                        if (json == true) return Json(new { ErrorMessage = Resources.User.ControllerEmailIsAlreadyUsed });
+                        else return RedirectToAction("Index", "Error", new { message = Resources.User.ControllerEmailIsAlreadyUsed });
                     }
                     else
                     {
@@ -189,12 +189,12 @@ namespace SideNotes.Controllers
         [HttpPost]
         public ActionResult MakeFriend(int UserId, bool? json)
         {
-            if(!userSession.IsAuthenticated) throw new InvalidOperationException("Нужно залогиниться");
+            if(!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.User.ControllerMustLogin);
             using (var context = new SideNotesEntities())
             {
                 var user = context.Users.FirstOrDefault(u => u.Id == UserId);
                 var currentUser = context.Users.FirstOrDefault(u => u.Id == userSession.CurrentUser.Id);
-                if (user == null) throw new ArgumentException("Пользователь не найден");
+                if (user == null) throw new ArgumentException(Resources.User.ControllerUserNotFound);
                 currentUser.Friends.Add(user);
                 context.SaveChanges();
             }
@@ -206,12 +206,12 @@ namespace SideNotes.Controllers
         [HttpPost]
         public ActionResult RemoveFriend(int UserId, bool? json)
         {
-            if (!userSession.IsAuthenticated) throw new InvalidOperationException("Нужно залогиниться");
+            if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.User.ControllerMustLogin);
             using (var context = new SideNotesEntities())
             {
                 var user = context.Users.FirstOrDefault(u => u.Id == UserId);
                 var currentUser = context.Users.FirstOrDefault(u => u.Id == userSession.CurrentUser.Id);
-                if (user == null) throw new ArgumentException("Пользователь не найден");
+                if (user == null) throw new ArgumentException(Resources.User.ControllerUserNotFound);
                 if (currentUser.Friends.Contains(user))
                 {
                     currentUser.Friends.Remove(user);
@@ -233,7 +233,7 @@ namespace SideNotes.Controllers
                     .Include("Avatar.Small")
                     .Include("Avatar.Original")
                     .Include("Friends").FirstOrDefault(u => u.Id == Id);
-                if (user == null) throw new ArgumentException("Пользователь не найден");
+                if (user == null) throw new ArgumentException(Resources.User.ControllerUserNotFound);
                 if (userSession.IsAuthenticated && user.Id != userSession.CurrentUser.Id)
                 {
                     ViewBag.IsMyFriend = userSession.CurrentUser.IsMyFriend(Id);
@@ -251,7 +251,7 @@ namespace SideNotes.Controllers
         {
             User user = null;
             if (!userSession.IsAuthenticated) 
-                throw new InvalidOperationException("Пользователь не был зарегистрирован");
+                throw new InvalidOperationException(Resources.User.ControllerUserNotRegistered);
             int Id = userSession.CurrentUser.Id;
             using (var context = new SideNotesEntities())
             {
@@ -260,9 +260,10 @@ namespace SideNotes.Controllers
                     .Include("Avatar.Small")
                     .Include("Avatar.Original")
                     .Include("Friends").FirstOrDefault(u => u.Id == Id);
-                if (user == null) throw new ArgumentException("Пользователь не найден");
+                if (user == null) throw new ArgumentException(Resources.User.ControllerUserNotFound);
             }
-            ViewBag.CallbackUri = callbackUri != null ? callbackUri.ToString() : Url.Action("View", "User", new { Id = userSession.CurrentUser.Id });
+            ViewBag.CallbackUri = callbackUri != null ? callbackUri.ToString() : Url.Action("View", "User", 
+                new { Id = userSession.CurrentUser.Id });
             if (!String.IsNullOrEmpty(user.Email)) return Redirect(ViewBag.CallbackUri);
 
             return View(user);
@@ -272,8 +273,8 @@ namespace SideNotes.Controllers
         {
             User user = null;
             if (!userSession.IsAuthenticated)
-                throw new InvalidOperationException("Пользователь не был зарегистрирован");
-            if (!ModelState.IsValid) throw new ArgumentException("Неверный формат данных");
+                throw new InvalidOperationException(Resources.User.ControllerUserNotRegistered);
+            if (!ModelState.IsValid) throw new ArgumentException(Resources.User.ControllerInvalidFormat);
             using (var context = new SideNotesEntities())
             {
                 user = context.Users.FirstOrDefault(u => u.Id == userSession.CurrentUser.Id);
@@ -350,7 +351,7 @@ namespace SideNotes.Controllers
         [HttpGet]
         public ActionResult EditProfile()
         {
-            if(!userSession.IsAuthenticated) throw new InvalidOperationException("Нужно залогиниться");
+            if(!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.User.ControllerMustLogin);
             using (var context = new SideNotesEntities())
             {
                 ViewBag.CurrentUser = context.Users.Include("Avatar.Large")
@@ -363,8 +364,8 @@ namespace SideNotes.Controllers
         [HttpPost]
         public ActionResult EditProfile(EditProfileModel model, bool? json)
         {
-            if (!userSession.IsAuthenticated) throw new InvalidOperationException("Нужно залогиниться");
-            if (!ModelState.IsValid) throw new ArgumentException("Неверный формат данных");
+            if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.User.ControllerMustLogin);
+            if (!ModelState.IsValid) throw new ArgumentException(Resources.User.ControllerInvalidFormat);
             using (var context = new SideNotesEntities())
             {
                 var user = context.Users.FirstOrDefault(u => u.Id == userSession.CurrentUser.Id);
@@ -380,7 +381,7 @@ namespace SideNotes.Controllers
         [HttpGet]
         public ActionResult UpdateNotificationSettings()
         {
-            if (!userSession.IsAuthenticated) throw new InvalidOperationException("Нужно залогиниться");
+            if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.User.ControllerMustLogin);
             using (var context = new SideNotesEntities())
             {
                 ViewBag.CurrentUser = context.Users.Include("Avatar.Large")
@@ -393,12 +394,12 @@ namespace SideNotes.Controllers
         [HttpPost]
         public ActionResult UpdateNotificationSettings(NotificationSettingsModel model, bool? json)
         {
-            if (!userSession.IsAuthenticated) throw new InvalidOperationException("Нужно залогиниться");
-            if (!ModelState.IsValid) throw new ArgumentException("Неверный формат данных");
+            if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.User.ControllerMustLogin);
+            if (!ModelState.IsValid) throw new ArgumentException(Resources.User.ControllerInvalidFormat);
             using (var context = new SideNotesEntities())
             {
                 var user = context.Users.FirstOrDefault(u => u.Id == userSession.CurrentUser.Id);
-                if (user == null) throw new ArgumentException("Пользователь не найден");
+                if (user == null) throw new ArgumentException(Resources.User.ControllerUserNotFound);
 
                 user.NotifyAuthorCommentReplied = model.NotifyAuthorCommentReplied;
 
@@ -411,7 +412,7 @@ namespace SideNotes.Controllers
         [HttpGet]
         public ActionResult ChangePassword()
         {
-            if (!userSession.IsAuthenticated) throw new ArgumentException("Нужно залогиниться");
+            if (!userSession.IsAuthenticated) throw new ArgumentException(Resources.User.ControllerMustLogin);
             return View("ChangePasswordView");
         }
 
@@ -420,18 +421,18 @@ namespace SideNotes.Controllers
         {
             try
             {
-                if (!ModelState.IsValid) throw new ArgumentException("Неверный формат данных");
+                if (!ModelState.IsValid) throw new ArgumentException(Resources.User.ControllerInvalidFormat);
                 if (model.NewPassword != model.ConfirmNewPassword) 
-                    throw new ArgumentException("Повторный ввод не совпадает с первым. Попробуйте ещё раз");
-                if (!userSession.IsAuthenticated) throw new ArgumentException("Нужно залогиниться");
+                    throw new ArgumentException(Resources.User.ControllerPasswordConfirmationDoesntMatch);
+                if (!userSession.IsAuthenticated) throw new ArgumentException(Resources.User.ControllerMustLogin);
                 
                 if (userSession.CurrentUser.AccountSource != AccountSource.SideNotes) 
-                    throw new InvalidOperationException("Нельзя менять пароль на внешнем аккаунте");
+                    throw new InvalidOperationException(Resources.User.ControllerCantChangePasswordOnExternalAccount);
                 using (var context = new SideNotesEntities())
                 {
                     var user = context.Users.FirstOrDefault(u => u.Id == userSession.CurrentUser.Id);
                     if (!userSession.CurrentUser.PasswordMatches(model.OldPassword))
-                        throw new ArgumentException("Текущий пароль введен не верно");
+                        throw new ArgumentException(Resources.User.ControllerCurrentPasswordDoesntMatch);
                     user.SetPassword(model.NewPassword, model.OldPassword);
                     context.SaveChanges();
                 }
@@ -454,7 +455,8 @@ namespace SideNotes.Controllers
                     return View("ChangePasswordView");
                 }
             }
-            if (json == true) return Json(new { RedirectUrl = Url.ActionAbsolute("View", "User", new { Id = userSession.CurrentUser.Id }) });
+            if (json == true) return Json(new { RedirectUrl = Url.ActionAbsolute("View", "User",
+                new { Id = userSession.CurrentUser.Id }) });
             return RedirectToAction("View", "User", new { Id = userSession.CurrentUser.Id});
         }
 
@@ -513,7 +515,7 @@ namespace SideNotes.Controllers
             {
                 int skip = ((Page ?? 1) - 1) * ShowFriends;
                 var user = context.Users.FirstOrDefault(u => u.Id == Id);
-                if (user == null) throw new ArgumentException("Пользователь не найден");
+                if (user == null) throw new ArgumentException(Resources.User.ControllerUserNotFound);
                 var friends = user.Friends.Skip(skip).Take(ShowFriends).ToList();
                 friends.ForEach(f => { var photo = f.Avatar == null ? null : f.Avatar.Small; });//подгружаем аватары
 

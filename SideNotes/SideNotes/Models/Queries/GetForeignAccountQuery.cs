@@ -32,7 +32,7 @@ namespace SideNotes.Models.Queries
                     return context.Users.FirstOrDefault(u => u.LivejournalId == info.Id);
                 case AccountSource.Yandex:
                     return context.Users.FirstOrDefault(u => u.YandexId == info.Id);
-                default: throw new NotSupportedException("Данный тип аккаунтов не поддерживается");
+                default: throw new NotSupportedException(Resources.Misc.NotSupportedAccountType);
             }
         }
     }

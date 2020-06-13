@@ -117,28 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="GetNicknameHeading" xml:space="preserve">
-    <value>Подтверждение аккаунта в Живом журнале</value>
+  <data name="ControllerAccountBelongsToAnotherUser" xml:space="preserve">
+    <value>Этот twitter-аккаунт принадлежит другому пользователю</value>
   </data>
-  <data name="GetNicknameSigninButtonText" xml:space="preserve">
-    <value>Войти</value>
-  </data>
-  <data name="GetNicknameTitle" xml:space="preserve">
-    <value>Подтверждение аккаунта в Живом журнале</value>
-  </data>
-  <data name="GetNicknameYourNickMessage" xml:space="preserve">
-    <value>Ваш ник в живом журнале</value>
-  </data>
-  <data name="LogOnHeading" xml:space="preserve">
-    <value>Логин через Живой журнал</value>
-  </data>
-  <data name="LogOnSigninButtonText" xml:space="preserve">
-    <value>Войти</value>
-  </data>
-  <data name="LogOnTitle" xml:space="preserve">
-    <value>Логин через Живой журнал</value>
-  </data>
-  <data name="LogOnYourNickMessage" xml:space="preserve">
-    <value>Ваш ник в живом журнале</value>
+  <data name="ControllerMustRegisterToAddProfiles" xml:space="preserve">
+    <value>Только зарегистрированный пользователь может добавить профиль в соц. сети</value>
   </data>
 </root>

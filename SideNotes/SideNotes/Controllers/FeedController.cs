@@ -48,7 +48,7 @@ namespace SideNotes.Controllers
             using (var context = new SideNotesEntities())
             {
                 var book = context.Books.FirstOrDefault(b => b.Id == Id);
-                if (book == null) throw new ArgumentException("Книга не найдена");
+                if (book == null) throw new ArgumentException(Resources.Feed.ControllerBookNotFound);
                 
                 ViewBag.IsAuthenticated = userSession.IsAuthenticated;
                 ViewBag.CurrentUserId = userSession.UserId;
@@ -313,7 +313,7 @@ namespace SideNotes.Controllers
             using (var context = new SideNotesEntities())
             {
                 var book = context.Books.Include("Avatar.Small").Include("Avatar.Medium").FirstOrDefault(b => b.Id == BookId);
-                if (book == null) throw new ArgumentException("Книга не найдена");
+                if (book == null) throw new ArgumentException(Resources.Feed.ControllerBookNotFound);
                 return View(book);
             }
         }

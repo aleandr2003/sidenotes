@@ -61,6 +61,15 @@ namespace SideNotes.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Книга не найдена ähnelt.
+        /// </summary>
+        public static string ControllerBookNotFound {
+            get {
+                return ResourceManager.GetString("ControllerBookNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die к книге ähnelt.
         /// </summary>
         public static string HeaderCommentCountMessage {

@@ -67,7 +67,7 @@ namespace SideNotes.Controllers
         {
             int? tempId = state;
             var code = Request.QueryString["code"];
-            if (String.IsNullOrEmpty(code)) throw new ArgumentException("Код авторизации не получен");
+            if (String.IsNullOrEmpty(code)) throw new ArgumentException(Resources.FacebookLogin.ControllerAuthorizationCodeNotReceived);
 
             //если уже есть код аутентификации, осталось только получить access_token
 
@@ -157,7 +157,7 @@ namespace SideNotes.Controllers
         public ActionResult AccountProved(Uri callbackUri)
         {
             if (!userSession.IsAuthenticated) 
-                throw new InvalidOperationException("Только зарегистрированный пользователь может добавить профиль в соц. сети");
+                throw new InvalidOperationException(Resources.FacebookLogin.ControllerMustRegisterToAddProfiles);
             var code = Request.QueryString["code"];
             //если уже есть код аутентификации, осталось только получить access_token
             if (!String.IsNullOrEmpty(code))
@@ -183,7 +183,7 @@ namespace SideNotes.Controllers
                 using (var context = new SideNotesEntities())
                 {
                     if(context.Users.Any(u => u.FacebookId == accountInfo.Id))
-                        return Content("Этот facebook-аккаунт принадлежит другому пользователю");
+                        return Content(Resources.FacebookLogin.ControllerAccountBelongsToAnotherUser);
 
                     var user = context.Users.FirstOrDefault(u => u.Id == userSession.CurrentUser.Id);
                    

@@ -17,7 +17,7 @@
     }
 }
 function errorFunc(jqXHR, textStatus, errorThrown) {
-    alert("Извините, произошла ошибка");
+    alert("Sorry, something failed");
 }
 
 function validateFields(descr) {

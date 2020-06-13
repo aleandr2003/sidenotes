@@ -38,7 +38,7 @@ namespace SideNotes.Controllers
             User currentUser = null;
             try
             {
-                if (!ModelState.IsValid) throw new ArgumentException("Неверный формат данных");
+                if (!ModelState.IsValid) throw new ArgumentException(Resources.Login.ControllerInvalidFormat);
                 currentUser = userSession.Authenticate(form.Email, form.Password ?? "");
             }
             catch (ArgumentException ex)

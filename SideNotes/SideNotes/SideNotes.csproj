@@ -150,6 +150,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Error.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\FacebookLogin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FacebookLogin.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Feed.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -174,11 +179,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InclineService.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\LivejournalLogin.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LivejournalLogin.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Login.de.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -225,9 +225,6 @@
     <Compile Include="Controllers\LayoutController.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controllers\LivejournalLoginController.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Controllers\LoginController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -245,12 +242,6 @@
     </Compile>
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Controllers\UserController.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Controllers\VkontakteLoginController.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Controllers\YandexLoginController.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Extensions\IEnumerableExtensions.cs" />
@@ -298,6 +289,11 @@
     <Compile Include="OAuth\VkontakteTokenManagerFactory.cs" />
     <Compile Include="OAuth\YandexTokenManagerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Misc.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Misc.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Shared.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -317,6 +313,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ToAuthors.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TwitterLogin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TwitterLogin.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\User.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -516,6 +517,10 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Error.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FacebookLogin.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FacebookLogin.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Feed.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Feed.Designer.cs</LastGenOutput>
@@ -539,10 +544,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>InclineService.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\LivejournalLogin.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>LivejournalLogin.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Login.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Login.Designer.cs</LastGenOutput>
@@ -552,6 +553,10 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Login.en.Designer.cs</LastGenOutput>
       <CustomToolNamespace>SideNotes.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Misc.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Misc.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Shared.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -571,6 +576,10 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ToAuthors.Designer.cs</LastGenOutput>
       <CustomToolNamespace>SideNotes.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TwitterLogin.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TwitterLogin.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\User.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -628,7 +637,6 @@
     <Content Include="Views\Book\CommentsByUser.cshtml" />
     <Content Include="Views\BookAdmin\DeleteChapter.cshtml" />
     <Content Include="Views\BookAdmin\DeleteParagraph.cshtml" />
-    <Content Include="Views\LivejournalLogin\LogOn.cshtml" />
     <Content Include="Views\Book\RecentComments.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Shared\Pager.cshtml" />
@@ -658,7 +666,6 @@
     <Content Include="Views\BookAdmin\EditBook.cshtml" />
     <Content Include="Views\User\MySocialProfiles.cshtml" />
     <Content Include="Views\User\OtherSocialProfiles.cshtml" />
-    <Content Include="Views\LivejournalLogin\GetNickname.cshtml" />
     <Content Include="Views\User\CompleteExternalRegistration.cshtml" />
     <Content Include="Views\User\CompleteRegistrationBox.cshtml" />
     <Content Include="Views\Book\AnnotationShort.cshtml" />

@@ -24,7 +24,7 @@ namespace SideNotes.Models
         public void SetPassword(string newPassword, string oldPassword)
         {
             if (PasswordHash!=null && PasswordSeed != null && !Password.Matches(oldPassword)) 
-                throw new ArgumentException("old password doesn't match");
+                throw new ArgumentException(Resources.User.ControllerCurrentPasswordDoesntMatch);
             var pass = new Password(newPassword);
             PasswordHash = pass.Hash;
             PasswordSeed = pass.Salt;
@@ -101,7 +101,7 @@ namespace SideNotes.Models
                 case AccountSource.Yandex:
                     YandexId = info.Id;
                     break;
-                default: throw new NotSupportedException("Данный тип аккаунтов не поддерживается");
+                default: throw new NotSupportedException(Resources.Misc.NotSupportedAccountType);
             }
         }
 

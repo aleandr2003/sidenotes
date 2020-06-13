@@ -22,14 +22,14 @@ namespace SideNotes.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Login {
+    public class TwitterLogin {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Login() {
+        internal TwitterLogin() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace SideNotes.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SideNotes.Resources.Login", typeof(Login).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SideNotes.Resources.TwitterLogin", typeof(TwitterLogin).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,56 +61,20 @@ namespace SideNotes.Resources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Неверный формат данных ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Этот twitter-аккаунт принадлежит другому пользователю ähnelt.
         /// </summary>
-        public static string ControllerInvalidFormat {
+        public static string ControllerAccountBelongsToAnotherUser {
             get {
-                return ResourceManager.GetString("ControllerInvalidFormat", resourceCulture);
+                return ResourceManager.GetString("ControllerAccountBelongsToAnotherUser", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Вход ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Только зарегистрированный пользователь может добавить профиль в соц. сети ähnelt.
         /// </summary>
-        public static string Heading {
+        public static string ControllerMustRegisterToAddProfiles {
             get {
-                return ResourceManager.GetString("Heading", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Пароль ähnelt.
-        /// </summary>
-        public static string PasswordFieldTitle {
-            get {
-                return ResourceManager.GetString("PasswordFieldTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die введите пароль ähnelt.
-        /// </summary>
-        public static string PasswordPlaceholder {
-            get {
-                return ResourceManager.GetString("PasswordPlaceholder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Отправить ähnelt.
-        /// </summary>
-        public static string SubmitButtonText {
-            get {
-                return ResourceManager.GetString("SubmitButtonText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Вход ähnelt.
-        /// </summary>
-        public static string Title {
-            get {
-                return ResourceManager.GetString("Title", resourceCulture);
+                return ResourceManager.GetString("ControllerMustRegisterToAddProfiles", resourceCulture);
             }
         }
     }

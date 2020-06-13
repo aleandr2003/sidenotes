@@ -103,7 +103,7 @@ namespace SideNotes.Controllers
             using (var context = new SideNotesEntities())
             {
                 var book = context.Books.FirstOrDefault(b => b.Id == Id);
-                if (book == null) throw new ArgumentException(Resources.BookAdmin.ControllerBookNotFoundException);
+                if (book == null) throw new ArgumentException(Resources.BookAdmin.ControllerBookNotFound);
                 if (!authz.Authorize(Operation.EditBook, book)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBook);
 
                 var model = new EditBookModel();
@@ -129,7 +129,7 @@ namespace SideNotes.Controllers
             using (var context = new SideNotesEntities())
             {
                 var book = context.Books.FirstOrDefault(b => b.Id == model.Id);
-                if (book == null) throw new ArgumentException(Resources.BookAdmin.ControllerBookNotFoundException);
+                if (book == null) throw new ArgumentException(Resources.BookAdmin.ControllerBookNotFound);
                 if (!authz.Authorize(Operation.EditBook, book)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBook);
                 PropertyStatus status = (PropertyStatus)model.PropertyStatus;
                 book.Annotation = model.Annotation ?? "";
@@ -151,7 +151,7 @@ namespace SideNotes.Controllers
         {
             using(var context = new SideNotesEntities()){
                 var book = context.Books.FirstOrDefault(b=> b.Id == Id);
-                if (book == null) throw new ArgumentException(Resources.BookAdmin.ControllerBookNotFoundException);
+                if (book == null) throw new ArgumentException(Resources.BookAdmin.ControllerBookNotFound);
                 if (!authz.Authorize(Operation.DeleteBook, book)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToDeleteBooks);
                 context.DeleteBook(Id);
             }
@@ -220,7 +220,7 @@ namespace SideNotes.Controllers
             {
                 book = context.Books.First(u => u.Id == id);
             }
-            if (book == null) throw new ArgumentException(Resources.BookAdmin.ControllerBookNotFoundException);
+            if (book == null) throw new ArgumentException(Resources.BookAdmin.ControllerBookNotFound);
             if (!authz.Authorize(Operation.EditBook, book))
                 throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBook);
             if (file != null)

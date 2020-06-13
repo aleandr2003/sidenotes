@@ -259,6 +259,87 @@ namespace SideNotes.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Нельзя менять пароль на внешнем аккаунте ähnelt.
+        /// </summary>
+        public static string ControllerCantChangePasswordOnExternalAccount {
+            get {
+                return ResourceManager.GetString("ControllerCantChangePasswordOnExternalAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Текущий пароль введен не верно ähnelt.
+        /// </summary>
+        public static string ControllerCurrentPasswordDoesntMatch {
+            get {
+                return ResourceManager.GetString("ControllerCurrentPasswordDoesntMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Читатель с таким емейлом уже существует ähnelt.
+        /// </summary>
+        public static string ControllerEmailIsAlreadyUsed {
+            get {
+                return ResourceManager.GetString("ControllerEmailIsAlreadyUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Неверный формат данных ähnelt.
+        /// </summary>
+        public static string ControllerInvalidFormat {
+            get {
+                return ResourceManager.GetString("ControllerInvalidFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Нужно залогиниться ähnelt.
+        /// </summary>
+        public static string ControllerMustLogin {
+            get {
+                return ResourceManager.GetString("ControllerMustLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Недостаточно прав для редактирования профиля этого пользователя ähnelt.
+        /// </summary>
+        public static string ControllerNoPermissionsToEditUser {
+            get {
+                return ResourceManager.GetString("ControllerNoPermissionsToEditUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Повторный ввод не совпадает с первым. Попробуйте ещё раз ähnelt.
+        /// </summary>
+        public static string ControllerPasswordConfirmationDoesntMatch {
+            get {
+                return ResourceManager.GetString("ControllerPasswordConfirmationDoesntMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пользователь не найден ähnelt.
+        /// </summary>
+        public static string ControllerUserNotFound {
+            get {
+                return ResourceManager.GetString("ControllerUserNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пользователь не был зарегистрирован ähnelt.
+        /// </summary>
+        public static string ControllerUserNotRegistered {
+            get {
+                return ResourceManager.GetString("ControllerUserNotRegistered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die alepush@gmail.com ähnelt.
         /// </summary>
         public static string EditProfileBoxEmailPlaceholder {

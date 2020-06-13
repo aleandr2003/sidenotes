@@ -61,6 +61,24 @@ namespace SideNotes.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Нет прав на управление аккаунтами. ähnelt.
+        /// </summary>
+        public static string ControllerNoUserAdminPermissions {
+            get {
+                return ResourceManager.GetString("ControllerNoUserAdminPermissions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пользователь не найден ähnelt.
+        /// </summary>
+        public static string ControllerUserNotFound {
+            get {
+                return ResourceManager.GetString("ControllerUserNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Соединить пользователей ähnelt.
         /// </summary>
         public static string MergeUsersHeading {

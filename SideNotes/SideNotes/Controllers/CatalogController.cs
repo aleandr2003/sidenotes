@@ -96,12 +96,12 @@ namespace SideNotes.Controllers
         public JsonResult AddCategory(string name, int? parentId)
         {
             if (!authz.Authorize(Operation.EditCatalog)) 
-                throw new UnauthorizedAccessException("Вы не можете редактировать каталог");
+                throw new UnauthorizedAccessException(Resources.Catalog.ControllerCantEditCatalog);
             using(var context = new SideNotesEntities()){
                 if (context.Categories.Any(c => c.ParentId == parentId && c.Name == name))
-                    return Json(new { ErrorMessage = "Такая категория уже существует" });
+                    return Json(new { ErrorMessage = Resources.Catalog.ControllerCategoryAlreadyExists });
                 if (parentId != null && !context.Categories.Any(c => c.Id == parentId))
-                    return Json(new { ErrorMessage = "Родительская категория не найдена (возможно, удалена)" });
+                    return Json(new { ErrorMessage = Resources.Catalog.ControllerParentCategoryNotFound });
                 var category = new Category()
                 {
                     ParentId = parentId,
@@ -117,14 +117,14 @@ namespace SideNotes.Controllers
         public JsonResult EditCategory(int Id, string name, int? parentId)
         {
             if (!authz.Authorize(Operation.EditCatalog))
-                throw new UnauthorizedAccessException("Вы не можете редактировать каталог");
+                throw new UnauthorizedAccessException(Resources.Catalog.ControllerCantEditCatalog);
             using (var context = new SideNotesEntities())
             {
                 if (parentId != null && !context.Categories.Any(c => c.Id == parentId))
-                    return Json(new { ErrorMessage = "Родительская категория не найдена (возможно, удалена)" });
+                    return Json(new { ErrorMessage = Resources.Catalog.ControllerParentCategoryNotFound });
                 var category = context.Categories.FirstOrDefault(c => c.Id == Id);
                 if (category == null)
-                    return Json(new { ErrorMessage = "Категория не найдена" });
+                    return Json(new { ErrorMessage = Resources.Catalog.ControllerCategoryNotFound });
                 category.ParentId = parentId;
                 category.Name = name;
 
@@ -137,12 +137,12 @@ namespace SideNotes.Controllers
         public JsonResult DeleteCategory(int Id)
         {
             if (!authz.Authorize(Operation.EditCatalog))
-                throw new UnauthorizedAccessException("Вы не можете редактировать каталог");
+                throw new UnauthorizedAccessException(Resources.Catalog.ControllerCantEditCatalog);
             using (var context = new SideNotesEntities())
             {
                 var category = context.Categories.FirstOrDefault(c => c.Id == Id);
                 if (category == null)
-                    return Json(new { ErrorMessage = "Категория не найдена (возможно, уже удалена)" });
+                    return Json(new { ErrorMessage = Resources.Catalog.ControllerCategoryNotFoundMaybeDeleted });
 
                 category.Books.Clear();
                 context.Categories.Where(c => c.ParentId == Id).ToList().ForEach(c => c.ParentId = null);
@@ -156,15 +156,15 @@ namespace SideNotes.Controllers
         public JsonResult AddBookCategory(int BookId, int parentId)
         {
             if (!authz.Authorize(Operation.EditCatalog))
-                throw new UnauthorizedAccessException("Вы не можете редактировать каталог");
+                throw new UnauthorizedAccessException(Resources.Catalog.ControllerCantEditCatalog);
             using (var context = new SideNotesEntities())
             {
                 var category = context.Categories.FirstOrDefault(c => c.Id == parentId);
                 if (category == null)
-                    return Json(new { ErrorMessage = "Категория не найдена" });
+                    return Json(new { ErrorMessage = Resources.Catalog.ControllerCategoryNotFound });
                 var book = context.Books.FirstOrDefault(b => b.Id == BookId);
                 if (book == null)
-                    return Json(new { ErrorMessage = "Книга не найдена" });
+                    return Json(new { ErrorMessage = Resources.Catalog.ControllerBookNotFound});
                 if (!book.Categories.Contains(category))
                     book.Categories.Add(category);
                 context.SaveChanges();
@@ -176,15 +176,15 @@ namespace SideNotes.Controllers
         public JsonResult RemoveBookCategory(int BookId, int CatId)
         {
             if (!authz.Authorize(Operation.EditCatalog))
-                throw new UnauthorizedAccessException("Вы не можете редактировать каталог");
+                throw new UnauthorizedAccessException(Resources.Catalog.ControllerCantEditCatalog);
             using (var context = new SideNotesEntities())
             {
                 var category = context.Categories.FirstOrDefault(c => c.Id == CatId);
                 if (category == null)
-                    return Json(new { ErrorMessage = "Категория не найдена" });
+                    return Json(new { ErrorMessage = Resources.Catalog.ControllerCategoryNotFound });
                 var book = context.Books.FirstOrDefault(b => b.Id == BookId);
                 if (book == null)
-                    return Json(new { ErrorMessage = "Книга не найдена" });
+                    return Json(new { ErrorMessage = Resources.Catalog.ControllerBookNotFound });
                 if (book.Categories.Contains(category))
                     book.Categories.Remove(category);
                 context.SaveChanges();
@@ -195,7 +195,7 @@ namespace SideNotes.Controllers
         public ActionResult Manage()
         {
             if (!authz.Authorize(Operation.EditCatalog))
-                throw new UnauthorizedAccessException("Вы не можете редактировать каталог");
+                throw new UnauthorizedAccessException(Resources.Catalog.ControllerCantEditCatalog);
             using (var context = new SideNotesEntities())
             {
                 var categories = context.Categories.ToList();
@@ -207,13 +207,13 @@ namespace SideNotes.Controllers
         public ActionResult ManageBookCategories(int BookId)
         {
             if (!authz.Authorize(Operation.EditCatalog))
-                throw new UnauthorizedAccessException("Вы не можете редактировать каталог");
+                throw new UnauthorizedAccessException(Resources.Catalog.ControllerCantEditCatalog);
             using (var context = new SideNotesEntities())
             {
                 var book = context.Books.Include("Categories").FirstOrDefault(b => b.Id == BookId);
                 if (book == null)
                 {
-                    throw new ArgumentException("Книга не найдена");
+                    throw new ArgumentException(Resources.Catalog.ControllerBookNotFound);
                 }
 
                 var categories = context.Categories.ToList();
@@ -226,13 +226,13 @@ namespace SideNotes.Controllers
         public ActionResult ManageCategoryContent(int Id)
         {
             if (!authz.Authorize(Operation.EditCatalog))
-                throw new UnauthorizedAccessException("Вы не можете редактировать каталог");
+                throw new UnauthorizedAccessException(Resources.Catalog.ControllerCantEditCatalog);
             using (var context = new SideNotesEntities())
             {
                 var category = context.Categories.Include("Books.Avatar.Small").FirstOrDefault(c => c.Id == Id);
                 if (category == null)
                 {
-                    throw new ArgumentException("Категория не найдена");
+                    throw new ArgumentException(Resources.Catalog.ControllerCategoryNotFound);
                 }
 
                 var categories = context.Categories.ToList();

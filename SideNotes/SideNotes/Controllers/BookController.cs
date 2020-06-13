@@ -322,15 +322,15 @@ namespace SideNotes.Controllers
         [HttpPost]
         public ActionResult AddBookmark(string name, int paragraphId, bool? json)
         {
-            if (!userSession.IsAuthenticated) throw new InvalidOperationException("Нужно залогиниться");
+            if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.Book.ControllerMustLogin);
             Paragraph paragraph = null;
             using (var context = new SideNotesEntities())
             {
                 paragraph = context.Paragraphs.FirstOrDefault(p => p.Id == paragraphId);
-                if(paragraph == null) throw new ArgumentException("Абзац не найден");
+                if(paragraph == null) throw new ArgumentException(Resources.Book.ControllerParagraphNotFound);
                 if(String.IsNullOrEmpty(name))
                 {
-                    name = "Закладка " + DateTime.Now.ToString("YYYY-MM-dd HH:mm");
+                    name = Resources.Book.ControllerBookmark + " " + DateTime.Now.ToString("YYYY-MM-dd HH:mm");
                 }
                 var bookmark = new Bookmark()
                 {
@@ -348,14 +348,14 @@ namespace SideNotes.Controllers
         [HttpPost]
         public ActionResult RemoveBookmark(int bookmarkId, bool? json)
         {
-            if (!userSession.IsAuthenticated) throw new InvalidOperationException("Нужно залогиниться");
+            if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.Book.ControllerMustLogin);
             int BookId = 0;
             using (var context = new SideNotesEntities())
             {
                 var bookmark = context.Bookmarks.FirstOrDefault(b => b.Id == bookmarkId);
-                if (bookmark == null) throw new ArgumentException("Закладка не найдена");
+                if (bookmark == null) throw new ArgumentException(Resources.Book.ControllerBookMarkNotFound);
                 if (!authz.Authorize(Operation.RemoveBookmark, bookmark)) 
-                    throw new UnauthorizedAccessException("Можно удалять только свои закладки");
+                    throw new UnauthorizedAccessException(Resources.Book.ControllerCantDeleteBookMark);
                 BookId = bookmark.Paragraph.Book_Id;
                 context.Bookmarks.DeleteObject(bookmark);
                 context.SaveChanges();
@@ -366,13 +366,13 @@ namespace SideNotes.Controllers
 
         public ActionResult CommentParagraph(int paragraphId)
         {
-            if (!userSession.IsAuthenticated) throw new InvalidOperationException("Нужно залогиниться");
+            if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.Book.ControllerMustLogin);
             Paragraph paragraph = null;
             using (var context = new SideNotesEntities())
             {
                 paragraph = context.Paragraphs.FirstOrDefault(p => p.Id == paragraphId);
-                if (paragraph == null) throw new ArgumentException("абзац не найден");
-                if (!paragraph.IsCommentable) throw new ArgumentException("этот абзац нельзя комментировать");
+                if (paragraph == null) throw new ArgumentException(Resources.Book.ControllerParagraphNotFound);
+                if (!paragraph.IsCommentable) throw new ArgumentException(Resources.Book.ControllerCantCommentParagraph);
             }
             return View(paragraph);
         }
@@ -384,7 +384,7 @@ namespace SideNotes.Controllers
             using (var context = new SideNotesEntities())
             {
                 paragraph = context.Paragraphs.FirstOrDefault(p => p.Id == paragraphId);
-                if (paragraph == null) throw new ArgumentException("абзац не найден");
+                if (paragraph == null) throw new ArgumentException(Resources.Book.ControllerParagraphNotFound);
             }
             ViewBag.Filter = filter;
             return View(paragraph);
@@ -395,12 +395,12 @@ namespace SideNotes.Controllers
             using (var context = new SideNotesEntities())
             {
                 var headComment = context.HeadComments.FirstOrDefault(h => h.Id == headCommentId);
-                if (headComment == null) throw new ArgumentException("комментарий не найден");
+                if (headComment == null) throw new ArgumentException(Resources.Book.ControllerCommentNotFound);
                 if (headComment.EntityType != (int)EntityType.Paragraph) 
-                    throw new InvalidOperationException("Этот комментарий не относится к абзацу");
+                    throw new InvalidOperationException(Resources.Book.ControllerCommentDoesNotBelongToParagraph);
                 var paragraph = context.Paragraphs.Include("Book.Avatar.Small")
                     .Include("Book.Avatar.Medium").FirstOrDefault(p => p.Id == headComment.EntityId);
-                if (paragraph == null) throw new ArgumentException("абзац не найден");
+                if (paragraph == null) throw new ArgumentException(Resources.Book.ControllerParagraphNotFound);
 
                 ViewBag.HeadCommentId = headCommentId;
                 return View(paragraph);
@@ -508,7 +508,7 @@ namespace SideNotes.Controllers
                 Book book = context.Books.Include("Avatar.Small").Include("Avatar.Medium").FirstOrDefault(b => b.Id == BookId);
                 if (book == null) return View("BookNotFound");
                 User user = context.Users.FirstOrDefault(u => u.Id == UserId);
-                if (user == null) throw new ArgumentException("Пользователь не найден");
+                if (user == null) throw new ArgumentException(Resources.Book.ControllerUserNotFound);
 
                 return View(Tuple.Create(book, user));
             }
@@ -520,7 +520,7 @@ namespace SideNotes.Controllers
             {
                 if (!context.Books.Any(b => b.Id == BookId)) return View("BookNotFound");
                 User user = context.Users.Include("Avatar.Small").Include("Avatar.Large").FirstOrDefault(u => u.Id == UserId);
-                if (user == null) throw new ArgumentException("Пользователь не найден");
+                if (user == null) throw new ArgumentException(Resources.Book.ControllerUserNotFound);
                 int? currentUserId = userSession.IsAuthenticated ? (int?)userSession.CurrentUser.Id : null;
                 var headComments = (
                                           from p in context.Paragraphs
@@ -566,7 +566,7 @@ namespace SideNotes.Controllers
             }
             catch
             {
-                throw new NotSupportedException("такой тип фильтра не поддерживается");
+                throw new NotSupportedException(Resources.Book.ControllerFilterTypeNotSupported);
             }
             using (var context = new SideNotesEntities())
             {
@@ -741,7 +741,7 @@ namespace SideNotes.Controllers
             using (var context = new SideNotesEntities())
             {
                 var paragraph = context.Paragraphs.FirstOrDefault(p => p.Id == Id);
-                if (paragraph == null) throw new ArgumentException("Абзац не найден");
+                if (paragraph == null) throw new ArgumentException(Resources.Book.ControllerParagraphNotFound);
                 ViewBag.IsAuthenticated = userSession.IsAuthenticated;
                 ViewBag.CurrentUserId = userSession.IsAuthenticated ? (int?)userSession.CurrentUser.Id : null;
                 return View("ParagraphContainer", paragraph);
@@ -771,7 +771,7 @@ namespace SideNotes.Controllers
                 }
                 else
                 {
-                    throw new InvalidOperationException(String.Format("Автор книги '{0}' не принимает пожертвования", book.Title));
+                    throw new InvalidOperationException(Resources.Book.ControllerAuthorDoesNotAcceptDonations);
                 }
             }
         }

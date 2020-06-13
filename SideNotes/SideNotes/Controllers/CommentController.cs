@@ -43,7 +43,7 @@ namespace SideNotes.Controllers
             }
             catch
             {
-                throw new NotSupportedException("такой тип фильтра не поддерживается");
+                throw new NotSupportedException(Resources.Comment.ControllerUnknownFilterType);
             }
 
             List<HeadComment> comments = null;
@@ -102,7 +102,7 @@ namespace SideNotes.Controllers
 
         public ActionResult Reply(int commentId, int commentType)
         {
-            if (!userSession.IsAuthenticated) throw new InvalidOperationException("Нужно залогиниться");
+            if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.Comment.ControllerNeedLogin);
             int? parentCommentId = null;
             int headCommentId = 0;
             string parentText = String.Empty;
@@ -111,7 +111,7 @@ namespace SideNotes.Controllers
                 if (commentType == (int)EntityType.Comment)
                 {
                     var comment = context.Comments.FirstOrDefault(c => c.Id == commentId);
-                    if (comment == null) throw new ArgumentException("комментарий не найден");
+                    if (comment == null) throw new ArgumentException(Resources.Comment.ControllerCommentNotFound);
                     parentCommentId = comment.Id;
                     headCommentId = comment.HeadCommentId;
                     parentText = comment.Text;
@@ -119,14 +119,14 @@ namespace SideNotes.Controllers
                 else if (commentType == (int)EntityType.HeadComment)
                 {
                     var comment = context.HeadComments.FirstOrDefault(c => c.Id == commentId);
-                    if (comment == null) throw new ArgumentException("комментарий не найден");
+                    if (comment == null) throw new ArgumentException(Resources.Comment.ControllerCommentNotFound);
                     parentCommentId = null;
                     headCommentId = comment.Id;
                     parentText = comment.Text;
                 }
                 else
                 {
-                    throw new NotSupportedException("Нет такого типа комментариев");
+                    throw new NotSupportedException(Resources.Comment.ControllerUnknownCommentType);
                 }
             }
             ViewBag.ParentCommentId = parentCommentId;
@@ -149,7 +149,7 @@ namespace SideNotes.Controllers
         {
             try
             {
-                if (!userSession.IsAuthenticated) throw new InvalidOperationException("Нужно залогиниться");
+                if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.Comment.ControllerNeedLogin);
                 CommentManager manager = new CommentManager(userSession.Sharer);
                 manager.AddHeadComment(userSession.CurrentUser.Id, entityId, entityType, commentText, isPrivate == isChecked);
             }
@@ -172,9 +172,9 @@ namespace SideNotes.Controllers
                 try
                 {
                     var comment = context.HeadComments.FirstOrDefault(c => c.Id == Id);
-                    if (comment == null) throw new ArgumentException("Комментарий не найден");
+                    if (comment == null) throw new ArgumentException(Resources.Comment.ControllerCommentNotFound);
                     if (!authz.Authorize(Operation.DeleteHeadComment, comment))
-                        throw new UnauthorizedAccessException("Только автор может удалить свой комментарий");
+                        throw new UnauthorizedAccessException(Resources.Comment.ControllerNoPermissionToDeleteComment);
                     entityId = comment.EntityId;
                     //int entityType = comment.EntityType;
                     using (var scope = new TransactionScope())
@@ -213,8 +213,8 @@ namespace SideNotes.Controllers
             ViewBag.ParentCommentId = parentCommentId;
             ViewBag.HeadCommentId = headCommentId;
             var comment = Comment.GetParent(parentCommentId, headCommentId);
-            if (comment == null) throw new InvalidOperationException("Комментарий не найден");
-            if (comment.IsDeleted) throw new InvalidOperationException("Комментарий удален");
+            if (comment == null) throw new InvalidOperationException(Resources.Comment.ControllerCommentNotFound);
+            if (comment.IsDeleted) throw new InvalidOperationException(Resources.Comment.ControllerCommentRemoved);
             return View();
         }
 
@@ -223,7 +223,7 @@ namespace SideNotes.Controllers
         {
             try
             {
-                if (!userSession.IsAuthenticated) throw new InvalidOperationException("Нужно залогиниться");
+                if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.Comment.ControllerNeedLogin);
                 CommentManager manager = new CommentManager(userSession.Sharer);
                 manager.AddComment(userSession.CurrentUser.Id, parentCommentId, headCommentId, commentText);
             }
@@ -246,9 +246,9 @@ namespace SideNotes.Controllers
                 try
                 {
                     var comment = context.Comments.FirstOrDefault(c => c.Id == Id);
-                    if (comment == null) throw new ArgumentException("Комментарий не найден");
+                    if (comment == null) throw new ArgumentException(Resources.Comment.ControllerCommentNotFound);
                     if (!authz.Authorize(Operation.DeleteComment, comment))
-                        throw new UnauthorizedAccessException("Только автор может удалить свой комментарий");
+                        throw new UnauthorizedAccessException(Resources.Comment.ControllerNoPermissionToDeleteComment);
                     headComment = comment.HeadComment;
                     //int entityType = comment.EntityType;
                     using (var scope = new TransactionScope())
@@ -284,11 +284,11 @@ namespace SideNotes.Controllers
         [HttpPost]
         public ActionResult AddBuiltInComment(int entityId, int entityType, int commentType, bool? json)
         {
-            if (!userSession.IsAuthenticated) throw new InvalidOperationException("Нужно залогиниться");
+            if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.Comment.ControllerNeedLogin);
             if (entityType != (int)EntityType.Paragraph) 
-                throw new NotSupportedException("Метки можно добавлять только к параграфам");
+                throw new NotSupportedException(Resources.Comment.ControllerCantAddMark);
             if (!Enum.IsDefined(typeof(BuiltInCommentEnum), commentType)) 
-                throw new ArgumentException("Такой тип меток не поддерживается");
+                throw new ArgumentException(Resources.Comment.ControllerUnknownMarkType);
             using (var context = new SideNotesEntities())
             {
                 bool exists = context.BuiltInComments.Any(b => 
@@ -323,11 +323,11 @@ namespace SideNotes.Controllers
         [HttpPost]
         public ActionResult DeleteBuiltInComment(int entityId, int entityType, int commentType, bool? json)
         {
-            if (!userSession.IsAuthenticated) throw new InvalidOperationException("Нужно залогиниться");
+            if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.Comment.ControllerNeedLogin);
             if (entityType != (int)EntityType.Paragraph)
-                throw new NotSupportedException("Метки можно добавлять только к параграфам");
+                throw new NotSupportedException(Resources.Comment.ControllerCantAddMark);
             if (!Enum.IsDefined(typeof(BuiltInCommentEnum), commentType))
-                throw new ArgumentException("Такой тип меток не поддерживается");
+                throw new ArgumentException(Resources.Comment.ControllerUnknownMarkType);
             using (var context = new SideNotesEntities())
             {
                 var builtIn = context.BuiltInComments.FirstOrDefault(b =>
@@ -382,7 +382,7 @@ namespace SideNotes.Controllers
 
         public ActionResult ListBuiltInEdit(int entityId, int entityType)
         {
-            if (!userSession.IsAuthenticated) throw new UnauthorizedAccessException("нужно залогиниться");
+            if (!userSession.IsAuthenticated) throw new UnauthorizedAccessException(Resources.Comment.ControllerNeedLogin);
             ViewBag.EntityId = entityId;
             ViewBag.EntityType = entityType;
             using (var context = new SideNotesEntities())

@@ -124,7 +124,7 @@ namespace SideNotes.Controllers
         public ActionResult AccountProved(Uri callbackUri)
         {
             if (!userSession.IsAuthenticated)
-                throw new InvalidOperationException("Только зарегистрированный пользователь может добавить профиль в соц. сети");
+                throw new InvalidOperationException(Resources.TwitterLogin.ControllerMustRegisterToAddProfiles);
             var client = new TwitterClient(GetTokenManager());
             if (client.FinishAuthentication())
             {
@@ -141,7 +141,7 @@ namespace SideNotes.Controllers
                 using (var context = new SideNotesEntities())
                 {
                     if (context.Users.Any(u => u.TwitterId == accountInfo.Id))
-                        return Content("Этот twitter-аккаунт принадлежит другому пользователю");
+                        return Content(Resources.TwitterLogin.ControllerAccountBelongsToAnotherUser);
 
                     var user = context.Users.FirstOrDefault(u => u.Id == userSession.CurrentUser.Id);
                     user.SetForeignAccountId(accountInfo);
