@@ -140,31 +140,37 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BookAdmin.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\BookAdmin.en.Designer.cs" />
     <Compile Include="Resources\Catalog.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Catalog.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Catalog.en.Designer.cs" />
     <Compile Include="Resources\Comment.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Comment.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Comment.en.Designer.cs" />
     <Compile Include="Resources\Error.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Error.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Error.en.Designer.cs" />
     <Compile Include="Resources\FacebookLogin.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FacebookLogin.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\FacebookLogin.en.Designer.cs" />
     <Compile Include="Resources\Feed.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Feed.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Feed.en.Designer.cs" />
     <Compile Include="Resources\Home.de.Designer.cs">
       <DependentUpon>Home.de.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -185,6 +191,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InclineService.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\InclineService.en.Designer.cs" />
     <Compile Include="Resources\Login.de.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -299,11 +306,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Misc.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Misc.en.Designer.cs" />
     <Compile Include="Resources\Shared.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Shared.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Shared.en.Designer.cs" />
     <Compile Include="Resources\ToAuthors.de.Designer.cs">
       <DependentUpon>ToAuthors.de.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -324,16 +333,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TwitterLogin.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\TwitterLogin.en.Designer.cs" />
     <Compile Include="Resources\User.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>User.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\User.en.Designer.cs" />
     <Compile Include="Resources\UserAdmin.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UserAdmin.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\UserAdmin.en.Designer.cs" />
     <Compile Include="Services\Abstract\IBookBuilder.cs" />
     <Compile Include="Services\Abstract\IEBookParser.cs" />
     <Compile Include="Services\Abstract\IImageKeeper.cs" />
@@ -511,26 +523,32 @@
       <LastGenOutput>Book.Designer.cs</LastGenOutput>
       <CustomToolNamespace>SideNotes.Resources</CustomToolNamespace>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\BookAdmin.en.resx" />
     <EmbeddedResource Include="Resources\BookAdmin.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>BookAdmin.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Catalog.en.resx" />
     <EmbeddedResource Include="Resources\Catalog.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Catalog.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Comment.en.resx" />
     <EmbeddedResource Include="Resources\Comment.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Comment.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Error.en.resx" />
     <EmbeddedResource Include="Resources\Error.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Error.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FacebookLogin.en.resx" />
     <EmbeddedResource Include="Resources\FacebookLogin.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>FacebookLogin.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Feed.en.resx" />
     <EmbeddedResource Include="Resources\Feed.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Feed.Designer.cs</LastGenOutput>
@@ -550,6 +568,7 @@
       <LastGenOutput>Home.Designer.cs</LastGenOutput>
       <CustomToolNamespace>SideNotes.Resources</CustomToolNamespace>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\InclineService.en.resx" />
     <EmbeddedResource Include="Resources\InclineService.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>InclineService.Designer.cs</LastGenOutput>
@@ -564,10 +583,12 @@
       <LastGenOutput>Login.en.Designer.cs</LastGenOutput>
       <CustomToolNamespace>SideNotes.Resources</CustomToolNamespace>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Misc.en.resx" />
     <EmbeddedResource Include="Resources\Misc.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Misc.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Shared.en.resx" />
     <EmbeddedResource Include="Resources\Shared.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Shared.Designer.cs</LastGenOutput>
@@ -587,14 +608,17 @@
       <LastGenOutput>ToAuthors.Designer.cs</LastGenOutput>
       <CustomToolNamespace>SideNotes.Resources</CustomToolNamespace>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TwitterLogin.en.resx" />
     <EmbeddedResource Include="Resources\TwitterLogin.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>TwitterLogin.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\User.en.resx" />
     <EmbeddedResource Include="Resources\User.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>User.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\UserAdmin.en.resx" />
     <EmbeddedResource Include="Resources\UserAdmin.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>UserAdmin.Designer.cs</LastGenOutput>
