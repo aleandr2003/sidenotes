@@ -125,6 +125,11 @@
     <Compile Include="Application\Windsor\Installers\WebSecurityInstaller.cs" />
     <Compile Include="Application\Windsor\WindsorControllerFactory.cs" />
     <Compile Include="Application\Windsor\WindsorExtensions.cs" />
+    <Compile Include="Resources\Book.en.Designer.cs">
+      <DependentUpon>Book.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\Book.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -496,6 +501,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Book.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Book.en.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>SideNotes.Resources</CustomToolNamespace>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Book.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Book.Designer.cs</LastGenOutput>

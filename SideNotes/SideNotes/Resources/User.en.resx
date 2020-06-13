@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BestCommentCountMessage" xml:space="preserve">
+    <value>to this book</value>
+  </data>
+  <data name="ChangePasswordBoxConfirmPasswordFieldName" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="ChangePasswordBoxCurrentPasswordFieldName" xml:space="preserve">
+    <value>Current password</value>
+  </data>
+  <data name="ChangePasswordBoxNewPasswordFieldName" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="ChangePasswordBoxSubmitButtonText" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="ChangePasswordViewChangePasswordHeading" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="ChangePasswordViewChangePasswordTitle" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="ChangePasswordViewConfirmPasswordFieldName" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="ChangePasswordViewCurrentPasswordFieldName" xml:space="preserve">
+    <value>Current password</value>
+  </data>
+  <data name="ChangePasswordViewNewPasswordFieldName" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="ChangePasswordViewSubmitButtonText" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="CommentsPageHiddenMessage" xml:space="preserve">
+    <value>(hidden)</value>
+  </data>
+  <data name="CommentsPageMoreFromThisUserMessage" xml:space="preserve">
+    <value>More from this user</value>
+  </data>
+  <data name="CommentsPageReadBranchLinkText" xml:space="preserve">
+    <value>Read the whole branch</value>
+  </data>
+  <data name="CommentsPageReadFromHereLinkText" xml:space="preserve">
+    <value>Read from here</value>
+  </data>
+  <data name="CommentsPageReplyLinkText" xml:space="preserve">
+    <value>reply</value>
+  </data>
+  <data name="CompleteExternalRegistrationCompleteRegistrationLinkText" xml:space="preserve">
+    <value>Complete registration</value>
+  </data>
+  <data name="CompleteExternalRegistrationTitle" xml:space="preserve">
+    <value>Complete registration</value>
+  </data>
+  <data name="CompleteRegistrationBoxEmailPlaceholder" xml:space="preserve">
+    <value>William.Shakespeare@gmail.com</value>
+  </data>
+  <data name="CompleteRegistrationBoxNameFieldName" xml:space="preserve">
+    <value>Display name</value>
+  </data>
+  <data name="CompleteRegistrationBoxNamePlaceholder" xml:space="preserve">
+    <value>William Shakespeare</value>
+  </data>
+  <data name="CompleteRegistrationBoxSubmitButtonText" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="ControllerCantChangePasswordOnExternalAccount" xml:space="preserve">
+    <value>Changing the password on an imported account is not possible</value>
+  </data>
+  <data name="ControllerCurrentPasswordDoesntMatch" xml:space="preserve">
+    <value>Current password doesn't match</value>
+  </data>
+  <data name="ControllerEmailIsAlreadyUsed" xml:space="preserve">
+    <value>The email is already used by another reader</value>
+  </data>
+  <data name="ControllerInvalidFormat" xml:space="preserve">
+    <value>Wrong data format</value>
+  </data>
+  <data name="ControllerMustLogin" xml:space="preserve">
+    <value>Please sign in</value>
+  </data>
+  <data name="ControllerNoPermissionsToEditUser" xml:space="preserve">
+    <value>Insufficient permissions to edit this user's profile</value>
+  </data>
+  <data name="ControllerPasswordConfirmationDoesntMatch" xml:space="preserve">
+    <value>Password confirmation does not match. Please try again</value>
+  </data>
+  <data name="ControllerUserNotFound" xml:space="preserve">
+    <value>User not found</value>
+  </data>
+  <data name="ControllerUserNotRegistered" xml:space="preserve">
+    <value>User not registered</value>
+  </data>
+  <data name="EditProfileBoxEmailPlaceholder" xml:space="preserve">
+    <value>William.Shakespeare@gmail.com</value>
+  </data>
+  <data name="EditProfileBoxNameFieldName" xml:space="preserve">
+    <value>Display name</value>
+  </data>
+  <data name="EditProfileBoxNamePlaceholder" xml:space="preserve">
+    <value>William Shakespeare</value>
+  </data>
+  <data name="EditProfileBoxSubmitButtonText" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="EditProfileViewEmailPlaceholder" xml:space="preserve">
+    <value>William.Shakespeare@gmail.com</value>
+  </data>
+  <data name="EditProfileViewHeading" xml:space="preserve">
+    <value>Edit profile</value>
+  </data>
+  <data name="EditProfileViewNameFieldName" xml:space="preserve">
+    <value>Display name</value>
+  </data>
+  <data name="EditProfileViewNamePlaceholder" xml:space="preserve">
+    <value>William Shakespeare</value>
+  </data>
+  <data name="EditProfileViewSubmitButtonText" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="EditProfileViewTitle" xml:space="preserve">
+    <value>Edit profile</value>
+  </data>
+  <data name="IndexHeading" xml:space="preserve">
+    <value>Readers</value>
+  </data>
+  <data name="IndexSubscribeButtonText" xml:space="preserve">
+    <value>subscribe</value>
+  </data>
+  <data name="IndexTitle" xml:space="preserve">
+    <value>Readers</value>
+  </data>
+  <data name="IndexUnsubscribeButtonText" xml:space="preserve">
+    <value>unsubscribe</value>
+  </data>
+  <data name="MySocialProfilesAddProfileLinkText" xml:space="preserve">
+    <value>Add profile</value>
+  </data>
+  <data name="RecentCommentsMoreMessage" xml:space="preserve">
+    <value>More</value>
+  </data>
+  <data name="RegisterEmailPlaceholder" xml:space="preserve">
+    <value>William.Shakespeare@gmail.com</value>
+  </data>
+  <data name="RegisterHeading" xml:space="preserve">
+    <value>Registration</value>
+  </data>
+  <data name="RegisterNameFieldName" xml:space="preserve">
+    <value>Display name</value>
+  </data>
+  <data name="RegisterNamePlaceholder" xml:space="preserve">
+    <value>William Shakespeare</value>
+  </data>
+  <data name="RegisterPasswordFieldName" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="RegisterPasswordPlaceholder" xml:space="preserve">
+    <value>Your password</value>
+  </data>
+  <data name="RegisterSubmitButtonText" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="RegisterTitle" xml:space="preserve">
+    <value>Sign up</value>
+  </data>
+  <data name="SetAvatarBoxHeading" xml:space="preserve">
+    <value>Choose avatar</value>
+  </data>
+  <data name="SetAvatarBoxUploadButtonText" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="SetAvatarHeading" xml:space="preserve">
+    <value>New avatar</value>
+  </data>
+  <data name="SetAvatarTitle" xml:space="preserve">
+    <value>New avatar</value>
+  </data>
+  <data name="SetAvatarUploadButtonText" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="ViewAddProfileLinkText" xml:space="preserve">
+    <value>Add profile</value>
+  </data>
+  <data name="ViewAddUserHeading" xml:space="preserve">
+    <value>Fellow readers</value>
+  </data>
+  <data name="ViewAddUserLinkText" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="ViewBestCommentHeading" xml:space="preserve">
+    <value>Best comment</value>
+  </data>
+  <data name="ViewChangePasswordLinkText" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="ViewContactsMessage" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="ViewEditLinkText" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="ViewNotificationsLinkText" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="ViewReadsNowHeading" xml:space="preserve">
+    <value>Now reads</value>
+  </data>
+  <data name="ViewRecentCommentsHeading" xml:space="preserve">
+    <value>Recent comments</value>
+  </data>
+  <data name="ViewSettingsMessage" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="ViewSigninLinkText" xml:space="preserve">
+    <value>Sign in</value>
+  </data>
+  <data name="ViewSubscribeButtonText" xml:space="preserve">
+    <value>subscribe</value>
+  </data>
+  <data name="ViewTitle" xml:space="preserve">
+    <value>Reader</value>
+  </data>
+  <data name="ViewUnsubscribeButtonText" xml:space="preserve">
+    <value>unsubscribe</value>
+  </data>
+</root>
