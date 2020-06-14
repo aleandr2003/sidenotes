@@ -7,7 +7,7 @@
     _catalog.CategoriesLoaded(function (event) { self.Display(event.data); });
 
     this.Display = function (data) {
-        var link = $('<a href="' + _rootUrl + '" class="categoryLink">Все</a>')
+        var link = $('<a href="' + _rootUrl + '" class="categoryLink">' + ResourceStrings.All + '</a>')
             .appendTo(_container)
             .click(function (e) { e.preventDefault(); self.SelectCategory($(this)); });
         if (data && data.length > 0) {

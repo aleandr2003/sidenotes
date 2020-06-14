@@ -43,7 +43,7 @@ function positionPopupBox(box, link) {
     }
 }
 function errorReplyPopup(jqXHR, textStatus, errorThrown) {
-    alert("Извините, не получилось посмотреть, кто комментировал");
+    alert(ResourceStrings.CountNotFindWhoCommented);
 }
 
 function loadPopupBox(box, link, url) {

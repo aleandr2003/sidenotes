@@ -241,6 +241,24 @@ namespace SideNotes.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Email ähnelt.
+        /// </summary>
+        public static string EmailFieldName {
+            get {
+                return ResourceManager.GetString("EmailFieldName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die alepush@gmail.com ähnelt.
+        /// </summary>
+        public static string EmailPlaceholder {
+            get {
+                return ResourceManager.GetString("EmailPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Управление ähnelt.
         /// </summary>
         public static string LayoutHeaderAdminLinkText {

@@ -285,4 +285,16 @@
   <data name="UpdateNotificationSettingsViewTitle" xml:space="preserve">
     <value>Notifications settings</value>
   </data>
+  <data name="SocialLoginBoxEmailFieldName" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="SocialLoginBoxEmailPlaceholder" xml:space="preserve">
+    <value>William.Shakespeare@gmail.com</value>
+  </data>
+  <data name="EmailFieldName" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailPlaceholder" xml:space="preserve">
+    <value>William.Shakespeare@gmail.com</value>
+  </data>
 </root>

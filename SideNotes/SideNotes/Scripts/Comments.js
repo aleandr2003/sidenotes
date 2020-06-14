@@ -4,7 +4,7 @@
         form.success = function (data) {
             if (data != null && data.ErrorMessage != null) {
                 $('#lightbox_shadow').click();
-                alert("Ой. Ошибочка: " + data.ErrorMessage);
+                alert(ResourceStrings.OopsError + ": " + data.ErrorMessage);
             } else {
                 var container = $(form).closest('.commentContainer');
                 container.find('.commentAuthor').remove();
@@ -50,7 +50,7 @@ function initReplyLinksWithBox(links) {
 
 function createCancelButton() {
     var submitButton = $('.AddNewCommentForm').find('input[type="submit"]');
-    var cancelButton = $('<input type="button" value="Отменить" class="cancelButton"/>').insertAfter(submitButton);
+    var cancelButton = $('<input type="button" value="' + ResourceStrings.Cancel + '" class="cancelButton"/>').insertAfter(submitButton);
     cancelButton.click(function () {
         $('.AddNewCommentFormContainer').hide();
         $('#AddNewHeadFormContainer').show();

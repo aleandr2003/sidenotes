@@ -21,7 +21,7 @@
     <a href="" class="userblock_avatar_link"><img src="" alt="" class="" title=""/></a>\
     <a href="" class="userblock_name"></a>\
     <a href="" class="comment_content"></a>\
-    <div class="commentCounter">еще <a href="" class="commentCounter_counter"></a> к этой книге</div>\
+    <div class="commentCounter">' + ResourceStrings.BestCommentMoreToThisBookMessage.format('<a href="" class="commentCounter_counter" ></a>') + '</div>\
     </div>';
 
     var self = this;

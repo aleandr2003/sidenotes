@@ -173,7 +173,7 @@
         replyForm.success = function (data) {
             if (data != null && data.ErrorMessage != null) {
                 $('#lightbox_shadow').click();
-                alert("Ой. Ошибочка: " + data.ErrorMessage);
+                alert(ResourceStrings.OopsError + ": " + data.ErrorMessage);
             } else {
                 $(replyForm).find('[name=commentText]').val('');
                 var Id = $(replyForm).find('[name=headCommentId]').val();
@@ -187,7 +187,7 @@
         addForm.success = function (data) {
             if (data != null && data.ErrorMessage != null) {
                 $('#lightbox_shadow').click();
-                alert("Ой. Ошибочка: " + data.ErrorMessage);
+                alert(ResourceStrings.OopsError + ": " + data.ErrorMessage);
             } else {
                 $(addForm).find('[name=commentText]').val('');
                 var Id = $(addForm).find('[name=entityId]').val();
@@ -239,7 +239,7 @@
         replyForm.success = function (data) {
             if (data != null && data.ErrorMessage != null) {
                 $('#lightbox_shadow').click();
-                alert("Ой. Ошибочка: " + data.ErrorMessage);
+                alert(ResourceStrings.OopsError + ": " + data.ErrorMessage);
             } else {
                 $(replyForm).find('[name=commentText]').val('');
                 var Id = $(replyForm).find('[name=headCommentId]').val();
@@ -253,7 +253,7 @@
         addForm.success = function (data) {
             if (data != null && data.ErrorMessage != null) {
                 $('#lightbox_shadow').click();
-                alert("Ой. Ошибочка: " + data.ErrorMessage);
+                alert(ResourceStrings.OopsError + ": " + data.ErrorMessage);
             } else {
                 $(addForm).find('[name=commentText]').val('');
                 var Id = $(addForm).find('[name=entityId]').val();

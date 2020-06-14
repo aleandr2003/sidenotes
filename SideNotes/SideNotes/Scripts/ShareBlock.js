@@ -39,8 +39,8 @@
         '&caption=' + _url +
         '&description=' + content +
         '&redirect_uri=' + siteRootUrl +
-        '&display=popup';
-        var button = $('<a href="' + dialogUrl + '" class="facebook-share-button" target="_blank"><span>Рассказать</span></a>');
+            '&display=popup';
+        var button = $('<a href="' + dialogUrl + '" class="facebook-share-button" target="_blank"><span>' + ResourceStrings.Share + '</span></a>');
         button.click(function (e) {
             var url = $(this).attr('href');
             e.preventDefault();
@@ -64,7 +64,7 @@
             noparse: true
         };
 
-        var button = VK.Share.button(contentSettings, { type: 'round_nocount', text: 'Рассказать' });
+        var button = VK.Share.button(contentSettings, { type: 'round_nocount', text: ResourceStrings.Share });
         var div = $('<div class="shareButtonContainer"></div>').appendTo(_container);
         $(button).attr('class', 'vkontakte-share-button').appendTo(div);
     }
@@ -74,9 +74,9 @@
         if (content != undefined && content.length > LJLimit) {
             content = content.substr(0, LJLimit) + '...';
         }
-        var ljSnippet = encodeURIComponent('<table cellspacing="0" style="width: 525px; font-family: arial; border: solid 1px #000; background-color: #fff;"><tr valign="top"><td style="padding: 13px; width:150px;"><img src="' + _picture + '" width="123" height="93" alt="" style="border: none;" /></td><td style="padding: 9px 9px 12px 1px"><div><a href="' + _url + '" style="text-decoration: none; color: #7B7B7B; font-size: 16px; line-height: 16px; font-weight:bold">' + _title + '</a></div><div style="margin-top:8px"><a href="' + _url + '" style="text-decoration: none; color: #000000;"><span style="font-size: 15px; line-height: 16px; color: #7B7B7B; font-style:italic">' + content + '</span></a></div><div style="margin-top:8px"><a href="http://sidenotes.ru" style="color: #000"><img src="' + siteLogoUrl + '"/><span style="color: #000; font-size: 11px; font-weight:bold">Sidenotes.ru</span></a></div></td></tr></table>');
+        var ljSnippet = encodeURIComponent('<table cellspacing="0" style="width: 525px; font-family: arial; border: solid 1px #000; background-color: #fff;"><tr valign="top"><td style="padding: 13px; width:150px;"><img src="' + _picture + '" width="123" height="93" alt="" style="border: none;" /></td><td style="padding: 9px 9px 12px 1px"><div><a href="' + _url + '" style="text-decoration: none; color: #7B7B7B; font-size: 16px; line-height: 16px; font-weight:bold">' + _title + '</a></div><div style="margin-top:8px"><a href="' + _url + '" style="text-decoration: none; color: #000000;"><span style="font-size: 15px; line-height: 16px; color: #7B7B7B; font-style:italic">' + content + '</span></a></div><div style="margin-top:8px"><a href="' + siteRootUrl+'" style="color: #000"><img src="' + siteLogoUrl + '"/><span style="color: #000; font-size: 11px; font-weight:bold">'+projectName+'</span></a></div></td></tr></table>');
         var linkUrl = 'http://www.livejournal.com/update.bml?event=' + ljSnippet;
-        var button = $('<a href="' + linkUrl + '" class="lj-share-button" target="_blank"><span>Написать</span></a>');
+        var button = $('<a href="' + linkUrl + '" class="lj-share-button" target="_blank"><span>' + ResourceStrings.Share +'</span></a>');
         var div = $('<div class="shareButtonContainer"></div>').appendTo(_container);
         button.appendTo(div);
     }

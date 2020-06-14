@@ -29,7 +29,7 @@
                 }
             }
         } else {
-            $('<span>Нет ни одной книги</span>').appendTo(_container);
+            $('<span>' + ResourceStrings.NoBooksMessage + '</span>').appendTo(_container);
         }
     };
 

@@ -109,10 +109,14 @@
     }
 
     this.getInclination = function (intgr) {
-        if (intgr % 10 == 1 && intgr % 100 != 11) {
-            return 'комментатора';
-        } else {
-            return 'комментаторов';
+        if (userLanguage === 'ru') {
+            if (intgr % 10 == 1 && intgr % 100 != 11) {
+                return 'комментатора';
+            } else {
+                return 'комментаторов';
+            }
+        } else if (userLanguage === 'en') {
+            return intgr === 1 ? 'commentator' : 'commentators';
         }
     }
 

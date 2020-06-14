@@ -8,7 +8,7 @@
     var _feedUrl = feedUrl;
     var _commentatorsUrl = commentatorsUrl;
     var _counter = $('<div class="commentCounter" style="display:none;"></div>');
-    var _counterLink = $('<a href="' + setParameter(_feedUrl, 'paragraphId', self.paragraphId) + '" class="commentCounter_counter allCommentsLink"  title = "всего комментов"></a>');
+    var _counterLink = $('<a href="' + setParameter(_feedUrl, 'paragraphId', self.paragraphId) + '" class="commentCounter_counter allCommentsLink"  title = "' + ResourceStrings.CommentsTotalCount+ '"></a>');
     var _countInt = 0;
 
     this.Display = function () {
@@ -78,7 +78,7 @@
 
     this.updateCommentsCountSuccess = function (data) {
         _counterLink.html(data.count);
-        _counterLink.attr('title', 'всего ' + data.count + ' комментов');
+        _counterLink.attr('title', ResourceStrings.CommentsTotalCount2.format(data.count));
         _container.find('.userblock_avatar_link').remove();
         if (!data.count || data.count == 0) {
             _counter.hide();

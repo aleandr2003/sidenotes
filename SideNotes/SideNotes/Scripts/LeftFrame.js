@@ -5,7 +5,7 @@
     });
 }
 function errorReply(jqXHR, textStatus, errorThrown) {
-    alert("Извините, произошла ошибка");
+    alert(ResourceStrings.SorryErrorHappened);
 }
 
 function initFrame(frameId) {

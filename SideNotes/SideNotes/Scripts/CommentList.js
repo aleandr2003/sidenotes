@@ -49,7 +49,7 @@
         _commentList = $('<div class="commentBlockList" style="display:none;"></div>').appendTo(_container);
         _extraCommentsButton = $('<div class="extraComments" style="display:none;"></div>').appendTo(_container);
         _extraCommentsLink = $('<a href="javascript:void(0)" class="extraCommentsLink"></a>').appendTo(_extraCommentsButton);
-        _hideCommentsLink = $('<a href="javascript:void(0)" class="hideCommentsLink" style="display:none;">Скрыть</a>').appendTo(_extraCommentsButton);
+        _hideCommentsLink = $('<a href="javascript:void(0)" class="hideCommentsLink" style="display:none;">' + ResourceStrings.HideCommand +'</a>').appendTo(_extraCommentsButton);
         _lastCommentBlock = $('<div class="commentBlockLast"></div>').appendTo(_container);
         _addCommentForm = createNewCommentForm().appendTo(_container).show();
 
@@ -159,7 +159,7 @@
         form[0].success = function (data) {
             if (data != null && data.ErrorMessage != null) {
                 $('#lightbox_shadow').click();
-                alert("Ой. Ошибочка: " + data.ErrorMessage);
+                alert(ResourceStrings.OopsError + ': ' + data.ErrorMessage);
             } else {
                 $(form).find('[name=commentText]').val('');
                 self.showCommentsList();
@@ -299,20 +299,25 @@
 
     var getCommentsCountSuccess = function (data) {
         if (data.count > 2) {
-            _extraCommentsLink.html('ещё ' + (data.count - 2) + ' ' + getInclinationNominative(data.count - 2));
+            var extraCommentsCount = data.count - 2;
+            _extraCommentsLink.html(getInclinedCountMessage(extraCommentsCount).format(extraCommentsCount));
             _extraCommentsButton.show();
         } else {
             _extraCommentsButton.hide();
         }
     };
 
-    var getInclinationNominative = function (intgr) {
-        if (intgr % 10 == 1 && intgr % 100 != 11) {
-            return 'комментарий';
-        } else if (intgr % 10 < 5 && (intgr % 100 < 11 || intgr % 100 > 14)) {
-            return 'комментария';
-        } else {
-            return 'комментариев';
+    var getInclinedCountMessage = function (intgr) {
+        if (userLanguage === 'ru') {
+            if (intgr % 10 == 1 && intgr % 100 != 11) {
+                return 'ещё {0} комментарий';
+            } else if (intgr % 10 < 5 && (intgr % 100 < 11 || intgr % 100 > 14)) {
+                return 'ещё {0} комментария';
+            } else {
+                return 'ещё {0} комментариев';
+            }
+        } else if (userLanguage === 'en') {
+            return intgr === 1 ? '{0} more comment' : '{0} more comments';
         }
     };
 }

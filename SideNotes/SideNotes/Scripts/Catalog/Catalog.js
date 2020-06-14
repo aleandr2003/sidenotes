@@ -58,8 +58,8 @@
         self.BooksLoaded(data);
     }
 
-    function ajaxErrorFunc(){
-        alert('Ошибка при загрузке');
+    function ajaxErrorFunc() {
+        alert(ResourceStrings.DownloadError);
     }
 }
 

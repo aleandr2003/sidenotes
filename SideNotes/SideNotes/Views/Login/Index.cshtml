@@ -10,8 +10,8 @@
 		<fieldset>
             @Html.Hidden("returnUrl", (string)ViewBag.returnUrl)
 			<br />
-			@Html.LabelFor(x => x.Email, "E-mail")
-			@Html.TextBoxFor(x => x.Email, new { placeholder = "alepush@gmail.com" })
+			@Html.LabelFor(x => x.Email, SideNotes.Resources.Shared.EmailFieldName)
+			@Html.TextBoxFor(x => x.Email, new { placeholder = SideNotes.Resources.Shared.EmailPlaceholder })
             @Html.ValidationMessageFor(x => x.Email)
 
 			<br />

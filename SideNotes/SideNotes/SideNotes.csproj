@@ -472,6 +472,9 @@
     <Content Include="Scripts\Main.js" />
     <Content Include="Scripts\Observable.js" />
     <Content Include="Scripts\PopupBox.js" />
+    <Content Include="Scripts\Resources\ResourceStrings.de.js" />
+    <Content Include="Scripts\Resources\ResourceStrings.en.js" />
+    <Content Include="Scripts\Resources\ResourceStrings.js" />
     <Content Include="Scripts\RightFrame.js" />
     <Content Include="Scripts\LightBox.js" />
     <Content Include="Scripts\ShareBlock.js" />
@@ -480,6 +483,7 @@
     <Content Include="Scripts\ToolBar.js" />
     <Content Include="Scripts\toolTip.jQuery.js" />
     <Content Include="Scripts\UnclosableBox.js" />
+    <Content Include="Scripts\Utilities\StringExtensions.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -522,6 +526,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Book.Designer.cs</LastGenOutput>
       <CustomToolNamespace>SideNotes.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\BookAdmin.en.resx" />
     <EmbeddedResource Include="Resources\BookAdmin.resx">
@@ -567,6 +572,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Home.Designer.cs</LastGenOutput>
       <CustomToolNamespace>SideNotes.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\InclineService.en.resx" />
     <EmbeddedResource Include="Resources\InclineService.resx">
@@ -617,6 +623,7 @@
     <EmbeddedResource Include="Resources\User.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>User.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\UserAdmin.en.resx" />
     <EmbeddedResource Include="Resources\UserAdmin.resx">
