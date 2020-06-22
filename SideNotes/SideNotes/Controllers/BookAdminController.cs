@@ -13,6 +13,7 @@ using SideNotes.Controllers.Abstract;
 using System.Configuration;
 using Ionic.Zip;
 using System.Text;
+using SideNotes.Extensions;
 
 namespace SideNotes.Controllers
 {
@@ -23,7 +24,10 @@ namespace SideNotes.Controllers
         private AvatarService bookAvatarService;
         private AvatarService userAvatarService;
 
-        public BookAdminController(ParserFactory parserFactory, IAuthorizationService authz, BookAvatarService bookAvatarService, UserAvatarService userAvatarService)
+        public BookAdminController(ParserFactory parserFactory, 
+            IAuthorizationService authz, 
+            BookAvatarService bookAvatarService, 
+            UserAvatarService userAvatarService)
         {
             this.authz = authz;
             this.parserFactory = parserFactory;
@@ -45,7 +49,9 @@ namespace SideNotes.Controllers
         [HttpPost]
         public ActionResult AddBook(HttpPostedFileBase ebookfile)
         {
-            if (!authz.Authorize(Operation.AddBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToAddBooks);
+            if (!authz.Authorize(Operation.AddBook))
+                throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToAddBooks);
+
             string ext = Path.GetExtension(ebookfile.FileName);
             Stream inputStream = null;
             string tempFileName = null;
@@ -80,6 +86,7 @@ namespace SideNotes.Controllers
         private string Unzip(Stream zippedFile)
         {
             var tempfolder = HostingEnvironment.MapPath(ConfigurationManager.AppSettings["TempFolder"]);
+            DirectoryExtensions.EnsureDirectory(tempfolder);
             var zippedFileName = tempfolder + DateTime.Now.ToString("YYYY-MM-DD-HH-mm-ss") + ".zip";
             var file = System.IO.File.Create(zippedFileName);
             zippedFile.CopyTo(file);
@@ -104,7 +111,8 @@ namespace SideNotes.Controllers
             {
                 var book = context.Books.FirstOrDefault(b => b.Id == Id);
                 if (book == null) throw new ArgumentException(Resources.BookAdmin.ControllerBookNotFound);
-                if (!authz.Authorize(Operation.EditBook, book)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBook);
+                if (!authz.Authorize(Operation.EditBook, book))
+                    throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBook);
 
                 var model = new EditBookModel();
                 model.Id = book.Id;
@@ -130,7 +138,8 @@ namespace SideNotes.Controllers
             {
                 var book = context.Books.FirstOrDefault(b => b.Id == model.Id);
                 if (book == null) throw new ArgumentException(Resources.BookAdmin.ControllerBookNotFound);
-                if (!authz.Authorize(Operation.EditBook, book)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBook);
+                if (!authz.Authorize(Operation.EditBook, book))
+                    throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBook);
                 PropertyStatus status = (PropertyStatus)model.PropertyStatus;
                 book.Annotation = model.Annotation ?? "";
                 book.AuthorsEmail = model.AuthorEmail;
@@ -149,10 +158,13 @@ namespace SideNotes.Controllers
         [HttpPost]
         public ActionResult DeleteBook(int Id)
         {
-            using(var context = new SideNotesEntities()){
-                var book = context.Books.FirstOrDefault(b=> b.Id == Id);
-                if (book == null) throw new ArgumentException(Resources.BookAdmin.ControllerBookNotFound);
-                if (!authz.Authorize(Operation.DeleteBook, book)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToDeleteBooks);
+            using (var context = new SideNotesEntities())
+            {
+                var book = context.Books.FirstOrDefault(b => b.Id == Id);
+                if (book == null)
+                    throw new ArgumentException(Resources.BookAdmin.ControllerBookNotFound);
+                if (!authz.Authorize(Operation.DeleteBook, book))
+                    throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToDeleteBooks);
                 context.DeleteBook(Id);
             }
             return RedirectToAction("Index");
@@ -161,14 +173,16 @@ namespace SideNotes.Controllers
         [HttpGet]
         public ActionResult DeleteChapter()
         {
-            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
+            if (!authz.Authorize(Operation.EditBook))
+                throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
             return View();
         }
 
         [HttpPost]
         public ActionResult DeleteChapter(int Id)
         {
-            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
+            if (!authz.Authorize(Operation.EditBook))
+                throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
             using (var context = new SideNotesEntities())
             {
                 if (context.Chapters.Any(c => c.ParentChapter_Id == Id)) 
@@ -188,21 +202,27 @@ namespace SideNotes.Controllers
         [HttpGet]
         public ActionResult DeleteParagraph()
         {
-            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
+            if (!authz.Authorize(Operation.EditBook))
+                throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
+
             return View();
         }
 
         [HttpPost]
         public ActionResult DeleteParagraph(int Id)
         {
-            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
+            if (!authz.Authorize(Operation.EditBook))
+                throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
+
             using (var context = new SideNotesEntities())
             {
                 if (context.HeadComments.Any(c => c.EntityType == (int)EntityType.Paragraph && c.EntityId == Id))
                     throw new InvalidOperationException(Resources.BookAdmin.ControllerCantDeleteParagraph);
+
                 var paragraph = context.Paragraphs.FirstOrDefault(c => c.Id == Id);
                 if (paragraph == null)
                     throw new InvalidOperationException(Resources.BookAdmin.ControllerParagraphNotFound);
+
                 var latterParagraphs = context.Paragraphs.Where(p => p.OrderNumber > paragraph.OrderNumber).ToList();
                 latterParagraphs.ForEach(c => c.OrderNumber--);
                 context.Paragraphs.DeleteObject(paragraph);
@@ -220,7 +240,9 @@ namespace SideNotes.Controllers
             {
                 book = context.Books.First(u => u.Id == id);
             }
-            if (book == null) throw new ArgumentException(Resources.BookAdmin.ControllerBookNotFound);
+            if (book == null)
+                throw new ArgumentException(Resources.BookAdmin.ControllerBookNotFound);
+
             if (!authz.Authorize(Operation.EditBook, book))
                 throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBook);
             if (file != null)
@@ -233,7 +255,9 @@ namespace SideNotes.Controllers
 
         public ActionResult UpdateChapterAll()
         {
-            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
+            if (!authz.Authorize(Operation.EditBook))
+                throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
+
             using (var context = new SideNotesEntities())
             {
                 var books = context.Books.ToList();
@@ -247,7 +271,9 @@ namespace SideNotes.Controllers
 
         public ActionResult UpdateChapterIds(int BookId)
         {
-            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
+            if (!authz.Authorize(Operation.EditBook))
+                throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
+
             using (var context = new SideNotesEntities())
             {
                 var chaptersDic = (from chap in context.Chapters
@@ -269,7 +295,9 @@ namespace SideNotes.Controllers
 
         public ActionResult FixAvatarSize()
         {
-            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
+            if (!authz.Authorize(Operation.EditBook))
+                throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
+
             using (var context = new SideNotesEntities())
             {
                 var path = HostingEnvironment.MapPath(ConfigurationManager.AppSettings["TempFolder"]);
@@ -300,7 +328,8 @@ namespace SideNotes.Controllers
 
         public ActionResult FixPhotoDimensions()
         {
-            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
+            if (!authz.Authorize(Operation.EditBook))
+                throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
             using (var context = new SideNotesEntities())
             {
                 var fixer = new PhotoFixer();
@@ -327,7 +356,8 @@ namespace SideNotes.Controllers
 
         public ActionResult FixInnerComments()
         {
-            if (!authz.Authorize(Operation.EditBook)) throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
+            if (!authz.Authorize(Operation.EditBook))
+                throw new UnauthorizedAccessException(Resources.BookAdmin.ControllerNoPermissionToEditBooks);
             using (var context = new SideNotesEntities())
             {
                 var comments = context.Comments.ToList();

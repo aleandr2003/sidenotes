@@ -125,6 +125,7 @@
     <Compile Include="Application\Windsor\Installers\WebSecurityInstaller.cs" />
     <Compile Include="Application\Windsor\WindsorControllerFactory.cs" />
     <Compile Include="Application\Windsor\WindsorExtensions.cs" />
+    <Compile Include="Extensions\DirectoryExtensions.cs" />
     <Compile Include="Resources\Book.en.Designer.cs">
       <DependentUpon>Book.en.resx</DependentUpon>
       <AutoGen>True</AutoGen>
