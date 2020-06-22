@@ -10,5 +10,7 @@
     'Share': 'Рассказать',
     'NoBooksMessage': 'Нет ни одной книги',
     'All': 'Все',
-    'DownloadError':'Ошибка при загрузке'
+    'DownloadError': 'Ошибка при загрузке',
+    'NextComments':'следующие комменты',
+    'PreviousComments':'предыдущие коменты'
 };

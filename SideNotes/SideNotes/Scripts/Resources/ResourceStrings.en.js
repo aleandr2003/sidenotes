@@ -10,5 +10,7 @@
     'Share': 'Share',
     'NoBooksMessage': 'No books yet',
     'All': 'All',
-    'DownloadError': 'Error during downloading'
+    'DownloadError': 'Error during downloading',
+    'NextComments': 'next comments',
+    'PreviousComments': 'previous comments'
 }

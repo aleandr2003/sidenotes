@@ -126,7 +126,13 @@
   <data name="Commentators1" xml:space="preserve">
     <value>commentators</value>
   </data>
+  <data name="Commentators2" xml:space="preserve">
+    <value>commentators</value>
+  </data>
   <data name="Comments1" xml:space="preserve">
+    <value>comments</value>
+  </data>
+  <data name="Comments2" xml:space="preserve">
     <value>comments</value>
   </data>
 </root>
