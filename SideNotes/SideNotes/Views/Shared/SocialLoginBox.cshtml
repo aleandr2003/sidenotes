@@ -19,13 +19,6 @@
                 alt="Twitter" class="socialNetworkLogo submitInUnclosableBox"/>
         </form>
     </div>
-    <div class="SNLoginFormBig">
-        <form action="@Url.Action("SendRequest", "VkontakteLogin", new { callbackUri = Request.Url.AbsoluteUri })" 
-            method="post">
-            <input type="image" src="@Url.Content("~/Content/img/logo/vk-64.jpg")" 
-                alt="Twitter" class="socialNetworkLogo submitInUnclosableBox"/>
-        </form>
-    </div>
     <div style="clear:both;height:1px;">&nbsp;</div>
     <h2 id="OrLoginCaption">@SideNotes.Resources.Shared.SocialLoginBoxOrMessage <a href="javascript:void()" id="OrLoginLink">@SideNotes.Resources.Shared.SocialLoginBoxSignInLinkText</a></h2>
     <div id="orLoginFormContainer">

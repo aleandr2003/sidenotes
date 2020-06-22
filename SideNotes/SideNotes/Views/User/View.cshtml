@@ -78,45 +78,6 @@
                                     new { callbackUri = Url.ActionAbsolute("View", "User", new { Id = Model.Id }) }, new { @class = "contactList_item_link" })
 			</li>
             }
-            @if (Model.VkontakteProfileUrl != null)
-            {
-			<li class="contactList_item contactList_item_vkontakte">
-				<a href="@Model.VkontakteProfileUrl" class="contactList_item_link">@Model.VkontakteUsername</a>
-			</li>
-            }
-            else if (ViewBag.IsMyProfile == true && ViewBag.IsAuthenticated == true)
-            {
-            <li class="contactList_item contactList_item_vkontakte">
-				@Html.ActionLink(SideNotes.Resources.User.ViewAddProfileLinkText, "ProveAccount", "VkontakteLogin",
-                                    new { callbackUri = Url.ActionAbsolute("View", "User", new { Id = Model.Id }) }, new { @class = "contactList_item_link" })
-			</li>
-            }
-            @if (Model.YandexProfileUrl != null)
-            {
-			<li class="contactList_item contactList_item_yandex">
-				<a href="@Model.YandexProfileUrl" class="contactList_item_link">@Model.YandexUsername</a>
-			</li>
-            }
-            else if (ViewBag.IsMyProfile == true && ViewBag.IsAuthenticated == true)
-            {
-            <li class="contactList_item contactList_item_yandex">
-				@Html.ActionLink(SideNotes.Resources.User.ViewAddProfileLinkText, "ProveAccount", "YandexLogin",
-                                    new { callbackUri = Url.ActionAbsolute("View", "User", new { Id = Model.Id }) }, new { @class = "contactList_item_link" })
-			</li>
-            }
-            @if (Model.LivejournalProfileUrl != null)
-            {
-			<li class="contactList_item contactList_item_lj">
-				<a href="@Model.LivejournalProfileUrl" class="contactList_item_link">@Model.LivejournalUsername</a>
-			</li>
-            }
-            else if (ViewBag.IsMyProfile == true && ViewBag.IsAuthenticated == true)
-            {
-            <li class="contactList_item contactList_item_lj">
-				@Html.ActionLink(SideNotes.Resources.User.ViewAddProfileLinkText, "ProveAccount", "LivejournalLogin",
-                                    new { callbackUri = Url.ActionAbsolute("View", "User", new { Id = Model.Id }) }, new { @class = "contactList_item_link" })
-			</li>
-            }
 		</ul>
 	</div>
 @if (ViewBag.EditMode == true)

@@ -7,11 +7,6 @@
 {
     <div id="header_userinfo" class="loginblock">
         <div class="SNLoginForm">
-        <form action="@Url.Action("SendRequest", "VkontakteLogin", new { callbackUri = Request.Url.AbsoluteUri })" method="post">
-            <input type="image" src="@Url.Content("~/Content/img/logo/vkontakte-16.png")" alt="Vkontakte" class = "socialNetworkLogo"/>
-        </form>
-        </div>
-        <div class="SNLoginForm">
         <form action="@Url.Action("SendRequest", "FacebookLogin", new { callbackUri = Request.Url.AbsoluteUri })" method="post">
             <input type="image" src="@Url.Content("~/Content/img/logo/facebook-16.gif")" alt="Facebook" class = "socialNetworkLogo"/>
         </form>
