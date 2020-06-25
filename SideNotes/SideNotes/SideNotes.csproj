@@ -373,8 +373,6 @@
     <Compile Include="Services\ParserFactory.cs" />
     <Compile Include="Services\BookAvatarService.cs" />
     <Compile Include="Services\UserSession.cs" />
-    <Compile Include="Services\VkontakteSharer.cs" />
-    <Compile Include="Services\YandexSharer.cs" />
     <Compile Include="ViewModels\AddCommentModel.cs" />
     <Compile Include="ViewModels\ChangePasswordModel.cs" />
     <Compile Include="ViewModels\CommentatorModel.cs" />

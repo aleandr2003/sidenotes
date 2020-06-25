@@ -17,11 +17,6 @@ namespace SideNotes.Services
                     return user.AccessTokenFacebook != null ? new FacebookSharer(user.AccessTokenFacebook, user) : null;
                 case AccountSource.Twitter:
                     return user.AccessTokenTwitter != null ? new TwitterSharer(user.AccessTokenTwitter, user) : null;
-                case AccountSource.Vkontakte:
-                    return user.AccessTokenVkontakte != null ? new VkontakteSharer(user.AccessTokenVkontakte, user) : null;
-                case AccountSource.Yandex:
-                    return user.AccessTokenYandex != null ? new YandexSharer(user.AccessTokenYandex, user) : null;
-                case AccountSource.Livejournal:
                 case AccountSource.SideNotes:
                     return null;
                 default:

@@ -9,9 +9,6 @@ namespace SideNotes.Models
     {
         SideNotes = 0,
         Facebook = 1,
-        Vkontakte = 2,
         Twitter = 3,
-        Livejournal = 4,
-        Yandex = 5
     }
 }
