@@ -290,7 +290,6 @@
       <DependentUpon>SideNotesModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs" />
-    <Compile Include="OAuth\YandexClient.cs" />
     <Compile Include="OAuth\FacebookClient.cs" />
     <Compile Include="OAuth\FacebookTokenManagerFactory.cs" />
     <Compile Include="OAuth\InMemoryTokenManager.cs" />

@@ -10,10 +10,8 @@ namespace SideNotes.Services
 {
     public class CommentManager
     {
-        private Sharer sharer;
-        public CommentManager(Sharer sharer)
+        public CommentManager()
         {
-            this.sharer = sharer;
         }
 
         public int SaveTemporaryComment(int entityId, int entityType, string commentText, bool isPrivate)
@@ -71,15 +69,7 @@ namespace SideNotes.Services
             };
             context.HeadComments.AddObject(newComment);
             context.SaveChanges();
-            if (entityType == (int)EntityType.Paragraph && !newComment.IsPrivate && sharer != null)
-            {
-                var paragraph = context.Paragraphs.FirstOrDefault(p => p.Id == entityId);
-                try
-                {
-                    sharer.ShareComment(paragraph, newComment);
-                }
-                catch { }
-            }
+            
             try
             {
                 CommentNotifier notifier = new CommentNotifier();

@@ -54,7 +54,7 @@ namespace SideNotes.Controllers
                 return
                     Content(String.Format("{0} {1} {2}", Request.QueryString["error_reason"], Request.QueryString["error"],
                                           Request.QueryString["error_description"]));
-            var manager = new CommentManager(null);
+            var manager = new CommentManager();
             var tempId = manager.SaveTemporaryComment(EntityId, EntityType, commentText, isPrivate == isChecked);
             //если ещё не аутентифицировались
             var client = new FacebookClient(GetTokenManager());
@@ -129,7 +129,7 @@ namespace SideNotes.Controllers
             }
             if (tempId != null)
             {
-                var manager = new CommentManager(userSession.Sharer);
+                var manager = new CommentManager();
                 manager.PublishTemporaryComment(tempId ?? 0, userSession.CurrentUser.Id);
             }
             var returnUrl = callbackUri != null ? callbackUri.ToString() : Url.Action("Index", "Home");

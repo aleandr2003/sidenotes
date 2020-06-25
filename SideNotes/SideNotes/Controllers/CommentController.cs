@@ -150,7 +150,7 @@ namespace SideNotes.Controllers
             try
             {
                 if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.Comment.ControllerNeedLogin);
-                CommentManager manager = new CommentManager(userSession.Sharer);
+                CommentManager manager = new CommentManager();
                 manager.AddHeadComment(userSession.CurrentUser.Id, entityId, entityType, commentText, isPrivate == isChecked);
             }
             catch (InvalidOperationException ex)
@@ -224,7 +224,7 @@ namespace SideNotes.Controllers
             try
             {
                 if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.Comment.ControllerNeedLogin);
-                CommentManager manager = new CommentManager(userSession.Sharer);
+                CommentManager manager = new CommentManager();
                 manager.AddComment(userSession.CurrentUser.Id, parentCommentId, headCommentId, commentText);
             }
             catch (InvalidOperationException ex)
