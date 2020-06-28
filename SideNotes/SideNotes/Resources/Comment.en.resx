@@ -195,4 +195,10 @@
   <data name="ControllerUnknownMarkType" xml:space="preserve">
     <value>Mark type not supported</value>
   </data>
+  <data name="CommentRemoved" xml:space="preserve">
+    <value>removed</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>The user was not found</value>
+  </data>
 </root>

@@ -24,14 +24,8 @@ namespace SideNotes.Models.Queries
             {
                 case AccountSource.Facebook:
                     return context.Users.FirstOrDefault(u => u.FacebookId == info.Id);
-                case AccountSource.Vkontakte:
-                    return context.Users.FirstOrDefault(u => u.VkontakteId == info.Id);
                 case AccountSource.Twitter:
                     return context.Users.FirstOrDefault(u => u.TwitterId == info.Id);
-                case AccountSource.Livejournal:
-                    return context.Users.FirstOrDefault(u => u.LivejournalId == info.Id);
-                case AccountSource.Yandex:
-                    return context.Users.FirstOrDefault(u => u.YandexId == info.Id);
                 default: throw new NotSupportedException(Resources.Misc.NotSupportedAccountType);
             }
         }

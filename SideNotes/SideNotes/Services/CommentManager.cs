@@ -5,13 +5,16 @@ using System.Web;
 using SideNotes.Services.Abstract;
 using SideNotes.Models;
 using System.Transactions;
+using SideNotes.Services.Templates;
 
 namespace SideNotes.Services
 {
-    public class CommentManager
+    public class CommentManager : ICommentManager
     {
-        public CommentManager()
+        ICommentNotifier notifier;
+        public CommentManager(ICommentNotifier notifier)
         {
+            this.notifier = notifier;
         }
 
         public int SaveTemporaryComment(int entityId, int entityType, string commentText, bool isPrivate)
@@ -72,10 +75,11 @@ namespace SideNotes.Services
             
             try
             {
-                CommentNotifier notifier = new CommentNotifier();
                 notifier.NotifyNewHeadComment(newComment);
             }
-            catch { }
+            catch {
+                //TODO log error
+            }
         }
 
         
@@ -100,8 +104,15 @@ namespace SideNotes.Services
                 context.Comments.AddObject(newComment);
                 context.SaveChanges();
 
-                CommentNotifier notifier = new CommentNotifier();
-                notifier.NotifyNewComment(newComment);
+                try
+                {
+                    
+                    notifier.NotifyNewComment(newComment);
+                }
+                catch
+                {
+                    //TODO log error
+                }
             }
         }
     }

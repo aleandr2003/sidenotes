@@ -19,11 +19,13 @@ namespace SideNotes.Controllers
     {
         readonly IUserSession userSession;
         readonly AvatarService avatarService;
+        readonly ICommentManager commentManager;
 
-        public TwitterLoginController(IUserSession userSession, UserAvatarService avatarService)
+        public TwitterLoginController(IUserSession userSession, UserAvatarService avatarService, ICommentManager commentManager)
         {
             this.userSession = userSession;
             this.avatarService = avatarService;
+            this.commentManager = commentManager;
         }
 
         protected InMemoryTokenManager GetTokenManager()
@@ -43,8 +45,7 @@ namespace SideNotes.Controllers
         [HttpPost]
         public ActionResult PostComment(Uri callbackUri, string commentText, int EntityId, int EntityType, string isPrivate)
         {
-            var manager = new CommentManager();
-            var tempId = manager.SaveTemporaryComment(EntityId, EntityType, commentText, isPrivate == isChecked);
+            var tempId = this.commentManager.SaveTemporaryComment(EntityId, EntityType, commentText, isPrivate == isChecked);
             var client = new TwitterClient(GetTokenManager());
             string callBackUrl = Url.ActionAbsolute("Callback") + "?callbackUri=" + Uri.EscapeDataString(callbackUri.ToString()) + "&tempId=" + tempId;
             client.StartAuthentication(callBackUrl);
@@ -105,8 +106,7 @@ namespace SideNotes.Controllers
             }
             if (tempId != null)
             {
-                var manager = new CommentManager();
-                manager.PublishTemporaryComment(tempId ?? 0, userSession.CurrentUser.Id);
+                this.commentManager.PublishTemporaryComment(tempId ?? 0, userSession.CurrentUser.Id);
             }
             var returnUrl = callbackUri != null ? callbackUri.ToString() : Url.Action("Index", "Home");
             //return Redirect(returnUrl);

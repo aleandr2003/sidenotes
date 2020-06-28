@@ -195,4 +195,10 @@
   <data name="ControllerUnknownMarkType" xml:space="preserve">
     <value>Такой тип меток не поддерживается</value>
   </data>
+  <data name="CommentRemoved" xml:space="preserve">
+    <value>удален</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>Пользователь не найден</value>
+  </data>
 </root>

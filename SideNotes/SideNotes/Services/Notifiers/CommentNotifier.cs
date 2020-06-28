@@ -5,26 +5,18 @@ using System.Web;
 using SideNotes.Models;
 using System.Web.Mvc;
 using SideNotes.Extensions;
+using SideNotes.Services.Templates;
 
 namespace SideNotes.Services
 {
-    public class CommentNotifier
+    public class CommentNotifier : ICommentNotifier
     {
-        private const string NewCommentTemplate = @"Уважаемый {0}.<br/> 
-Пользователь <a href='{2}'>{1}</a> ответил на ваш комментарий:<br/>
-<br/>
-{3}<br/>
-<br/>
-<a href='{4}'>Прочитать обсуждение</a>
-";
+        ITemplateLoader templateLoader;
 
-        private const string NewHeadCommentTemplate = @"Уважаемый {0}.<br/> 
-Пользователь <a href='{2}'>{1}</a> продолжил дискуссию в книге <a href='{4}'>'{3}'</a>:<br/>
-<br/>
-{5}<br/>
-<br/>
-<a href='{6}'>Прочитать обсуждение</a>
-";
+        public CommentNotifier(ITemplateLoader templateLoader)
+        {
+            this.templateLoader = templateLoader;
+        }
 
         public void NotifyNewComment(Comment newComment)
         {
@@ -35,7 +27,7 @@ namespace SideNotes.Services
                 User author = context.Users.FirstOrDefault(u => u.Id == newComment.Author_Id);
                 HeadComment headComment = context.HeadComments.FirstOrDefault(c => c.Id == newComment.HeadCommentId);
 
-                if (receiver == null) throw new InvalidOperationException("Пользователь не найден");
+                if (receiver == null) throw new InvalidOperationException(Resources.Comment.UserNotFound);
                 if (receiver.NotifyAuthorCommentReplied && !String.IsNullOrEmpty(receiver.Email) && receiver.Id != author.Id)
                 {
                     UrlHelper urlHelper = UrlHelperExtensions.GetUrlHelper();
@@ -44,7 +36,12 @@ namespace SideNotes.Services
                     {
                         discussionLink = urlHelper.ActionAbsolute("CommentsThread", "Book", new { headCommentId = headComment.Id }).AbsoluteUri;
                     }
-                    string body = String.Format(NewCommentTemplate,
+
+                    EmailTemplate template = this.templateLoader.LoadEmailTemplate("NewCommentTemplate");
+                    if (template == null)
+                        //TODO define own excpetion types.
+                        throw new Exception("Failed to load template");
+                    string body = String.Format(template.Body,
                             receiver.Name,
                             HttpUtility.HtmlEncode(author.Name),
                             urlHelper.ActionAbsolute("View", "User", new { Id = newComment.Author_Id }).AbsoluteUri,
@@ -53,7 +50,7 @@ namespace SideNotes.Services
                         );
                     Notification newNotification = new Notification()
                     {
-                        Subject = "На ваш комментарий ответили",
+                        Subject = template.Subject,
                         Email = receiver.Email,
                         Body = body
                     };
@@ -71,13 +68,18 @@ namespace SideNotes.Services
                     && h.EntityType == newComment.EntityType
                     && h.Author_Id != null).ToList();
                 var AuthorIds = otherComments.Where(c => c.Author_Id != newComment.Author_Id).Select(c => c.Author_Id).Distinct().ToList();
-                
+
+                EmailTemplate template = this.templateLoader.LoadEmailTemplate("NewHeadCommentTemplate");
+                if (template == null)
+                    //TODO define own excpetion types.
+                    throw new Exception("Failed to load template");
+
                 foreach (int AuthorId in AuthorIds)
                 {
                     User receiver = context.Users.FirstOrDefault(u => u.Id == AuthorId);
                     User author = context.Users.FirstOrDefault(u => u.Id == newComment.Author_Id);
 
-                    if (receiver == null) throw new InvalidOperationException("Пользователь не найден");
+                    if (receiver == null) throw new InvalidOperationException(Resources.Comment.UserNotFound);
                     if (receiver.NotifyAuthorCommentReplied && !String.IsNullOrEmpty(receiver.Email) && receiver.Id != author.Id)
                     {
                         UrlHelper urlHelper = UrlHelperExtensions.GetUrlHelper();
@@ -87,7 +89,7 @@ namespace SideNotes.Services
                             var paragraph = context.Paragraphs.FirstOrDefault(p => p.Id == newComment.EntityId);
                             readerLink = urlHelper.ActionAbsolute("View", "Book", new { Id = paragraph.Book_Id, skip = paragraph.OrderNumber - 1, expanded = "on" }).AbsoluteUri;
                             var book = context.Books.First(b => b.Id == paragraph.Book_Id);
-                            string body = String.Format(NewHeadCommentTemplate,
+                            string body = String.Format(template.Body,
                                     receiver.Name,
                                     HttpUtility.HtmlEncode(author.Name),
                                     urlHelper.ActionAbsolute("View", "User", new { Id = newComment.Author_Id }).AbsoluteUri,
@@ -98,7 +100,7 @@ namespace SideNotes.Services
                                 );
                             Notification newNotification = new Notification()
                             {
-                                Subject = "На ваш комментарий ответили",
+                                Subject = template.Subject,
                                 Email = receiver.Email,
                                 Body = body
                             };

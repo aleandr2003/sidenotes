@@ -51,10 +51,7 @@ namespace SideNotes.Controllers
             };
             user.SetForeignAccountId(accountInfo);
             user.AccountSource = accountInfo.AccountSource;
-            if (accountInfo.AccountSource != AccountSource.Vkontakte)
-            {
-                user.Email = accountInfo.Email;
-            }
+            user.Email = accountInfo.Email;
             using (var context = new SideNotesEntities())
             {
                 context.Users.AddObject(user);

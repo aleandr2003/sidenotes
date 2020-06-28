@@ -89,17 +89,8 @@ namespace SideNotes.Models
                 case AccountSource.Facebook:
                     FacebookId = info.Id;
                     break;
-                case AccountSource.Vkontakte:
-                    VkontakteId = info.Id;
-                    break;
                 case AccountSource.Twitter:
                     TwitterId = info.Id;
-                    break;
-                case AccountSource.Livejournal:
-                    LivejournalId = info.Id;
-                    break;
-                case AccountSource.Yandex:
-                    YandexId = info.Id;
                     break;
                 default: throw new NotSupportedException(Resources.Misc.NotSupportedAccountType);
             }

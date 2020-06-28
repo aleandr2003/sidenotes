@@ -70,14 +70,8 @@ namespace SideNotes.Services
                 if (user.AccountSource == AccountSource.SideNotes && user.PasswordMatches(password)) return user;
                 if (user.AccountSource == AccountSource.Facebook)
                     throw new ArgumentException("Это внешний аккаунт. Воспользуйтесь входом через facebook");
-                if (user.AccountSource == AccountSource.Vkontakte)
-                    throw new ArgumentException("Это внешний аккаунт. Воспользуйтесь входом через Вконтакте");
                 if (user.AccountSource == AccountSource.Twitter)
                     throw new ArgumentException("Это внешний аккаунт. Воспользуйтесь входом через twitter");
-                if (user.AccountSource == AccountSource.Livejournal)
-                    throw new ArgumentException("Это внешний аккаунт. Воспользуйтесь входом через Живой журнал");
-                if (user.AccountSource == AccountSource.Yandex)
-                    throw new ArgumentException("Это внешний аккаунт. Воспользуйтесь входом через Яндекс");
             }
 
             throw new ArgumentException("Неправильная пара логин-пароль");

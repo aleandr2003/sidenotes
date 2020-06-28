@@ -293,13 +293,9 @@
     <Compile Include="OAuth\FacebookClient.cs" />
     <Compile Include="OAuth\FacebookTokenManagerFactory.cs" />
     <Compile Include="OAuth\InMemoryTokenManager.cs" />
-    <Compile Include="OAuth\LivejournalClient.cs" />
     <Compile Include="OAuth\TokenManagerFactory.cs" />
     <Compile Include="OAuth\TwitterClient.cs" />
     <Compile Include="OAuth\TwitterTokenManagerFactory.cs" />
-    <Compile Include="OAuth\VkontakteClient.cs" />
-    <Compile Include="OAuth\VkontakteTokenManagerFactory.cs" />
-    <Compile Include="OAuth\YandexTokenManagerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Misc.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -355,15 +351,20 @@
     <Compile Include="Services\Abstract\IAuthorizationService.cs" />
     <Compile Include="Services\Abstract\Sharer.cs" />
     <Compile Include="Services\AuthorizationService.cs" />
-    <Compile Include="Services\BookAuthorNotifier.cs" />
+    <Compile Include="Services\ICommentManager.cs" />
+    <Compile Include="Services\Notifiers\BookAuthorNotifier.cs" />
     <Compile Include="Services\BookBuilder.cs" />
     <Compile Include="Services\BookBuilderDummy.cs" />
     <Compile Include="Services\CommentManager.cs" />
-    <Compile Include="Services\CommentNotifier.cs" />
+    <Compile Include="Services\Notifiers\CommentNotifier.cs" />
     <Compile Include="Services\FacebookSharer.cs" />
     <Compile Include="Services\FB2Builder.cs" />
+    <Compile Include="Services\Notifiers\ICommentNotifier.cs" />
     <Compile Include="Services\PhotoFixer.cs" />
     <Compile Include="Services\SharerFactory.cs" />
+    <Compile Include="Services\Templates\EmailTemplate.cs" />
+    <Compile Include="Services\Templates\ITemplateLoader.cs" />
+    <Compile Include="Services\Templates\TemplateLoader.cs" />
     <Compile Include="Services\TwitterSharer.cs" />
     <Compile Include="Services\UserAvatarService.cs" />
     <Compile Include="Services\FB2Parser.cs" />
@@ -442,6 +443,12 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Models\SideNotesModel.edmx.sql" />
+    <Content Include="Resources\NotificationTemplates\NewCommentTemplate.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\NotificationTemplates\NewHeadCommentTemplate.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\AddHeadBox.js" />
     <Content Include="Scripts\AjaxForm.js" />
     <Content Include="Scripts\BestComment.js" />

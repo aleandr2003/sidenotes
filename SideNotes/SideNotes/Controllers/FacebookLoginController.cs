@@ -20,12 +20,14 @@ namespace SideNotes.Controllers
     {
         readonly IUserSession userSession;
         readonly AvatarService avatarService;
+        readonly ICommentManager commentManager;
 
-        public FacebookLoginController(IUserSession userSession, UserAvatarService avatarService)
+        public FacebookLoginController(IUserSession userSession, UserAvatarService avatarService, ICommentManager commentManager)
             : base(userSession, avatarService)
         {
             this.userSession = userSession;
             this.avatarService = avatarService;
+            this.commentManager = commentManager;
         }
 
         protected override InMemoryTokenManager GetTokenManager()
@@ -54,8 +56,7 @@ namespace SideNotes.Controllers
                 return
                     Content(String.Format("{0} {1} {2}", Request.QueryString["error_reason"], Request.QueryString["error"],
                                           Request.QueryString["error_description"]));
-            var manager = new CommentManager();
-            var tempId = manager.SaveTemporaryComment(EntityId, EntityType, commentText, isPrivate == isChecked);
+            var tempId = this.commentManager.SaveTemporaryComment(EntityId, EntityType, commentText, isPrivate == isChecked);
             //если ещё не аутентифицировались
             var client = new FacebookClient(GetTokenManager());
             var callbackUrl = Uri.EscapeDataString(Url.ActionAbsolute("Callback") + "?callbackUri=" + Uri.EscapeDataString(callbackUri.ToString()));
@@ -129,8 +130,7 @@ namespace SideNotes.Controllers
             }
             if (tempId != null)
             {
-                var manager = new CommentManager();
-                manager.PublishTemporaryComment(tempId ?? 0, userSession.CurrentUser.Id);
+                this.commentManager.PublishTemporaryComment(tempId ?? 0, userSession.CurrentUser.Id);
             }
             var returnUrl = callbackUri != null ? callbackUri.ToString() : Url.Action("Index", "Home");
             //return Redirect(returnUrl);

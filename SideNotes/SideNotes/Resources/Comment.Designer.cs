@@ -115,6 +115,15 @@ namespace SideNotes.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die удален ähnelt.
+        /// </summary>
+        public static string CommentRemoved {
+            get {
+                return ResourceManager.GetString("CommentRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die удалить ähnelt.
         /// </summary>
         public static string CommentTreeNodeDeleteButtonText {
@@ -291,6 +300,15 @@ namespace SideNotes.Resources {
         public static string ReplyTitle {
             get {
                 return ResourceManager.GetString("ReplyTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пользователь не найден ähnelt.
+        /// </summary>
+        public static string UserNotFound {
+            get {
+                return ResourceManager.GetString("UserNotFound", resourceCulture);
             }
         }
     }

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<template>
+  <subject>Someone responded</subject>
+  <body>Dear reader<br/>
+    Someone responded to your comment
+  </body>
+</template>

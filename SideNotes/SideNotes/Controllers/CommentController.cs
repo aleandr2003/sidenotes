@@ -12,6 +12,7 @@ using SideNotes.Models.Queries;
 using System.Linq.Expressions;
 using SideNotes.ViewModels;
 using SideNotes.Controllers.Abstract;
+using SideNotes.Services.Templates;
 
 namespace SideNotes.Controllers
 {
@@ -22,10 +23,13 @@ namespace SideNotes.Controllers
             
         private IAuthorizationService authz;
         private IUserSession userSession;
-        public CommentController(IAuthorizationService authz, IUserSession userSession)
+        private ICommentManager commentManager;
+
+        public CommentController(IAuthorizationService authz, IUserSession userSession, ICommentManager manager)
         {
             this.userSession = userSession;
             this.authz = authz;
+            this.commentManager = manager;
             ViewData["SelectedTab"] = HeaderTabs.Catalog;
         }
 
@@ -150,8 +154,7 @@ namespace SideNotes.Controllers
             try
             {
                 if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.Comment.ControllerNeedLogin);
-                CommentManager manager = new CommentManager();
-                manager.AddHeadComment(userSession.CurrentUser.Id, entityId, entityType, commentText, isPrivate == isChecked);
+                commentManager.AddHeadComment(userSession.CurrentUser.Id, entityId, entityType, commentText, isPrivate == isChecked);
             }
             catch (InvalidOperationException ex)
             {
@@ -181,7 +184,7 @@ namespace SideNotes.Controllers
                     {
                         if (context.Comments.Any(c => c.HeadCommentId == Id))
                         {
-                            comment.Text = "(удален)";
+                            comment.Text = $"({Resources.Comment.CommentRemoved})";
                             comment.Author_Id = null;
                         }
                         else
@@ -224,8 +227,7 @@ namespace SideNotes.Controllers
             try
             {
                 if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.Comment.ControllerNeedLogin);
-                CommentManager manager = new CommentManager();
-                manager.AddComment(userSession.CurrentUser.Id, parentCommentId, headCommentId, commentText);
+                commentManager.AddComment(userSession.CurrentUser.Id, parentCommentId, headCommentId, commentText);
             }
             catch (InvalidOperationException ex)
             {
@@ -255,7 +257,7 @@ namespace SideNotes.Controllers
                     {
                         if (context.Comments.Any(c => c.ParentCommentId == Id))
                         {
-                            comment.Text = "(удален)";
+                            comment.Text = $"({Resources.Comment.CommentRemoved})";
                             comment.Author_Id = null;
                         }
                         else
