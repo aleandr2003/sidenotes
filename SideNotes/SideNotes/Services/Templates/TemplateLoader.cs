@@ -11,6 +11,8 @@ namespace SideNotes.Services.Templates
     public class TemplateLoader : ITemplateLoader
     {
         private string path;
+        private Dictionary<string, EmailTemplate> emailTemplatesCache = new Dictionary<string, EmailTemplate>();
+        private object cacheLock = new object();
 
         public TemplateLoader(string path)
         {
@@ -19,9 +21,26 @@ namespace SideNotes.Services.Templates
             {
                 this.path += "\\";
             }
+
+            
         }
 
-        public EmailTemplate LoadEmailTemplate(string templateName, string culture = "ru")
+        public EmailTemplate GetEmailTemplate(string templateName, string culture = "ru")
+        {
+            string cacheKey = GetCacheKey(templateName, culture);
+            lock (cacheLock)
+            {
+                if (emailTemplatesCache.ContainsKey(cacheKey))
+                {
+                    return emailTemplatesCache[cacheKey];
+                }
+                EmailTemplate template = LoadEmailTemplate(templateName, culture);
+                emailTemplatesCache[cacheKey] = template;
+                return template;
+            }
+        }
+
+        private EmailTemplate LoadEmailTemplate(string templateName, string culture = "ru")
         {
             string filename = GetFileName(templateName, culture);
             if (!File.Exists(filename))
@@ -49,9 +68,21 @@ namespace SideNotes.Services.Templates
             };
         }
 
+        private string GetCacheKey(string templateName, string culture) => $"{templateName}.{culture}";
+
         private string GetFileName(string templateName, string culture)
         {
-            string filename = $"{path}{templateName}";
+            string filename;
+            if (this.path.StartsWith(".\\") || this.path.StartsWith("~\\"))
+            {
+                filename = $"{path}{templateName}";
+            }
+            else
+            {
+                string appRoot = HttpContext.Current.Server.MapPath("~");
+                filename = $"{appRoot}{path}{templateName}";
+            }
+            
             if (culture.ToLower() == "ru")
             {
                 return filename + ".xml";

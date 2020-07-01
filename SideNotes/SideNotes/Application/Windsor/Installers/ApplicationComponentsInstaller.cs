@@ -15,7 +15,7 @@ namespace SideNotes.Application.Windsor.Installers
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<ITemplateLoader>().Instance(new TemplateLoader("~\\Resources\\NotificationTemplates")).LifeStyle.Singleton);
+            container.Register(Component.For<ITemplateLoader>().Instance(new TemplateLoader("Resources\\NotificationTemplates")).LifeStyle.Singleton);
             container.Register(Component.For<ICommentManager>().ImplementedBy<CommentManager>().LifeStyle.Transient);
             container.Register(Component.For<ICommentNotifier>().ImplementedBy<CommentNotifier>().LifeStyle.Transient);
             container.Register(Component.For<UserAvatarService>().ImplementedBy<UserAvatarService>().LifeStyle.Transient);

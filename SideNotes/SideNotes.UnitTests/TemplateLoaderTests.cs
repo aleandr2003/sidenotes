@@ -11,7 +11,7 @@ namespace SideNotes.UnitTests
         {
             var t = new TemplateLoader(".\\TestTemplates");
 
-            var template = t.LoadEmailTemplate("correct", "ru");
+            var template = t.GetEmailTemplate("correct", "ru");
 
             Assert.IsNotNull(template);
             Assert.IsNotNull(template.Body);
@@ -23,7 +23,7 @@ namespace SideNotes.UnitTests
         {
             var t = new TemplateLoader(".\\TestTemplates\\MissingFolder");
 
-            var template = t.LoadEmailTemplate("correct", "ru");
+            var template = t.GetEmailTemplate("correct", "ru");
 
             Assert.IsNull(template);
         }
@@ -33,7 +33,7 @@ namespace SideNotes.UnitTests
         {
             var t = new TemplateLoader(".\\TestTemplates");
 
-            var template = t.LoadEmailTemplate("missingtemplate", "ru");
+            var template = t.GetEmailTemplate("missingtemplate", "ru");
 
             Assert.IsNull(template);
         }
@@ -43,7 +43,7 @@ namespace SideNotes.UnitTests
         {
             var t = new TemplateLoader(".\\TestTemplates");
 
-            var template = t.LoadEmailTemplate("correct", "en");
+            var template = t.GetEmailTemplate("correct", "en");
 
             Assert.IsNotNull(template);
             Assert.IsNotNull(template.Body);
@@ -55,7 +55,7 @@ namespace SideNotes.UnitTests
         {
             var t = new TemplateLoader(".\\TestTemplates");
 
-            var template = t.LoadEmailTemplate("broken", "ru");
+            var template = t.GetEmailTemplate("broken", "ru");
 
             Assert.IsNull(template);
         }
@@ -65,7 +65,7 @@ namespace SideNotes.UnitTests
         {
             var t = new TemplateLoader(".\\TestTemplates");
 
-            var template = t.LoadEmailTemplate("missingsubject", "ru");
+            var template = t.GetEmailTemplate("missingsubject", "ru");
 
             Assert.IsNotNull(template);
             Assert.IsNotNull(template.Body);

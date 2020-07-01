@@ -443,7 +443,13 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Models\SideNotesModel.edmx.sql" />
+    <Content Include="Resources\NotificationTemplates\NewCommentTemplate.en.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\NotificationTemplates\NewCommentTemplate.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\NotificationTemplates\NewHeadCommentTemplate.en.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\NotificationTemplates\NewHeadCommentTemplate.xml">

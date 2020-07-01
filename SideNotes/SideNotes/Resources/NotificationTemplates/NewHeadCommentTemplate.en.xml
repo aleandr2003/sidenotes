@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<template>
+  <subject>{0} replied to your comment</subject>
+  <body>Dear {0}.<br/>
+    Reader <a href='{2}'>{1}</a> continued discussion in book <a href='{4}'>'{3}'</a>:<br/>
+    <br/>
+    {5}<br/>
+    <br/>
+    <a href='{6}'>Read discussion</a></body>
+</template>

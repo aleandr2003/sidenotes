@@ -2,6 +2,6 @@
 {
     public interface ITemplateLoader
     {
-        EmailTemplate LoadEmailTemplate(string templateName, string culture = "ru");
+        EmailTemplate GetEmailTemplate(string templateName, string culture = "ru");
     }
 }

@@ -1,4 +1,3 @@
-Loading email notification templates doesn't work. (path not found)
 Adding more than one head comment doesn't work (no autoincrementation of id field)
 Adding sub comments doesn't work (unknown reason)
 Select notification template with respect to current culture

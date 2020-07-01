@@ -12,10 +12,12 @@ namespace SideNotes.Services
     public class CommentNotifier : ICommentNotifier
     {
         ITemplateLoader templateLoader;
+        string culture;
 
         public CommentNotifier(ITemplateLoader templateLoader)
         {
             this.templateLoader = templateLoader;
+            this.culture = System.Globalization.CultureInfo.CurrentUICulture.IetfLanguageTag.ToLower();
         }
 
         public void NotifyNewComment(Comment newComment)
@@ -37,7 +39,7 @@ namespace SideNotes.Services
                         discussionLink = urlHelper.ActionAbsolute("CommentsThread", "Book", new { headCommentId = headComment.Id }).AbsoluteUri;
                     }
 
-                    EmailTemplate template = this.templateLoader.LoadEmailTemplate("NewCommentTemplate");
+                    EmailTemplate template = this.templateLoader.GetEmailTemplate("NewCommentTemplate", culture);
                     if (template == null)
                         //TODO define own excpetion types.
                         throw new Exception("Failed to load template");
@@ -69,7 +71,7 @@ namespace SideNotes.Services
                     && h.Author_Id != null).ToList();
                 var AuthorIds = otherComments.Where(c => c.Author_Id != newComment.Author_Id).Select(c => c.Author_Id).Distinct().ToList();
 
-                EmailTemplate template = this.templateLoader.LoadEmailTemplate("NewHeadCommentTemplate");
+                EmailTemplate template = this.templateLoader.GetEmailTemplate("NewHeadCommentTemplate", culture);
                 if (template == null)
                     //TODO define own excpetion types.
                     throw new Exception("Failed to load template");
