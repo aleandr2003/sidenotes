@@ -1,5 +1,5 @@
-Adding more than one head comment doesn't work (no autoincrementation of id field)
-Adding sub comments doesn't work (unknown reason)
-Select notification template with respect to current culture
 Translate email templates
 Add logging
+Separate adding comments from saving notifications
+remove all automatic shares
+remove vk and lj shares (buttons still exist above head comment)

@@ -303,7 +303,7 @@ GO
 
 -- Creating table 'HeadComments'
 CREATE TABLE [dbo].[HeadComments] (
-    [Id] int  NOT NULL,
+    [Id] int  IDENTITY(1,1) NOT NULL,
     [Text] nvarchar(max)  NULL,
     [DateCreated] datetime  NOT NULL,
     [Author_Id] int  NULL,

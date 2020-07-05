@@ -324,7 +324,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Text" Type="nvarchar(max)" Nullable="true" />
     <Property Name="DateCreated" Type="datetime" Nullable="false" />
     <Property Name="Author_Id" Type="int" Nullable="true" />
@@ -1398,7 +1398,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Text" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="DateCreated" Nullable="false" />
           <Property Type="Int32" Name="Author_Id" Nullable="true" />
