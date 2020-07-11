@@ -138,7 +138,7 @@ namespace SideNotes.Services
             {
                 section.Add(new XElement("p", String.Format("<strong>{0}</strong>: {1};", comment.Author.Name, comment.Text)));
             }
-            var replyLink = new XElement("a", "ответить");
+            var replyLink = new XElement("a", Resources.Misc.FB2BuilderReply);
             replyLink.SetAttributeValue("href", replyUrl);
             section.Add(new XElement("p",replyLink));
             return section;

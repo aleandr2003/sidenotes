@@ -117,11 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CommentatorsDropdownFrom" xml:space="preserve">
+    <value>from</value>
+  </data>
   <data name="FacebookSharerIReadTheBook" xml:space="preserve">
     <value>I read '{0}' on annotated.by</value>
   </data>
+  <data name="FB2BuilderReply" xml:space="preserve">
+    <value>reply</value>
+  </data>
+  <data name="FriendsListShortMore" xml:space="preserve">
+    <value>More</value>
+  </data>
+  <data name="NotificationOK" xml:space="preserve">
+    <value>OK</value>
+  </data>
   <data name="NotSupportedAccountType" xml:space="preserve">
     <value>Account type not supported</value>
+  </data>
+  <data name="StatisticsOK" xml:space="preserve">
+    <value>OK</value>
   </data>
   <data name="TwitterSharerIReadTheBook" xml:space="preserve">
     <value>I read '{0}'</value>

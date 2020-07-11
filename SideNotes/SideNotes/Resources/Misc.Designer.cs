@@ -61,6 +61,15 @@ namespace SideNotes.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die от ähnelt.
+        /// </summary>
+        public static string CommentatorsDropdownFrom {
+            get {
+                return ResourceManager.GetString("CommentatorsDropdownFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Читаю &apos;{0}&apos; на annotated.by ähnelt.
         /// </summary>
         public static string FacebookSharerIReadTheBook {
@@ -70,11 +79,47 @@ namespace SideNotes.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ответить ähnelt.
+        /// </summary>
+        public static string FB2BuilderReply {
+            get {
+                return ResourceManager.GetString("FB2BuilderReply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ещё ähnelt.
+        /// </summary>
+        public static string FriendsListShortMore {
+            get {
+                return ResourceManager.GetString("FriendsListShortMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ОК ähnelt.
+        /// </summary>
+        public static string NotificationOK {
+            get {
+                return ResourceManager.GetString("NotificationOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Данный тип аккаунтов не поддерживается ähnelt.
         /// </summary>
         public static string NotSupportedAccountType {
             get {
                 return ResourceManager.GetString("NotSupportedAccountType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ОК ähnelt.
+        /// </summary>
+        public static string StatisticsOK {
+            get {
+                return ResourceManager.GetString("StatisticsOK", resourceCulture);
             }
         }
         

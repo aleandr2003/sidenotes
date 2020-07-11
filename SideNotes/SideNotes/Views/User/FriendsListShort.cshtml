@@ -4,7 +4,7 @@
 <ul class="commentator_list" id="interlocutorList">
     @Html.Action("FriendsPage", "User", new { Id = ViewBag.UserId , Page = 1})
 </ul>
-<div id="MoreFriendsButton" href="@Url.Action("FriendsPage", "User", new { Id = ViewBag.UserId })" page="1">Ещё</div>
+<div id="MoreFriendsButton" href="@Url.Action("FriendsPage", "User", new { Id = ViewBag.UserId })" page="1">@SideNotes.Resources.Misc.FriendsListShortMore</div>
 <script type="text/javascript">
     $(function () {
         function getFriendsPageSuccess(data) {
