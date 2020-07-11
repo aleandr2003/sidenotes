@@ -28,7 +28,7 @@ namespace SideNotes.ViewModels
 
         public string Description { get; set; }
 
-        [StringLength(100, ErrorMessage = "Хештег должен быть не длиннее 100 символов")]
+        [StringLength(100, ErrorMessageResourceName = "EditBookHashTagLength", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         public string HashTag { get; set; }
     }
 }

@@ -8,12 +8,12 @@ namespace SideNotes.ViewModels
 {
     public class EditProfileModel
     {
-        [Required(ErrorMessage = "Пожалуйста, введите имя пользователя")]
-        [StringLength(150, MinimumLength = 3, ErrorMessage = "Имя пользователя должно быть не короче 3 и не длиннее 150 символов")]
+        [Required(ErrorMessageResourceName = "EditProfileNameRequired", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
+        [StringLength(150, MinimumLength = 3, ErrorMessageResourceName = "EditProfileNameLength", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Пожалуйста, введите e-mail")]
-        [DataType(DataType.EmailAddress, ErrorMessage = "Введен некорректный e-mail")]
+        [Required(ErrorMessageResourceName = "EditProfileEmailRequired", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
+        [DataType(DataType.EmailAddress, ErrorMessageResourceName = "EditProfileEmailDataType", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         public string Email { get; set; }
     }
 }

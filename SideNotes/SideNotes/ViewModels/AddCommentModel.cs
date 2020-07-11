@@ -8,14 +8,14 @@ namespace SideNotes.ViewModels
 {
     public class AddCommentModel
     {
-        [Required(ErrorMessage = "Не указан родительский комментарий")]
+        [Required(ErrorMessageResourceName = "AddCommentParentCommentRequired", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         public int parentCommentId { get; set; }
 
-        [Required(ErrorMessage = "Не указан главный комментарий ветки")]
+        [Required(ErrorMessageResourceName = "AddCommentHeadCommentRequired", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         public int headCommentId { get; set; }
 
-        [Required(ErrorMessage = "Пожалуйста, введите текст комментария")]
-        [StringLength(4000, ErrorMessage = "Комментарий должен быть не длиннее 4000 символов")]
+        [Required(ErrorMessageResourceName = "AddCommentTextRequired", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
+        [StringLength(4000, ErrorMessageResourceName = "AddCommentTextLength", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         public string commentText { get; set; }
     }
 }

@@ -11,18 +11,18 @@ namespace SideNotes.ViewModels
     {
         [Required(ErrorMessageResourceName = "ChangePasswordOldPasswordRequired", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         [DataType(DataType.Password)]
-        [StringLength(32, MinimumLength = 3, ErrorMessage = "Пароль должен быть не короче 3 и не длиннее 32 символов")]
+        [StringLength(32, MinimumLength = 3, ErrorMessageResourceName = "ChangePasswordPasswordLength", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         public string OldPassword { get; set; }
 
-        [Required(ErrorMessage = "Пожалуйста, введите пароль")]
+        [Required(ErrorMessageResourceName = "ChangePasswordNewPasswordRequired", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         [DataType(DataType.Password)]
-        [StringLength(32, MinimumLength = 3, ErrorMessage = "Пароль должен быть не короче 3 и не длиннее 32 символов")]
+        [StringLength(32, MinimumLength = 3, ErrorMessageResourceName = "ChangePasswordPasswordLength", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         public string NewPassword { get; set; }
 
-        [Required(ErrorMessage = "Пожалуйста, введите пароль")]
+        [Required(ErrorMessageResourceName = "ChangePasswordConfirmNewPasswordRequired", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         [DataType(DataType.Password)]
-        [StringLength(32, MinimumLength = 3, ErrorMessage = "Пароль должен быть не короче 3 и не длиннее 32 символов")]
-        [System.ComponentModel.DataAnnotations.Compare("NewPassword", ErrorMessage = "Повторный ввод не совпадает с первым")]
+        [StringLength(32, MinimumLength = 3, ErrorMessageResourceName = "ChangePasswordPasswordLength", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
+        [System.ComponentModel.DataAnnotations.Compare("NewPassword", ErrorMessageResourceName = "ChangePasswordConfirmNewPasswordCompare", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         public string ConfirmNewPassword { get; set; }
 
     }

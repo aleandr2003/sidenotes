@@ -8,17 +8,17 @@ namespace SideNotes.ViewModels
 {
     public class RegisterModel
     {
-        [Required(ErrorMessage = "Пожалуйста, введите имя пользователя")]
-        [StringLength(150, MinimumLength = 3, ErrorMessage = "Имя пользователя должно быть не короче 3 и не длиннее 150 символов")]
+        [Required(ErrorMessageResourceName = "RegisterNameRequired", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
+        [StringLength(150, MinimumLength = 3, ErrorMessageResourceName = "RegisterNameLength", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Пожалуйста, введите e-mail")]
-        [DataType(DataType.EmailAddress, ErrorMessage = "Введен некорректный e-mail")]
+        [Required(ErrorMessageResourceName = "RegisterEmailRequired", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
+        [DataType(DataType.EmailAddress, ErrorMessageResourceName = "RegisterEmailDataType", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Пожалуйста, введите пароль")]
+        [Required(ErrorMessageResourceName = "RegisterPasswordRequired", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         [DataType(DataType.Password)]
-        [StringLength(32, MinimumLength = 3, ErrorMessage = "Пароль должен быть не короче 3 и не длиннее 32 символов")]
+        [StringLength(32, MinimumLength = 3, ErrorMessageResourceName = "RegisterPasswordLength", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         public string Password { get; set; }
     }
 }

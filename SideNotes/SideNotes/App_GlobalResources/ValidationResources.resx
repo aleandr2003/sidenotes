@@ -117,7 +117,76 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddCommentHeadCommentRequired" xml:space="preserve">
+    <value>Не указан главный комментарий ветки</value>
+  </data>
+  <data name="AddCommentParentCommentRequired" xml:space="preserve">
+    <value>Не указан родительский комментарий</value>
+  </data>
+  <data name="AddCommentTextLength" xml:space="preserve">
+    <value>Комментарий должен быть не длиннее 4000 символов</value>
+  </data>
+  <data name="AddCommentTextRequired" xml:space="preserve">
+    <value>Пожалуйста, введите текст комментария</value>
+  </data>
+  <data name="ChangePasswordConfirmNewPasswordCompare" xml:space="preserve">
+    <value>Повторный ввод не совпадает с первым</value>
+  </data>
+  <data name="ChangePasswordConfirmNewPasswordRequired" xml:space="preserve">
+    <value>Пожалуйста, введите пароль</value>
+  </data>
+  <data name="ChangePasswordNewPasswordRequired" xml:space="preserve">
+    <value>Пожалуйста, введите пароль</value>
+  </data>
   <data name="ChangePasswordOldPasswordRequired" xml:space="preserve">
+    <value>Пожалуйста, введите пароль</value>
+  </data>
+  <data name="ChangePasswordPasswordLength" xml:space="preserve">
+    <value>Пароль должен быть не короче 3 и не длиннее 32 символов</value>
+  </data>
+  <data name="EditBookHashTagLength" xml:space="preserve">
+    <value>Хештег должен быть не длиннее 100 символов</value>
+  </data>
+  <data name="EditProfileEmailDataType" xml:space="preserve">
+    <value>Введен некорректный e-mail</value>
+  </data>
+  <data name="EditProfileEmailRequired" xml:space="preserve">
+    <value>Пожалуйста, введите e-mail</value>
+  </data>
+  <data name="EditProfileNameLength" xml:space="preserve">
+    <value>Имя пользователя должно быть не короче 3 и не длиннее 150 символов</value>
+  </data>
+  <data name="EditProfileNameRequired" xml:space="preserve">
+    <value>Пожалуйста, введите имя пользователя</value>
+  </data>
+  <data name="LoginEmailDataType" xml:space="preserve">
+    <value>Введен некорректный e-mail</value>
+  </data>
+  <data name="LoginEmailRequired" xml:space="preserve">
+    <value>Пожалуйста, введите e-mail</value>
+  </data>
+  <data name="LoginPasswordLength" xml:space="preserve">
+    <value>Пароль должен быть не короче 3 и не длиннее 32 символов</value>
+  </data>
+  <data name="LoginPasswordRequired" xml:space="preserve">
+    <value>Пожалуйста, введите пароль</value>
+  </data>
+  <data name="RegisterEmailDataType" xml:space="preserve">
+    <value>Введен некорректный e-mail</value>
+  </data>
+  <data name="RegisterEmailRequired" xml:space="preserve">
+    <value>Пожалуйста, введите e-mail</value>
+  </data>
+  <data name="RegisterNameLength" xml:space="preserve">
+    <value>Имя пользователя должно быть не короче 3 и не длиннее 150 символов</value>
+  </data>
+  <data name="RegisterNameRequired" xml:space="preserve">
+    <value>Пожалуйста, введите имя пользователя</value>
+  </data>
+  <data name="RegisterPasswordLength" xml:space="preserve">
+    <value>Пароль должен быть не короче 3 и не длиннее 32 символов</value>
+  </data>
+  <data name="RegisterPasswordRequired" xml:space="preserve">
     <value>Пожалуйста, введите пароль</value>
   </data>
 </root>

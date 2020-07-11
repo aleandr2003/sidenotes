@@ -117,7 +117,76 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddCommentHeadCommentRequired" xml:space="preserve">
+    <value>Top level comment is not specified</value>
+  </data>
+  <data name="AddCommentParentCommentRequired" xml:space="preserve">
+    <value>Parent comment is not specified</value>
+  </data>
+  <data name="AddCommentTextLength" xml:space="preserve">
+    <value>The comment should be shorter than 4000 characters</value>
+  </data>
+  <data name="AddCommentTextRequired" xml:space="preserve">
+    <value>Please enter the comment</value>
+  </data>
+  <data name="ChangePasswordConfirmNewPasswordCompare" xml:space="preserve">
+    <value>Password confirmation doesn't match</value>
+  </data>
+  <data name="ChangePasswordConfirmNewPasswordRequired" xml:space="preserve">
+    <value>Please confirm the new password</value>
+  </data>
+  <data name="ChangePasswordNewPasswordRequired" xml:space="preserve">
+    <value>Please enter the new password</value>
+  </data>
   <data name="ChangePasswordOldPasswordRequired" xml:space="preserve">
-    <value>Please type the old password</value>
+    <value>Please enter the old password</value>
+  </data>
+  <data name="ChangePasswordPasswordLength" xml:space="preserve">
+    <value>The password must be at least 3 and at most 32 characters long</value>
+  </data>
+  <data name="EditBookHashTagLength" xml:space="preserve">
+    <value>The hashtag should be shorter than 100 characters</value>
+  </data>
+  <data name="EditProfileEmailDataType" xml:space="preserve">
+    <value>Incorrect e-mail</value>
+  </data>
+  <data name="EditProfileEmailRequired" xml:space="preserve">
+    <value>Please enter the email</value>
+  </data>
+  <data name="EditProfileNameLength" xml:space="preserve">
+    <value>The username should be at least 3 and at most 150 characters long</value>
+  </data>
+  <data name="EditProfileNameRequired" xml:space="preserve">
+    <value>Please enter the username</value>
+  </data>
+  <data name="LoginEmailDataType" xml:space="preserve">
+    <value>Incorrect e-mail</value>
+  </data>
+  <data name="LoginEmailRequired" xml:space="preserve">
+    <value>Please enter the email</value>
+  </data>
+  <data name="LoginPasswordLength" xml:space="preserve">
+    <value>The password must be at least 3 and at most 32 characters long</value>
+  </data>
+  <data name="LoginPasswordRequired" xml:space="preserve">
+    <value>Please enter the password</value>
+  </data>
+  <data name="RegisterEmailDataType" xml:space="preserve">
+    <value>Incorrect e-mail</value>
+  </data>
+  <data name="RegisterEmailRequired" xml:space="preserve">
+    <value>Please enter the email</value>
+  </data>
+  <data name="RegisterNameLength" xml:space="preserve">
+    <value>The username should be at least 3 and at most 150 characters long</value>
+  </data>
+  <data name="RegisterNameRequired" xml:space="preserve">
+    <value>Please enter the username</value>
+  </data>
+  <data name="RegisterPasswordLength" xml:space="preserve">
+    <value>The password must be at least 3 and at most 32 characters long</value>
+  </data>
+  <data name="RegisterPasswordRequired" xml:space="preserve">
+    <value>Please enter the password</value>
   </data>
 </root>

@@ -8,13 +8,13 @@ namespace SideNotes.ViewModels
 {
     public class LoginModel
     {
-        [Required(ErrorMessage = "Пожалуйста, введите e-mail")]
-        [DataType(DataType.EmailAddress, ErrorMessage = "Введен некорректный e-mail")]
+        [Required(ErrorMessageResourceName = "LoginEmailRequired", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
+        [DataType(DataType.EmailAddress, ErrorMessageResourceName = "LoginEmailDataType", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Пожалуйста, введите пароль")]
+        [Required(ErrorMessageResourceName = "LoginPasswordRequired", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         [DataType(DataType.Password)]
-        [StringLength(32, MinimumLength = 3, ErrorMessage = "Пароль должен быть не короче 3 и не длиннее 32 символов")]
+        [StringLength(32, MinimumLength = 3, ErrorMessageResourceName = "LoginPasswordLength", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         public string Password { get; set; }
 
         public string Error { get; set; }

@@ -61,11 +61,218 @@ namespace Resources {
         }
 
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Не указан главный комментарий ветки ähnelt.
+        /// </summary>
+        public static string AddCommentHeadCommentRequired {
+            get {
+                return ResourceManager.GetString("AddCommentHeadCommentRequired", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Не указан родительский комментарий ähnelt.
+        /// </summary>
+        public static string AddCommentParentCommentRequired {
+            get {
+                return ResourceManager.GetString("AddCommentParentCommentRequired", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Комментарий должен быть не длиннее 4000 символов ähnelt.
+        /// </summary>
+        public static string AddCommentTextLength {
+            get {
+                return ResourceManager.GetString("AddCommentTextLength", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пожалуйста, введите текст комментария ähnelt.
+        /// </summary>
+        public static string AddCommentTextRequired {
+            get {
+                return ResourceManager.GetString("AddCommentTextRequired", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Повторный ввод не совпадает с первым ähnelt.
+        /// </summary>
+        public static string ChangePasswordConfirmNewPasswordCompare {
+            get {
+                return ResourceManager.GetString("ChangePasswordConfirmNewPasswordCompare", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пожалуйста, введите пароль ähnelt.
+        /// </summary>
+        public static string ChangePasswordConfirmNewPasswordRequired {
+            get {
+                return ResourceManager.GetString("ChangePasswordConfirmNewPasswordRequired", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пожалуйста, введите пароль ähnelt.
+        /// </summary>
+        public static string ChangePasswordNewPasswordRequired {
+            get {
+                return ResourceManager.GetString("ChangePasswordNewPasswordRequired", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Пожалуйста, введите пароль ähnelt.
         /// </summary>
         public static string ChangePasswordOldPasswordRequired {
             get {
                 return ResourceManager.GetString("ChangePasswordOldPasswordRequired", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пароль должен быть не короче 3 и не длиннее 32 символов ähnelt.
+        /// </summary>
+        public static string ChangePasswordPasswordLength {
+            get {
+                return ResourceManager.GetString("ChangePasswordPasswordLength", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Хештег должен быть не длиннее 100 символов ähnelt.
+        /// </summary>
+        public static string EditBookHashTagLength {
+            get {
+                return ResourceManager.GetString("EditBookHashTagLength", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Введен некорректный e-mail ähnelt.
+        /// </summary>
+        public static string EditProfileEmailDataType {
+            get {
+                return ResourceManager.GetString("EditProfileEmailDataType", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пожалуйста, введите e-mail ähnelt.
+        /// </summary>
+        public static string EditProfileEmailRequired {
+            get {
+                return ResourceManager.GetString("EditProfileEmailRequired", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Имя пользователя должно быть не короче 3 и не длиннее 150 символов ähnelt.
+        /// </summary>
+        public static string EditProfileNameLength {
+            get {
+                return ResourceManager.GetString("EditProfileNameLength", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пожалуйста, введите имя пользователя ähnelt.
+        /// </summary>
+        public static string EditProfileNameRequired {
+            get {
+                return ResourceManager.GetString("EditProfileNameRequired", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Введен некорректный e-mail ähnelt.
+        /// </summary>
+        public static string LoginEmailDataType {
+            get {
+                return ResourceManager.GetString("LoginEmailDataType", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пожалуйста, введите e-mail ähnelt.
+        /// </summary>
+        public static string LoginEmailRequired {
+            get {
+                return ResourceManager.GetString("LoginEmailRequired", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пароль должен быть не короче 3 и не длиннее 32 символов ähnelt.
+        /// </summary>
+        public static string LoginPasswordLength {
+            get {
+                return ResourceManager.GetString("LoginPasswordLength", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пожалуйста, введите пароль ähnelt.
+        /// </summary>
+        public static string LoginPasswordRequired {
+            get {
+                return ResourceManager.GetString("LoginPasswordRequired", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Введен некорректный e-mail ähnelt.
+        /// </summary>
+        public static string RegisterEmailDataType {
+            get {
+                return ResourceManager.GetString("RegisterEmailDataType", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пожалуйста, введите e-mail ähnelt.
+        /// </summary>
+        public static string RegisterEmailRequired {
+            get {
+                return ResourceManager.GetString("RegisterEmailRequired", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Имя пользователя должно быть не короче 3 и не длиннее 150 символов ähnelt.
+        /// </summary>
+        public static string RegisterNameLength {
+            get {
+                return ResourceManager.GetString("RegisterNameLength", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пожалуйста, введите имя пользователя ähnelt.
+        /// </summary>
+        public static string RegisterNameRequired {
+            get {
+                return ResourceManager.GetString("RegisterNameRequired", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пароль должен быть не короче 3 и не длиннее 32 символов ähnelt.
+        /// </summary>
+        public static string RegisterPasswordLength {
+            get {
+                return ResourceManager.GetString("RegisterPasswordLength", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пожалуйста, введите пароль ähnelt.
+        /// </summary>
+        public static string RegisterPasswordRequired {
+            get {
+                return ResourceManager.GetString("RegisterPasswordRequired", resourceCulture);
             }
         }
     }
