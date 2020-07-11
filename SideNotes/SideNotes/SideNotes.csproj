@@ -127,6 +127,16 @@
     <Compile Include="Application\Windsor\Installers\WebSecurityInstaller.cs" />
     <Compile Include="Application\Windsor\WindsorControllerFactory.cs" />
     <Compile Include="Application\Windsor\WindsorExtensions.cs" />
+    <Compile Include="App_GlobalResources\ValidationResources.en.designer.cs">
+      <DependentUpon>ValidationResources.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\ValidationResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValidationResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Extensions\DirectoryExtensions.cs" />
     <Compile Include="Resources\Book.en.Designer.cs">
       <DependentUpon>Book.en.resx</DependentUpon>
@@ -354,11 +364,6 @@
       <DependentUpon>UserAdmin.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\UserAdmin.en.Designer.cs" />
-    <Compile Include="Resources\ValidationResources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ValidationResources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Services\Abstract\IBookBuilder.cs" />
     <Compile Include="Services\Abstract\IEBookParser.cs" />
     <Compile Include="Services\Abstract\IImageKeeper.cs" />
@@ -550,6 +555,14 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_GlobalResources\ValidationResources.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ValidationResources.en.designer.cs</LastGenOutput>
+    </Content>
+    <EmbeddedResource Include="App_GlobalResources\ValidationResources.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ValidationResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Book.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Book.en.Designer.cs</LastGenOutput>
@@ -671,10 +684,6 @@
     <EmbeddedResource Include="Resources\UserAdmin.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>UserAdmin.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\ValidationResources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ValidationResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -9,7 +9,7 @@ namespace SideNotes.ViewModels
 {
     public class ChangePasswordModel
     {
-        [Required(ErrorMessage = "Пожалуйста, введите пароль")]
+        [Required(ErrorMessageResourceName = "ChangePasswordOldPasswordRequired", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         [DataType(DataType.Password)]
         [StringLength(32, MinimumLength = 3, ErrorMessage = "Пароль должен быть не короче 3 и не длиннее 32 символов")]
         public string OldPassword { get; set; }
