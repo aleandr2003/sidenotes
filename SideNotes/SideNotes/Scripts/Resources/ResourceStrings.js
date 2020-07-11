@@ -12,5 +12,6 @@
     'All': 'Все',
     'DownloadError': 'Ошибка при загрузке',
     'NextComments':'следующие комменты',
-    'PreviousComments':'предыдущие коменты'
+    'PreviousComments': 'предыдущие коменты',
+    'CommentRemoved':'(удален)'
 };

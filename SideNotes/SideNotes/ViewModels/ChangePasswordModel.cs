@@ -22,7 +22,7 @@ namespace SideNotes.ViewModels
         [Required(ErrorMessage = "Пожалуйста, введите пароль")]
         [DataType(DataType.Password)]
         [StringLength(32, MinimumLength = 3, ErrorMessage = "Пароль должен быть не короче 3 и не длиннее 32 символов")]
-        [Compare("NewPassword", ErrorMessage = "Повторный ввод не совпадает с первым")]
+        [System.ComponentModel.DataAnnotations.Compare("NewPassword", ErrorMessage = "Повторный ввод не совпадает с первым")]
         public string ConfirmNewPassword { get; set; }
 
     }

@@ -9,7 +9,7 @@
                 var container = $(form).closest('.commentContainer');
                 container.find('.commentAuthor').remove();
                 container.find('.commentAction').remove();
-                container.find('.commentContent').html('(удален)');
+                container.find('.commentContent').html(ResourceStrings.CommentRemoved);
                 $('#lightbox_shadow').click();
             }
         };

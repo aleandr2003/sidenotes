@@ -61,11 +61,29 @@ namespace SideNotes.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Читаю &apos;{0}&apos; на annotated.by ähnelt.
+        /// </summary>
+        public static string FacebookSharerIReadTheBook {
+            get {
+                return ResourceManager.GetString("FacebookSharerIReadTheBook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Данный тип аккаунтов не поддерживается ähnelt.
         /// </summary>
         public static string NotSupportedAccountType {
             get {
                 return ResourceManager.GetString("NotSupportedAccountType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Читаю &apos;{0}&apos; ähnelt.
+        /// </summary>
+        public static string TwitterSharerIReadTheBook {
+            get {
+                return ResourceManager.GetString("TwitterSharerIReadTheBook", resourceCulture);
             }
         }
     }

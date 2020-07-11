@@ -69,12 +69,12 @@ namespace SideNotes.Services
             {
                 if (user.AccountSource == AccountSource.SideNotes && user.PasswordMatches(password)) return user;
                 if (user.AccountSource == AccountSource.Facebook)
-                    throw new ArgumentException("Это внешний аккаунт. Воспользуйтесь входом через facebook");
+                    throw new ArgumentException(Resources.ErrorMessages.PleaseLoginWithFacebook);
                 if (user.AccountSource == AccountSource.Twitter)
-                    throw new ArgumentException("Это внешний аккаунт. Воспользуйтесь входом через twitter");
+                    throw new ArgumentException(Resources.ErrorMessages.PleaseLoginWithTwitter);
             }
 
-            throw new ArgumentException("Неправильная пара логин-пароль");
+            throw new ArgumentException(Resources.ErrorMessages.WrongLoginPasswordPair);
         }
 
     }

@@ -22,14 +22,14 @@ namespace SideNotes.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ToAuthors {
+    public class ValidationResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ToAuthors() {
+        internal ValidationResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace SideNotes.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SideNotes.Resources.ToAuthors", typeof(ToAuthors).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SideNotes.Resources.ValidationResources", typeof(ValidationResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,51 +57,6 @@ namespace SideNotes.Resources {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Здравствуйте! ähnelt.
-        /// </summary>
-        public static string Hello {
-            get {
-                return ResourceManager.GetString("Hello", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Если вы решили опубликовать свой текст на Annotated.By напишите нам по адресу ähnelt.
-        /// </summary>
-        public static string IfYouWantToPublishMessage {
-            get {
-                return ResourceManager.GetString("IfYouWantToPublishMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Если вы написали книгу или статью, хотите быстро привлечь целевую аудиторию и подробно обсудить с читателями свои идеи, то сервис Annotated.By именно для вас ähnelt.
-        /// </summary>
-        public static string IfYouWroteABookMessage {
-            get {
-                return ResourceManager.GetString("IfYouWroteABookMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Писателям ähnelt.
-        /// </summary>
-        public static string Title {
-            get {
-                return ResourceManager.GetString("Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Мы, администраторы сервиса Annotated.By рады сотрудничать с авторами текстов любых жанров. ähnelt.
-        /// </summary>
-        public static string WeAcceptAllGenresMessage {
-            get {
-                return ResourceManager.GetString("WeAcceptAllGenresMessage", resourceCulture);
             }
         }
     }

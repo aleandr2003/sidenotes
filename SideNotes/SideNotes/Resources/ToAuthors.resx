@@ -121,15 +121,15 @@
     <value>Здравствуйте!</value>
   </data>
   <data name="IfYouWantToPublishMessage" xml:space="preserve">
-    <value>Если вы решили опубликовать свой текст на Sidenotes напишите нам по адресу</value>
+    <value>Если вы решили опубликовать свой текст на Annotated.By напишите нам по адресу</value>
   </data>
   <data name="IfYouWroteABookMessage" xml:space="preserve">
-    <value>Если вы написали книгу или статью, хотите быстро привлечь целевую аудиторию и подробно обсудить с читателями свои идеи, то сервис Sidenotes именно для вас</value>
+    <value>Если вы написали книгу или статью, хотите быстро привлечь целевую аудиторию и подробно обсудить с читателями свои идеи, то сервис Annotated.By именно для вас</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Писателям</value>
   </data>
   <data name="WeAcceptAllGenresMessage" xml:space="preserve">
-    <value>Мы, администраторы сервиса Sidenotes рады сотрудничать с авторами текстов любых жанров.</value>
+    <value>Мы, администраторы сервиса Annotated.By рады сотрудничать с авторами текстов любых жанров.</value>
   </data>
 </root>

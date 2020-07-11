@@ -117,19 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Hello" xml:space="preserve">
-    <value>Guten Tag!</value>
+  <data name="BookFormatNotSupported" xml:space="preserve">
+    <value>Неподдерживаемый формат книги</value>
   </data>
-  <data name="IfYouWantToPublishMessage" xml:space="preserve">
-    <value>Wenn Sie beschlossen haben, Ihren Text auf Annotated.By zu veröffentlichen, Bitte nehmen Sie mit uns Kontakt auf</value>
+  <data name="BookNotFound" xml:space="preserve">
+    <value>книга не найдена</value>
   </data>
-  <data name="IfYouWroteABookMessage" xml:space="preserve">
-    <value>Wenn Sie ein Buch oder einen Artikel fertiggestellt haben und Ihr Publikum schnell dazu bringen möchten, Ihre Ideen mit den Lesern zu diskutieren, dann Annotated.By ist genau das, was Sie brauchen.</value>
+  <data name="CommentNotFound" xml:space="preserve">
+    <value>Комментарий не найден</value>
   </data>
-  <data name="Title" xml:space="preserve">
-    <value>An die Autoren</value>
+  <data name="CommentRemoved" xml:space="preserve">
+    <value>Комментарий удален</value>
   </data>
-  <data name="WeAcceptAllGenresMessage" xml:space="preserve">
-    <value>Wir, die Service-Administratoren von Annotated.By freuen uns, mit den Autoren von Texten aller Genres zusammenzuarbeiten.</value>
+  <data name="FileDoesNotExist" xml:space="preserve">
+    <value>файл {0} не существует</value>
+  </data>
+  <data name="PleaseCreateABook" xml:space="preserve">
+    <value>Сначала создайте книгу</value>
+  </data>
+  <data name="PleaseLoginWithFacebook" xml:space="preserve">
+    <value>Это внешний аккаунт. Воспользуйтесь входом через facebook</value>
+  </data>
+  <data name="PleaseLoginWithTwitter" xml:space="preserve">
+    <value>Это внешний аккаунт. Воспользуйтесь входом через twitter</value>
+  </data>
+  <data name="TemporaryCommentNotFound" xml:space="preserve">
+    <value>временный коммент не найден. Возможно уже опубликован</value>
+  </data>
+  <data name="WrongLoginPasswordPair" xml:space="preserve">
+    <value>Неправильная пара логин-пароль</value>
   </data>
 </root>

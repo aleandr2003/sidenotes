@@ -13,9 +13,11 @@ namespace SideNotes.Controllers
     public class NotificationController : SidenotesController
     {
         private INotificationSender sender;
-        public NotificationController(INotificationSender sender)
+        private IBookAuthorNotifier bookAuthorNotifier;
+        public NotificationController(INotificationSender sender, IBookAuthorNotifier bookAuthorNotifier)
         {
             this.sender = sender;
+            this.bookAuthorNotifier = bookAuthorNotifier;
         }
 
         public ActionResult SendAll()
@@ -35,8 +37,7 @@ namespace SideNotes.Controllers
                 var bookIds = context.Books.Select(b => b.Id).ToList();
                 foreach (var bookId in bookIds)
                 {
-                    var notifier = new BookAuthorNotifier(bookId);
-                    notifier.CreateDailyDigest();
+                    bookAuthorNotifier.CreateDailyDigest(bookId);
                 }
             }
             return View("OKView");

@@ -45,7 +45,7 @@ namespace SideNotes.Services
             using (var context = new SideNotesEntities())
             {
                 var book = context.Books.Include("Avatar.Small").FirstOrDefault(b => b.Id == paragraph.Book_Id);
-                if (book == null) throw new ArgumentException("книга не найдена");
+                if (book == null) throw new ArgumentException(Resources.ErrorMessages.BookNotFound);
                 linkName = book.Title + " (" + book.Author + ")";
                 if (book.Avatar != null) avatarUrl = VirtualPathUtility.ToAbsolute(book.Avatar.Small.Url);
                 else avatarUrl = VirtualPathUtility.ToAbsolute("~/Content/img/sidenotes_logo.jpg");
@@ -65,7 +65,7 @@ namespace SideNotes.Services
 
         public override void ShareBook(Book book)
         {
-            var message = String.Format("Читаю '{0}' на sidenotes.ru", book.Title);
+            var message = String.Format(Resources.Misc.FacebookSharerIReadTheBook, book.Title);
             if (message.Length > commentLength) message = message.Substring(0, commentLength) + "...";
 
             var bookText = book.Annotation;

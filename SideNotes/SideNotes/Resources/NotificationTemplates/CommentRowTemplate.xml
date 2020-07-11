@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<template>
+  <subject></subject>
+  <body>
+    <tr style='{5}'>
+      <td>{4}</td>
+      <td>
+        <a href='{1}'>{0}</a> сказал:
+      </td>
+      <td style='width:300px;'>{2}</td>
+      <td>
+        <a href='{3}'>Прочитать обсуждение</a>
+      </td>
+    </tr>
+  </body>
+</template>

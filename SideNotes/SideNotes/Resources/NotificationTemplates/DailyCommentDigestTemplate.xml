@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<template>
+  <subject>Комментарии к книге '{0}' за {1}</subject>
+  <body>
+    {1} читатели сказали о вашей книге следующее:
+    <table>
+      {0}
+    </table>
+
+    С Уважением 'Заметки на полях'.
+  </body>
+</template>

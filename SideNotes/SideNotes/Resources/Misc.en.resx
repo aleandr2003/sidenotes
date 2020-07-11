@@ -117,7 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="FacebookSharerIReadTheBook" xml:space="preserve">
+    <value>I read '{0}' on annotated.by</value>
+  </data>
   <data name="NotSupportedAccountType" xml:space="preserve">
     <value>Account type not supported</value>
+  </data>
+  <data name="TwitterSharerIReadTheBook" xml:space="preserve">
+    <value>I read '{0}'</value>
   </data>
 </root>

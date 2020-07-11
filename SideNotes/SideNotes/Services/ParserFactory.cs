@@ -21,7 +21,7 @@ namespace SideNotes.Services
             {
                 return new FB2Parser(this.bookBuilder, imageKeeper);
             }
-            throw new ArgumentException("Неподдерживаемый формат книги");
+            throw new ArgumentException(Resources.ErrorMessages.BookFormatNotSupported);
         }
     }
 

@@ -6,45 +6,39 @@ using SideNotes.Models;
 using System.Text;
 using SideNotes.Extensions;
 using System.Web.Mvc;
+using SideNotes.Services.Templates;
 
 namespace SideNotes.Services
 {
-    public class BookAuthorNotifier
+    public class BookAuthorNotifier : IBookAuthorNotifier
     {
-        private const string DailyCommentDigestTemplate = @" 
-{1} читатели сказали о вашей книге следующее:
-<table>{0}
-</table>
+        ITemplateLoader templateLoader;
+        string culture;
 
-С Уважением 'Заметки на полях'.
-";
-
-        private const string CommentRowTemplate = @" 
-<tr {5}>
-<td>{4}</td>
-<td><a href='{1}'>{0}</a> сказал:</td>
-<td style='width:300px;'>{2}</td>
-<td><a href='{3}'>Прочитать обсуждение</a></td>
-</tr>
-";
-        private int bookId;
-        private Book book;
-        public BookAuthorNotifier(int bookId)
+        public BookAuthorNotifier(ITemplateLoader templateLoader)
         {
-            this.bookId = bookId;
+            this.templateLoader = templateLoader;
+            this.culture = System.Globalization.CultureInfo.CurrentUICulture.IetfLanguageTag.ToLower();
+        }
+
+        public void CreateDailyDigest(int bookId)
+        {
+            Book book;
             using (var context = new SideNotesEntities())
             {
                 book = context.Books.FirstOrDefault(b => b.Id == bookId);
-                if (book == null) throw new ArgumentException("Книга не найдена");
+                if (book == null) throw new ArgumentException(Resources.ErrorMessages.BookNotFound);
             }
-        }
 
-        public void CreateDailyDigest(){
             if (String.IsNullOrEmpty(book.AuthorsEmail)) return;
+
             UrlHelper urlHelper = UrlHelperExtensions.GetUrlHelper();
             StringBuilder commentRows = new StringBuilder(1024);
-            var styleOdd = "style=\"background-color:#FFC; \"";
-            var styleEven = "style=\"background-color:#FFF; \"";
+            var styleOdd = "background-color:#FFC;";
+            var styleEven = "background-color:#FFF;";
+            EmailTemplate commentRowTemplate = this.templateLoader.GetEmailTemplate("CommentRowTemplate", culture);
+            EmailTemplate dailyCommentDigestTemplate = this.templateLoader.GetEmailTemplate("DailyCommentDigestTemplate", culture);
+
             using (var context = new SideNotesEntities())
             {
                 var previousDate = DateTime.Now.AddDays(-1).Date;
@@ -65,7 +59,7 @@ namespace SideNotes.Services
                     rowCount++;
                     commentRows.AppendLine(
                         String.Format(
-                            CommentRowTemplate,
+                            commentRowTemplate.Body,
                             comment.Author.Name,
                             urlHelper.ActionAbsolute("View", "User", new {Id = comment.Author_Id}),
                             comment.Text,
@@ -75,13 +69,13 @@ namespace SideNotes.Services
                             ));
                 }
                 string date = DateTime.Now.AddDays(-1).ToString("dd MMM yyyy");
-                string body = String.Format(DailyCommentDigestTemplate, 
+                string body = String.Format(dailyCommentDigestTemplate.Body, 
                     commentRows.ToString(),
                     date
                 );
                 Notification newNotification = new Notification()
                 {
-                    Subject = String.Format("Комментарии к книге '{0}' за {1}", book.Title , date),
+                    Subject = String.Format(dailyCommentDigestTemplate.Subject, book.Title , date),
                     Email = book.AuthorsEmail,
                     Body = body
                 };

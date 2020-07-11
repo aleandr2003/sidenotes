@@ -12,5 +12,6 @@
     'All': 'All',
     'DownloadError': 'Error during downloading',
     'NextComments': 'next comments',
-    'PreviousComments': 'previous comments'
+    'PreviousComments': 'previous comments',
+    'CommentRemoved': '(removed)'
 }

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<template>
+  <subject>Comments to '{0}' for {1}</subject>
+  <body>
+    {1} readers said the following about your book:
+    <table>
+      {0}
+    </table>
+
+    Sincerely yours 'Annotated.By'
+  </body>
+</template>

@@ -117,19 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Hello" xml:space="preserve">
-    <value>Guten Tag!</value>
+  <data name="BookFormatNotSupported" xml:space="preserve">
+    <value>This ebook format is not support</value>
   </data>
-  <data name="IfYouWantToPublishMessage" xml:space="preserve">
-    <value>Wenn Sie beschlossen haben, Ihren Text auf Annotated.By zu veröffentlichen, Bitte nehmen Sie mit uns Kontakt auf</value>
+  <data name="BookNotFound" xml:space="preserve">
+    <value>The book is not found</value>
   </data>
-  <data name="IfYouWroteABookMessage" xml:space="preserve">
-    <value>Wenn Sie ein Buch oder einen Artikel fertiggestellt haben und Ihr Publikum schnell dazu bringen möchten, Ihre Ideen mit den Lesern zu diskutieren, dann Annotated.By ist genau das, was Sie brauchen.</value>
+  <data name="CommentNotFound" xml:space="preserve">
+    <value>The comment is not found</value>
   </data>
-  <data name="Title" xml:space="preserve">
-    <value>An die Autoren</value>
+  <data name="CommentRemoved" xml:space="preserve">
+    <value>The comment was removed</value>
   </data>
-  <data name="WeAcceptAllGenresMessage" xml:space="preserve">
-    <value>Wir, die Service-Administratoren von Annotated.By freuen uns, mit den Autoren von Texten aller Genres zusammenzuarbeiten.</value>
+  <data name="FileDoesNotExist" xml:space="preserve">
+    <value>The file {0} does not exist</value>
+  </data>
+  <data name="PleaseCreateABook" xml:space="preserve">
+    <value>Please, create a book first</value>
+  </data>
+  <data name="PleaseLoginWithFacebook" xml:space="preserve">
+    <value>This is an external account. Please, sign in with facebook</value>
+  </data>
+  <data name="PleaseLoginWithTwitter" xml:space="preserve">
+    <value>This is an external account. Please, sign in with twitter</value>
+  </data>
+  <data name="TemporaryCommentNotFound" xml:space="preserve">
+    <value>A temporary comment is not found. Possibly already published</value>
+  </data>
+  <data name="WrongLoginPasswordPair" xml:space="preserve">
+    <value>Incorrect password or username</value>
   </data>
 </root>

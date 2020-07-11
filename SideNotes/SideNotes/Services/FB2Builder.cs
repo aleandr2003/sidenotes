@@ -173,7 +173,7 @@ namespace SideNotes.Services
 
             public BinaryElement(string path)
             {
-                if (!File.Exists(path)) throw new InvalidOperationException(String.Format("файл {0} не существует",path));
+                if (!File.Exists(path)) throw new InvalidOperationException(String.Format(Resources.ErrorMessages.FileDoesNotExist, path));
                 this.path = path;
 
             }

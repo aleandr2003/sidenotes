@@ -77,7 +77,7 @@ namespace SideNotes.Services
             //if (!String.IsNullOrEmpty(hashTag) && !hashTag.StartsWith("#")) hashTag = "#" + hashTag;
             //if (hashTag == null) hashTag = String.Empty;
             
-            string commentText = String.Format("Читаю '{0}'", book.Title);
+            string commentText = String.Format(Resources.Misc.TwitterSharerIReadTheBook, book.Title);
             if (commentText.Length > TweetLength - LinkLength - 10)
             {
                 int commentLength = TweetLength - LinkLength - 10;

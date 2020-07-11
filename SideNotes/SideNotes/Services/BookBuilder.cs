@@ -38,7 +38,7 @@ namespace SideNotes.Services
 
         public void StartChapter(string title)
         {
-            if (currentBook == null) throw new InvalidOperationException("Сначала создайте книгу");
+            if (currentBook == null) throw new InvalidOperationException(Resources.ErrorMessages.PleaseCreateABook);
             var newChapter = new Chapter();
             if (parentChapters.Count > 0)
             {
@@ -111,7 +111,7 @@ namespace SideNotes.Services
         }
         public void AddParagraph(string content, Paragraph paragraph)
         {
-            if (currentBook == null) throw new InvalidOperationException("Сначала создайте книгу");
+            if (currentBook == null) throw new InvalidOperationException(Resources.ErrorMessages.PleaseCreateABook);
             paragraph.Book = currentBook;
             paragraph.Content = content;
             paragraph.OrderNumber = ++paragraphCounter;

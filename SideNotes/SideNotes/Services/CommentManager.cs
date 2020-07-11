@@ -41,7 +41,7 @@ namespace SideNotes.Services
                 using (var scope = new TransactionScope())
                 {
                     TempAnonymousComment tempComment = context.TempAnonymousComments.FirstOrDefault(c => c.Id == tempId);
-                    if (tempComment == null) throw new InvalidOperationException("временный коммент не найден. Возможно уже опубликован");
+                    if (tempComment == null) throw new InvalidOperationException(Resources.ErrorMessages.TemporaryCommentNotFound);
 
                     AddHeadComment(context, authorId, tempComment.EntityId, tempComment.EntityType, tempComment.Text, tempComment.isPrivate);
                     context.DeleteObject(tempComment);
@@ -88,8 +88,8 @@ namespace SideNotes.Services
         {
             int paragraphId = 0;
             var comment = Comment.GetParent(parentCommentId, headCommentId);
-            if (comment == null) throw new InvalidOperationException("Комментарий не найден");
-            if (comment.IsDeleted) throw new InvalidOperationException("Комментарий удален");
+            if (comment == null) throw new InvalidOperationException(Resources.ErrorMessages.CommentNotFound);
+            if (comment.IsDeleted) throw new InvalidOperationException(Resources.ErrorMessages.CommentRemoved);
             using (var context = new SideNotesEntities())
             {
                 paragraphId = context.HeadComments.First(c => c.Id == headCommentId).EntityId;
