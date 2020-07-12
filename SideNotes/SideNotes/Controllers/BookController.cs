@@ -178,15 +178,6 @@ namespace SideNotes.Controllers
                         DateUpdated = DateTime.Now
                     };
                     context.Autosaves.AddObject(autosave);
-                    if (userSession.Sharer != null)
-                    {
-                        var book = context.Books.First(b => b.Id == BookId);
-                        try
-                        {
-                            userSession.Sharer.ShareBook(book);
-                        }
-                        catch { }
-                    }
                 }
                 else
                 {

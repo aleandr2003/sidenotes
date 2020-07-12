@@ -1,5 +1,4 @@
-Translate email templates
-Add logging
-Separate adding comments from saving notifications
 remove all automatic shares
 remove vk and lj shares (buttons still exist above head comment)
+Add logging
+Separate adding comments from saving notifications
