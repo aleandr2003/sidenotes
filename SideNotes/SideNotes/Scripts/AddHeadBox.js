@@ -11,9 +11,9 @@ function initAddHeadBox(content, entityId, entityType, url, title, picture, succ
         bookBlock.shorten({ limit: 300 });
     }
     
-    var shareBlockContainer = $('#addHeadCommentBox .shareBlock').empty();
-    var shareBlock = new ShareBlock(shareBlockContainer, content, url, title, picture);
-    shareBlock.init();
+    //var shareBlockContainer = $('#addHeadCommentBox .shareBlock').empty();
+    //var shareBlock = new ShareBlock(shareBlockContainer, content, url, title, picture);
+    //shareBlock.init();
     
 
     var form = lightBox.find('#addHeadCommentBoxForm')[0];

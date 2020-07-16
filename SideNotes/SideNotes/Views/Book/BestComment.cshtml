@@ -32,15 +32,15 @@
 <a href="@Url.Action("View", "Book", new { Id = Model.Item2.Book_Id, skip = Model.Item2.OrderNumber - 1 })" 
     class="comment_content">@Model.Item1.Text</a>
 @{
-    var count = @Model.Item3.GetCommentsCountByAuthor(Model.Item1.Author_Id ?? 0, ViewBag.CurrentUserId);
-    if (count > 1)
+        var count = @Model.Item3.GetCommentsCountByAuthor(Model.Item1.Author_Id ?? 0, ViewBag.CurrentUserId); }
+    @if (count > 1)
     {
 <div class="commentCounter">
     @SideNotes.Resources.Book.BestCommentMoreToThisBookMessage <a href="@Url.Action("CommentsByUser", "Book", new { BookId = Model.Item3.Id, UserId = Model.Item1.Author_Id })"
                        class="commentCounter_counter">(@(count - 1))</a>
                 </div>
     }
-}
+
 
 <script type="text/javascript">
     $(function () {

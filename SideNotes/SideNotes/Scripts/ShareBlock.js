@@ -81,7 +81,7 @@
         button.appendTo(div);
     }
     this.init = function () {
-        setUpTwitterShare('');
+        //setUpTwitterShare('');
         setUpFacebookShare();
         setUpLjShare();
         setUpVkontakteShare();

@@ -1,4 +1,17 @@
-remove all automatic shares
-remove vk and lj shares (buttons still exist above head comment)
-Add logging
+Cache the book in memory on the first start
 Separate adding comments from saving notifications
+add main commenter concept
+	add optional url name to the user profile
+	parse username from url
+		when found assign a user as main commenter (only show and count head comments from this user)
+add sign in, sign up options after posting a comment anonimously.
+allow removing profiles
+Add logging
+test layout on ipad
+test layout on iphone
+convert to PWA
+buy domain
+find hosting
+add options to share quotes and comments in twitter and facebook
+
+

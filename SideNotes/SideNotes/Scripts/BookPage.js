@@ -77,15 +77,15 @@
         
         var prevUrl = setParameter(prevCommentUrl, 'ParagraphId', bookBlock.attr('paragraphId'));
         var prevButton = $('<div class="prevCommentsButton"><a class="prevCommentsArrow" href="' + prevUrl + '"><img src="/Content/img/blank.png"></a><a href="' + prevUrl + '" class="prevCommentsLink">' + ResourceStrings.PreviousComments + '</a></div>').appendTo(commentsContainer);
-        var shareBlockContainer = $('<div class="shareBlockLayout shareBlock"></div>').appendTo(commentsContainer);
+        //var shareBlockContainer = $('<div class="shareBlockLayout shareBlock"></div>').appendTo(commentsContainer);
         var listContainer = $('<div class="list"></div>').appendTo(commentsContainer);
         var nextUrl = setParameter(nextCommentUrl, 'ParagraphId', bookBlock.attr('paragraphId'));
         var nextButton = $('<div class="nextCommentsButton"><a class="nextCommentsArrow" href="' + nextUrl + '"><img src="/Content/img/blank.png"></a><a href="' + nextUrl + '" class="nextCommentsLink">' + ResourceStrings.NextComments + '</a></div>').appendTo(commentsContainer);
 
         var _url = bookBlock.attr('externalLink');
         var _paragraphText = bookBlock.find('.bookBlock_inner').html();
-        var shareBlock = new ShareBlock(shareBlockContainer, _paragraphText, _url, bookTitle + ' (' + bookAuthor + ')', bookAvatarMedium);
-        shareBlock.init();
+        //var shareBlock = new ShareBlock(shareBlockContainer, _paragraphText, _url, bookTitle + ' (' + bookAuthor + ')', bookAvatarMedium);
+        //shareBlock.init();
 
 
         commentsContainer.hide();
