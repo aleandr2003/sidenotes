@@ -75,7 +75,7 @@ namespace SideNotes.Services
             
             try
             {
-                notifier.NotifyNewHeadComment(newComment);
+                notifier.NotifyNewHeadComment(newComment, GetAbsoluteUrl());
             }
             catch {
                 //TODO log error
@@ -106,14 +106,18 @@ namespace SideNotes.Services
 
                 try
                 {
-                    
-                    notifier.NotifyNewComment(newComment);
+                    notifier.NotifyNewComment(newComment, GetAbsoluteUrl());
                 }
                 catch
                 {
                     //TODO log error
                 }
             }
+        }
+
+        private string GetAbsoluteUrl()
+        {
+            return $"{HttpContext.Current.Request.Url.Scheme}://{HttpContext.Current.Request.Url.Authority}";
         }
     }
 }

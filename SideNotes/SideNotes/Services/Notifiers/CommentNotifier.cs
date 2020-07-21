@@ -6,6 +6,9 @@ using SideNotes.Models;
 using System.Web.Mvc;
 using SideNotes.Extensions;
 using SideNotes.Services.Templates;
+using System.Threading.Tasks.Dataflow;
+using System.Threading.Tasks;
+using SideNotes.Exceptions;
 
 namespace SideNotes.Services
 {
@@ -13,15 +16,26 @@ namespace SideNotes.Services
     {
         ITemplateLoader templateLoader;
         string culture;
+        private BufferBlock<Tuple<IComment, string>> newCommentsQueue = new BufferBlock<Tuple<IComment, string>>();
 
         public CommentNotifier(ITemplateLoader templateLoader)
         {
             this.templateLoader = templateLoader;
             this.culture = System.Globalization.CultureInfo.CurrentUICulture.IetfLanguageTag.ToLower();
+            Task.Run(async() => { await ProcessQueue(); });
         }
 
-        public void NotifyNewComment(Comment newComment)
+        public void NotifyNewComment(Comment newComment, string absoluteUrl)
         {
+            newCommentsQueue.Post(new Tuple<IComment, string>(newComment, absoluteUrl));
+        }
+
+        public void NotifyNewHeadComment(HeadComment newComment, string absoluteUrl)
+        {
+            newCommentsQueue.Post(new Tuple<IComment, string>(newComment, absoluteUrl));
+        }
+
+        private void CreateNewCommentNotification(Comment newComment, string absoluteUrl) { 
             IComment parentComment = Comment.GetParent(newComment.ParentCommentId, newComment.HeadCommentId);
             using (var context = new SideNotesEntities())
             {
@@ -32,21 +46,19 @@ namespace SideNotes.Services
                 if (receiver == null) throw new InvalidOperationException(Resources.Comment.UserNotFound);
                 if (receiver.NotifyAuthorCommentReplied && !String.IsNullOrEmpty(receiver.Email) && receiver.Id != author.Id)
                 {
-                    UrlHelper urlHelper = UrlHelperExtensions.GetUrlHelper();
                     string discussionLink = "";
                     if (headComment.EntityType == (int)EntityType.Paragraph)
                     {
-                        discussionLink = urlHelper.ActionAbsolute("CommentsThread", "Book", new { headCommentId = headComment.Id }).AbsoluteUri;
+                        discussionLink = $"{absoluteUrl}/Book/CommentsThread?headCommentId={headComment.Id}";
                     }
 
                     EmailTemplate template = this.templateLoader.GetEmailTemplate("NewCommentTemplate", culture);
                     if (template == null)
-                        //TODO define own excpetion types.
-                        throw new Exception("Failed to load template");
+                        throw new TemplateNotFoundException("Failed to load template");
                     string body = String.Format(template.Body,
                             receiver.Name,
                             HttpUtility.HtmlEncode(author.Name),
-                            urlHelper.ActionAbsolute("View", "User", new { Id = newComment.Author_Id }).AbsoluteUri,
+                            $"{absoluteUrl}/User/View/{newComment.Author_Id}",
                             HttpUtility.HtmlEncode(newComment.Text),
                             discussionLink
                         );
@@ -61,7 +73,8 @@ namespace SideNotes.Services
                 }
             }
         }
-        public void NotifyNewHeadComment(HeadComment newComment)
+
+        private void CreateNewHeadCommentNotification(HeadComment newComment, string absoluteUrl)
         {
             using (var context = new SideNotesEntities())
             {
@@ -73,8 +86,7 @@ namespace SideNotes.Services
 
                 EmailTemplate template = this.templateLoader.GetEmailTemplate("NewHeadCommentTemplate", culture);
                 if (template == null)
-                    //TODO define own excpetion types.
-                    throw new Exception("Failed to load template");
+                    throw new TemplateNotFoundException("Failed to load template");
 
                 foreach (int AuthorId in AuthorIds)
                 {
@@ -84,19 +96,18 @@ namespace SideNotes.Services
                     if (receiver == null) throw new InvalidOperationException(Resources.Comment.UserNotFound);
                     if (receiver.NotifyAuthorCommentReplied && !String.IsNullOrEmpty(receiver.Email) && receiver.Id != author.Id)
                     {
-                        UrlHelper urlHelper = UrlHelperExtensions.GetUrlHelper();
                         string readerLink = "";
                         if (newComment.EntityType == (int)EntityType.Paragraph)
                         {
                             var paragraph = context.Paragraphs.FirstOrDefault(p => p.Id == newComment.EntityId);
-                            readerLink = urlHelper.ActionAbsolute("View", "Book", new { Id = paragraph.Book_Id, skip = paragraph.OrderNumber - 1, expanded = "on" }).AbsoluteUri;
+                            readerLink = $"{absoluteUrl}/Book/View/{paragraph.Book_Id}?skip={paragraph.OrderNumber - 1}&expanded=on";
                             var book = context.Books.First(b => b.Id == paragraph.Book_Id);
                             string body = String.Format(template.Body,
                                     receiver.Name,
                                     HttpUtility.HtmlEncode(author.Name),
-                                    urlHelper.ActionAbsolute("View", "User", new { Id = newComment.Author_Id }).AbsoluteUri,
+                                    $"{absoluteUrl}/User/View/{newComment.Author_Id}",
                                     book.Title,
-                                    urlHelper.ActionAbsolute("Start", "Book", new { Id = book.Id }),
+                                    $"{absoluteUrl}/Book/Start/{book.Id}",
                                     HttpUtility.HtmlEncode(newComment.Text),
                                     readerLink
                                 );
@@ -111,6 +122,30 @@ namespace SideNotes.Services
                     }
                 }
                 context.SaveChanges();
+            }
+        }
+
+        private async Task ProcessQueue()
+        {
+            while(true)
+            {
+                try
+                {
+                    var (comment, absoluteUrl) = await newCommentsQueue.ReceiveAsync();
+                    switch (comment)
+                    {
+                        case Comment c:
+                            CreateNewCommentNotification(c, absoluteUrl);
+                            break;
+                        case HeadComment hc:
+                            CreateNewHeadCommentNotification(hc, absoluteUrl);
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //TODO write logs
+                }
             }
         }
     }

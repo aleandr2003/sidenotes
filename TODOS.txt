@@ -1,5 +1,3 @@
-Cache the book in memory on the first start
-Separate adding comments from saving notifications
 add main commenter concept
 	add optional url name to the user profile
 	parse username from url

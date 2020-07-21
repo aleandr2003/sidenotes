@@ -79,7 +79,7 @@ namespace SideNotes.Services.Templates
             }
             else
             {
-                string appRoot = HttpContext.Current.Server.MapPath("~");
+                string appRoot = HttpRuntime.AppDomainAppPath;
                 filename = $"{appRoot}{path}{templateName}";
             }
             

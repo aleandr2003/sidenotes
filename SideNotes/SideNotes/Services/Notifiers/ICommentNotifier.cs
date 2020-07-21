@@ -4,7 +4,7 @@ namespace SideNotes.Services
 {
     public interface ICommentNotifier
     {
-        void NotifyNewComment(Comment newComment);
-        void NotifyNewHeadComment(HeadComment newComment);
+        void NotifyNewComment(Comment newComment, string absoluteUrl);
+        void NotifyNewHeadComment(HeadComment newComment, string absoluteUrl);
     }
 }
