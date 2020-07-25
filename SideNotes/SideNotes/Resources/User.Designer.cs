@@ -376,6 +376,24 @@ namespace SideNotes.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Имя пользователя для Url ähnelt.
+        /// </summary>
+        public static string EditProfileBoxUrlNameFieldName {
+            get {
+                return ResourceManager.GetString("EditProfileBoxUrlNameFieldName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die aleksandr.pushkin ähnelt.
+        /// </summary>
+        public static string EditProfileBoxUrlNamePlaceholder {
+            get {
+                return ResourceManager.GetString("EditProfileBoxUrlNamePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die alepush@gmail.com ähnelt.
         /// </summary>
         public static string EditProfileViewEmailPlaceholder {
@@ -426,6 +444,24 @@ namespace SideNotes.Resources {
         public static string EditProfileViewTitle {
             get {
                 return ResourceManager.GetString("EditProfileViewTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Имя пользователя для Url ähnelt.
+        /// </summary>
+        public static string EditProfileViewUrlNameFieldName {
+            get {
+                return ResourceManager.GetString("EditProfileViewUrlNameFieldName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die aleksandr.pushkin ähnelt.
+        /// </summary>
+        public static string EditProfileViewUrlNamePlaceholder {
+            get {
+                return ResourceManager.GetString("EditProfileViewUrlNamePlaceholder", resourceCulture);
             }
         }
         
@@ -597,6 +633,15 @@ namespace SideNotes.Resources {
         public static string SetAvatarUploadButtonText {
             get {
                 return ResourceManager.GetString("SetAvatarUploadButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Имя пользователя для Url уже занято ähnelt.
+        /// </summary>
+        public static string UrlNameAlreadyInUse {
+            get {
+                return ResourceManager.GetString("UrlNameAlreadyInUse", resourceCulture);
             }
         }
         

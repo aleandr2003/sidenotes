@@ -222,6 +222,12 @@
   <data name="EditProfileBoxSubmitButtonText" xml:space="preserve">
     <value>Submit</value>
   </data>
+  <data name="EditProfileBoxUrlNameFieldName" xml:space="preserve">
+    <value>Username for Url</value>
+  </data>
+  <data name="EditProfileBoxUrlNamePlaceholder" xml:space="preserve">
+    <value>william.shakespeare</value>
+  </data>
   <data name="EditProfileViewEmailPlaceholder" xml:space="preserve">
     <value>William.Shakespeare@gmail.com</value>
   </data>
@@ -239,6 +245,12 @@
   </data>
   <data name="EditProfileViewTitle" xml:space="preserve">
     <value>Edit profile</value>
+  </data>
+  <data name="EditProfileViewUrlNameFieldName" xml:space="preserve">
+    <value>Username for Url</value>
+  </data>
+  <data name="EditProfileViewUrlNamePlaceholder" xml:space="preserve">
+    <value>william.shakespeare</value>
   </data>
   <data name="IndexHeading" xml:space="preserve">
     <value>Readers</value>
@@ -296,6 +308,9 @@
   </data>
   <data name="SetAvatarUploadButtonText" xml:space="preserve">
     <value>Upload</value>
+  </data>
+  <data name="UrlNameAlreadyInUse" xml:space="preserve">
+    <value>Username for Url is already in use</value>
   </data>
   <data name="ViewAddProfileLinkText" xml:space="preserve">
     <value>Add profile</value>

@@ -159,6 +159,12 @@
   <data name="EditProfileNameRequired" xml:space="preserve">
     <value>Пожалуйста, введите имя пользователя</value>
   </data>
+  <data name="EditProfileUrlNameAllowedCharacters" xml:space="preserve">
+    <value>Разрешены только следующие символы: A-Za-z0-9_.</value>
+  </data>
+  <data name="EditProfileUrlNameLength" xml:space="preserve">
+    <value>Имя пользователя для Url должно быть не короче 3 и не длиннее 150 символов</value>
+  </data>
   <data name="LoginEmailDataType" xml:space="preserve">
     <value>Введен некорректный e-mail</value>
   </data>

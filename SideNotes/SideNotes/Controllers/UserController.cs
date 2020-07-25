@@ -12,6 +12,7 @@ using SideNotes.Models.Helpers;
 using SideNotes.Extensions;
 using System.Configuration;
 using SideNotes.Controllers.Abstract;
+using SideNotes.Repositories;
 
 namespace SideNotes.Controllers
 {
@@ -20,6 +21,7 @@ namespace SideNotes.Controllers
         readonly IUserSession userSession;
         readonly AvatarService avatarService;
         readonly IAuthorizationService authz;
+        readonly IUserRepository userRepository;
 
         protected int UserListPageSize
         {
@@ -75,12 +77,17 @@ namespace SideNotes.Controllers
             }
         }
 
-        public UserController(IUserSession userSession, UserAvatarService avatarService, IAuthorizationService authz)
+        public UserController(IUserSession userSession,
+            UserAvatarService avatarService,
+            IAuthorizationService authz,
+            IUserRepository userRepository
+        )
         {
             this.userSession = userSession;
             this.avatarService = avatarService;
             this.authz = authz;
             ViewData["SelectedTab"] = HeaderTabs.Users;
+            this.userRepository = userRepository;
         }
 
         public ActionResult Index(int? page)
@@ -357,7 +364,11 @@ namespace SideNotes.Controllers
                 ViewBag.CurrentUser = context.Users.Include("Avatar.Large")
                     .FirstOrDefault(u => u.Id == userSession.CurrentUser.Id);
                 return View("EditProfileView",
-                    new EditProfileModel { Name = ViewBag.CurrentUser.Name, Email = ViewBag.CurrentUser.Email });
+                    new EditProfileModel {
+                        Name = ViewBag.CurrentUser.Name,
+                        Email = ViewBag.CurrentUser.Email,
+                        UrlName = ViewBag.CurrentUser.UrlName
+                    });
             }
         }
 
@@ -371,6 +382,14 @@ namespace SideNotes.Controllers
                 var user = context.Users.FirstOrDefault(u => u.Id == userSession.CurrentUser.Id);
                 user.Name = model.Name;
                 user.Email = model.Email;
+
+                if(!String.IsNullOrEmpty(model.UrlName) && !this.userRepository.IsUrlNameAvailable(user.Id, model.UrlName))
+                {
+                    throw new ArgumentException(Resources.User.UrlNameAlreadyInUse, "UrlName");
+                }
+
+                user.UrlName = model.UrlName;
+                
                 context.SaveChanges();
 
                 if (json == true) return Json(new { RedirectUrl = Url.Action("View", "User", new {Id = user.Id}) });

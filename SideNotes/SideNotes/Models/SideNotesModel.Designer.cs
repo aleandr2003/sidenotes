@@ -592,7 +592,7 @@ namespace SideNotes.Models
 
         #endregion
 
-        #region Primitive Eigenschaften
+        #region Einfache Eigenschaften
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -611,7 +611,7 @@ namespace SideNotes.Models
                 {
                     OnIdChanging(value);
                     ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
+                    _Id = StructuralObject.SetValidValue(value, "Id");
                     ReportPropertyChanged("Id");
                     OnIdChanged();
                 }
@@ -636,7 +636,7 @@ namespace SideNotes.Models
             {
                 OnBook_IdChanging(value);
                 ReportPropertyChanging("Book_Id");
-                _Book_Id = StructuralObject.SetValidValue(value);
+                _Book_Id = StructuralObject.SetValidValue(value, "Book_Id");
                 ReportPropertyChanged("Book_Id");
                 OnBook_IdChanged();
             }
@@ -660,7 +660,7 @@ namespace SideNotes.Models
             {
                 OnOwner_IdChanging(value);
                 ReportPropertyChanging("Owner_Id");
-                _Owner_Id = StructuralObject.SetValidValue(value);
+                _Owner_Id = StructuralObject.SetValidValue(value, "Owner_Id");
                 ReportPropertyChanged("Owner_Id");
                 OnOwner_IdChanged();
             }
@@ -684,7 +684,7 @@ namespace SideNotes.Models
             {
                 OnParagraph_IdChanging(value);
                 ReportPropertyChanging("Paragraph_Id");
-                _Paragraph_Id = StructuralObject.SetValidValue(value);
+                _Paragraph_Id = StructuralObject.SetValidValue(value, "Paragraph_Id");
                 ReportPropertyChanged("Paragraph_Id");
                 OnParagraph_IdChanged();
             }
@@ -708,7 +708,7 @@ namespace SideNotes.Models
             {
                 OnDateUpdatedChanging(value);
                 ReportPropertyChanging("DateUpdated");
-                _DateUpdated = StructuralObject.SetValidValue(value);
+                _DateUpdated = StructuralObject.SetValidValue(value, "DateUpdated");
                 ReportPropertyChanged("DateUpdated");
                 OnDateUpdatedChanged();
             }
@@ -719,7 +719,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
         #region Navigationseigenschaften
     
         /// <summary>
@@ -793,7 +792,7 @@ namespace SideNotes.Models
 
         #endregion
 
-        #region Primitive Eigenschaften
+        #region Einfache Eigenschaften
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -812,7 +811,7 @@ namespace SideNotes.Models
                 {
                     OnIdChanging(value);
                     ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
+                    _Id = StructuralObject.SetValidValue(value, "Id");
                     ReportPropertyChanged("Id");
                     OnIdChanged();
                 }
@@ -837,7 +836,7 @@ namespace SideNotes.Models
             {
                 OnOriginal_IdChanging(value);
                 ReportPropertyChanging("Original_Id");
-                _Original_Id = StructuralObject.SetValidValue(value);
+                _Original_Id = StructuralObject.SetValidValue(value, "Original_Id");
                 ReportPropertyChanged("Original_Id");
                 OnOriginal_IdChanged();
             }
@@ -861,7 +860,7 @@ namespace SideNotes.Models
             {
                 OnLarge_IdChanging(value);
                 ReportPropertyChanging("Large_Id");
-                _Large_Id = StructuralObject.SetValidValue(value);
+                _Large_Id = StructuralObject.SetValidValue(value, "Large_Id");
                 ReportPropertyChanged("Large_Id");
                 OnLarge_IdChanged();
             }
@@ -885,7 +884,7 @@ namespace SideNotes.Models
             {
                 OnSmall_IdChanging(value);
                 ReportPropertyChanging("Small_Id");
-                _Small_Id = StructuralObject.SetValidValue(value);
+                _Small_Id = StructuralObject.SetValidValue(value, "Small_Id");
                 ReportPropertyChanged("Small_Id");
                 OnSmall_IdChanged();
             }
@@ -909,7 +908,7 @@ namespace SideNotes.Models
             {
                 OnMedium_IdChanging(value);
                 ReportPropertyChanging("Medium_Id");
-                _Medium_Id = StructuralObject.SetValidValue(value);
+                _Medium_Id = StructuralObject.SetValidValue(value, "Medium_Id");
                 ReportPropertyChanged("Medium_Id");
                 OnMedium_IdChanged();
             }
@@ -933,7 +932,7 @@ namespace SideNotes.Models
             {
                 OnTiny_IdChanging(value);
                 ReportPropertyChanging("Tiny_Id");
-                _Tiny_Id = StructuralObject.SetValidValue(value);
+                _Tiny_Id = StructuralObject.SetValidValue(value, "Tiny_Id");
                 ReportPropertyChanged("Tiny_Id");
                 OnTiny_IdChanged();
             }
@@ -944,7 +943,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
         #region Navigationseigenschaften
     
         /// <summary>
@@ -1176,7 +1174,7 @@ namespace SideNotes.Models
 
         #endregion
 
-        #region Primitive Eigenschaften
+        #region Einfache Eigenschaften
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -1195,7 +1193,7 @@ namespace SideNotes.Models
                 {
                     OnIdChanging(value);
                     ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
+                    _Id = StructuralObject.SetValidValue(value, "Id");
                     ReportPropertyChanged("Id");
                     OnIdChanged();
                 }
@@ -1220,7 +1218,7 @@ namespace SideNotes.Models
             {
                 OnTitleChanging(value);
                 ReportPropertyChanging("Title");
-                _Title = StructuralObject.SetValidValue(value, false);
+                _Title = StructuralObject.SetValidValue(value, false, "Title");
                 ReportPropertyChanged("Title");
                 OnTitleChanged();
             }
@@ -1244,7 +1242,7 @@ namespace SideNotes.Models
             {
                 OnAnnotationChanging(value);
                 ReportPropertyChanging("Annotation");
-                _Annotation = StructuralObject.SetValidValue(value, false);
+                _Annotation = StructuralObject.SetValidValue(value, false, "Annotation");
                 ReportPropertyChanged("Annotation");
                 OnAnnotationChanged();
             }
@@ -1268,7 +1266,7 @@ namespace SideNotes.Models
             {
                 OnISBNChanging(value);
                 ReportPropertyChanging("ISBN");
-                _ISBN = StructuralObject.SetValidValue(value, false);
+                _ISBN = StructuralObject.SetValidValue(value, false, "ISBN");
                 ReportPropertyChanged("ISBN");
                 OnISBNChanged();
             }
@@ -1292,7 +1290,7 @@ namespace SideNotes.Models
             {
                 OnAuthorChanging(value);
                 ReportPropertyChanging("Author");
-                _Author = StructuralObject.SetValidValue(value, false);
+                _Author = StructuralObject.SetValidValue(value, false, "Author");
                 ReportPropertyChanged("Author");
                 OnAuthorChanged();
             }
@@ -1316,7 +1314,7 @@ namespace SideNotes.Models
             {
                 OnAvatar_IdChanging(value);
                 ReportPropertyChanging("Avatar_Id");
-                _Avatar_Id = StructuralObject.SetValidValue(value);
+                _Avatar_Id = StructuralObject.SetValidValue(value, "Avatar_Id");
                 ReportPropertyChanged("Avatar_Id");
                 OnAvatar_IdChanged();
             }
@@ -1340,7 +1338,7 @@ namespace SideNotes.Models
             {
                 OnAuthorsEmailChanging(value);
                 ReportPropertyChanging("AuthorsEmail");
-                _AuthorsEmail = StructuralObject.SetValidValue(value, true);
+                _AuthorsEmail = StructuralObject.SetValidValue(value, true, "AuthorsEmail");
                 ReportPropertyChanged("AuthorsEmail");
                 OnAuthorsEmailChanged();
             }
@@ -1364,7 +1362,7 @@ namespace SideNotes.Models
             {
                 OnHashTagChanging(value);
                 ReportPropertyChanging("HashTag");
-                _HashTag = StructuralObject.SetValidValue(value, true);
+                _HashTag = StructuralObject.SetValidValue(value, true, "HashTag");
                 ReportPropertyChanged("HashTag");
                 OnHashTagChanged();
             }
@@ -1388,7 +1386,7 @@ namespace SideNotes.Models
             {
                 OnPopularityChanging(value);
                 ReportPropertyChanging("Popularity");
-                _Popularity = StructuralObject.SetValidValue(value);
+                _Popularity = StructuralObject.SetValidValue(value, "Popularity");
                 ReportPropertyChanged("Popularity");
                 OnPopularityChanged();
             }
@@ -1412,7 +1410,7 @@ namespace SideNotes.Models
             {
                 OnPropertyStatusChanging(value);
                 ReportPropertyChanging("PropertyStatus");
-                _PropertyStatus = StructuralObject.SetValidValue(value);
+                _PropertyStatus = StructuralObject.SetValidValue(value, "PropertyStatus");
                 ReportPropertyChanged("PropertyStatus");
                 OnPropertyStatusChanged();
             }
@@ -1436,7 +1434,7 @@ namespace SideNotes.Models
             {
                 OnDonationMessageChanging(value);
                 ReportPropertyChanging("DonationMessage");
-                _DonationMessage = StructuralObject.SetValidValue(value, true);
+                _DonationMessage = StructuralObject.SetValidValue(value, true, "DonationMessage");
                 ReportPropertyChanged("DonationMessage");
                 OnDonationMessageChanged();
             }
@@ -1460,7 +1458,7 @@ namespace SideNotes.Models
             {
                 OnDonationFormChanging(value);
                 ReportPropertyChanging("DonationForm");
-                _DonationForm = StructuralObject.SetValidValue(value, true);
+                _DonationForm = StructuralObject.SetValidValue(value, true, "DonationForm");
                 ReportPropertyChanged("DonationForm");
                 OnDonationFormChanged();
             }
@@ -1484,7 +1482,7 @@ namespace SideNotes.Models
             {
                 OnCustomStylesChanging(value);
                 ReportPropertyChanging("CustomStyles");
-                _CustomStyles = StructuralObject.SetValidValue(value, true);
+                _CustomStyles = StructuralObject.SetValidValue(value, true, "CustomStyles");
                 ReportPropertyChanged("CustomStyles");
                 OnCustomStylesChanged();
             }
@@ -1508,7 +1506,7 @@ namespace SideNotes.Models
             {
                 OnMetaKeywordsChanging(value);
                 ReportPropertyChanging("MetaKeywords");
-                _MetaKeywords = StructuralObject.SetValidValue(value, true);
+                _MetaKeywords = StructuralObject.SetValidValue(value, true, "MetaKeywords");
                 ReportPropertyChanged("MetaKeywords");
                 OnMetaKeywordsChanged();
             }
@@ -1532,7 +1530,7 @@ namespace SideNotes.Models
             {
                 OnMetaDescriptionChanging(value);
                 ReportPropertyChanging("MetaDescription");
-                _MetaDescription = StructuralObject.SetValidValue(value, true);
+                _MetaDescription = StructuralObject.SetValidValue(value, true, "MetaDescription");
                 ReportPropertyChanged("MetaDescription");
                 OnMetaDescriptionChanged();
             }
@@ -1543,7 +1541,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
         #region Navigationseigenschaften
     
         /// <summary>
@@ -1683,7 +1680,7 @@ namespace SideNotes.Models
 
         #endregion
 
-        #region Primitive Eigenschaften
+        #region Einfache Eigenschaften
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -1702,7 +1699,7 @@ namespace SideNotes.Models
                 {
                     OnIdChanging(value);
                     ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
+                    _Id = StructuralObject.SetValidValue(value, "Id");
                     ReportPropertyChanged("Id");
                     OnIdChanged();
                 }
@@ -1727,7 +1724,7 @@ namespace SideNotes.Models
             {
                 OnNameChanging(value);
                 ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, false);
+                _Name = StructuralObject.SetValidValue(value, false, "Name");
                 ReportPropertyChanged("Name");
                 OnNameChanged();
             }
@@ -1751,7 +1748,7 @@ namespace SideNotes.Models
             {
                 OnOwner_IdChanging(value);
                 ReportPropertyChanging("Owner_Id");
-                _Owner_Id = StructuralObject.SetValidValue(value);
+                _Owner_Id = StructuralObject.SetValidValue(value, "Owner_Id");
                 ReportPropertyChanged("Owner_Id");
                 OnOwner_IdChanged();
             }
@@ -1775,7 +1772,7 @@ namespace SideNotes.Models
             {
                 OnParagraph_IdChanging(value);
                 ReportPropertyChanging("Paragraph_Id");
-                _Paragraph_Id = StructuralObject.SetValidValue(value);
+                _Paragraph_Id = StructuralObject.SetValidValue(value, "Paragraph_Id");
                 ReportPropertyChanged("Paragraph_Id");
                 OnParagraph_IdChanged();
             }
@@ -1786,7 +1783,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
         #region Navigationseigenschaften
     
         /// <summary>
@@ -1900,7 +1896,7 @@ namespace SideNotes.Models
 
         #endregion
 
-        #region Primitive Eigenschaften
+        #region Einfache Eigenschaften
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -1919,7 +1915,7 @@ namespace SideNotes.Models
                 {
                     OnIdChanging(value);
                     ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
+                    _Id = StructuralObject.SetValidValue(value, "Id");
                     ReportPropertyChanged("Id");
                     OnIdChanged();
                 }
@@ -1944,7 +1940,7 @@ namespace SideNotes.Models
             {
                 OnContentNumberChanging(value);
                 ReportPropertyChanging("ContentNumber");
-                _ContentNumber = StructuralObject.SetValidValue(value);
+                _ContentNumber = StructuralObject.SetValidValue(value, "ContentNumber");
                 ReportPropertyChanged("ContentNumber");
                 OnContentNumberChanged();
             }
@@ -1968,7 +1964,7 @@ namespace SideNotes.Models
             {
                 OnEntityIdChanging(value);
                 ReportPropertyChanging("EntityId");
-                _EntityId = StructuralObject.SetValidValue(value);
+                _EntityId = StructuralObject.SetValidValue(value, "EntityId");
                 ReportPropertyChanged("EntityId");
                 OnEntityIdChanged();
             }
@@ -1992,7 +1988,7 @@ namespace SideNotes.Models
             {
                 OnEntityTypeChanging(value);
                 ReportPropertyChanging("EntityType");
-                _EntityType = StructuralObject.SetValidValue(value);
+                _EntityType = StructuralObject.SetValidValue(value, "EntityType");
                 ReportPropertyChanged("EntityType");
                 OnEntityTypeChanged();
             }
@@ -2016,7 +2012,7 @@ namespace SideNotes.Models
             {
                 OnAuthor_IdChanging(value);
                 ReportPropertyChanging("Author_Id");
-                _Author_Id = StructuralObject.SetValidValue(value);
+                _Author_Id = StructuralObject.SetValidValue(value, "Author_Id");
                 ReportPropertyChanged("Author_Id");
                 OnAuthor_IdChanged();
             }
@@ -2027,7 +2023,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
         #region Navigationseigenschaften
     
         /// <summary>
@@ -2095,7 +2090,7 @@ namespace SideNotes.Models
 
         #endregion
 
-        #region Primitive Eigenschaften
+        #region Einfache Eigenschaften
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -2114,7 +2109,7 @@ namespace SideNotes.Models
                 {
                     OnIdChanging(value);
                     ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
+                    _Id = StructuralObject.SetValidValue(value, "Id");
                     ReportPropertyChanged("Id");
                     OnIdChanged();
                 }
@@ -2139,7 +2134,7 @@ namespace SideNotes.Models
             {
                 OnNameChanging(value);
                 ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, true);
+                _Name = StructuralObject.SetValidValue(value, true, "Name");
                 ReportPropertyChanged("Name");
                 OnNameChanged();
             }
@@ -2163,7 +2158,7 @@ namespace SideNotes.Models
             {
                 OnParentIdChanging(value);
                 ReportPropertyChanging("ParentId");
-                _ParentId = StructuralObject.SetValidValue(value);
+                _ParentId = StructuralObject.SetValidValue(value, "ParentId");
                 ReportPropertyChanged("ParentId");
                 OnParentIdChanged();
             }
@@ -2174,7 +2169,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
         #region Navigationseigenschaften
     
         /// <summary>
@@ -2232,7 +2226,7 @@ namespace SideNotes.Models
 
         #endregion
 
-        #region Primitive Eigenschaften
+        #region Einfache Eigenschaften
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -2251,7 +2245,7 @@ namespace SideNotes.Models
                 {
                     OnIdChanging(value);
                     ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
+                    _Id = StructuralObject.SetValidValue(value, "Id");
                     ReportPropertyChanged("Id");
                     OnIdChanged();
                 }
@@ -2276,7 +2270,7 @@ namespace SideNotes.Models
             {
                 OnTitleChanging(value);
                 ReportPropertyChanging("Title");
-                _Title = StructuralObject.SetValidValue(value, false);
+                _Title = StructuralObject.SetValidValue(value, false, "Title");
                 ReportPropertyChanged("Title");
                 OnTitleChanged();
             }
@@ -2300,7 +2294,7 @@ namespace SideNotes.Models
             {
                 OnOrderNumberChanging(value);
                 ReportPropertyChanging("OrderNumber");
-                _OrderNumber = StructuralObject.SetValidValue(value);
+                _OrderNumber = StructuralObject.SetValidValue(value, "OrderNumber");
                 ReportPropertyChanged("OrderNumber");
                 OnOrderNumberChanged();
             }
@@ -2324,7 +2318,7 @@ namespace SideNotes.Models
             {
                 OnParentChapter_IdChanging(value);
                 ReportPropertyChanging("ParentChapter_Id");
-                _ParentChapter_Id = StructuralObject.SetValidValue(value);
+                _ParentChapter_Id = StructuralObject.SetValidValue(value, "ParentChapter_Id");
                 ReportPropertyChanged("ParentChapter_Id");
                 OnParentChapter_IdChanged();
             }
@@ -2348,7 +2342,7 @@ namespace SideNotes.Models
             {
                 OnTopParagraph_IdChanging(value);
                 ReportPropertyChanging("TopParagraph_Id");
-                _TopParagraph_Id = StructuralObject.SetValidValue(value);
+                _TopParagraph_Id = StructuralObject.SetValidValue(value, "TopParagraph_Id");
                 ReportPropertyChanged("TopParagraph_Id");
                 OnTopParagraph_IdChanged();
             }
@@ -2372,7 +2366,7 @@ namespace SideNotes.Models
             {
                 OnBook_IdChanging(value);
                 ReportPropertyChanging("Book_Id");
-                _Book_Id = StructuralObject.SetValidValue(value);
+                _Book_Id = StructuralObject.SetValidValue(value, "Book_Id");
                 ReportPropertyChanged("Book_Id");
                 OnBook_IdChanged();
             }
@@ -2396,7 +2390,7 @@ namespace SideNotes.Models
             {
                 OnHeadCommentsCountChanging(value);
                 ReportPropertyChanging("HeadCommentsCount");
-                _HeadCommentsCount = StructuralObject.SetValidValue(value);
+                _HeadCommentsCount = StructuralObject.SetValidValue(value, "HeadCommentsCount");
                 ReportPropertyChanged("HeadCommentsCount");
                 OnHeadCommentsCountChanged();
             }
@@ -2407,7 +2401,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
         #region Navigationseigenschaften
     
         /// <summary>
@@ -2541,7 +2534,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -2573,7 +2565,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -2605,7 +2596,7 @@ namespace SideNotes.Models
 
         #endregion
 
-        #region Primitive Eigenschaften
+        #region Einfache Eigenschaften
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -2624,7 +2615,7 @@ namespace SideNotes.Models
                 {
                     OnIdChanging(value);
                     ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
+                    _Id = StructuralObject.SetValidValue(value, "Id");
                     ReportPropertyChanged("Id");
                     OnIdChanged();
                 }
@@ -2649,7 +2640,7 @@ namespace SideNotes.Models
             {
                 OnTextChanging(value);
                 ReportPropertyChanging("Text");
-                _Text = StructuralObject.SetValidValue(value, false);
+                _Text = StructuralObject.SetValidValue(value, false, "Text");
                 ReportPropertyChanged("Text");
                 OnTextChanged();
             }
@@ -2673,7 +2664,7 @@ namespace SideNotes.Models
             {
                 OnDateCreatedChanging(value);
                 ReportPropertyChanging("DateCreated");
-                _DateCreated = StructuralObject.SetValidValue(value);
+                _DateCreated = StructuralObject.SetValidValue(value, "DateCreated");
                 ReportPropertyChanged("DateCreated");
                 OnDateCreatedChanged();
             }
@@ -2697,7 +2688,7 @@ namespace SideNotes.Models
             {
                 OnAuthor_IdChanging(value);
                 ReportPropertyChanging("Author_Id");
-                _Author_Id = StructuralObject.SetValidValue(value);
+                _Author_Id = StructuralObject.SetValidValue(value, "Author_Id");
                 ReportPropertyChanged("Author_Id");
                 OnAuthor_IdChanged();
             }
@@ -2721,7 +2712,7 @@ namespace SideNotes.Models
             {
                 OnParentCommentIdChanging(value);
                 ReportPropertyChanging("ParentCommentId");
-                _ParentCommentId = StructuralObject.SetValidValue(value);
+                _ParentCommentId = StructuralObject.SetValidValue(value, "ParentCommentId");
                 ReportPropertyChanged("ParentCommentId");
                 OnParentCommentIdChanged();
             }
@@ -2745,7 +2736,7 @@ namespace SideNotes.Models
             {
                 OnHeadCommentIdChanging(value);
                 ReportPropertyChanging("HeadCommentId");
-                _HeadCommentId = StructuralObject.SetValidValue(value);
+                _HeadCommentId = StructuralObject.SetValidValue(value, "HeadCommentId");
                 ReportPropertyChanged("HeadCommentId");
                 OnHeadCommentIdChanged();
             }
@@ -2756,7 +2747,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
         #region Navigationseigenschaften
     
         /// <summary>
@@ -2902,7 +2892,7 @@ namespace SideNotes.Models
 
         #endregion
 
-        #region Primitive Eigenschaften
+        #region Einfache Eigenschaften
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -2921,7 +2911,7 @@ namespace SideNotes.Models
                 {
                     OnCampaignIdChanging(value);
                     ReportPropertyChanging("CampaignId");
-                    _CampaignId = StructuralObject.SetValidValue(value, false);
+                    _CampaignId = StructuralObject.SetValidValue(value, false, "CampaignId");
                     ReportPropertyChanged("CampaignId");
                     OnCampaignIdChanged();
                 }
@@ -2946,7 +2936,7 @@ namespace SideNotes.Models
             {
                 OnhitsChanging(value);
                 ReportPropertyChanging("hits");
-                _hits = StructuralObject.SetValidValue(value);
+                _hits = StructuralObject.SetValidValue(value, "hits");
                 ReportPropertyChanged("hits");
                 OnhitsChanged();
             }
@@ -2957,7 +2947,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -2989,7 +2978,7 @@ namespace SideNotes.Models
 
         #endregion
 
-        #region Primitive Eigenschaften
+        #region Einfache Eigenschaften
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -3008,7 +2997,7 @@ namespace SideNotes.Models
                 {
                     OnIdChanging(value);
                     ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
+                    _Id = StructuralObject.SetValidValue(value, "Id");
                     ReportPropertyChanged("Id");
                     OnIdChanged();
                 }
@@ -3033,7 +3022,7 @@ namespace SideNotes.Models
             {
                 OnCampaignIdChanging(value);
                 ReportPropertyChanging("CampaignId");
-                _CampaignId = StructuralObject.SetValidValue(value, false);
+                _CampaignId = StructuralObject.SetValidValue(value, false, "CampaignId");
                 ReportPropertyChanged("CampaignId");
                 OnCampaignIdChanged();
             }
@@ -3057,7 +3046,7 @@ namespace SideNotes.Models
             {
                 OnhitsChanging(value);
                 ReportPropertyChanging("hits");
-                _hits = StructuralObject.SetValidValue(value);
+                _hits = StructuralObject.SetValidValue(value, "hits");
                 ReportPropertyChanged("hits");
                 OnhitsChanged();
             }
@@ -3081,7 +3070,7 @@ namespace SideNotes.Models
             {
                 OndateChanging(value);
                 ReportPropertyChanging("date");
-                _date = StructuralObject.SetValidValue(value);
+                _date = StructuralObject.SetValidValue(value, "date");
                 ReportPropertyChanged("date");
                 OndateChanged();
             }
@@ -3092,7 +3081,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -3124,7 +3112,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -3156,7 +3143,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -3188,7 +3174,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -3220,7 +3205,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -3254,7 +3238,7 @@ namespace SideNotes.Models
 
         #endregion
 
-        #region Primitive Eigenschaften
+        #region Einfache Eigenschaften
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -3273,7 +3257,7 @@ namespace SideNotes.Models
                 {
                     OnIdChanging(value);
                     ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
+                    _Id = StructuralObject.SetValidValue(value, "Id");
                     ReportPropertyChanged("Id");
                     OnIdChanged();
                 }
@@ -3298,7 +3282,7 @@ namespace SideNotes.Models
             {
                 OnTextChanging(value);
                 ReportPropertyChanging("Text");
-                _Text = StructuralObject.SetValidValue(value, true);
+                _Text = StructuralObject.SetValidValue(value, true, "Text");
                 ReportPropertyChanged("Text");
                 OnTextChanged();
             }
@@ -3322,7 +3306,7 @@ namespace SideNotes.Models
             {
                 OnDateCreatedChanging(value);
                 ReportPropertyChanging("DateCreated");
-                _DateCreated = StructuralObject.SetValidValue(value);
+                _DateCreated = StructuralObject.SetValidValue(value, "DateCreated");
                 ReportPropertyChanged("DateCreated");
                 OnDateCreatedChanged();
             }
@@ -3346,7 +3330,7 @@ namespace SideNotes.Models
             {
                 OnAuthor_IdChanging(value);
                 ReportPropertyChanging("Author_Id");
-                _Author_Id = StructuralObject.SetValidValue(value);
+                _Author_Id = StructuralObject.SetValidValue(value, "Author_Id");
                 ReportPropertyChanged("Author_Id");
                 OnAuthor_IdChanged();
             }
@@ -3370,7 +3354,7 @@ namespace SideNotes.Models
             {
                 OnIsPrivateChanging(value);
                 ReportPropertyChanging("IsPrivate");
-                _IsPrivate = StructuralObject.SetValidValue(value);
+                _IsPrivate = StructuralObject.SetValidValue(value, "IsPrivate");
                 ReportPropertyChanged("IsPrivate");
                 OnIsPrivateChanged();
             }
@@ -3394,7 +3378,7 @@ namespace SideNotes.Models
             {
                 OnEntityIdChanging(value);
                 ReportPropertyChanging("EntityId");
-                _EntityId = StructuralObject.SetValidValue(value);
+                _EntityId = StructuralObject.SetValidValue(value, "EntityId");
                 ReportPropertyChanged("EntityId");
                 OnEntityIdChanged();
             }
@@ -3418,7 +3402,7 @@ namespace SideNotes.Models
             {
                 OnEntityTypeChanging(value);
                 ReportPropertyChanging("EntityType");
-                _EntityType = StructuralObject.SetValidValue(value);
+                _EntityType = StructuralObject.SetValidValue(value, "EntityType");
                 ReportPropertyChanged("EntityType");
                 OnEntityTypeChanged();
             }
@@ -3429,7 +3413,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
         #region Navigationseigenschaften
     
         /// <summary>
@@ -3503,7 +3486,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -3529,7 +3511,7 @@ namespace SideNotes.Models
 
         #endregion
 
-        #region Primitive Eigenschaften
+        #region Einfache Eigenschaften
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -3548,7 +3530,7 @@ namespace SideNotes.Models
                 {
                     OnIdChanging(value);
                     ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
+                    _Id = StructuralObject.SetValidValue(value, "Id");
                     ReportPropertyChanged("Id");
                     OnIdChanged();
                 }
@@ -3573,7 +3555,7 @@ namespace SideNotes.Models
             {
                 OnSubjectChanging(value);
                 ReportPropertyChanging("Subject");
-                _Subject = StructuralObject.SetValidValue(value, true);
+                _Subject = StructuralObject.SetValidValue(value, true, "Subject");
                 ReportPropertyChanged("Subject");
                 OnSubjectChanged();
             }
@@ -3597,7 +3579,7 @@ namespace SideNotes.Models
             {
                 OnBodyChanging(value);
                 ReportPropertyChanging("Body");
-                _Body = StructuralObject.SetValidValue(value, true);
+                _Body = StructuralObject.SetValidValue(value, true, "Body");
                 ReportPropertyChanged("Body");
                 OnBodyChanged();
             }
@@ -3621,7 +3603,7 @@ namespace SideNotes.Models
             {
                 OnEmailChanging(value);
                 ReportPropertyChanging("Email");
-                _Email = StructuralObject.SetValidValue(value, true);
+                _Email = StructuralObject.SetValidValue(value, true, "Email");
                 ReportPropertyChanged("Email");
                 OnEmailChanged();
             }
@@ -3632,7 +3614,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -3674,7 +3655,7 @@ namespace SideNotes.Models
 
         #endregion
 
-        #region Primitive Eigenschaften
+        #region Einfache Eigenschaften
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -3693,7 +3674,7 @@ namespace SideNotes.Models
                 {
                     OnIdChanging(value);
                     ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
+                    _Id = StructuralObject.SetValidValue(value, "Id");
                     ReportPropertyChanged("Id");
                     OnIdChanged();
                 }
@@ -3718,7 +3699,7 @@ namespace SideNotes.Models
             {
                 OnOrderNumberChanging(value);
                 ReportPropertyChanging("OrderNumber");
-                _OrderNumber = StructuralObject.SetValidValue(value);
+                _OrderNumber = StructuralObject.SetValidValue(value, "OrderNumber");
                 ReportPropertyChanged("OrderNumber");
                 OnOrderNumberChanged();
             }
@@ -3742,7 +3723,7 @@ namespace SideNotes.Models
             {
                 OnContentChanging(value);
                 ReportPropertyChanging("Content");
-                _Content = StructuralObject.SetValidValue(value, true);
+                _Content = StructuralObject.SetValidValue(value, true, "Content");
                 ReportPropertyChanged("Content");
                 OnContentChanged();
             }
@@ -3766,7 +3747,7 @@ namespace SideNotes.Models
             {
                 OnBook_IdChanging(value);
                 ReportPropertyChanging("Book_Id");
-                _Book_Id = StructuralObject.SetValidValue(value);
+                _Book_Id = StructuralObject.SetValidValue(value, "Book_Id");
                 ReportPropertyChanged("Book_Id");
                 OnBook_IdChanged();
             }
@@ -3790,7 +3771,7 @@ namespace SideNotes.Models
             {
                 OnChapterIdChanging(value);
                 ReportPropertyChanging("ChapterId");
-                _ChapterId = StructuralObject.SetValidValue(value);
+                _ChapterId = StructuralObject.SetValidValue(value, "ChapterId");
                 ReportPropertyChanged("ChapterId");
                 OnChapterIdChanged();
             }
@@ -3801,7 +3782,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
         #region Navigationseigenschaften
     
         /// <summary>
@@ -3911,7 +3891,7 @@ namespace SideNotes.Models
 
         #endregion
 
-        #region Primitive Eigenschaften
+        #region Einfache Eigenschaften
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -3930,7 +3910,7 @@ namespace SideNotes.Models
                 {
                     OnIdChanging(value);
                     ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
+                    _Id = StructuralObject.SetValidValue(value, "Id");
                     ReportPropertyChanged("Id");
                     OnIdChanged();
                 }
@@ -3955,7 +3935,7 @@ namespace SideNotes.Models
             {
                 OnLocationChanging(value);
                 ReportPropertyChanging("Location");
-                _Location = StructuralObject.SetValidValue(value, true);
+                _Location = StructuralObject.SetValidValue(value, true, "Location");
                 ReportPropertyChanged("Location");
                 OnLocationChanged();
             }
@@ -3979,7 +3959,7 @@ namespace SideNotes.Models
             {
                 OnUrlChanging(value);
                 ReportPropertyChanging("Url");
-                _Url = StructuralObject.SetValidValue(value, true);
+                _Url = StructuralObject.SetValidValue(value, true, "Url");
                 ReportPropertyChanged("Url");
                 OnUrlChanged();
             }
@@ -4003,7 +3983,7 @@ namespace SideNotes.Models
             {
                 OnwidthChanging(value);
                 ReportPropertyChanging("width");
-                _width = StructuralObject.SetValidValue(value);
+                _width = StructuralObject.SetValidValue(value, "width");
                 ReportPropertyChanged("width");
                 OnwidthChanged();
             }
@@ -4027,7 +4007,7 @@ namespace SideNotes.Models
             {
                 OnheightChanging(value);
                 ReportPropertyChanging("height");
-                _height = StructuralObject.SetValidValue(value);
+                _height = StructuralObject.SetValidValue(value, "height");
                 ReportPropertyChanged("height");
                 OnheightChanged();
             }
@@ -4038,7 +4018,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -4070,7 +4049,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -4102,7 +4080,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -4130,7 +4107,7 @@ namespace SideNotes.Models
 
         #endregion
 
-        #region Primitive Eigenschaften
+        #region Einfache Eigenschaften
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -4149,7 +4126,7 @@ namespace SideNotes.Models
                 {
                     OnIdChanging(value);
                     ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
+                    _Id = StructuralObject.SetValidValue(value, "Id");
                     ReportPropertyChanged("Id");
                     OnIdChanged();
                 }
@@ -4174,7 +4151,7 @@ namespace SideNotes.Models
             {
                 OnRequestDateChanging(value);
                 ReportPropertyChanging("RequestDate");
-                _RequestDate = StructuralObject.SetValidValue(value);
+                _RequestDate = StructuralObject.SetValidValue(value, "RequestDate");
                 ReportPropertyChanged("RequestDate");
                 OnRequestDateChanged();
             }
@@ -4198,7 +4175,7 @@ namespace SideNotes.Models
             {
                 OnRefererChanging(value);
                 ReportPropertyChanging("Referer");
-                _Referer = StructuralObject.SetValidValue(value, true);
+                _Referer = StructuralObject.SetValidValue(value, true, "Referer");
                 ReportPropertyChanged("Referer");
                 OnRefererChanged();
             }
@@ -4222,7 +4199,7 @@ namespace SideNotes.Models
             {
                 OnUrlChanging(value);
                 ReportPropertyChanging("Url");
-                _Url = StructuralObject.SetValidValue(value, true);
+                _Url = StructuralObject.SetValidValue(value, true, "Url");
                 ReportPropertyChanged("Url");
                 OnUrlChanged();
             }
@@ -4246,7 +4223,7 @@ namespace SideNotes.Models
             {
                 OnHttpFromChanging(value);
                 ReportPropertyChanging("HttpFrom");
-                _HttpFrom = StructuralObject.SetValidValue(value, true);
+                _HttpFrom = StructuralObject.SetValidValue(value, true, "HttpFrom");
                 ReportPropertyChanged("HttpFrom");
                 OnHttpFromChanged();
             }
@@ -4270,7 +4247,7 @@ namespace SideNotes.Models
             {
                 OnRemote_addrChanging(value);
                 ReportPropertyChanging("Remote_addr");
-                _Remote_addr = StructuralObject.SetValidValue(value, true);
+                _Remote_addr = StructuralObject.SetValidValue(value, true, "Remote_addr");
                 ReportPropertyChanged("Remote_addr");
                 OnRemote_addrChanged();
             }
@@ -4294,7 +4271,7 @@ namespace SideNotes.Models
             {
                 OnCurrentUserChanging(value);
                 ReportPropertyChanging("CurrentUser");
-                _CurrentUser = StructuralObject.SetValidValue(value, true);
+                _CurrentUser = StructuralObject.SetValidValue(value, true, "CurrentUser");
                 ReportPropertyChanged("CurrentUser");
                 OnCurrentUserChanged();
             }
@@ -4305,7 +4282,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -4331,7 +4307,7 @@ namespace SideNotes.Models
 
         #endregion
 
-        #region Primitive Eigenschaften
+        #region Einfache Eigenschaften
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -4350,7 +4326,7 @@ namespace SideNotes.Models
                 {
                     OnIdChanging(value);
                     ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
+                    _Id = StructuralObject.SetValidValue(value, "Id");
                     ReportPropertyChanged("Id");
                     OnIdChanged();
                 }
@@ -4375,7 +4351,7 @@ namespace SideNotes.Models
             {
                 OnSubjectChanging(value);
                 ReportPropertyChanging("Subject");
-                _Subject = StructuralObject.SetValidValue(value, true);
+                _Subject = StructuralObject.SetValidValue(value, true, "Subject");
                 ReportPropertyChanged("Subject");
                 OnSubjectChanged();
             }
@@ -4399,7 +4375,7 @@ namespace SideNotes.Models
             {
                 OnBodyChanging(value);
                 ReportPropertyChanging("Body");
-                _Body = StructuralObject.SetValidValue(value, true);
+                _Body = StructuralObject.SetValidValue(value, true, "Body");
                 ReportPropertyChanged("Body");
                 OnBodyChanged();
             }
@@ -4423,7 +4399,7 @@ namespace SideNotes.Models
             {
                 OnEmailChanging(value);
                 ReportPropertyChanging("Email");
-                _Email = StructuralObject.SetValidValue(value, true);
+                _Email = StructuralObject.SetValidValue(value, true, "Email");
                 ReportPropertyChanged("Email");
                 OnEmailChanged();
             }
@@ -4447,7 +4423,7 @@ namespace SideNotes.Models
             {
                 OnDateChanging(value);
                 ReportPropertyChanging("Date");
-                _Date = StructuralObject.SetValidValue(value);
+                _Date = StructuralObject.SetValidValue(value, "Date");
                 ReportPropertyChanged("Date");
                 OnDateChanged();
             }
@@ -4458,7 +4434,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -4490,7 +4465,7 @@ namespace SideNotes.Models
 
         #endregion
 
-        #region Primitive Eigenschaften
+        #region Einfache Eigenschaften
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -4509,7 +4484,7 @@ namespace SideNotes.Models
                 {
                     OnIdChanging(value);
                     ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
+                    _Id = StructuralObject.SetValidValue(value, "Id");
                     ReportPropertyChanged("Id");
                     OnIdChanged();
                 }
@@ -4534,7 +4509,7 @@ namespace SideNotes.Models
             {
                 OnTextChanging(value);
                 ReportPropertyChanging("Text");
-                _Text = StructuralObject.SetValidValue(value, true);
+                _Text = StructuralObject.SetValidValue(value, true, "Text");
                 ReportPropertyChanged("Text");
                 OnTextChanged();
             }
@@ -4558,7 +4533,7 @@ namespace SideNotes.Models
             {
                 OnEntityIdChanging(value);
                 ReportPropertyChanging("EntityId");
-                _EntityId = StructuralObject.SetValidValue(value);
+                _EntityId = StructuralObject.SetValidValue(value, "EntityId");
                 ReportPropertyChanged("EntityId");
                 OnEntityIdChanged();
             }
@@ -4582,7 +4557,7 @@ namespace SideNotes.Models
             {
                 OnEntityTypeChanging(value);
                 ReportPropertyChanging("EntityType");
-                _EntityType = StructuralObject.SetValidValue(value);
+                _EntityType = StructuralObject.SetValidValue(value, "EntityType");
                 ReportPropertyChanged("EntityType");
                 OnEntityTypeChanged();
             }
@@ -4606,7 +4581,7 @@ namespace SideNotes.Models
             {
                 OnisPrivateChanging(value);
                 ReportPropertyChanging("isPrivate");
-                _isPrivate = StructuralObject.SetValidValue(value);
+                _isPrivate = StructuralObject.SetValidValue(value, "isPrivate");
                 ReportPropertyChanged("isPrivate");
                 OnisPrivateChanged();
             }
@@ -4617,7 +4592,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -4649,7 +4623,6 @@ namespace SideNotes.Models
 
         #endregion
 
-    
     }
     
     /// <summary>
@@ -4689,7 +4662,7 @@ namespace SideNotes.Models
 
         #endregion
 
-        #region Primitive Eigenschaften
+        #region Einfache Eigenschaften
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -4708,7 +4681,7 @@ namespace SideNotes.Models
                 {
                     OnIdChanging(value);
                     ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
+                    _Id = StructuralObject.SetValidValue(value, "Id");
                     ReportPropertyChanged("Id");
                     OnIdChanged();
                 }
@@ -4733,7 +4706,7 @@ namespace SideNotes.Models
             {
                 OnNameChanging(value);
                 ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, false);
+                _Name = StructuralObject.SetValidValue(value, false, "Name");
                 ReportPropertyChanged("Name");
                 OnNameChanged();
             }
@@ -4757,7 +4730,7 @@ namespace SideNotes.Models
             {
                 OnLoginChanging(value);
                 ReportPropertyChanging("Login");
-                _Login = StructuralObject.SetValidValue(value, false);
+                _Login = StructuralObject.SetValidValue(value, false, "Login");
                 ReportPropertyChanged("Login");
                 OnLoginChanged();
             }
@@ -4781,7 +4754,7 @@ namespace SideNotes.Models
             {
                 OnPasswordHashChanging(value);
                 ReportPropertyChanging("PasswordHash");
-                _PasswordHash = StructuralObject.SetValidValue(value, true);
+                _PasswordHash = StructuralObject.SetValidValue(value, true, "PasswordHash");
                 ReportPropertyChanged("PasswordHash");
                 OnPasswordHashChanged();
             }
@@ -4805,7 +4778,7 @@ namespace SideNotes.Models
             {
                 OnPasswordSeedChanging(value);
                 ReportPropertyChanging("PasswordSeed");
-                _PasswordSeed = StructuralObject.SetValidValue(value, true);
+                _PasswordSeed = StructuralObject.SetValidValue(value, true, "PasswordSeed");
                 ReportPropertyChanged("PasswordSeed");
                 OnPasswordSeedChanged();
             }
@@ -4829,7 +4802,7 @@ namespace SideNotes.Models
             {
                 OnEmailChanging(value);
                 ReportPropertyChanging("Email");
-                _Email = StructuralObject.SetValidValue(value, true);
+                _Email = StructuralObject.SetValidValue(value, true, "Email");
                 ReportPropertyChanged("Email");
                 OnEmailChanged();
             }
@@ -4853,7 +4826,7 @@ namespace SideNotes.Models
             {
                 OnFacebookProfileUrlChanging(value);
                 ReportPropertyChanging("FacebookProfileUrl");
-                _FacebookProfileUrl = StructuralObject.SetValidValue(value, true);
+                _FacebookProfileUrl = StructuralObject.SetValidValue(value, true, "FacebookProfileUrl");
                 ReportPropertyChanged("FacebookProfileUrl");
                 OnFacebookProfileUrlChanged();
             }
@@ -4861,30 +4834,6 @@ namespace SideNotes.Models
         private global::System.String _FacebookProfileUrl;
         partial void OnFacebookProfileUrlChanging(global::System.String value);
         partial void OnFacebookProfileUrlChanged();
-    
-        /// <summary>
-        /// Keine Dokumentation für Metadaten verfügbar.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String VkontakteProfileUrl
-        {
-            get
-            {
-                return _VkontakteProfileUrl;
-            }
-            set
-            {
-                OnVkontakteProfileUrlChanging(value);
-                ReportPropertyChanging("VkontakteProfileUrl");
-                _VkontakteProfileUrl = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("VkontakteProfileUrl");
-                OnVkontakteProfileUrlChanged();
-            }
-        }
-        private global::System.String _VkontakteProfileUrl;
-        partial void OnVkontakteProfileUrlChanging(global::System.String value);
-        partial void OnVkontakteProfileUrlChanged();
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -4901,7 +4850,7 @@ namespace SideNotes.Models
             {
                 OnAvatar_IdChanging(value);
                 ReportPropertyChanging("Avatar_Id");
-                _Avatar_Id = StructuralObject.SetValidValue(value);
+                _Avatar_Id = StructuralObject.SetValidValue(value, "Avatar_Id");
                 ReportPropertyChanged("Avatar_Id");
                 OnAvatar_IdChanged();
             }
@@ -4925,7 +4874,7 @@ namespace SideNotes.Models
             {
                 OnAccountSourceIntChanging(value);
                 ReportPropertyChanging("AccountSourceInt");
-                _AccountSourceInt = StructuralObject.SetValidValue(value);
+                _AccountSourceInt = StructuralObject.SetValidValue(value, "AccountSourceInt");
                 ReportPropertyChanged("AccountSourceInt");
                 OnAccountSourceIntChanged();
             }
@@ -4949,7 +4898,7 @@ namespace SideNotes.Models
             {
                 OnIsAdminChanging(value);
                 ReportPropertyChanging("IsAdmin");
-                _IsAdmin = StructuralObject.SetValidValue(value);
+                _IsAdmin = StructuralObject.SetValidValue(value, "IsAdmin");
                 ReportPropertyChanged("IsAdmin");
                 OnIsAdminChanged();
             }
@@ -4973,7 +4922,7 @@ namespace SideNotes.Models
             {
                 OnIsFamousChanging(value);
                 ReportPropertyChanging("IsFamous");
-                _IsFamous = StructuralObject.SetValidValue(value);
+                _IsFamous = StructuralObject.SetValidValue(value, "IsFamous");
                 ReportPropertyChanged("IsFamous");
                 OnIsFamousChanged();
             }
@@ -4997,7 +4946,7 @@ namespace SideNotes.Models
             {
                 OnNotifyAuthorCommentRepliedChanging(value);
                 ReportPropertyChanging("NotifyAuthorCommentReplied");
-                _NotifyAuthorCommentReplied = StructuralObject.SetValidValue(value);
+                _NotifyAuthorCommentReplied = StructuralObject.SetValidValue(value, "NotifyAuthorCommentReplied");
                 ReportPropertyChanged("NotifyAuthorCommentReplied");
                 OnNotifyAuthorCommentRepliedChanged();
             }
@@ -5005,30 +4954,6 @@ namespace SideNotes.Models
         private global::System.Boolean _NotifyAuthorCommentReplied;
         partial void OnNotifyAuthorCommentRepliedChanging(global::System.Boolean value);
         partial void OnNotifyAuthorCommentRepliedChanged();
-    
-        /// <summary>
-        /// Keine Dokumentation für Metadaten verfügbar.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String VkontakteId
-        {
-            get
-            {
-                return _VkontakteId;
-            }
-            set
-            {
-                OnVkontakteIdChanging(value);
-                ReportPropertyChanging("VkontakteId");
-                _VkontakteId = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("VkontakteId");
-                OnVkontakteIdChanged();
-            }
-        }
-        private global::System.String _VkontakteId;
-        partial void OnVkontakteIdChanging(global::System.String value);
-        partial void OnVkontakteIdChanged();
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -5045,7 +4970,7 @@ namespace SideNotes.Models
             {
                 OnFacebookIdChanging(value);
                 ReportPropertyChanging("FacebookId");
-                _FacebookId = StructuralObject.SetValidValue(value, true);
+                _FacebookId = StructuralObject.SetValidValue(value, true, "FacebookId");
                 ReportPropertyChanged("FacebookId");
                 OnFacebookIdChanged();
             }
@@ -5053,30 +4978,6 @@ namespace SideNotes.Models
         private global::System.String _FacebookId;
         partial void OnFacebookIdChanging(global::System.String value);
         partial void OnFacebookIdChanged();
-    
-        /// <summary>
-        /// Keine Dokumentation für Metadaten verfügbar.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String LivejournalId
-        {
-            get
-            {
-                return _LivejournalId;
-            }
-            set
-            {
-                OnLivejournalIdChanging(value);
-                ReportPropertyChanging("LivejournalId");
-                _LivejournalId = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("LivejournalId");
-                OnLivejournalIdChanged();
-            }
-        }
-        private global::System.String _LivejournalId;
-        partial void OnLivejournalIdChanging(global::System.String value);
-        partial void OnLivejournalIdChanged();
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -5093,7 +4994,7 @@ namespace SideNotes.Models
             {
                 OnTwitterIdChanging(value);
                 ReportPropertyChanging("TwitterId");
-                _TwitterId = StructuralObject.SetValidValue(value, true);
+                _TwitterId = StructuralObject.SetValidValue(value, true, "TwitterId");
                 ReportPropertyChanged("TwitterId");
                 OnTwitterIdChanged();
             }
@@ -5101,54 +5002,6 @@ namespace SideNotes.Models
         private global::System.String _TwitterId;
         partial void OnTwitterIdChanging(global::System.String value);
         partial void OnTwitterIdChanged();
-    
-        /// <summary>
-        /// Keine Dokumentation für Metadaten verfügbar.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String YandexId
-        {
-            get
-            {
-                return _YandexId;
-            }
-            set
-            {
-                OnYandexIdChanging(value);
-                ReportPropertyChanging("YandexId");
-                _YandexId = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("YandexId");
-                OnYandexIdChanged();
-            }
-        }
-        private global::System.String _YandexId;
-        partial void OnYandexIdChanging(global::System.String value);
-        partial void OnYandexIdChanged();
-    
-        /// <summary>
-        /// Keine Dokumentation für Metadaten verfügbar.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String AccessTokenVkontakte
-        {
-            get
-            {
-                return _AccessTokenVkontakte;
-            }
-            set
-            {
-                OnAccessTokenVkontakteChanging(value);
-                ReportPropertyChanging("AccessTokenVkontakte");
-                _AccessTokenVkontakte = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("AccessTokenVkontakte");
-                OnAccessTokenVkontakteChanged();
-            }
-        }
-        private global::System.String _AccessTokenVkontakte;
-        partial void OnAccessTokenVkontakteChanging(global::System.String value);
-        partial void OnAccessTokenVkontakteChanged();
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -5165,7 +5018,7 @@ namespace SideNotes.Models
             {
                 OnAccessTokenTwitterChanging(value);
                 ReportPropertyChanging("AccessTokenTwitter");
-                _AccessTokenTwitter = StructuralObject.SetValidValue(value, true);
+                _AccessTokenTwitter = StructuralObject.SetValidValue(value, true, "AccessTokenTwitter");
                 ReportPropertyChanged("AccessTokenTwitter");
                 OnAccessTokenTwitterChanged();
             }
@@ -5173,30 +5026,6 @@ namespace SideNotes.Models
         private global::System.String _AccessTokenTwitter;
         partial void OnAccessTokenTwitterChanging(global::System.String value);
         partial void OnAccessTokenTwitterChanged();
-    
-        /// <summary>
-        /// Keine Dokumentation für Metadaten verfügbar.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String AccessTokenYandex
-        {
-            get
-            {
-                return _AccessTokenYandex;
-            }
-            set
-            {
-                OnAccessTokenYandexChanging(value);
-                ReportPropertyChanging("AccessTokenYandex");
-                _AccessTokenYandex = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("AccessTokenYandex");
-                OnAccessTokenYandexChanged();
-            }
-        }
-        private global::System.String _AccessTokenYandex;
-        partial void OnAccessTokenYandexChanging(global::System.String value);
-        partial void OnAccessTokenYandexChanged();
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -5213,7 +5042,7 @@ namespace SideNotes.Models
             {
                 OnAccessTokenFacebookChanging(value);
                 ReportPropertyChanging("AccessTokenFacebook");
-                _AccessTokenFacebook = StructuralObject.SetValidValue(value, true);
+                _AccessTokenFacebook = StructuralObject.SetValidValue(value, true, "AccessTokenFacebook");
                 ReportPropertyChanged("AccessTokenFacebook");
                 OnAccessTokenFacebookChanged();
             }
@@ -5237,7 +5066,7 @@ namespace SideNotes.Models
             {
                 OnFacebookUsernameChanging(value);
                 ReportPropertyChanging("FacebookUsername");
-                _FacebookUsername = StructuralObject.SetValidValue(value, true);
+                _FacebookUsername = StructuralObject.SetValidValue(value, true, "FacebookUsername");
                 ReportPropertyChanged("FacebookUsername");
                 OnFacebookUsernameChanged();
             }
@@ -5245,30 +5074,6 @@ namespace SideNotes.Models
         private global::System.String _FacebookUsername;
         partial void OnFacebookUsernameChanging(global::System.String value);
         partial void OnFacebookUsernameChanged();
-    
-        /// <summary>
-        /// Keine Dokumentation für Metadaten verfügbar.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String VkontakteUsername
-        {
-            get
-            {
-                return _VkontakteUsername;
-            }
-            set
-            {
-                OnVkontakteUsernameChanging(value);
-                ReportPropertyChanging("VkontakteUsername");
-                _VkontakteUsername = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("VkontakteUsername");
-                OnVkontakteUsernameChanged();
-            }
-        }
-        private global::System.String _VkontakteUsername;
-        partial void OnVkontakteUsernameChanging(global::System.String value);
-        partial void OnVkontakteUsernameChanged();
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -5285,7 +5090,7 @@ namespace SideNotes.Models
             {
                 OnTwitterProfileUrlChanging(value);
                 ReportPropertyChanging("TwitterProfileUrl");
-                _TwitterProfileUrl = StructuralObject.SetValidValue(value, true);
+                _TwitterProfileUrl = StructuralObject.SetValidValue(value, true, "TwitterProfileUrl");
                 ReportPropertyChanged("TwitterProfileUrl");
                 OnTwitterProfileUrlChanged();
             }
@@ -5309,7 +5114,7 @@ namespace SideNotes.Models
             {
                 OnTwitterUsernameChanging(value);
                 ReportPropertyChanging("TwitterUsername");
-                _TwitterUsername = StructuralObject.SetValidValue(value, true);
+                _TwitterUsername = StructuralObject.SetValidValue(value, true, "TwitterUsername");
                 ReportPropertyChanged("TwitterUsername");
                 OnTwitterUsernameChanged();
             }
@@ -5317,102 +5122,6 @@ namespace SideNotes.Models
         private global::System.String _TwitterUsername;
         partial void OnTwitterUsernameChanging(global::System.String value);
         partial void OnTwitterUsernameChanged();
-    
-        /// <summary>
-        /// Keine Dokumentation für Metadaten verfügbar.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String YandexProfileUrl
-        {
-            get
-            {
-                return _YandexProfileUrl;
-            }
-            set
-            {
-                OnYandexProfileUrlChanging(value);
-                ReportPropertyChanging("YandexProfileUrl");
-                _YandexProfileUrl = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("YandexProfileUrl");
-                OnYandexProfileUrlChanged();
-            }
-        }
-        private global::System.String _YandexProfileUrl;
-        partial void OnYandexProfileUrlChanging(global::System.String value);
-        partial void OnYandexProfileUrlChanged();
-    
-        /// <summary>
-        /// Keine Dokumentation für Metadaten verfügbar.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String YandexUsername
-        {
-            get
-            {
-                return _YandexUsername;
-            }
-            set
-            {
-                OnYandexUsernameChanging(value);
-                ReportPropertyChanging("YandexUsername");
-                _YandexUsername = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("YandexUsername");
-                OnYandexUsernameChanged();
-            }
-        }
-        private global::System.String _YandexUsername;
-        partial void OnYandexUsernameChanging(global::System.String value);
-        partial void OnYandexUsernameChanged();
-    
-        /// <summary>
-        /// Keine Dokumentation für Metadaten verfügbar.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String LivejournalProfileUrl
-        {
-            get
-            {
-                return _LivejournalProfileUrl;
-            }
-            set
-            {
-                OnLivejournalProfileUrlChanging(value);
-                ReportPropertyChanging("LivejournalProfileUrl");
-                _LivejournalProfileUrl = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("LivejournalProfileUrl");
-                OnLivejournalProfileUrlChanged();
-            }
-        }
-        private global::System.String _LivejournalProfileUrl;
-        partial void OnLivejournalProfileUrlChanging(global::System.String value);
-        partial void OnLivejournalProfileUrlChanged();
-    
-        /// <summary>
-        /// Keine Dokumentation für Metadaten verfügbar.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String LivejournalUsername
-        {
-            get
-            {
-                return _LivejournalUsername;
-            }
-            set
-            {
-                OnLivejournalUsernameChanging(value);
-                ReportPropertyChanging("LivejournalUsername");
-                _LivejournalUsername = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("LivejournalUsername");
-                OnLivejournalUsernameChanged();
-            }
-        }
-        private global::System.String _LivejournalUsername;
-        partial void OnLivejournalUsernameChanging(global::System.String value);
-        partial void OnLivejournalUsernameChanged();
     
         /// <summary>
         /// Keine Dokumentation für Metadaten verfügbar.
@@ -5429,7 +5138,7 @@ namespace SideNotes.Models
             {
                 OnLastLoginSourceIntChanging(value);
                 ReportPropertyChanging("LastLoginSourceInt");
-                _LastLoginSourceInt = StructuralObject.SetValidValue(value);
+                _LastLoginSourceInt = StructuralObject.SetValidValue(value, "LastLoginSourceInt");
                 ReportPropertyChanged("LastLoginSourceInt");
                 OnLastLoginSourceIntChanged();
             }
@@ -5437,10 +5146,33 @@ namespace SideNotes.Models
         private global::System.Int32 _LastLoginSourceInt;
         partial void OnLastLoginSourceIntChanging(global::System.Int32 value);
         partial void OnLastLoginSourceIntChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String UrlName
+        {
+            get
+            {
+                return _UrlName;
+            }
+            set
+            {
+                OnUrlNameChanging(value);
+                ReportPropertyChanging("UrlName");
+                _UrlName = StructuralObject.SetValidValue(value, true, "UrlName");
+                ReportPropertyChanged("UrlName");
+                OnUrlNameChanged();
+            }
+        }
+        private global::System.String _UrlName;
+        partial void OnUrlNameChanging(global::System.String value);
+        partial void OnUrlNameChanged();
 
         #endregion
 
-    
         #region Navigationseigenschaften
     
         /// <summary>
@@ -5509,5 +5241,4 @@ namespace SideNotes.Models
 
     #endregion
 
-    
 }

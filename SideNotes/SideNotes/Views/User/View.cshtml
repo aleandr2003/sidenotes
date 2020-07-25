@@ -141,7 +141,7 @@
 
 @if (ViewBag.EditMode == true)
 {
-    @Html.Partial("EditProfileBox", new EditProfileModel { Name = Model.Name, Email = Model.Email }, new ViewDataDictionary())
+    @Html.Partial("EditProfileBox", new EditProfileModel { Name = Model.Name, Email = Model.Email, UrlName = Model.UrlName }, new ViewDataDictionary())
     @Html.Partial("SetAvatarBox", Model, new ViewDataDictionary())
     @Html.Partial("ChangePasswordBox", null, new ViewDataDictionary())
 }

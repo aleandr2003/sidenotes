@@ -8,6 +8,7 @@ using Castle.MicroKernel.SubSystems.Configuration;
 using SideNotes.Services;
 using SideNotes.Services.Abstract;
 using SideNotes.Services.Templates;
+using SideNotes.Repositories;
 
 namespace SideNotes.Application.Windsor.Installers
 {
@@ -17,6 +18,7 @@ namespace SideNotes.Application.Windsor.Installers
         {
             container.Register(Component.For<ITemplateLoader>().Instance(new TemplateLoader("Resources\\NotificationTemplates")).LifeStyle.Singleton);
             container.Register(Component.For<ICommentManager>().ImplementedBy<CommentManager>().LifeStyle.Transient);
+            container.Register(Component.For<IUserRepository>().ImplementedBy<UserRepository>().LifeStyle.Transient);
             container.Register(Component.For<ICommentNotifier>().ImplementedBy<CommentNotifier>().LifeStyle.Singleton);
             container.Register(Component.For<IBookAuthorNotifier>().ImplementedBy<BookAuthorNotifier>().LifeStyle.Transient);
             container.Register(Component.For<UserAvatarService>().ImplementedBy<UserAvatarService>().LifeStyle.Transient);

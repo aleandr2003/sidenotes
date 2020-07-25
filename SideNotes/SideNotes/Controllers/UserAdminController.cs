@@ -56,21 +56,10 @@ namespace SideNotes.Controllers
                 user1.FacebookProfileUrl = user1.FacebookProfileUrl ?? user2.FacebookProfileUrl;
                 user1.FacebookUsername = user1.FacebookUsername ?? user2.FacebookUsername;
                 user1.AccessTokenFacebook = user1.AccessTokenFacebook ?? user2.AccessTokenFacebook;
-                user1.VkontakteId = user1.VkontakteId ?? user2.VkontakteId;
-                user1.VkontakteProfileUrl = user1.VkontakteProfileUrl ?? user2.VkontakteProfileUrl;
-                user1.VkontakteUsername = user1.VkontakteUsername ?? user2.VkontakteUsername;
-                user1.AccessTokenVkontakte = user1.AccessTokenVkontakte ?? user2.AccessTokenVkontakte;
                 user1.TwitterId = user1.TwitterId ?? user2.TwitterId;
                 user1.TwitterProfileUrl = user1.TwitterProfileUrl ?? user2.TwitterProfileUrl;
                 user1.TwitterUsername = user1.TwitterUsername ?? user2.TwitterUsername;
                 user1.AccessTokenTwitter = user1.AccessTokenTwitter ?? user2.AccessTokenTwitter;
-                user1.LivejournalId = user1.LivejournalId ?? user2.LivejournalId;
-                user1.LivejournalProfileUrl = user1.LivejournalProfileUrl ?? user2.LivejournalProfileUrl;
-                user1.LivejournalUsername = user1.LivejournalUsername ?? user2.LivejournalUsername;
-                user1.YandexId = user1.YandexId ?? user2.YandexId;
-                user1.YandexProfileUrl = user1.YandexProfileUrl ?? user2.YandexProfileUrl;
-                user1.YandexUsername = user1.YandexUsername ?? user2.YandexUsername;
-                user1.AccessTokenYandex = user1.AccessTokenYandex ?? user2.AccessTokenYandex;
                 user1.Email = user1.Email ?? user2.Email;
 
                 var autosaves = context.Autosaves.Where(a => a.Owner_Id == user2.Id).ToList();

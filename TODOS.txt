@@ -1,5 +1,6 @@
 add main commenter concept
-	add optional url name to the user profile
+	move url name field to settings area in User View
+	add separate editor box for Settings (with UrlName only at the moment)
 	parse username from url
 		when found assign a user as main commenter (only show and count head comments from this user)
 add sign in, sign up options after posting a comment anonimously.

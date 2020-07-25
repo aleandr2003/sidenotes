@@ -222,6 +222,12 @@
   <data name="EditProfileBoxSubmitButtonText" xml:space="preserve">
     <value>Отправить</value>
   </data>
+  <data name="EditProfileBoxUrlNameFieldName" xml:space="preserve">
+    <value>Имя пользователя для Url</value>
+  </data>
+  <data name="EditProfileBoxUrlNamePlaceholder" xml:space="preserve">
+    <value>aleksandr.pushkin</value>
+  </data>
   <data name="EditProfileViewEmailPlaceholder" xml:space="preserve">
     <value>alepush@gmail.com</value>
   </data>
@@ -239,6 +245,12 @@
   </data>
   <data name="EditProfileViewTitle" xml:space="preserve">
     <value>Изменить профиль</value>
+  </data>
+  <data name="EditProfileViewUrlNameFieldName" xml:space="preserve">
+    <value>Имя пользователя для Url</value>
+  </data>
+  <data name="EditProfileViewUrlNamePlaceholder" xml:space="preserve">
+    <value>aleksandr.pushkin</value>
   </data>
   <data name="IndexHeading" xml:space="preserve">
     <value>Читатели</value>
@@ -296,6 +308,9 @@
   </data>
   <data name="SetAvatarUploadButtonText" xml:space="preserve">
     <value>Загрузить</value>
+  </data>
+  <data name="UrlNameAlreadyInUse" xml:space="preserve">
+    <value>Имя пользователя для Url уже занято</value>
   </data>
   <data name="ViewAddProfileLinkText" xml:space="preserve">
     <value>Добавить профиль</value>

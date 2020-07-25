@@ -243,30 +243,20 @@ CREATE TABLE [dbo].[Users] (
     [PasswordSeed] varbinary(max)  NULL,
     [Email] nvarchar(max)  NULL,
     [FacebookProfileUrl] nvarchar(max)  NULL,
-    [VkontakteProfileUrl] nvarchar(max)  NULL,
     [Avatar_Id] int  NULL,
     [AccountSourceInt] int  NOT NULL,
     [IsAdmin] bit  NOT NULL,
     [IsFamous] bit  NOT NULL,
     [NotifyAuthorCommentReplied] bit  NOT NULL,
-    [VkontakteId] nvarchar(50)  NULL,
     [FacebookId] nvarchar(50)  NULL,
-    [LivejournalId] nvarchar(50)  NULL,
     [TwitterId] nvarchar(50)  NULL,
-    [YandexId] nvarchar(50)  NULL,
-    [AccessTokenVkontakte] varchar(1024)  NULL,
     [AccessTokenTwitter] varchar(1024)  NULL,
-    [AccessTokenYandex] varchar(1024)  NULL,
     [AccessTokenFacebook] varchar(1024)  NULL,
     [FacebookUsername] nvarchar(255)  NULL,
-    [VkontakteUsername] nvarchar(255)  NULL,
     [TwitterProfileUrl] nvarchar(max)  NULL,
     [TwitterUsername] nvarchar(255)  NULL,
-    [YandexProfileUrl] nvarchar(max)  NULL,
-    [YandexUsername] nvarchar(255)  NULL,
-    [LivejournalProfileUrl] nvarchar(max)  NULL,
-    [LivejournalUsername] nvarchar(255)  NULL,
-    [LastLoginSourceInt] int  NOT NULL
+    [LastLoginSourceInt] int  NOT NULL,
+	[UrlName] nvarchar(150)  NULL
 );
 GO
 
