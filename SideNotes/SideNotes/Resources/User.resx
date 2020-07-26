@@ -222,12 +222,6 @@
   <data name="EditProfileBoxSubmitButtonText" xml:space="preserve">
     <value>Отправить</value>
   </data>
-  <data name="EditProfileBoxUrlNameFieldName" xml:space="preserve">
-    <value>Имя пользователя для Url</value>
-  </data>
-  <data name="EditProfileBoxUrlNamePlaceholder" xml:space="preserve">
-    <value>aleksandr.pushkin</value>
-  </data>
   <data name="EditProfileViewEmailPlaceholder" xml:space="preserve">
     <value>alepush@gmail.com</value>
   </data>
@@ -246,10 +240,28 @@
   <data name="EditProfileViewTitle" xml:space="preserve">
     <value>Изменить профиль</value>
   </data>
-  <data name="EditProfileViewUrlNameFieldName" xml:space="preserve">
+  <data name="EditSettingsBoxSubmitButtonText" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="EditSettingsBoxUrlNameFieldName" xml:space="preserve">
     <value>Имя пользователя для Url</value>
   </data>
-  <data name="EditProfileViewUrlNamePlaceholder" xml:space="preserve">
+  <data name="EditSettingsBoxUrlNamePlaceholder" xml:space="preserve">
+    <value>aleksandr.pushkin</value>
+  </data>
+  <data name="EditSettingsViewHeading" xml:space="preserve">
+    <value>Изменить настройки</value>
+  </data>
+  <data name="EditSettingsViewSubmitButtonText" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="EditSettingsViewTitle" xml:space="preserve">
+    <value>Изменить настройки</value>
+  </data>
+  <data name="EditSettingsViewUrlNameFieldName" xml:space="preserve">
+    <value>Имя пользователя для Url</value>
+  </data>
+  <data name="EditSettingsViewUrlNamePlaceholder" xml:space="preserve">
     <value>aleksandr.pushkin</value>
   </data>
   <data name="IndexHeading" xml:space="preserve">

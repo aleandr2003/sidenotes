@@ -376,24 +376,6 @@ namespace SideNotes.Resources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Имя пользователя для Url ähnelt.
-        /// </summary>
-        public static string EditProfileBoxUrlNameFieldName {
-            get {
-                return ResourceManager.GetString("EditProfileBoxUrlNameFieldName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die aleksandr.pushkin ähnelt.
-        /// </summary>
-        public static string EditProfileBoxUrlNamePlaceholder {
-            get {
-                return ResourceManager.GetString("EditProfileBoxUrlNamePlaceholder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die alepush@gmail.com ähnelt.
         /// </summary>
         public static string EditProfileViewEmailPlaceholder {
@@ -448,20 +430,74 @@ namespace SideNotes.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Сохранить ähnelt.
+        /// </summary>
+        public static string EditSettingsBoxSubmitButtonText {
+            get {
+                return ResourceManager.GetString("EditSettingsBoxSubmitButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Имя пользователя для Url ähnelt.
         /// </summary>
-        public static string EditProfileViewUrlNameFieldName {
+        public static string EditSettingsBoxUrlNameFieldName {
             get {
-                return ResourceManager.GetString("EditProfileViewUrlNameFieldName", resourceCulture);
+                return ResourceManager.GetString("EditSettingsBoxUrlNameFieldName", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die aleksandr.pushkin ähnelt.
         /// </summary>
-        public static string EditProfileViewUrlNamePlaceholder {
+        public static string EditSettingsBoxUrlNamePlaceholder {
             get {
-                return ResourceManager.GetString("EditProfileViewUrlNamePlaceholder", resourceCulture);
+                return ResourceManager.GetString("EditSettingsBoxUrlNamePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Изменить настройки ähnelt.
+        /// </summary>
+        public static string EditSettingsViewHeading {
+            get {
+                return ResourceManager.GetString("EditSettingsViewHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Сохранить ähnelt.
+        /// </summary>
+        public static string EditSettingsViewSubmitButtonText {
+            get {
+                return ResourceManager.GetString("EditSettingsViewSubmitButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Изменить настройки ähnelt.
+        /// </summary>
+        public static string EditSettingsViewTitle {
+            get {
+                return ResourceManager.GetString("EditSettingsViewTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Имя пользователя для Url ähnelt.
+        /// </summary>
+        public static string EditSettingsViewUrlNameFieldName {
+            get {
+                return ResourceManager.GetString("EditSettingsViewUrlNameFieldName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die aleksandr.pushkin ähnelt.
+        /// </summary>
+        public static string EditSettingsViewUrlNamePlaceholder {
+            get {
+                return ResourceManager.GetString("EditSettingsViewUrlNamePlaceholder", resourceCulture);
             }
         }
         

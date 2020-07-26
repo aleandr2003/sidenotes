@@ -15,10 +15,6 @@
 			@Html.LabelFor(x => x.Email, "E-mail")
 			@Html.TextBoxFor(x => x.Email, new { placeholder = SideNotes.Resources.User.EditProfileBoxEmailPlaceholder, @class = "requiredField", value = Model.Email })
             @Html.ValidationMessageFor(x => x.Email)
-            <br />
-			@Html.LabelFor(x => x.UrlName, SideNotes.Resources.User.EditProfileBoxUrlNameFieldName)
-			@Html.TextBoxFor(x => x.UrlName, new { placeholder = SideNotes.Resources.User.EditProfileBoxUrlNamePlaceholder, value = Model.UrlName })
-            @Html.ValidationMessageFor(x => x.UrlName)
 		</fieldset>
 		<div id="errorMessage" class="errorMessage"></div>
 		@Html.SubmitButton(null, SideNotes.Resources.User.EditProfileBoxSubmitButtonText, new { @class = "submitButton" })

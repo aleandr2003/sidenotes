@@ -1582,9 +1582,12 @@ body {
     font-size:0.8em;
 }
 
-.threadLink
-{
-    text-decoration:none;
+#settingsList_header .edit {
+    font-size: 0.8em;
+}
+
+.threadLink {
+    text-decoration: none;
     margin-left: 1em;
 }
 .commentList .threadLink

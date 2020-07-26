@@ -1,6 +1,6 @@
 add main commenter concept
-	move url name field to settings area in User View
-	add separate editor box for Settings (with UrlName only at the moment)
+	forbid to use controller names and folder names as urlNames
+	cache urlNames for all users in memory
 	parse username from url
 		when found assign a user as main commenter (only show and count head comments from this user)
 add sign in, sign up options after posting a comment anonimously.

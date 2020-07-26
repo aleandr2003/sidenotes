@@ -407,6 +407,7 @@
     <Compile Include="ViewModels\ChangePasswordModel.cs" />
     <Compile Include="ViewModels\CommentatorModel.cs" />
     <Compile Include="ViewModels\EditBookModel.cs" />
+    <Compile Include="ViewModels\EditSettingsModel.cs" />
     <Compile Include="ViewModels\EditProfileModel.cs" />
     <Compile Include="ViewModels\HeaderTabs.cs" />
     <Compile Include="ViewModels\LoginModel.cs" />
@@ -801,6 +802,8 @@
     <Content Include="Views\Home\ForAuthors.cshtml" />
     <Content Include="Views\UserAdmin\MergeUsers.cshtml" />
     <None Include="packages.config" />
+    <Content Include="Views\User\EditSettingsBox.cshtml" />
+    <Content Include="Views\User\EditSettingsView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Login.de.resx">

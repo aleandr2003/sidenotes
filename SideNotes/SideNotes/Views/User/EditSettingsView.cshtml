@@ -1,0 +1,23 @@
+﻿@model EditSettingsModel
+@{
+    ViewBag.Title = SideNotes.Resources.User.EditSettingsViewTitle + " - " + ViewBag.CurrentUser.Name;
+}
+<div id="main">
+<h2>@SideNotes.Resources.User.EditSettingsViewHeading - @ViewBag.CurrentUser.Name</h2>
+
+<div>@UserAvatar.Large(ViewBag.CurrentUser, "user_avatar")</div>
+
+<div>@ViewBag.CurrentUser.Name</div>
+<div>@ViewBag.CurrentUser.Email</div>
+
+@using (Html.BeginForm<UserController>(x => x.EditSettings(null, null), FormMethod.Post))
+  {
+<fieldset>
+    @Html.LabelFor(x => x.UrlName, SideNotes.Resources.User.EditSettingsViewUrlNameFieldName)
+    @Html.TextBoxFor(x => x.UrlName, new { placeholder = SideNotes.Resources.User.EditSettingsViewUrlNamePlaceholder, value = Model.UrlName })
+    @Html.ValidationMessageFor(x => x.UrlName)
+</fieldset>
+		<div id="errorMessage" class="errorMessage"></div>
+		@Html.SubmitButton(null, SideNotes.Resources.User.EditSettingsViewSubmitButtonText)
+  }
+  </div>

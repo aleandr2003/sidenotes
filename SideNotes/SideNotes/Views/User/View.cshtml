@@ -3,146 +3,152 @@
     ViewBag.Title = SideNotes.Resources.User.ViewTitle;
 }
 <div id="main" class="profile @if (ViewBag.EditMode == true){@("profile_edit")}">
-<div id="leftCol">
-    @if (ViewBag.IsMyProfile == false && ViewBag.IsAuthenticated == true)
-    {
-        if (ViewBag.IsMyFriend == true)
+    <div id="leftCol">
+        @if (ViewBag.IsMyProfile == false && ViewBag.IsAuthenticated == true)
         {
-            <form method="post" action="@Url.Action("RemoveFriend", "User")">
-                <input type="hidden" name="UserId" value="@Model.Id" />
-                <input type="submit" value="@SideNotes.Resources.User.ViewUnsubscribeButtonText" class="followButton follow_off"/>
-            </form>
+            if (ViewBag.IsMyFriend == true)
+            {
+                <form method="post" action="@Url.Action("RemoveFriend", "User")">
+                    <input type="hidden" name="UserId" value="@Model.Id" />
+                    <input type="submit" value="@SideNotes.Resources.User.ViewUnsubscribeButtonText" class="followButton follow_off" />
+                </form>
+            }
+            else
+            {
+                <form method="post" action="@Url.Action("MakeFriend", "User")">
+                    <input type="hidden" name="UserId" value="@Model.Id" />
+                    <input type="submit" value="@SideNotes.Resources.User.ViewSubscribeButtonText" class="followButton follow_on" />
+                </form>
+            }
         }
-        else
-        {
-            <form method="post" action="@Url.Action("MakeFriend", "User")">
-                <input type="hidden" name="UserId" value="@Model.Id" />
-                <input type="submit" value="@SideNotes.Resources.User.ViewSubscribeButtonText" class="followButton follow_on"/>
-            </form>
-        }
-    }
-	<div id="profile_avatar_container">
-        @UserAvatar.Large(Model, "profile_avatar")
-        @if (ViewBag.EditMode == true)
-        {
-        <a href="@Url.Action("SetAvatar", "User")" rel="setAvatarBox" id="setAvatarLink"
-           class="showLightBox_link settingsList_item_link edit">@SideNotes.Resources.User.ViewEditLinkText</a>
-        }
- 	</div>
-	<div id="contactList_container">
-		<h3 id="contactList_header">
-            <span for="contactList" class="@if(ViewBag.EditMode == true){@("editLabel")}">@SideNotes.Resources.User.ViewContactsMessage</span>
+        <div id="profile_avatar_container">
+            @UserAvatar.Large(Model, "profile_avatar")
             @if (ViewBag.EditMode == true)
             {
-            <span href="@Url.Action("EditProfile", "User")" rel="editProfileBox" id="EditProfileLink"
-                  class="showLightBox_link edit">@SideNotes.Resources.User.ViewEditLinkText</span>
+                <a href="@Url.Action("SetAvatar", "User")" rel="setAvatarBox" id="setAvatarLink"
+                   class="showLightBox_link settingsList_item_link edit">@SideNotes.Resources.User.ViewEditLinkText</a>
             }
-            
-        </h3>
-		<ul id="contactList">
-            @if (!String.IsNullOrEmpty(Model.Email))
-            {
-			<li class="contactList_item contactList_item_email">
-				<a href="mailto:@Model.Email" class="contactList_item_link">Email: @Model.Email</a>
-			</li>
-            }
-            @if (ViewBag.EditMode == true && Model.Login != Model.Email && Model.AccountSource == (int)AccountSource.SideNotes)
-            {
-			<li class="contactList_item">
-                <a href="#" class="contactList_item_link">@SideNotes.Resources.User.ViewSigninLinkText: @Model.Login</a>
-			</li>
-            }
-            @if (Model.FacebookProfileUrl != null)
-            {
-			<li class="contactList_item contactList_item_facebook">
-				<a href="@Model.FacebookProfileUrl" class="contactList_item_link">@Model.FacebookUsername</a>
-			</li>
-            }
-            else if (ViewBag.IsMyProfile == true && ViewBag.IsAuthenticated == true)
-            {
-            <li class="contactList_item contactList_item_facebook">
-				@Html.ActionLink(SideNotes.Resources.User.ViewAddProfileLinkText, "ProveAccount", "FacebookLogin",
-                                    new { callbackUri = Url.ActionAbsolute("View", "User", new { Id = Model.Id }) }, new { @class = "contactList_item_link" })
-			</li>
-            }
-            @if (Model.TwitterProfileUrl != null)
-            {
-			<li class="contactList_item contactList_item_twitter">
-				<a href="@Model.TwitterProfileUrl" class="contactList_item_link">@Model.TwitterUsername</a>
-			</li>
-            }
-            else if (ViewBag.IsMyProfile == true && ViewBag.IsAuthenticated == true)
-            {
-            <li class="contactList_item contactList_item_twitter">
-				@Html.ActionLink(SideNotes.Resources.User.ViewAddProfileLinkText, "ProveAccount", "TwitterLogin",
-                                    new { callbackUri = Url.ActionAbsolute("View", "User", new { Id = Model.Id }) }, new { @class = "contactList_item_link" })
-			</li>
-            }
-		</ul>
-	</div>
-@if (ViewBag.EditMode == true)
-{
-    <div id="settingsList_container">
-		<h3 id="settingsList_header"><label for="settingsList" class="editLabel">@SideNotes.Resources.User.ViewSettingsMessage</label></h3>
-		<ul id="settingsList">
-			<li class="settingsList_item">
-				@Html.ActionLink(SideNotes.Resources.User.ViewChangePasswordLinkText, "ChangePassword", "User", null,
-                    new { id = "ChangePasswordLink", @class = "showLightBox_link settingsList_item_link", rel = "changePasswordBox" })
-			</li>
-            <li class="settingsList_item">
-				@Html.ActionLink(SideNotes.Resources.User.ViewNotificationsLinkText, "UpdateNotificationSettings", "User", null,
-                    new { id = "NotificationSettingsLink_Profile", @class = "showLightBox_link settingsList_item_link", rel = "notificationSettingsBox" })
-			</li>
-		</ul>
-	</div>
-}
-</div>
-<div id="centerCol">
-    <h1 id="profile_name" class="userblock_name">
+        </div>
+        <div id="contactList_container">
+            <h3 id="contactList_header">
+                <span for="contactList" class="@if(ViewBag.EditMode == true){@("editLabel")}">@SideNotes.Resources.User.ViewContactsMessage</span>
+                @if (ViewBag.EditMode == true)
+                {
+                    <span href="@Url.Action("EditProfile", "User")" rel="editProfileBox" id="EditProfileLink"
+                          class="showLightBox_link edit">@SideNotes.Resources.User.ViewEditLinkText</span>
+                    }
+
+            </h3>
+            <ul id="contactList">
+                @if (!String.IsNullOrEmpty(Model.Email))
+                {
+                    <li class="contactList_item contactList_item_email">
+                        <a href="mailto:@Model.Email" class="contactList_item_link">Email: @Model.Email</a>
+                    </li>
+                }
+                @if (ViewBag.EditMode == true && Model.Login != Model.Email && Model.AccountSource == (int)AccountSource.SideNotes)
+                {
+                    <li class="contactList_item">
+                        <a href="#" class="contactList_item_link">@SideNotes.Resources.User.ViewSigninLinkText: @Model.Login</a>
+                    </li>
+                }
+                @if (Model.FacebookProfileUrl != null)
+                {
+                    <li class="contactList_item contactList_item_facebook">
+                        <a href="@Model.FacebookProfileUrl" class="contactList_item_link">@Model.FacebookUsername</a>
+                    </li>
+                }
+                else if (ViewBag.IsMyProfile == true && ViewBag.IsAuthenticated == true)
+                {
+                    <li class="contactList_item contactList_item_facebook">
+                        @Html.ActionLink(SideNotes.Resources.User.ViewAddProfileLinkText, "ProveAccount", "FacebookLogin",
+                                            new { callbackUri = Url.ActionAbsolute("View", "User", new { Id = Model.Id }) }, new { @class = "contactList_item_link" })
+                    </li>
+                }
+                @if (Model.TwitterProfileUrl != null)
+                {
+                    <li class="contactList_item contactList_item_twitter">
+                        <a href="@Model.TwitterProfileUrl" class="contactList_item_link">@Model.TwitterUsername</a>
+                    </li>
+                }
+                else if (ViewBag.IsMyProfile == true && ViewBag.IsAuthenticated == true)
+                {
+                    <li class="contactList_item contactList_item_twitter">
+                        @Html.ActionLink(SideNotes.Resources.User.ViewAddProfileLinkText, "ProveAccount", "TwitterLogin",
+                                            new { callbackUri = Url.ActionAbsolute("View", "User", new { Id = Model.Id }) }, new { @class = "contactList_item_link" })
+                    </li>
+                }
+            </ul>
+        </div>
         @if (ViewBag.EditMode == true)
         {
-            <span class="editButton">
-                <a href="@Url.Action("EditProfile", "User")" rel="editProfileBox" id="EditNameLink" 
-                    class="showLightBox_link edit">@SideNotes.Resources.User.ViewEditLinkText</a>
-            </span>
-        }
-        @Model.Name</h1>
+            <div id="settingsList_container">
+                <h3 id="settingsList_header">
+                    <span class="editLabel">@SideNotes.Resources.User.ViewSettingsMessage</span><span href="@Url.Action("EditSettings", "User")" rel="editSettingsBox" id="EditSettingsLink"
+                          class="showLightBox_link edit">@SideNotes.Resources.User.ViewEditLinkText</span>
+                    </h3>
+                    <ul id="settingsList">
+                        <li class="settingsList_item">
+                            @Html.ActionLink(SideNotes.Resources.User.ViewChangePasswordLinkText, "ChangePassword", "User", null,
+                                new { id = "ChangePasswordLink", @class = "showLightBox_link settingsList_item_link", rel = "changePasswordBox" })
+                        </li>
+                        <li class="settingsList_item">
+                            @Html.ActionLink(SideNotes.Resources.User.ViewNotificationsLinkText, "UpdateNotificationSettings", "User", null,
+                                new { id = "NotificationSettingsLink_Profile", @class = "showLightBox_link settingsList_item_link", rel = "notificationSettingsBox" })
+                        </li>
+                    </ul>
+                </div>
+            }
+    </div>
+    <div id="centerCol">
+        <h1 id="profile_name" class="userblock_name">
+            @if (ViewBag.EditMode == true)
+            {
+                <span class="editButton">
+                    <a href="@Url.Action("EditProfile", "User")" rel="editProfileBox" id="EditNameLink"
+                       class="showLightBox_link edit">@SideNotes.Resources.User.ViewEditLinkText</a>
+                </span>
+            }
+            @Model.Name
+        </h1>
         <div class="RecentCommentsContainer">
             <h2><label for="freshCommentsList">@SideNotes.Resources.User.ViewRecentCommentsHeading</label></h2>
             @Html.Action("RecentComments", "User", new { Id = Model.Id })
         </div>
-    @{
-        var booksReadCount = Model.CountBooksRead();
-        if (booksReadCount > 0){
-        <div class="nowReadList_container">
-            <h2>@SideNotes.Resources.User.ViewReadsNowHeading</h2>
-            @Html.Action("RecentReadBooks", "User", new { Id = Model.Id })
-        </div>
+        @{
+            var booksReadCount = Model.CountBooksRead();
+            if (booksReadCount > 0)
+            {
+                <div class="nowReadList_container">
+                    <h2>@SideNotes.Resources.User.ViewReadsNowHeading</h2>
+                    @Html.Action("RecentReadBooks", "User", new { Id = Model.Id })
+                </div>
+            }
         }
-    }
-   @* @Html.Action("AllReadBooks", "User", new { Id = Model.Id })*@
-</div>
-<div id="rightCol">
-    @if (Model.HasComments())
-    {
-    <div class="bestComment_container">
-        <h2>@SideNotes.Resources.User.ViewBestCommentHeading</h2>
-        @Html.Action("BestComment", "User", new { Id = Model.Id })
+        @* @Html.Action("AllReadBooks", "User", new { Id = Model.Id })*@
     </div>
-    }
-    @if (Model.Friends.Count > 0)
-    {
-        <div id="interlocutorList_container">
-            <h2>@SideNotes.Resources.User.ViewAddUserHeading <a href="@Url.Action("Index", "User")" class="adduser">@SideNotes.Resources.User.ViewAddUserLinkText</a></h2>
-            @Html.Action("FriendsListShort", "User", new { Id = Model.Id })
-        </div>
-    }
-</div>
+    <div id="rightCol">
+        @if (Model.HasComments())
+        {
+            <div class="bestComment_container">
+                <h2>@SideNotes.Resources.User.ViewBestCommentHeading</h2>
+                @Html.Action("BestComment", "User", new { Id = Model.Id })
+            </div>
+        }
+        @if (Model.Friends.Count > 0)
+        {
+            <div id="interlocutorList_container">
+                <h2>@SideNotes.Resources.User.ViewAddUserHeading <a href="@Url.Action("Index", "User")" class="adduser">@SideNotes.Resources.User.ViewAddUserLinkText</a></h2>
+                @Html.Action("FriendsListShort", "User", new { Id = Model.Id })
+            </div>
+        }
+    </div>
 
-@if (ViewBag.EditMode == true)
-{
-    @Html.Partial("EditProfileBox", new EditProfileModel { Name = Model.Name, Email = Model.Email, UrlName = Model.UrlName }, new ViewDataDictionary())
-    @Html.Partial("SetAvatarBox", Model, new ViewDataDictionary())
-    @Html.Partial("ChangePasswordBox", null, new ViewDataDictionary())
-}
+    @if (ViewBag.EditMode == true)
+    {
+        @Html.Partial("EditProfileBox", new EditProfileModel { Name = Model.Name, Email = Model.Email }, new ViewDataDictionary())
+        @Html.Partial("EditSettingsBox", new EditSettingsModel { UrlName = Model.UrlName }, new ViewDataDictionary())
+        @Html.Partial("SetAvatarBox", Model, new ViewDataDictionary())
+        @Html.Partial("ChangePasswordBox", null, new ViewDataDictionary())
+    }
 </div>

@@ -159,10 +159,10 @@
   <data name="EditProfileNameRequired" xml:space="preserve">
     <value>Please enter the username</value>
   </data>
-  <data name="EditProfileUrlNameAllowedCharacters" xml:space="preserve">
+  <data name="EditSettingsUrlNameAllowedCharacters" xml:space="preserve">
     <value>Only the following characters are allowed: A-Za-z0-9_.</value>
   </data>
-  <data name="EditProfileUrlNameLength" xml:space="preserve">
+  <data name="EditSettingsUrlNameLength" xml:space="preserve">
     <value>The username for Url should be at least 3 and at most 150 characters long</value>
   </data>
   <data name="LoginEmailDataType" xml:space="preserve">

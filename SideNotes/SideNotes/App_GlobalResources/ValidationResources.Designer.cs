@@ -189,18 +189,18 @@ namespace Resources {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Разрешены только следующие символы: A-Za-z0-9_. ähnelt.
         /// </summary>
-        internal static string EditProfileUrlNameAllowedCharacters {
+        internal static string EditSettingsUrlNameAllowedCharacters {
             get {
-                return ResourceManager.GetString("EditProfileUrlNameAllowedCharacters", resourceCulture);
+                return ResourceManager.GetString("EditSettingsUrlNameAllowedCharacters", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Имя пользователя для Url должно быть не короче 3 и не длиннее 150 символов ähnelt.
         /// </summary>
-        internal static string EditProfileUrlNameLength {
+        internal static string EditSettingsUrlNameLength {
             get {
-                return ResourceManager.GetString("EditProfileUrlNameLength", resourceCulture);
+                return ResourceManager.GetString("EditSettingsUrlNameLength", resourceCulture);
             }
         }
         

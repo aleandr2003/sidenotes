@@ -222,12 +222,6 @@
   <data name="EditProfileBoxSubmitButtonText" xml:space="preserve">
     <value>Submit</value>
   </data>
-  <data name="EditProfileBoxUrlNameFieldName" xml:space="preserve">
-    <value>Username for Url</value>
-  </data>
-  <data name="EditProfileBoxUrlNamePlaceholder" xml:space="preserve">
-    <value>william.shakespeare</value>
-  </data>
   <data name="EditProfileViewEmailPlaceholder" xml:space="preserve">
     <value>William.Shakespeare@gmail.com</value>
   </data>
@@ -246,10 +240,28 @@
   <data name="EditProfileViewTitle" xml:space="preserve">
     <value>Edit profile</value>
   </data>
-  <data name="EditProfileViewUrlNameFieldName" xml:space="preserve">
+  <data name="EditSettingsBoxSubmitButtonText" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="EditSettingsBoxUrlNameFieldName" xml:space="preserve">
     <value>Username for Url</value>
   </data>
-  <data name="EditProfileViewUrlNamePlaceholder" xml:space="preserve">
+  <data name="EditSettingsBoxUrlNamePlaceholder" xml:space="preserve">
+    <value>william.shakespeare</value>
+  </data>
+  <data name="EditSettingsViewHeading" xml:space="preserve">
+    <value>Update Settings</value>
+  </data>
+  <data name="EditSettingsViewSubmitButtonText" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="EditSettingsViewTitle" xml:space="preserve">
+    <value>Update Settings</value>
+  </data>
+  <data name="EditSettingsViewUrlNameFieldName" xml:space="preserve">
+    <value>Username for Url</value>
+  </data>
+  <data name="EditSettingsViewUrlNamePlaceholder" xml:space="preserve">
     <value>william.shakespeare</value>
   </data>
   <data name="IndexHeading" xml:space="preserve">

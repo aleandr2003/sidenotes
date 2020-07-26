@@ -1,0 +1,19 @@
+﻿@model EditSettingsModel
+@{
+    Layout = null;
+}
+<div class="lightbox" id="editSettingsBox">
+    <a href="#" class="lightbox_close">x</a>
+@using (Html.BeginForm<UserController>(x => x.EditSettings(null, null), FormMethod.Post,
+    new { @class = "ajaxForm errorable redirectable", id = "editSettingsBoxForm" }))
+  {
+		<fieldset>
+			@Html.LabelFor(x => x.UrlName, SideNotes.Resources.User.EditSettingsBoxUrlNameFieldName)
+			@Html.TextBoxFor(x => x.UrlName, new { placeholder = SideNotes.Resources.User.EditSettingsBoxUrlNamePlaceholder, value = Model.UrlName })
+            @Html.ValidationMessageFor(x => x.UrlName)
+		</fieldset>
+		<div id="errorMessage" class="errorMessage"></div>
+		@Html.SubmitButton(null, SideNotes.Resources.User.EditSettingsBoxSubmitButtonText, new { @class = "submitButton" })
+  }
+</div>
+

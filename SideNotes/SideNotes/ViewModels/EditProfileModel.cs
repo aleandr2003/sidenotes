@@ -15,9 +15,5 @@ namespace SideNotes.ViewModels
         [Required(ErrorMessageResourceName = "EditProfileEmailRequired", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         [DataType(DataType.EmailAddress, ErrorMessageResourceName = "EditProfileEmailDataType", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
         public string Email { get; set; }
-
-        [StringLength(120, MinimumLength = 3, ErrorMessageResourceName = "EditProfileUrlNameLength", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
-        [RegularExpression("^[a-zA-Z0-9._]*$", ErrorMessageResourceName = "EditProfileUrlNameAllowedCharacters", ErrorMessageResourceType = typeof(global::Resources.ValidationResources))]
-        public string UrlName { get; set; }
     }
 }

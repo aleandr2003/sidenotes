@@ -367,7 +367,6 @@ namespace SideNotes.Controllers
                     new EditProfileModel {
                         Name = ViewBag.CurrentUser.Name,
                         Email = ViewBag.CurrentUser.Email,
-                        UrlName = ViewBag.CurrentUser.UrlName
                     });
             }
         }
@@ -383,16 +382,46 @@ namespace SideNotes.Controllers
                 user.Name = model.Name;
                 user.Email = model.Email;
 
-                if(!String.IsNullOrEmpty(model.UrlName) && !this.userRepository.IsUrlNameAvailable(user.Id, model.UrlName))
+                context.SaveChanges();
+
+                if (json == true) return Json(new { RedirectUrl = Url.Action("View", "User", new {Id = user.Id}) });
+                return RedirectToAction("View", "User", new { Id = user.Id });
+            }
+        }
+
+        [HttpGet]
+        public ActionResult EditSettings()
+        {
+            if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.User.ControllerMustLogin);
+            using (var context = new SideNotesEntities())
+            {
+                ViewBag.CurrentUser = context.Users.Include("Avatar.Large")
+                    .FirstOrDefault(u => u.Id == userSession.CurrentUser.Id);
+                return View("EditSettingsView",
+                    new EditSettingsModel
+                    {
+                        UrlName = ViewBag.CurrentUser.UrlName
+                    });
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditSettings(EditSettingsModel model, bool? json)
+        {
+            if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.User.ControllerMustLogin);
+            if (!ModelState.IsValid) throw new ArgumentException(Resources.User.ControllerInvalidFormat);
+            using (var context = new SideNotesEntities())
+            {
+                var user = context.Users.FirstOrDefault(u => u.Id == userSession.CurrentUser.Id);
+                if (!String.IsNullOrEmpty(model.UrlName) && !this.userRepository.IsUrlNameAvailable(user.Id, model.UrlName))
                 {
                     throw new ArgumentException(Resources.User.UrlNameAlreadyInUse, "UrlName");
                 }
 
                 user.UrlName = model.UrlName;
-                
                 context.SaveChanges();
 
-                if (json == true) return Json(new { RedirectUrl = Url.Action("View", "User", new {Id = user.Id}) });
+                if (json == true) return Json(new { RedirectUrl = Url.Action("View", "User", new { Id = user.Id }) });
                 return RedirectToAction("View", "User", new { Id = user.Id });
             }
         }
