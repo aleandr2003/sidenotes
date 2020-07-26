@@ -410,20 +410,10 @@ namespace SideNotes.Controllers
         {
             if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.User.ControllerMustLogin);
             if (!ModelState.IsValid) throw new ArgumentException(Resources.User.ControllerInvalidFormat);
-            using (var context = new SideNotesEntities())
-            {
-                var user = context.Users.FirstOrDefault(u => u.Id == userSession.CurrentUser.Id);
-                if (!String.IsNullOrEmpty(model.UrlName) && !this.userRepository.IsUrlNameAvailable(user.Id, model.UrlName))
-                {
-                    throw new ArgumentException(Resources.User.UrlNameAlreadyInUse, "UrlName");
-                }
-
-                user.UrlName = model.UrlName;
-                context.SaveChanges();
-
-                if (json == true) return Json(new { RedirectUrl = Url.Action("View", "User", new { Id = user.Id }) });
-                return RedirectToAction("View", "User", new { Id = user.Id });
-            }
+            int currentUserId = userSession.CurrentUser.Id;
+            userRepository.UpdateSettings(currentUserId, model);
+            if (json == true) return Json(new { RedirectUrl = Url.Action("View", "User", new { Id = currentUserId }) });
+            return RedirectToAction("View", "User", new { Id = currentUserId });
         }
 
         [HttpGet]

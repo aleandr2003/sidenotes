@@ -160,7 +160,7 @@
     <value>Пожалуйста, введите имя пользователя</value>
   </data>
   <data name="EditSettingsUrlNameAllowedCharacters" xml:space="preserve">
-    <value>Разрешены только следующие символы: A-Za-z0-9_.</value>
+    <value>Разрешены только следующие символы: a-z0-9_.</value>
   </data>
   <data name="EditSettingsUrlNameLength" xml:space="preserve">
     <value>Имя пользователя для Url должно быть не короче 3 и не длиннее 150 символов</value>

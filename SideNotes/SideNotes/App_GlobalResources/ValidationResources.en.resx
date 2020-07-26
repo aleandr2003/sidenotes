@@ -160,7 +160,7 @@
     <value>Please enter the username</value>
   </data>
   <data name="EditSettingsUrlNameAllowedCharacters" xml:space="preserve">
-    <value>Only the following characters are allowed: A-Za-z0-9_.</value>
+    <value>Only the following characters are allowed: a-z0-9_.</value>
   </data>
   <data name="EditSettingsUrlNameLength" xml:space="preserve">
     <value>The username for Url should be at least 3 and at most 150 characters long</value>

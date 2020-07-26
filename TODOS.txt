@@ -1,8 +1,8 @@
 add main commenter concept
-	forbid to use controller names and folder names as urlNames
-	cache urlNames for all users in memory
 	parse username from url
-		when found assign a user as main commenter (only show and count head comments from this user)
+	when found assign a user as main commenter (only show and count head comments from this user)
+	build all action urls using current main commenter url name, in case it was present.
+Return meaningful error messages to the user instead of generic exception message
 add sign in, sign up options after posting a comment anonimously.
 allow removing profiles
 Add logging

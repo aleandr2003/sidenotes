@@ -187,7 +187,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Разрешены только следующие символы: A-Za-z0-9_. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Разрешены только следующие символы: a-z0-9_. ähnelt.
         /// </summary>
         internal static string EditSettingsUrlNameAllowedCharacters {
             get {

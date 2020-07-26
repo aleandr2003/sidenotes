@@ -142,7 +142,9 @@
     </Compile>
     <Compile Include="Exceptions\SidenotesException.cs" />
     <Compile Include="Exceptions\TemplateNotFoundException.cs" />
+    <Compile Include="Extensions\AssemblyExtensions.cs" />
     <Compile Include="Extensions\DirectoryExtensions.cs" />
+    <Compile Include="Extensions\HashSetExtension.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Resources\Book.en.Designer.cs">
