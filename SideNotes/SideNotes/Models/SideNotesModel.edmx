@@ -54,6 +54,8 @@
           <Property Name="CustomStyles" Type="nvarchar(max)" />
           <Property Name="MetaKeywords" Type="nvarchar(max)" />
           <Property Name="MetaDescription" Type="nvarchar(max)" />
+          <Property Name="UrlName" Type="varchar" MaxLength="150" />
+          <Property Name="AnnotatorUrlName" Type="varchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="BuiltInComments">
           <Key>
@@ -1088,6 +1090,8 @@
           <Property Type="String" Name="CustomStyles" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="MetaKeywords" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="MetaDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UrlName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="AnnotatorUrlName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="BuiltInComment">
           <Key>
@@ -1583,7 +1587,9 @@
     <EntitySetMapping Name="Books">
       <EntityTypeMapping TypeName="IsTypeOf(SideNotesModel.Book)">
         <MappingFragment StoreEntitySet="Books">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AnnotatorUrlName" ColumnName="AnnotatorUrlName" />
+                <ScalarProperty Name="UrlName" ColumnName="UrlName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Annotation" ColumnName="Annotation" />
           <ScalarProperty Name="ISBN" ColumnName="ISBN" />
@@ -1868,7 +1874,7 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <edmx:Diagram Name="SideNotesModel" ZoomLevel="100">
+      <edmx:Diagram Name="SideNotesModel" ZoomLevel="61">
         <edmx:EntityTypeShape EntityType="SideNotesModel.Avatar" Width="1.5" PointX="3" PointY="4.875" Height="2.3648893229166665" IsExpanded="true" />
         <edmx:EntityTypeShape EntityType="SideNotesModel.Bookmark" Width="1.5" PointX="9.75" PointY="4.625" Height="2.1725878906249996" IsExpanded="true" />
         <edmx:EntityTypeShape EntityType="SideNotesModel.Book" Width="1.5" PointX="5.25" PointY="4.25" Height="3.5186979166666656" IsExpanded="true" />

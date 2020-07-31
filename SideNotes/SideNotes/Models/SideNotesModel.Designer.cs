@@ -1538,6 +1538,54 @@ namespace SideNotes.Models
         private global::System.String _MetaDescription;
         partial void OnMetaDescriptionChanging(global::System.String value);
         partial void OnMetaDescriptionChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String UrlName
+        {
+            get
+            {
+                return _UrlName;
+            }
+            set
+            {
+                OnUrlNameChanging(value);
+                ReportPropertyChanging("UrlName");
+                _UrlName = StructuralObject.SetValidValue(value, true, "UrlName");
+                ReportPropertyChanged("UrlName");
+                OnUrlNameChanged();
+            }
+        }
+        private global::System.String _UrlName;
+        partial void OnUrlNameChanging(global::System.String value);
+        partial void OnUrlNameChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String AnnotatorUrlName
+        {
+            get
+            {
+                return _AnnotatorUrlName;
+            }
+            set
+            {
+                OnAnnotatorUrlNameChanging(value);
+                ReportPropertyChanging("AnnotatorUrlName");
+                _AnnotatorUrlName = StructuralObject.SetValidValue(value, true, "AnnotatorUrlName");
+                ReportPropertyChanged("AnnotatorUrlName");
+                OnAnnotatorUrlNameChanged();
+            }
+        }
+        private global::System.String _AnnotatorUrlName;
+        partial void OnAnnotatorUrlNameChanging(global::System.String value);
+        partial void OnAnnotatorUrlNameChanged();
 
         #endregion
 

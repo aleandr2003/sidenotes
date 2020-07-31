@@ -21,7 +21,7 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
     <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -121,6 +121,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionResults\SidenotesJsonResult.cs" />
+    <Compile Include="Application\BookRoute.cs" />
+    <Compile Include="Application\DomainData.cs" />
+    <Compile Include="Application\DomainRoute.cs" />
     <Compile Include="Application\SideNotesApplication.cs" />
     <Compile Include="Application\Validation\DataTypeAttributeAdapter.cs" />
     <Compile Include="Application\Validation\ModelClientValidationEmailRule.cs" />
@@ -145,6 +148,9 @@
     <Compile Include="Extensions\AssemblyExtensions.cs" />
     <Compile Include="Extensions\DirectoryExtensions.cs" />
     <Compile Include="Extensions\HashSetExtension.cs" />
+    <Compile Include="Extensions\LinkExtensions.cs" />
+    <Compile Include="Repositories\BookRepository.cs" />
+    <Compile Include="Repositories\IBookRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Resources\Book.en.Designer.cs">
@@ -834,17 +840,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>42004</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

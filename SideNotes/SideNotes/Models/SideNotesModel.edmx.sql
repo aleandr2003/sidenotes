@@ -198,7 +198,9 @@ CREATE TABLE [dbo].[Books] (
     [DonationForm] nvarchar(max)  NULL,
     [CustomStyles] nvarchar(max)  NULL,
     [MetaKeywords] nvarchar(max)  NULL,
-    [MetaDescription] nvarchar(max)  NULL
+    [MetaDescription] nvarchar(max)  NULL,
+	[UrlName] nvarchar(150)  NULL,
+	[AnnotatorUrlName] nvarchar(150)  NULL
 );
 GO
 
