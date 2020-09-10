@@ -1,4 +1,5 @@
-﻿@model Tuple<List<Book>, List<int>>
+﻿@using SideNotes.Extensions
+@model Tuple<List<Book>, List<int>>
 @{
     ViewBag.Title = SideNotes.Resources.Home.Title;
 }
@@ -14,23 +15,23 @@ else
 <ul class="bookList">
 @foreach (var book in Model.Item1)
 {
-    var url = Model.Item2.Contains(book.Id) ? Url.Action("Start", "Book", new { id = book.Id }) : Url.Action("Annotation", "Book", new { id = book.Id });
+    var url = Model.Item2.Contains(book.Id) ? Url.Action("Start", "Book", new { id = book.Id }, true) : Url.Action("Annotation", "Book", new { id = book.Id }, true);
     <li class="bookListItem">
         <a href="@url">
             <div class="bookListItemContainer">
-                @BookAvatar.Large(book, "book_avatar")<br/>
+                @BookAvatar.Large(book, "book_avatar")<br />
                 <div class="mainListBookTitle">@book.Title</div>
                 <div class="mainListBookAuthor">(@book.Author)</div>
-                @Html.ActionLink(@SideNotes.Resources.Home.AnnotationLinkText, "Annotation", "Book", new { Id = book.Id }, new { @class = "mainListAnnotationLink" })
-            </div>
-        </a>
-    </li>
-}
-</ul>
-<div class="clearBoth"></div>
-if (ViewBag.HasMore)
-{
-        @Html.ActionLink(@SideNotes.Resources.Home.AllBooksLinkText + " >>", "Index", "Book", null, null);
-    }
-}
-</div>
+                    @Html.ActionLink(@SideNotes.Resources.Home.AnnotationLinkText, "Annotation", "Book", new { Id = book.Id }, new { @class = "mainListAnnotationLink" }, true)
+                    </div>
+                </a>
+            </li>
+        }
+        </ul>
+        <div class="clearBoth"></div>
+        if (ViewBag.HasMore)
+        {
+                @Html.ActionLink(@SideNotes.Resources.Home.AllBooksLinkText + " >>", "Index", "Book", null, null);
+            }
+        }
+        </div>

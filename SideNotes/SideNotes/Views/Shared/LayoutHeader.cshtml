@@ -53,7 +53,8 @@ else
 
     <ul id="siteNavigator">
         <li class="siteNavigator_item @(ViewBag.SelectedTab == HeaderTabs.Home ? "siteNavigator_item_current" : "")">
-            @Html.ActionLink(SideNotes.Resources.Shared.LayoutHeaderHomeLinkText, "Index", "Home", null, new { @class = "siteNavigator_item_link" })
+            @*@Html.ActionLink(SideNotes.Resources.Shared.LayoutHeaderHomeLinkText, "Index", "Home", null, new { @class = "siteNavigator_item_link" })*@
+            <a href="http://annotated.by:42004" class="siteNavigator_item_link">@SideNotes.Resources.Shared.LayoutHeaderHomeLinkText</a>
         </li>
         <li class="siteNavigator_item @(ViewBag.SelectedTab == HeaderTabs.Catalog ? "siteNavigator_item_current" : "")">
             @Html.ActionLink(SideNotes.Resources.Shared.LayoutHeaderBooksLinkText, "Index", "Catalog", null, new { @class = "siteNavigator_item_link" })

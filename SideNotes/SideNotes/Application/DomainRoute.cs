@@ -124,7 +124,7 @@ namespace SideNotes.Application
             return base.GetVirtualPath(requestContext, RemoveDomainTokens(values));
         }
 
-        public DomainData GetDomainData(RequestContext requestContext, RouteValueDictionary values)
+        public virtual DomainData GetDomainData(RequestContext requestContext, RouteValueDictionary values)
         {
             // Build hostname
             string hostname = Domain;
@@ -136,7 +136,7 @@ namespace SideNotes.Application
             // Return domain data
             return new DomainData
             {
-                Protocol = "http",
+                Protocol = requestContext.HttpContext.Request.Url.Scheme,
                 HostName = hostname,
                 Fragment = ""
             };

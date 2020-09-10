@@ -9,6 +9,8 @@ using SideNotes.Models;
 using SideNotes.Controllers.Abstract;
 using SideNotes.ActionResults;
 using SideNotes.ViewModels;
+using SideNotes.Extensions;
+using System.Web.Routing;
 
 namespace SideNotes.Controllers
 {
@@ -75,8 +77,8 @@ namespace SideNotes.Controllers
                     Title = b.Title,
                     AuthorName = b.Author,
                     AvatarUrl = b.Avatar != null ? VirtualPathUtility.ToAbsolute(b.Avatar.Medium.Url) : BookAvatarService.NoAvatarMedium,
-                    ReadUrl = Url.Action("Start", "Book", new { Id = b.Id}),
-                    AnnotationUrl = Url.Action("Annotation", "Book", new { Id = b.Id })
+                    ReadUrl = Url.Action("Start", "Book", new RouteValueDictionary() { { "Id", b.Id } }, true),
+                    AnnotationUrl = Url.Action("Annotation", "Book", new RouteValueDictionary() { { "Id", b.Id } }, true)
                 }).ToList();
 
                 var descendantBookModels = descendantBooks.Select(b => new CatalogBookModel()
@@ -85,8 +87,8 @@ namespace SideNotes.Controllers
                     Title = b.Title,
                     AuthorName = b.Author,
                     AvatarUrl = b.Avatar != null ? VirtualPathUtility.ToAbsolute(b.Avatar.Medium.Url) : BookAvatarService.NoAvatarMedium,
-                    ReadUrl = Url.Action("Start", "Book", new { Id = b.Id }),
-                    AnnotationUrl = Url.Action("Annotation", "Book", new { Id = b.Id })
+                    ReadUrl = Url.Action("Start", "Book", new RouteValueDictionary() { { "Id", b.Id } }, true),
+                    AnnotationUrl = Url.Action("Annotation", "Book", new RouteValueDictionary() { { "Id", b.Id } }, true)
                 }).ToList();
                 return Json(new { books = bookModels, subfolderBooks = descendantBookModels });
             }

@@ -25,7 +25,7 @@ else
                 
             <div class="ListBookTitle"><a href="@url">@book.Title</a></div>
             <div class="ListBookAuthor"><a href="@url">(@book.Author)</a></div>
-            @Html.ActionLink(SideNotes.Resources.Book.IndexAnnotationLinkText, "Annotation", "Book", new { Id = book.Id }, new { @class = "mainListAnnotationLink" })
+            @Html.ActionLink(SideNotes.Resources.Book.IndexAnnotationLinkText, "Annotation", "Book", new { Id = book.Id }, new { @class = "mainListAnnotationLink" }, true)
                 
         </div>
         <div class="clearBoth" ></div>

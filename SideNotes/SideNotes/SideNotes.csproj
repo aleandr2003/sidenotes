@@ -122,6 +122,7 @@
   <ItemGroup>
     <Compile Include="ActionResults\SidenotesJsonResult.cs" />
     <Compile Include="Application\BookRoute.cs" />
+    <Compile Include="Application\BookData.cs" />
     <Compile Include="Application\DomainData.cs" />
     <Compile Include="Application\DomainRoute.cs" />
     <Compile Include="Application\SideNotesApplication.cs" />

@@ -12,10 +12,12 @@ namespace SideNotes.Application
     public class BookRoute : DomainRoute
     {
         private static ConcurrentDictionary<string, int> bookIndex;
+        private static ConcurrentDictionary<int, Tuple<string, string>> bookDataIndex;
 
         static BookRoute()
         {
             bookIndex = new ConcurrentDictionary<string, int>();
+            bookDataIndex = new ConcurrentDictionary<int, Tuple<string, string>>();
         }
 
         public static void Init(IBookRepository repository)
@@ -26,6 +28,7 @@ namespace SideNotes.Application
             {
                 bookIndex.TryAdd(CreateKey(book.UrlName, book.AnnotatorUrlName), book.Id);
                 bookIndex.TryAdd(CreateKey(book.UrlName, String.Empty), book.Id);
+                bookDataIndex.TryAdd(book.Id, new Tuple<string, string>(book.UrlName, book.AnnotatorUrlName));
             });
         }
 
@@ -51,6 +54,26 @@ namespace SideNotes.Application
         {
         }
 
+        public override VirtualPathData GetVirtualPath(RequestContext requestContext, RouteValueDictionary values)
+        {
+            if (!values.ContainsKey("controller")) return null;
+            if (values["controller"].ToString().ToLower() != "book") return null;
+            if (!values.ContainsKey("id")) return null;
+            int? bookId = values["id"] as int?;
+            if (!bookId.HasValue) return null;
+            if (bookDataIndex.TryGetValue(bookId.Value, out var bookData))
+            {
+                VirtualPathData basePath = base.GetVirtualPath(requestContext, values);
+                return basePath;
+            }
+            return null;
+        }
+
+        public RouteData GetBookRouteData(HttpContextBase httpContext)
+        {
+            return base.GetRouteData(httpContext);
+        }
+
         public override RouteData GetRouteData(HttpContextBase httpContext)
         {
             RouteData data = base.GetRouteData(httpContext);
@@ -68,6 +91,28 @@ namespace SideNotes.Application
                 return data;
             }
             return null;
+        }
+
+        public BookData GetBookData(RequestContext requestContext, RouteValueDictionary values)
+        {
+            if (!values.ContainsKey("id") || !(values["id"] is int bookId))
+                return null;
+
+            if (!bookDataIndex.TryGetValue(bookId, out var bookData))
+                return null;
+
+            string booktitle = bookData.Item1;
+
+            string hostname = Domain.Replace("{booktitle}", booktitle);
+            string protocol = requestContext.HttpContext.Request.Url.Scheme;
+
+            // Return domain data
+            return new BookData()
+            {
+                Protocol = protocol,
+                HostName = hostname,
+                Annotator = bookData.Item2
+            };
         }
     }
 }
