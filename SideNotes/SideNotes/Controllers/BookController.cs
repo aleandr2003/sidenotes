@@ -493,11 +493,11 @@ namespace SideNotes.Controllers
             }
         }
 
-        public ActionResult CommentsByUser(int BookId, int UserId)
+        public ActionResult CommentsByUser(int Id, int UserId)
         {
             using (var context = new SideNotesEntities())
             {
-                Book book = context.Books.Include("Avatar.Small").Include("Avatar.Medium").FirstOrDefault(b => b.Id == BookId);
+                Book book = context.Books.Include("Avatar.Small").Include("Avatar.Medium").FirstOrDefault(b => b.Id == Id);
                 if (book == null) return View("BookNotFound");
                 User user = context.Users.FirstOrDefault(u => u.Id == UserId);
                 if (user == null) throw new ArgumentException(Resources.Book.ControllerUserNotFound);
@@ -506,11 +506,11 @@ namespace SideNotes.Controllers
             }
         }
 
-        public ActionResult CommentsByUserPartial(int BookId, int UserId)
+        public ActionResult CommentsByUserPartial(int Id, int UserId)
         {
             using (var context = new SideNotesEntities())
             {
-                if (!context.Books.Any(b => b.Id == BookId)) return View("BookNotFound");
+                if (!context.Books.Any(b => b.Id == Id)) return View("BookNotFound");
                 User user = context.Users.Include("Avatar.Small").Include("Avatar.Large").FirstOrDefault(u => u.Id == UserId);
                 if (user == null) throw new ArgumentException(Resources.Book.ControllerUserNotFound);
                 int? currentUserId = userSession.IsAuthenticated ? (int?)userSession.CurrentUser.Id : null;
@@ -518,7 +518,7 @@ namespace SideNotes.Controllers
                                           from p in context.Paragraphs
                                           join h in context.HeadComments.Where(c => c.EntityType == (int)EntityType.Paragraph)
                                           on p.Id equals h.EntityId
-                                          where p.Book_Id == BookId && h.Author_Id == UserId
+                                          where p.Book_Id == Id && h.Author_Id == UserId
                                           && (!h.IsPrivate || h.Author_Id == currentUserId)
                                           select new { comment = h, paragraph = p })
                                           .Distinct().ToDictionary(o => (IComment)o.comment, o => o.paragraph);
@@ -528,7 +528,7 @@ namespace SideNotes.Controllers
                                              on p.Id equals h.EntityId
                                              join c in context.Comments
                                              on h.Id equals c.HeadCommentId
-                                                where p.Book_Id == BookId && c.Author_Id == UserId
+                                                where p.Book_Id == Id && c.Author_Id == UserId
                                           select new { comment = c, paragraph = p })
                                           .Distinct().ToDictionary(o => (IComment)o.comment, o => o.paragraph);
                 var allCommentList = headComments.Concat(comments).ToDictionary(e => e.Key, e => e.Value);
@@ -607,7 +607,7 @@ namespace SideNotes.Controllers
             }
         }
 
-        public ActionResult RecentComments(int BookId)
+        public ActionResult RecentComments(int Id)
         {
             using (var context = new SideNotesEntities())
             {
@@ -616,7 +616,7 @@ namespace SideNotes.Controllers
                 var headCommentsDic = (from p in context.Paragraphs
                                     join h in context.HeadComments
                                      on p.Id equals h.EntityId
-                                    where p.Book_Id == BookId
+                                    where p.Book_Id == Id
                                     && h.EntityType == (int)EntityType.Paragraph
                                     && h.Author_Id != null
                                     && (!h.IsPrivate || userId == h.Author_Id)
@@ -646,7 +646,7 @@ namespace SideNotes.Controllers
             }
         }
 
-        public ActionResult NextCommentedParagraph(int BookId, int? ParagraphId)
+        public ActionResult NextCommentedParagraph(int Id, int? ParagraphId)
         {
             using (var context = new SideNotesEntities())
             {
@@ -657,38 +657,38 @@ namespace SideNotes.Controllers
                                      join h in context.HeadComments
                                          on p.Id equals h.EntityId
                                      where h.EntityType == (int)EntityType.Paragraph &&
-                                     p.Book_Id == BookId &&
+                                     p.Book_Id == Id &&
                                      p.OrderNumber > currentNumber
                                      orderby p.OrderNumber
                                      select p).FirstOrDefault();
                 if (nextParagraph != null)
                 {
-                    return RedirectToAction("View", "Book", new { Id = BookId, skip = nextParagraph.OrderNumber - 1, expanded="on" });
+                    return RedirectToAction("View", "Book", new { Id = Id, skip = nextParagraph.OrderNumber - 1, expanded="on" });
                 }
-                return RedirectToAction("View", "Book", new { Id = BookId, skip = 0, expanded = "on" });
+                return RedirectToAction("View", "Book", new { Id = Id, skip = 0, expanded = "on" });
             }
         }
 
-        public ActionResult PreviousCommentedParagraph(int BookId, int? ParagraphId)
+        public ActionResult PreviousCommentedParagraph(int Id, int? ParagraphId)
         {
             using (var context = new SideNotesEntities())
             {
                 var currentParagraph = context.Paragraphs.FirstOrDefault(p => p.Id == ParagraphId);
-                int currentNumber = context.Paragraphs.Where(p => p.Book_Id == BookId).Count();
+                int currentNumber = context.Paragraphs.Where(p => p.Book_Id == Id).Count();
                 if (currentParagraph != null) currentNumber = currentParagraph.OrderNumber;
                 var nextParagraph = (from p in context.Paragraphs
                                      join h in context.HeadComments
                                          on p.Id equals h.EntityId
                                      where h.EntityType == (int)EntityType.Paragraph &&
-                                     p.Book_Id == BookId &&
+                                     p.Book_Id == Id &&
                                      p.OrderNumber < currentNumber
                                      orderby p.OrderNumber descending
                                      select p).FirstOrDefault();
                 if (nextParagraph != null)
                 {
-                    return RedirectToAction("View", "Book", new { Id = BookId, skip = nextParagraph.OrderNumber - 1, expanded = "on" });
+                    return RedirectToAction("View", "Book", new { Id = Id, skip = nextParagraph.OrderNumber - 1, expanded = "on" });
                 }
-                return RedirectToAction("View", "Book", new { Id = BookId, skip = currentNumber - 1, expanded = "on" });
+                return RedirectToAction("View", "Book", new { Id = Id, skip = currentNumber - 1, expanded = "on" });
             }
         }
 
@@ -720,7 +720,7 @@ namespace SideNotes.Controllers
                               UserAvatarUrl = bestComment.Author.Avatar != null ? VirtualPathUtility.ToAbsolute(bestComment.Author.Avatar.Tiny.Url): UserAvatarService.NoAvatarTiny,
                               UserProfileUrl = Url.Action("View", "User" , new {Id = bestComment.Author.Id}),
                               UserCommentsCount = book.GetCommentsCountByAuthor(bestComment.Author_Id ?? 0, userSession.UserId),
-                              CommentsByUserUrl = Url.Action("CommentsByUser", "Book", new { BookId = book.Id, UserId = bestComment.Author_Id }, true)
+                              CommentsByUserUrl = Url.Action("CommentsByUser", "Book", new { Id = book.Id, UserId = bestComment.Author_Id }, true)
                 }
 
                 );

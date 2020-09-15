@@ -28,35 +28,27 @@ namespace SideNotes.Extensions
 
             HttpContextBase currentContext = new HttpContextWrapper(HttpContext.Current);
             RouteData routeData = null;
-            if (controllerName.ToLower() == "book")
+            if (controllerName.ToLower() == "book" && routeValues.ContainsKey("id"))
             {
                 var customRoute = RouteTable.Routes.Where(r => r is BookRoute).Select(r => r as BookRoute).FirstOrDefault();
-                routeData = customRoute?.GetBookRouteData(currentContext);
-            }
-            if (routeData == null)
-            {
-                routeData = RouteTable.Routes.GetRouteData(currentContext);
+                BookData bookData = customRoute.GetBookData(currentContext, routeValues);
+                if (bookData != null)
+                {
+                    routeValues.Remove("id");
+                    return htmlHelper.ActionLink(linkText, actionName, bookData.Annotator, bookData.Protocol, bookData.HostName, null, routeValues, htmlAttributes);
+                }
             }
 
+            routeData = RouteTable.Routes.GetRouteData(currentContext);
             if (routeData != null)
             {
                 routeData.Values["controller"] = controllerName;
                 routeData.Values["action"] = actionName;
 
-                if (routeData.Route is BookRoute bookRoute)
-                {
-                    BookData bookData = bookRoute.GetBookData(currentContext, routeValues);
-                    if (bookData != null)
-                    {
-                        routeData.Values.Remove("id");
-                        return htmlHelper.ActionLink(linkText, actionName, bookData.Annotator, bookData.Protocol, bookData.HostName, null, routeData.Values, null);
-                    }
-                }
-
                 if (routeData.Route is DomainRoute domainRoute)
                 {
                     DomainData domainData = domainRoute.GetDomainData(new RequestContext(currentContext, routeData), routeData.Values);
-                    return htmlHelper.ActionLink(linkText, actionName, controllerName, domainData.Protocol, domainData.HostName, domainData.Fragment, routeData.Values, null);
+                    return htmlHelper.ActionLink(linkText, actionName, controllerName, domainData.Protocol, domainData.HostName, domainData.Fragment, routeData.Values, htmlAttributes);
                 }
             }
             return htmlHelper.ActionLink(linkText, actionName, controllerName, routeValues, htmlAttributes);

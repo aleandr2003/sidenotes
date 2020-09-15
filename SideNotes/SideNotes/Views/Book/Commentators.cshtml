@@ -12,7 +12,7 @@
         <div class="avatarblock">
         @foreach (var user in Model.Item2)
         {
-            <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = user.Id }, true)">@UserAvatar.Small(user, "user_avatar")</a>
+            <a href="@Url.Action("CommentsByUser", "Book", new { Id = ViewBag.BookId, UserId = user.Id }, true)">@UserAvatar.Small(user, "user_avatar")</a>
         }
         </div>
     }
@@ -23,7 +23,7 @@
         <div class="avatarblock">
         @foreach (var user in Model.Item1)
         {
-            <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = user.Id }, true)">@UserAvatar.Small(user, "user_avatar")</a>
+            <a href="@Url.Action("CommentsByUser", "Book", new { Id = ViewBag.BookId, UserId = user.Id }, true)">@UserAvatar.Small(user, "user_avatar")</a>
         }
         </div>
     }
@@ -36,7 +36,7 @@
         <div class="avatarblock">
         @foreach (var user in Model.Item3)
         {
-            <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = user.Id }, true)">@UserAvatar.Small(user, "user_avatar")</a>
+            <a href="@Url.Action("CommentsByUser", "Book", new { Id = ViewBag.BookId, UserId = user.Id }, true)">@UserAvatar.Small(user, "user_avatar")</a>
         }
         </div>
     }

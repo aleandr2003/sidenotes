@@ -71,8 +71,8 @@
     var repliesCountUrl = '@Url.Action("GetRepliesCount", "Feed")';
     var commentCountUrl = '@Url.Action("CommentCount", "Feed")';
     var commentCountListUrl = '@Url.Action("CommentCountList", "Feed")';
-    var prevCommentUrl = '@Url.Action("PreviousCommentedParagraph", "Book", new { BookId = Model.Item1.Id }, true)';
-    var nextCommentUrl = '@Url.Action("NextCommentedParagraph", "Book", new { BookId = Model.Item1.Id }, true)';
+    var prevCommentUrl = '@Url.Action("PreviousCommentedParagraph", "Book", new { Id = Model.Item1.Id }, true)';
+    var nextCommentUrl = '@Url.Action("NextCommentedParagraph", "Book", new { Id = Model.Item1.Id }, true)';
     var popupUrl = '@Url.Action("EntityCommentators", "Comment", new { entityType = (int)EntityType.Paragraph })';
     var popupListUrl = '@Url.Action("EntityCommentatorsList", "Comment", new { entityType = (int)EntityType.Paragraph })';
     var hasPreviousPage = @(Model.Item2.HasPrevious == true ? "true" : "false")

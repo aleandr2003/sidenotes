@@ -12,9 +12,9 @@
     <div class="book_author_list">
     <span>@ViewBag.Book.Author</span>
     </div>
-    @Html.ActionLink(SideNotes.Resources.Book.CommentatorsPageAnnotationLinkText, "Annotation", "Book", new { id = ViewBag.BookId }, null)
-    <br/>
-    @Html.ActionLink(SideNotes.Resources.Book.CommentatorsPageReadLinkText, "Start", "Book", new { id = ViewBag.BookId }, new { @class = "book_buyLinkLarge" })
+    @Html.ActionLink(SideNotes.Resources.Book.CommentatorsPageAnnotationLinkText, "Annotation", "Book", new { id = ViewBag.BookId }, new { @class = "annotation_OrangeButton annotation_OrangeButton_Read" }, true)
+    @Html.ActionLink(SideNotes.Resources.Book.CommentatorsPageReadLinkText, "Start", "Book", new { id = ViewBag.BookId }, new { @class = "annotation_OrangeButton annotation_OrangeButton_Comments" }, true)
+    <div style="clear:both"></div>
     <br/>
 
     @if (Model.Item1.Any() || Model.Item2.Any() || Model.Item3.Any())
@@ -27,7 +27,7 @@
             <div class="avatarblock">
             @foreach (var user in Model.Item2)
             {
-                <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = user.Id }, true)">@UserAvatar.Small(user, "user_avatar")</a>
+                <a href="@Url.Action("CommentsByUser", "Book", new { Id = ViewBag.BookId, UserId = user.Id }, true)">@UserAvatar.Small(user, "user_avatar")</a>
             }
             </div>
         }
@@ -38,7 +38,7 @@
             <div class="avatarblock">
             @foreach (var user in Model.Item1)
             {
-                <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = user.Id }, true)">@UserAvatar.Small(user, "user_avatar")</a>
+                <a href="@Url.Action("CommentsByUser", "Book", new { Id = ViewBag.BookId, UserId = user.Id }, true)">@UserAvatar.Small(user, "user_avatar")</a>
             }
             </div>
         }
@@ -51,7 +51,7 @@
             <div class="avatarblock">
             @foreach (var user in Model.Item3)
             {
-                <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = user.Id }, true)">@UserAvatar.Small(user, "user_avatar")</a>
+                <a href="@Url.Action("CommentsByUser", "Book", new { Id = ViewBag.BookId, UserId = user.Id }, true)">@UserAvatar.Small(user, "user_avatar")</a>
             }
             </div>
         }

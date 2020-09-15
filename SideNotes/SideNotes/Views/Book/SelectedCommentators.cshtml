@@ -14,7 +14,7 @@
                 </a>
                 <a href="@Url.Action("View", "User", new { Id = item.user.Id})" class="userblock_name">@item.user.Name</a>
                 @{
-                    <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = item.user.Id}, true)"
+                    <a href="@Url.Action("CommentsByUser", "Book", new { Id = ViewBag.BookId, UserId = item.user.Id}, true)"
                        class="commentCounter">@item.commentCount@InclineService.Comment(item.commentCount)</a>
                 }
                 @*@if (item.user.Id != ViewBag.CurrentUserId)

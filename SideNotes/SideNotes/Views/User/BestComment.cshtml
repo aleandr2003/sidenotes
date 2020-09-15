@@ -32,7 +32,7 @@
     @if (count > 1)
     {
         <div class="commentCounter">
-            <a href="@Url.Action("CommentsByUser", "Book", new { BookId = Model.Item3.Id, UserId = Model.Item1.Author_Id }, true)"
+            <a href="@Url.Action("CommentsByUser", "Book", new { Id = Model.Item3.Id, UserId = Model.Item1.Author_Id }, true)"
                class="commentCounter_counter">+@(count - 1)</a> @SideNotes.Resources.User.BestCommentCountMessage
         </div>
 

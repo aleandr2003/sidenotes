@@ -22,7 +22,7 @@
                 <div class="freshCommentsItem_Controls_layout">
                     @if (item.commentCount > 1)
                     {
-                        <div class="commentCounter_container">@SideNotes.Resources.User.CommentsPageMoreFromThisUserMessage <a href="@Url.Action("CommentsByUser", "Book", new { BookId = item.book.Id, UserId = ViewBag.UserId }, true)">@(item.commentCount - 1) @InclineService.Comment(@item.commentCount - 1)</a></div>
+                        <div class="commentCounter_container">@SideNotes.Resources.User.CommentsPageMoreFromThisUserMessage <a href="@Url.Action("CommentsByUser", "Book", new { Id = item.book.Id, UserId = ViewBag.UserId }, true)">@(item.commentCount - 1) @InclineService.Comment(@item.commentCount - 1)</a></div>
                     }
                     <div class="toTextButton">
                         <a href="@Url.Action("View", "Book", new { Id = item.book.Id, skip = item.paragraph.OrderNumber - 1 }, true)" class="toTextButtonLink">@SideNotes.Resources.User.CommentsPageReadFromHereLinkText</a>

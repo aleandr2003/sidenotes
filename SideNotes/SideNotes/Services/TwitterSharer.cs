@@ -21,7 +21,7 @@ namespace SideNotes.Services
         //public string test(Paragraph paragraph, HeadComment comment)
         //{
         //    var urlHelper = UrlHelperExtensions.GetUrlHelper();
-        //    string link = urlHelper.ActionAbsolute("CommentsByUser", "Book", new { BookId = paragraph.Book_Id, UserId = currentUser.Id }).ToString();
+        //    string link = urlHelper.ActionAbsolute("CommentsByUser", "Book", new { Id = paragraph.Book_Id, UserId = currentUser.Id }).ToString();
 
         //    string hashTag = null;
         //    using (var context = new SideNotesEntities())

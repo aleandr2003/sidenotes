@@ -8,5 +8,5 @@
 <div id="main" class="commentsByUserList">
 @Html.Partial("Header", Model.Item1)
 
-@Html.Action("CommentsByUserPartial", "Book", new { BookId = Model.Item1.Id, UserId = Model.Item2.Id })
+@Html.Action("CommentsByUserPartial", "Book", new { Id = Model.Item1.Id, UserId = Model.Item2.Id })
 </div>
