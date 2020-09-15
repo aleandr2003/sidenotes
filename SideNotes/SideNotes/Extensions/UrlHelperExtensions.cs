@@ -66,6 +66,10 @@ namespace SideNotes.Extensions
         {
             return urlHelper.Action(actionName, controllerName, new RouteValueDictionary(), requireAbsoluteUrl);
         }
+        public static string Action(this UrlHelper urlHelper, string actionName, string controllerName, object routeValues, bool requireAbsoluteUrl)
+        {
+            return Action(urlHelper, actionName, controllerName, new RouteValueDictionary(routeValues), requireAbsoluteUrl);
+        }
 
         public static string Action(this UrlHelper urlHelper, string actionName, string controllerName, RouteValueDictionary routeValues, bool requireAbsoluteUrl)
         {
@@ -74,30 +78,22 @@ namespace SideNotes.Extensions
 
             HttpContextBase currentContext = new HttpContextWrapper(HttpContext.Current);
             RouteData routeData = null;
-            if (controllerName.ToLower() == "book")
+            if (controllerName.ToLower() == "book" && routeValues.ContainsKey("id"))
             {
                 var customRoute = RouteTable.Routes.Where(r => r is BookRoute).Select(r => r as BookRoute).FirstOrDefault();
-                routeData = customRoute?.GetBookRouteData(currentContext);
+                BookData bookData = customRoute.GetBookData(currentContext, routeValues);
+                if (bookData != null)
+                {
+                    routeValues.Remove("id");
+                    return urlHelper.Action(actionName, bookData.Annotator, routeValues, bookData.Protocol, bookData.HostName);
+                }
             }
-            if (routeData == null)
-            {
-                routeData = RouteTable.Routes.GetRouteData(currentContext);
-            }
-
+            
+            routeData = RouteTable.Routes.GetRouteData(currentContext);
             if (routeData != null)
             {
                 routeData.Values["controller"] = controllerName;
                 routeData.Values["action"] = actionName;
-
-                if (routeData.Route is BookRoute bookRoute)
-                {
-                    BookData bookData = bookRoute.GetBookData(new RequestContext(currentContext, routeData), routeValues);
-                    if (bookData != null)
-                    {
-                        routeData.Values.Remove("id");
-                        return urlHelper.Action(actionName, bookData.Annotator, routeData.Values, bookData.Protocol, bookData.HostName);
-                    }
-                }
 
                 if (routeData.Route is DomainRoute domainRoute)
                 {

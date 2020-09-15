@@ -2,24 +2,27 @@
 @{
     ViewBag.Title = Model.Title + "(" + Model.Author + ")";
 }
+@using SideNotes.Extensions;
+@using System.Web.Routing;
 @section HEAD{
 
 }
 <div id="main" class="book_contenttable">
     <div id="leftCol">
-	    <div class="book_cover_container">
-		    @BookAvatar.Medium(Model, "book_cover")
-	    </div>
+        <div class="book_cover_container">
+            @BookAvatar.Medium(Model, "book_cover")
+        </div>
     </div>
     <div id="centerCol">
         <h1>@Model.Title</h1>
         <div class="book_author_list">
             <span>@Model.Author</span>
         </div>
-        <a href="@Url.Action("Start", "Book", new { id = Model.Id })" class="annotation_OrangeButton annotation_OrangeButton_Read">@SideNotes.Resources.Book.AnnotationReadLinkText</a>
+        <a href="@Url.Action("Start", "Book", new { id = Model.Id }, true)" class="annotation_OrangeButton annotation_OrangeButton_Read">@SideNotes.Resources.Book.AnnotationReadLinkText</a>
         @{
             var commentatorsCount = Model.GetCommentatorsCount(ViewBag.CurrentUserId);
-            if (commentatorsCount > 0){
+            if (commentatorsCount > 0)
+            {
                 <a href="@Url.Action("Index", "Feed", new { id = Model.Id })" class="annotation_OrangeButton annotation_OrangeButton_Comments">@SideNotes.Resources.Book.AnnotationCommentsLinkText</a>
             }
         }
@@ -32,9 +35,9 @@
             @Html.Action("ContentsWithComments", "Book", new { Id = Model.Id })
         </div>
         @*@if (ViewBag.IsAuthenticated)
-        {
-                @Html.Action("Bookmarks", new { Id = Model.Id })
-        }*@
+            {
+                    @Html.Action("Bookmarks", new { Id = Model.Id })
+            }*@
     </div>
     <div id="rightCol">
         @{
@@ -52,8 +55,9 @@
                     <h2>@SideNotes.Resources.Book.AnnotationCommentatorsHeading</h2>
                     @Html.Action("SelectedCommentators", "Book", new { Id = Model.Id })
 
-                    <span>@SideNotes.Resources.Book.AnnotationCommentCountMessage 
-                        <a href="@Url.Action("Commentators", "Book", new { Id = Model.Id })">@commentatorsCount @InclineService.Commentator(commentatorsCount)</a>
+                    <span>
+                        @SideNotes.Resources.Book.AnnotationCommentCountMessage
+                        <a href="@Url.Action("Commentators", "Book", new { Id = Model.Id }, true)">@commentatorsCount @InclineService.Commentator(commentatorsCount)</a>
                     </span>
                 </div>
             }
@@ -66,26 +70,27 @@
                     <h2>@SideNotes.Resources.Book.AnnotationRecentCommentsHeading</h2>
                     @Html.Action("RecentComments", "Book", new { BookId = Model.Id })
 
-                    <span>@SideNotes.Resources.Book.AnnotationRecentCommentCountMessage 
+                    <span>
+                        @SideNotes.Resources.Book.AnnotationRecentCommentCountMessage
                         <a href="@Url.Action("Index", "Feed", new { Id = Model.Id })">@commentsCount @InclineService.Comment(commentsCount)</a>
                     </span>
                 </div>
             }
         }
     </div>
-@*@if (!ViewBag.IsAuthenticated)
-{
+    @*@if (!ViewBag.IsAuthenticated)
+        {
+            <script type="text/javascript">
+                $(function () {
+                    showUnclosableBox('socialLoginBox');
+                });
+            </script>
+            @Html.Partial("SocialLoginBox", new LoginModel())
+        }*@
     <script type="text/javascript">
-        $(function () {
-            showUnclosableBox('socialLoginBox');
-        });
-    </script> 
-    @Html.Partial("SocialLoginBox", new LoginModel())
-}*@
-<script type="text/javascript">
-    
+
     $(function () {
         $('#book_annotation').shorten({ limit: 200, expandText: '@SideNotes.Resources.Book.AnnotationShowAllLinkText', collapseText: '@SideNotes.Resources.Book.AnnotationHideAllLinkText', breakLine: true });
     });
-</script>
+    </script>
 </div>

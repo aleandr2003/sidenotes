@@ -1,36 +1,38 @@
 ﻿@using SideNotes.Extensions
 @model Book
+@using SideNotes.Extensions;
+@using System.Web.Routing;
 @{
     Layout = null;
 }
 <div class="toolbar_outer" id="toolbar">
-    <a href="@Url.Action("Annotation", "Book", new {Id = Model.Id})#index" 
-        rel="indexFrame" id="indexCommandLink">@SideNotes.Resources.Book.LeftFrameContentLinkText</a>
-    <br/>
-    <br/>
+    <a href="@Url.Action("Annotation", "Book", new {Id = Model.Id}, true)#index"
+       rel="indexFrame" id="indexCommandLink">@SideNotes.Resources.Book.LeftFrameContentLinkText</a>
+    <br />
+    <br />
     @if (ViewBag.IsAuthenticated == true)
     {
-    <a href="@Url.Action("Annotation", "Book", new { Id = Model.Id })#bookmarks"
-       rel="bookmarksFrame" id="bookmarksCommandLink">@SideNotes.Resources.Book.LeftFrameBookmarksLinkText</a>
-        <br/>
-        <br/>
+        <a href="@Url.Action("Annotation", "Book", new { Id = Model.Id }, true)#bookmarks"
+           rel="bookmarksFrame" id="bookmarksCommandLink">@SideNotes.Resources.Book.LeftFrameBookmarksLinkText</a>
+        <br />
+        <br />
     }
-        <a href="@Url.Action("Annotation", "Book", new { Id = Model.Id })#annotation"
-           rel="annotationFrame" id="annotationCommandLink">@SideNotes.Resources.Book.LeftFrameAnnotationLinkText</a>
+    <a href="@Url.Action("Annotation", "Book", new { Id = Model.Id }, true)#annotation"
+       rel="annotationFrame" id="annotationCommandLink">@SideNotes.Resources.Book.LeftFrameAnnotationLinkText</a>
 </div>
-@LeftFrame.Render(SideNotes.Resources.Book.LeftFrameContentHeading, "indexFrame", "indexFrameInner", Url.ActionAbsolute("Contents", "Book", new { Id = Model.Id }).ToString())
+@LeftFrame.Render(SideNotes.Resources.Book.LeftFrameContentHeading, "indexFrame", "indexFrameInner", Url.Action("Contents", "Book", new { Id = Model.Id }, true).ToString())
 @if (ViewBag.IsAuthenticated == true)
 {
-    @LeftFrame.Render(SideNotes.Resources.Book.LeftFrameBookmarksHeading, "bookmarksFrame", "bookmarksFrameInner", Url.ActionAbsolute("Bookmarks", "Book", new { Id = Model.Id }).ToString())
+    @LeftFrame.Render(SideNotes.Resources.Book.LeftFrameBookmarksHeading, "bookmarksFrame", "bookmarksFrameInner", Url.Action("Bookmarks", "Book", new { Id = Model.Id }, true).ToString())
 }
-@LeftFrame.Render(SideNotes.Resources.Book.LeftFrameAnnotationHeading, "annotationFrame", "annotationFrameInner", Url.ActionAbsolute("AnnotationShort", "Book", new { Id = Model.Id }).ToString())
+@LeftFrame.Render(SideNotes.Resources.Book.LeftFrameAnnotationHeading, "annotationFrame", "annotationFrameInner", Url.Action("AnnotationShort", "Book", new { Id = Model.Id }, true).ToString())
 <script type="text/javascript">
     $(function () {
         $('#indexCommandLink, #bookmarksCommandLink, #annotationCommandLink')
-        .attr('href', 'javascript:void(0)')
-        .click(function () {
-            initFrame($(this).attr('rel'));
-        });
-        
+            .attr('href', 'javascript:void(0)')
+            .click(function () {
+                initFrame($(this).attr('rel'));
+            });
+
     });
 </script>

@@ -93,7 +93,7 @@ namespace SideNotes.Application
             return null;
         }
 
-        public BookData GetBookData(RequestContext requestContext, RouteValueDictionary values)
+        public BookData GetBookData(HttpContextBase httpContext, RouteValueDictionary values)
         {
             if (!values.ContainsKey("id") || !(values["id"] is int bookId))
                 return null;
@@ -104,7 +104,7 @@ namespace SideNotes.Application
             string booktitle = bookData.Item1;
 
             string hostname = Domain.Replace("{booktitle}", booktitle);
-            string protocol = requestContext.HttpContext.Request.Url.Scheme;
+            string protocol = httpContext.Request.Url.Scheme;
 
             // Return domain data
             return new BookData()

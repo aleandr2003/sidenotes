@@ -13,6 +13,7 @@ using System.Configuration;
 using System.Linq.Expressions;
 using SideNotes.Extensions;
 using SideNotes.Controllers.Abstract;
+using System.Web.Routing;
 
 namespace SideNotes.Controllers
 {
@@ -710,16 +711,16 @@ namespace SideNotes.Controllers
                               BookTitle = book.Title,
                               BookAuthor = book.Author,
                               BookAvatarUrl = book.Avatar != null ? VirtualPathUtility.ToAbsolute(book.Avatar.Small.Url) : "",
-                              BookReadUrl = Url.Action("Start", "Book", new {Id = book.Id}),
+                              BookReadUrl = Url.Action("Start", "Book", new { Id= book.Id }, true),
                               ParagraphContent = paragraph.Content,
                               ParagraphFormatType = ((int)paragraph.FormatType).ToString(),
-                              ParagraphUrl = Url.Action("View", "Book" , new {Id = book.Id, skip = paragraph.OrderNumber - 1}),
+                              ParagraphUrl = Url.Action("View", "Book" , new { Id = book.Id, skip= paragraph.OrderNumber - 1 }, true),
                               CommentText = bestComment.Text,
                               UserName = bestComment.Author.Name,
                               UserAvatarUrl = bestComment.Author.Avatar != null ? VirtualPathUtility.ToAbsolute(bestComment.Author.Avatar.Tiny.Url): UserAvatarService.NoAvatarTiny,
                               UserProfileUrl = Url.Action("View", "User" , new {Id = bestComment.Author.Id}),
                               UserCommentsCount = book.GetCommentsCountByAuthor(bestComment.Author_Id ?? 0, userSession.UserId),
-                              CommentsByUserUrl = Url.Action("CommentsByUser", "Book", new { BookId = book.Id, UserId = bestComment.Author_Id })
+                              CommentsByUserUrl = Url.Action("CommentsByUser", "Book", new { BookId = book.Id, UserId = bestComment.Author_Id }, true)
                 }
 
                 );

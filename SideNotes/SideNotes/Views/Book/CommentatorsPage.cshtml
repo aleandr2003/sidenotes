@@ -1,4 +1,6 @@
-﻿@model Tuple<List<User>,List<User>,List<User>>
+﻿@using SideNotes.Extensions;
+@using System.Web.Routing;
+@model Tuple<List<User>,List<User>,List<User>>
 <div id="main">
 <div id="leftCol">
 	<div class="book_cover_container">
@@ -25,7 +27,7 @@
             <div class="avatarblock">
             @foreach (var user in Model.Item2)
             {
-                <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = user.Id })">@UserAvatar.Small(user, "user_avatar")</a>
+                <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = user.Id }, true)">@UserAvatar.Small(user, "user_avatar")</a>
             }
             </div>
         }
@@ -36,7 +38,7 @@
             <div class="avatarblock">
             @foreach (var user in Model.Item1)
             {
-                <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = user.Id })">@UserAvatar.Small(user, "user_avatar")</a>
+                <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = user.Id }, true)">@UserAvatar.Small(user, "user_avatar")</a>
             }
             </div>
         }
@@ -49,7 +51,7 @@
             <div class="avatarblock">
             @foreach (var user in Model.Item3)
             {
-                <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = user.Id })">@UserAvatar.Small(user, "user_avatar")</a>
+                <a href="@Url.Action("CommentsByUser", "Book", new { BookId = ViewBag.BookId, UserId = user.Id }, true)">@UserAvatar.Small(user, "user_avatar")</a>
             }
             </div>
         }

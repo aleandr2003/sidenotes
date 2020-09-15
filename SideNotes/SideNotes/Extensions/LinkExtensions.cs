@@ -45,7 +45,7 @@ namespace SideNotes.Extensions
 
                 if (routeData.Route is BookRoute bookRoute)
                 {
-                    BookData bookData = bookRoute.GetBookData(new RequestContext(currentContext, routeData), routeValues);
+                    BookData bookData = bookRoute.GetBookData(currentContext, routeValues);
                     if (bookData != null)
                     {
                         routeData.Values.Remove("id");

@@ -1,74 +1,78 @@
-﻿@model Tuple<Book, NavigationModel>
-@{
-    ViewBag.Title = Model.Item1.Title + "(" + Model.Item1.Author + ")";
-}
-@section HEAD{
-    @if (!String.IsNullOrEmpty(Model.Item1.MetaKeywords)){
-        <meta name="keywords" content="@Model.Item1.MetaKeywords" /> 
+﻿@using SideNotes.Extensions;
+@using System.Web.Routing;
+@model Tuple<Book, NavigationModel>
+    @{
+        ViewBag.Title = Model.Item1.Title + "(" + Model.Item1.Author + ")";
     }
-    @if (!String.IsNullOrEmpty(Model.Item1.MetaDescription)){
-        <meta name="description" content="@Model.Item1.MetaDescription" />
-    }
-    <link rel="canonical" href="@Url.ActionAbsolute("View", "Book", new { Id = Model.Item1.Id})"/>
-    @*<script src="@Url.Content("~/Scripts/ToolBar.js")" type="text/javascript"></script>*@
-    <script src="@Url.Content("~/Scripts/LeftFrame.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/RightFrame.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/BookPage.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/BookHeader.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/CommentList.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/CommentInfo.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/CommentatorsDropdown.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/ShareBlock.js")" type="text/javascript"></script>
-    @if (!String.IsNullOrEmpty(Model.Item1.CustomStyles))
-    {
-        <style>
+    @section HEAD{
+        @if (!String.IsNullOrEmpty(Model.Item1.MetaKeywords))
+        {
+            <meta name="keywords" content="@Model.Item1.MetaKeywords" />
+        }
+        @if (!String.IsNullOrEmpty(Model.Item1.MetaDescription))
+        {
+            <meta name="description" content="@Model.Item1.MetaDescription" />
+        }
+        <link rel="canonical" href="@Url.Action("View", "Book", new { Id = Model.Item1.Id}, true)" />
+        @*<script src="@Url.Content("~/Scripts/ToolBar.js")" type="text/javascript"></script>*@
+        <script src="@Url.Content("~/Scripts/LeftFrame.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/RightFrame.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/BookPage.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/BookHeader.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/CommentList.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/CommentInfo.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/CommentatorsDropdown.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/ShareBlock.js")" type="text/javascript"></script>
+        @if (!String.IsNullOrEmpty(Model.Item1.CustomStyles))
+        {
+            <style>
         @Html.Raw(Model.Item1.CustomStyles)
-        </style>
+            </style>
+        }
     }
-}
-<div id="main" class="readBook">
+    <div id="main" class="readBook">
 
-@*@if (ViewBag.IsAuthenticated == true)
-{
-    @Html.Partial("AddBookmarkBox", null, new ViewDataDictionary())
-}*@
-@*@Html.Partial("LeftFrame", Model.Item1)
-@Html.Partial("RightFrame", Model.Item1)*@
-
-
-
-@Html.Partial("Header", Model.Item1)
+        @*@if (ViewBag.IsAuthenticated == true)
+            {
+                @Html.Partial("AddBookmarkBox", null, new ViewDataDictionary())
+            }*@
+        @*@Html.Partial("LeftFrame", Model.Item1)
+            @Html.Partial("RightFrame", Model.Item1)*@
 
 
 
-<div id="book_container" pageSize="@ViewBag.PageSize">
-@*@Html.Partial("Navigation", Model.Item2)*@
-<div class="navigationButton" navigationUrl="@Url.Action("Page", "Book", new { Id = Model.Item1.Id })" 
-    id="navigateUp" take="@ViewBag.PageSize">@SideNotes.Resources.Book.ViewNavigateUpButtonText</div>
-@Html.Action("Page", "Book", new { Id = Model.Item1.Id, skip = Model.Item2.CurrentStart })
-<br/>
-<br/>
-<div class="navigationButton" navigationUrl="@Url.Action("Page", "Book", new { Id = Model.Item1.Id })"
-     id="navigateDown" take="@ViewBag.PageSize">@SideNotes.Resources.Book.ViewNavigateDownButtonText</div>
-@*@Html.Partial("Navigation", Model.Item2)*@
-</div>
-<div class="userblock" id="userblockTemplate" style="display:none;">
-	<a href="#" class="userblock_avatar_link">
-		<img class="userblock_avatar">
-	</a>
-	<a href="#" class="userblock_name"></a>
-</div>
-@*@Html.Partial("AddHeadCommentBox")*@
-@Html.Partial("CommentsListTemplates")
-<script type="text/javascript">
+        @Html.Partial("Header", Model.Item1)
+
+
+
+        <div id="book_container" pageSize="@ViewBag.PageSize">
+            @*@Html.Partial("Navigation", Model.Item2)*@
+            <div class="navigationButton" navigationUrl="@Url.Action("Page", "Book", new { Id = Model.Item1.Id }, true)"
+                 id="navigateUp" take="@ViewBag.PageSize">@SideNotes.Resources.Book.ViewNavigateUpButtonText</div>
+                @Html.Action("Page", "Book", new { Id = Model.Item1.Id, skip = Model.Item2.CurrentStart })
+                <br />
+                <br />
+                <div class="navigationButton" navigationUrl="@Url.Action("Page", "Book", new { Id = Model.Item1.Id }, true)"
+                     id="navigateDown" take="@ViewBag.PageSize">@SideNotes.Resources.Book.ViewNavigateDownButtonText</div>
+                    @*@Html.Partial("Navigation", Model.Item2)*@
+                </div>
+                <div class="userblock" id="userblockTemplate" style="display:none;">
+                    <a href="#" class="userblock_avatar_link">
+                        <img class="userblock_avatar">
+                    </a>
+                    <a href="#" class="userblock_name"></a>
+                </div>
+                @*@Html.Partial("AddHeadCommentBox")*@
+                @Html.Partial("CommentsListTemplates")
+                <script type="text/javascript">
     var commentatorsUrl = '@Url.Action("Commentators", "Feed", new { Id = Model.Item1.Id })';
     var feedUrl = '@Url.Action("Index", "Feed", new { Id = Model.Item1.Id })';
     var commentsUrl = '@Url.Action("CommentsFiltered", "Feed")';
     var repliesCountUrl = '@Url.Action("GetRepliesCount", "Feed")';
     var commentCountUrl = '@Url.Action("CommentCount", "Feed")';
     var commentCountListUrl = '@Url.Action("CommentCountList", "Feed")';
-    var prevCommentUrl = '@Url.Action("PreviousCommentedParagraph", "Book", new { BookId = Model.Item1.Id })';
-    var nextCommentUrl = '@Url.Action("NextCommentedParagraph", "Book", new { BookId = Model.Item1.Id })';
+    var prevCommentUrl = '@Url.Action("PreviousCommentedParagraph", "Book", new { BookId = Model.Item1.Id }, true)';
+    var nextCommentUrl = '@Url.Action("NextCommentedParagraph", "Book", new { BookId = Model.Item1.Id }, true)';
     var popupUrl = '@Url.Action("EntityCommentators", "Comment", new { entityType = (int)EntityType.Paragraph })';
     var popupListUrl = '@Url.Action("EntityCommentatorsList", "Comment", new { entityType = (int)EntityType.Paragraph })';
     var hasPreviousPage = @(Model.Item2.HasPrevious == true ? "true" : "false")
@@ -121,7 +125,7 @@
         });
         $(window).scroll(function () {
             var topDelta = scrollTop - $(window).scrollTop();
-            
+
             var newTop = siteHeaderTop + topDelta;
             if(newTop < -siteHeaderHeight) newTop = -siteHeaderHeight;
             else if(newTop > 0) newTop = 0;
@@ -136,15 +140,15 @@
             scrollTop = $(window).scrollTop();
         });
     });
-    
-</script>
-@*@if (!ViewBag.IsAuthenticated)
-{
-    <script type="text/javascript">
-        $(function () {
-            showUnclosableBox('socialLoginBox');
-        });
-    </script> 
-    @Html.Partial("SocialLoginBox", new LoginModel())
-}*@
-</div>
+
+                </script>
+                @*@if (!ViewBag.IsAuthenticated)
+                    {
+                        <script type="text/javascript">
+                            $(function () {
+                                showUnclosableBox('socialLoginBox');
+                            });
+                        </script>
+                        @Html.Partial("SocialLoginBox", new LoginModel())
+                    }*@
+            </div>

@@ -77,8 +77,8 @@ namespace SideNotes.Controllers
                     Title = b.Title,
                     AuthorName = b.Author,
                     AvatarUrl = b.Avatar != null ? VirtualPathUtility.ToAbsolute(b.Avatar.Medium.Url) : BookAvatarService.NoAvatarMedium,
-                    ReadUrl = Url.Action("Start", "Book", new RouteValueDictionary() { { "Id", b.Id } }, true),
-                    AnnotationUrl = Url.Action("Annotation", "Book", new RouteValueDictionary() { { "Id", b.Id } }, true)
+                    ReadUrl = Url.Action("Start", "Book", new { Id = b.Id }, true),
+                    AnnotationUrl = Url.Action("Annotation", "Book", new { Id = b.Id }, true)
                 }).ToList();
 
                 var descendantBookModels = descendantBooks.Select(b => new CatalogBookModel()
@@ -87,8 +87,8 @@ namespace SideNotes.Controllers
                     Title = b.Title,
                     AuthorName = b.Author,
                     AvatarUrl = b.Avatar != null ? VirtualPathUtility.ToAbsolute(b.Avatar.Medium.Url) : BookAvatarService.NoAvatarMedium,
-                    ReadUrl = Url.Action("Start", "Book", new RouteValueDictionary() { { "Id", b.Id } }, true),
-                    AnnotationUrl = Url.Action("Annotation", "Book", new RouteValueDictionary() { { "Id", b.Id } }, true)
+                    ReadUrl = Url.Action("Start", "Book", new { Id = b.Id }, true),
+                    AnnotationUrl = Url.Action("Annotation", "Book", new { Id = b.Id }, true)
                 }).ToList();
                 return Json(new { books = bookModels, subfolderBooks = descendantBookModels });
             }

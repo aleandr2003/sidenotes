@@ -102,7 +102,7 @@ namespace SideNotes.Controllers
                         OrderNumber = p.OrderNumber,
                         Content = p.Content,
                         FormatType = (int)p.FormatType,
-                        BookTextUrl = Url.ActionAbsolute("View", "Book", new {Id = p.Book_Id, skip = p.OrderNumber - 1}).ToString(),
+                        BookTextUrl = Url.Action("View", "Book", new {Id = p.Book_Id, skip = p.OrderNumber - 1}, true).ToString(),
                         FirstComment = new CommentModel(first, Url),
                         LastComment = new CommentModel(last, Url)
                     });
@@ -126,7 +126,7 @@ namespace SideNotes.Controllers
                     OrderNumber = paragraph.OrderNumber,
                     Content = paragraph.Content,
                     FormatType = (int)paragraph.FormatType,
-                    BookTextUrl = Url.ActionAbsolute("View", "Book", new { Id = paragraph.Book_Id, skip = paragraph.OrderNumber - 1 }).ToString(),
+                    BookTextUrl = Url.Action("View", "Book", new { Id = paragraph.Book_Id, skip = paragraph.OrderNumber - 1 }, true).ToString(),
                     FirstComment = new CommentModel(firstComment, Url),
                     LastComment = new CommentModel(lastComment, Url)
                 };

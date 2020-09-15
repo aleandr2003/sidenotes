@@ -1,4 +1,6 @@
-﻿@model Tuple<List<Book>, List<int>>
+﻿@using SideNotes.Extensions;
+@using System.Web.Routing;
+@model Tuple<List<Book>, List<int>>
 @{
     ViewBag.Title = SideNotes.Resources.Book.IndexTitle;
 }
@@ -15,18 +17,18 @@ else
 <ul class="bookLongList">
 @foreach (var book in Model.Item1)
 {
-    var url = Model.Item2.Contains(book.Id) ? Url.Action("Start", "Book", new { id = book.Id }) : Url.Action("Annotation", "Book", new { id = book.Id });
+    var url = Model.Item2.Contains(book.Id) ? Url.Action("Start", "Book", new  { id = book.Id }, true) : Url.Action("Annotation", "Book", new  { id = book.Id }, true);
     <li class="bookLongListItem">
         <div class="prop" style="height:7em;"></div>
         <div style="float:left; margin-right:10px;">
             <a href="@url">@BookAvatar.Small(book, "book_avatar")</a>
         </div>
         <div class="bookLongListItemContainer">
-                
+
             <div class="ListBookTitle"><a href="@url">@book.Title</a></div>
             <div class="ListBookAuthor"><a href="@url">(@book.Author)</a></div>
-            @Html.ActionLink(SideNotes.Resources.Book.IndexAnnotationLinkText, "Annotation", "Book", new { Id = book.Id }, new { @class = "mainListAnnotationLink" }, true)
-                
+            @Html.ActionLink(SideNotes.Resources.Book.IndexAnnotationLinkText, "Annotation", "Book", new { Id = book.Id } , new { @class = "mainListAnnotationLink" }, true)
+
         </div>
         <div class="clearBoth" ></div>
     </li>

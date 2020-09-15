@@ -13,6 +13,8 @@ using System.Linq.Expressions;
 using SideNotes.ViewModels;
 using SideNotes.Controllers.Abstract;
 using SideNotes.Services.Templates;
+using System.Web.Routing;
+using SideNotes.Extensions;
 
 namespace SideNotes.Controllers
 {
@@ -234,7 +236,7 @@ namespace SideNotes.Controllers
                 if (json == true) return Json(new { ErrorMessage = ex.Message });
                 else throw;
             }
-            if (json == true) return Json(new { RedirectUrl = Url.Action("CommentsThread", "Book", new { headCommentId = headCommentId }) });
+            if (json == true) return Json(new { RedirectUrl = Url.Action("CommentsThread", "Book", new { headCommentId = headCommentId }, true) });
             //return RedirectToAction("HeadIndex", "Comment", new { headCommentId = headCommentId });
             return RedirectToAction("CommentsThread", "Book", new { headCommentId = headCommentId });
         }

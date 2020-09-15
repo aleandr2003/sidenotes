@@ -1,31 +1,33 @@
-﻿@model Dictionary<HeadComment, Paragraph>
-@{
-    Layout = null;
-}
-
-@if (Model.Count > 0)
-{
-    <ul class="recentComments_list" id="recentCommentsList">
-    @foreach (var kvp in Model)
-    {
-        var comment = kvp.Key;
-        var paragraph = kvp.Value;
-        <li class="comment_item userblock">
-            @if (comment.Author != null)
-            {
-                <a href="@Url.Action("View", "User", new { Id = comment.Author.Id })" class="userblock_avatar_link">
-			        @UserAvatar.Small(comment.Author, "userblock_avatar")
-		        </a>
-                <a href="@Url.Action("View", "User", new { Id = comment.Author.Id })" class="userblock_name">@comment.Author.Name</a>
-            }
-            <span class="comment_date">@comment.DateCreated.ToString("d MMMM")</span>
-            <br/>
-            <a href="@Url.Action("View", "Book", new { Id = paragraph.Book_Id, skip = paragraph.OrderNumber - 1 })" 
-                class="comment_content">@comment.Text</a>
-        </li>
+﻿@using SideNotes.Extensions;
+@using System.Web.Routing;
+@model Dictionary<HeadComment, Paragraph>
+    @{
+        Layout = null;
     }
-    </ul>
-@*    <script type="text/javascript">
-        $('.commentContainer:even').addClass('commentContainerAlterStyle');
-    </script>*@
-}
+
+    @if (Model.Count > 0)
+    {
+        <ul class="recentComments_list" id="recentCommentsList">
+            @foreach (var kvp in Model)
+            {
+                var comment = kvp.Key;
+                var paragraph = kvp.Value;
+                <li class="comment_item userblock">
+                    @if (comment.Author != null)
+                    {
+                        <a href="@Url.Action("View", "User", new { Id = comment.Author.Id })" class="userblock_avatar_link">
+                            @UserAvatar.Small(comment.Author, "userblock_avatar")
+                        </a>
+                        <a href="@Url.Action("View", "User", new { Id = comment.Author.Id })" class="userblock_name">@comment.Author.Name</a>
+                    }
+                    <span class="comment_date">@comment.DateCreated.ToString("d MMMM")</span>
+                    <br />
+                    <a href="@Url.Action("View", "Book", new { Id = paragraph.Book_Id, skip = paragraph.OrderNumber - 1 }, true)"
+                       class="comment_content">@comment.Text</a>
+                </li>
+            }
+        </ul>
+        @*    <script type="text/javascript">
+                $('.commentContainer:even').addClass('commentContainerAlterStyle');
+            </script>*@
+    }

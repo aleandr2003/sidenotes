@@ -1,9 +1,11 @@
-﻿@model Tuple<HeadComment, Paragraph, Book>
+﻿@using SideNotes.Extensions;
+@using System.Web.Routing;
+@model Tuple<HeadComment, Paragraph, Book>
     @{
         Layout = null;
     }
 
-    <a href="@Url.Action("View", "Book", new { Id = Model.Item2.Book_Id, skip = Model.Item2.OrderNumber - 1 })" class="paragraph_content">
+    <a href="@Url.Action("View", "Book", new { Id = Model.Item2.Book_Id, skip = Model.Item2.OrderNumber - 1 }, true)" class="paragraph_content">
         @if (Model.Item2 is ImageParagraph)
         {
             var imgParagraph = Model.Item2 as ImageParagraph;
@@ -23,23 +25,23 @@
         </a>
         <a href="@Url.Action("View", "User", new { Id = Model.Item1.Author.Id })" class="userblock_name">@Model.Item1.Author.Name</a>
     }
-    <a href="@Url.Action("View", "Book", new { Id = Model.Item2.Book_Id, skip = Model.Item2.OrderNumber - 1 })"
+    <a href="@Url.Action("View", "Book", new { Id = Model.Item2.Book_Id, skip = Model.Item2.OrderNumber - 1 }, true)"
        class="comment_content">@Model.Item1.Text</a>
     @{
         var count = @Model.Item3.GetCommentsCountByAuthor(Model.Item1.Author_Id ?? 0, ViewBag.CurrentUserId);}
     @if (count > 1)
     {
-    <div class="commentCounter">
-        <a href="@Url.Action("CommentsByUser", "Book", new { BookId = Model.Item3.Id, UserId = Model.Item1.Author_Id })"
+        <div class="commentCounter">
+            <a href="@Url.Action("CommentsByUser", "Book", new { BookId = Model.Item3.Id, UserId = Model.Item1.Author_Id }, true)"
                class="commentCounter_counter">+@(count - 1)</a> @SideNotes.Resources.User.BestCommentCountMessage
-    </div>
-    
-    }
-        
+        </div>
 
-   <script type="text/javascript">
-       $(function () {
-           $('.paragraph_content').shorten({ limit: 200 });
-           $('.comment_content').shorten({ limit: 200 });
-       });
-   </script>
+    }
+
+
+    <script type="text/javascript">
+        $(function () {
+            $('.paragraph_content').shorten({ limit: 200 });
+            $('.comment_content').shorten({ limit: 200 });
+        });
+    </script>

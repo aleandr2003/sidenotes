@@ -1,4 +1,6 @@
-﻿@{
+﻿@using SideNotes.Extensions;
+@using System.Web.Routing;
+@{
     ViewBag.Title = SideNotes.Resources.Catalog.IndexTitle;
 }
 
@@ -11,18 +13,18 @@
 }
 
 <div id="main" class="bookCatalog">
-<div id="leftCol">
-    <h2>&nbsp;</h2>
-    <div id="catalogCategoryTree"></div>
-</div>
-<div id="centerCol">
-    <h2>@SideNotes.Resources.Catalog.IndexHeading</h2>
-    <div id="bookList"></div>
-</div>
-<div id="rightCol">
-    <h2>@SideNotes.Resources.Catalog.IndexBestCommentsHeading</h2>
-    <div id="bestCommentList"></div>
-</div>
+    <div id="leftCol">
+        <h2>&nbsp;</h2>
+        <div id="catalogCategoryTree"></div>
+    </div>
+    <div id="centerCol">
+        <h2>@SideNotes.Resources.Catalog.IndexHeading</h2>
+        <div id="bookList"></div>
+    </div>
+    <div id="rightCol">
+        <h2>@SideNotes.Resources.Catalog.IndexBestCommentsHeading</h2>
+        <div id="bestCommentList"></div>
+    </div>
 
 </div>
 
