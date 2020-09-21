@@ -21,7 +21,7 @@ namespace SideNotes.Services
         //public string test(Paragraph paragraph, HeadComment comment)
         //{
         //    var urlHelper = UrlHelperExtensions.GetUrlHelper();
-        //    string link = urlHelper.ActionAbsolute("CommentsByUser", "Book", new { Id = paragraph.Book_Id, UserId = currentUser.Id }).ToString();
+        //    string link = urlHelper.Action("CommentsByUser", "Book", new { Id = paragraph.Book_Id, UserId = currentUser.Id }, true).ToString();
 
         //    string hashTag = null;
         //    using (var context = new SideNotesEntities())
@@ -46,7 +46,7 @@ namespace SideNotes.Services
         public override void ShareComment(Paragraph paragraph, HeadComment comment)
         {
             var urlHelper = UrlHelperExtensions.GetUrlHelper();
-            string link = urlHelper.ActionAbsolute("View", "Book", new { Id = paragraph.Book_Id, skip = paragraph.OrderNumber - 1, expanded = "on" }).ToString();
+            string link = urlHelper.Action("View", "Book", new { Id = paragraph.Book_Id, skip = paragraph.OrderNumber - 1, expanded = "on" }, true).ToString();
 
             string hashTag = null;
             using (var context = new SideNotesEntities())
@@ -71,7 +71,7 @@ namespace SideNotes.Services
         public override void ShareBook(Book book)
         {
             var urlHelper = UrlHelperExtensions.GetUrlHelper();
-            string link = urlHelper.ActionAbsolute("Annotation", "Book", new { Id = book.Id}).ToString();
+            string link = urlHelper.Action("Annotation", "Book", new { Id = book.Id}, true).ToString();
 
             //string hashTag = book.HashTag;
             //if (!String.IsNullOrEmpty(hashTag) && !hashTag.StartsWith("#")) hashTag = "#" + hashTag;

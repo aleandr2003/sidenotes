@@ -150,6 +150,7 @@
     <Compile Include="Extensions\DirectoryExtensions.cs" />
     <Compile Include="Extensions\HashSetExtension.cs" />
     <Compile Include="Extensions\LinkExtensions.cs" />
+    <Compile Include="Models\EntityType.cs" />
     <Compile Include="Repositories\BookRepository.cs" />
     <Compile Include="Repositories\IBookRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
@@ -743,9 +744,7 @@
     <Content Include="Views\Comment\IndexBuiltIn.cshtml" />
     <Content Include="Views\Comment\IndexBuiltInEdit.cshtml" />
     <Content Include="Views\Shared\CommentFilter.cshtml" />
-    <Content Include="Views\Comment\ParagraphCommentFilter.cshtml" />
     <Content Include="Views\Notification\OKView.cshtml" />
-    <Content Include="Views\Book\Navigation.cshtml" />
     <Content Include="Views\Book\Commentators.cshtml" />
     <Content Include="Views\Book\CommentsByUser.cshtml" />
     <Content Include="Views\BookAdmin\DeleteChapter.cshtml" />

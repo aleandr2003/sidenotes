@@ -14,7 +14,7 @@
                 <span class="commentCounter">
                     @if (/*ViewBag.IsAuthenticated == */true)
                     {
-                        <a href="@(ViewBag.IsAuthenticated == true ? Url.Action("CommentParagraph", "Book", new { paragraphId = Model.Id }, true) : Url.Action("Register", "User"))"
+                        <a href="@(ViewBag.IsAuthenticated == true ? Url.Action("CommentParagraph", "Book", new { Id = Model.Book_Id, paragraphId = Model.Id }, true) : Url.Action("Register", "User"))"
                            class="commentCounter_counter @*showLightBox_link*@ addHeadLink @*positionBoxAbsolute*@"
                            paragraphId="@Model.Id"
                            @*frameUrl = "@Url.ActionAbsolute("AddHead", "Comment", new { entityType = (int)EntityType.Paragraph, entityId = Model.Id })"*@

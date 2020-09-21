@@ -346,7 +346,7 @@ namespace SideNotes.Controllers
                 ProfileUrl = urlHelper.Action("View", "User", new { Id = AuthorId });
             }
             ChildCommentsCount = comment.GetChildCommentsCount();
-            RepliesLink = urlHelper.Action("CommentsThread", "Book", new { headCommentId = Id });
+            RepliesLink = urlHelper.Action("CommentsThread", "Book", new { headCommentId = Id }, true);
             date = comment.DateCreated.ToString("dd MMM yyyy HH:mm");
         }
     }

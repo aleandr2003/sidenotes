@@ -3,12 +3,6 @@
     Layout = null;
 }
 
-@*@if (ViewBag.EntityType == (int)EntityType.Paragraph && ViewBag.NoJS == true)
-{
-    @Html.Partial("ParagraphCommentFilter")
-}
-else*@
-
     @Html.Partial("CommentFilter")
 
 
@@ -40,11 +34,11 @@ if (commentCount > 0 || !comment.IsDeleted)
          {
              if (comment.EntityType == (int)EntityType.Paragraph)
              {
-                 @Html.ActionLink(String.Format(SideNotes.Resources.Comment.IndexMoreCommentsLinkText, commentCount), "CommentsThread", "Book", 
-                 new { headCommentId = comment.Id },
+                 @Html.ActionLink(String.Format(SideNotes.Resources.Comment.IndexMoreCommentsLinkText, commentCount), "CommentsThread", "Book",
+                 new { id = ViewBag.BookId, headCommentId = comment.Id },
                  new {@class = "showPopupBox_link",
                      popupUrl = Url.ActionAbsolute("ThreadCommentators", "Comment", new { headCommentId = comment.Id }),
-                 rel = "commentatorsPopupBox" })
+                     rel = "commentatorsPopupBox" }, true)
              }
              else
              {

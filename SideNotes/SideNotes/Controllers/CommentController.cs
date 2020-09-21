@@ -35,12 +35,8 @@ namespace SideNotes.Controllers
             ViewData["SelectedTab"] = HeaderTabs.Catalog;
         }
 
-        public ActionResult Index(int entityType, int entityId, int? filter, bool? json)
+        public ActionResult Index(int entityType, int entityId, int? filter)
         {
-            if (json == false)
-            {
-                ViewBag.NoJS = true;
-            }
             CommentFilter Filter = CommentFilter.All;
             try
             {
@@ -53,6 +49,7 @@ namespace SideNotes.Controllers
             }
 
             List<HeadComment> comments = null;
+            int? bookId = null;
             using (var context = new SideNotesEntities())
             {
                 int? CurrentUserId = userSession.IsAuthenticated ? (int?)userSession.CurrentUser.Id : null;
@@ -78,6 +75,7 @@ namespace SideNotes.Controllers
                     )
                     .Where(filterPredecate)
                     .OrderByDescending(c => c.DateCreated).ToList();
+                bookId = context.Paragraphs.Where(p => p.Id == entityId).Select(p => (int?)p.Book_Id).FirstOrDefault();
             }
             ViewBag.EntityType = entityType;
             ViewBag.EntityId = entityId;
@@ -85,6 +83,7 @@ namespace SideNotes.Controllers
             ViewBag.CurrentUserId = userSession.IsAuthenticated ? userSession.CurrentUser.Id : 0;
             ViewBag.Filter = Filter;
             ViewBag.BaseUrl = Request.Url;
+            ViewBag.BookId = bookId;
             return View("Index", comments);
         }
 

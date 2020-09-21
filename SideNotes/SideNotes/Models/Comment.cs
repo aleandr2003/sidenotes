@@ -41,11 +41,4 @@ namespace SideNotes.Models
             }
         }
     }
-
-    public enum EntityType
-    {
-        Paragraph,
-        Comment,
-        HeadComment
-    }
 }

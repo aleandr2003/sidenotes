@@ -24,12 +24,12 @@
         </div>
         @if (comment is HeadComment)
         {
-                @Html.ActionLink(SideNotes.Resources.Book.AllCommentsToTextLinkText, "View", "Book", new { Id = paragraph.Book_Id, skip = paragraph.OrderNumber - 1 }, null)
+                @Html.ActionLink(SideNotes.Resources.Book.AllCommentsToTextLinkText, "View", "Book", new { Id = paragraph.Book_Id, skip = paragraph.OrderNumber - 1 }, null, true)
         }
         else if (comment is Comment)
         {
             var comm = comment as Comment;
-                @Html.ActionLink(SideNotes.Resources.Book.AllCommentsOpenBranchLinkText, "CommentsThread", "Book", new { headCommentId = comm.HeadCommentId }, null);
+                @Html.ActionLink(SideNotes.Resources.Book.AllCommentsOpenBranchLinkText, "CommentsThread", "Book", new { Id = paragraph.Book_Id, headCommentId = comm.HeadCommentId }, null, true);
         }
         
      </div>

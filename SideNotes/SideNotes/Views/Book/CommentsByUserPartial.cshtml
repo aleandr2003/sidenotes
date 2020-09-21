@@ -31,7 +31,7 @@
         else if (comment is Comment)
         {
             var comm = comment as Comment;
-                @Html.ActionLink(SideNotes.Resources.Book.CommentsByUserOpenBranchLinkText, "CommentsThread", "Book", new { headCommentId = comm.HeadCommentId }, null, true);
+                @Html.ActionLink(SideNotes.Resources.Book.CommentsByUserOpenBranchLinkText, "CommentsThread", "Book", new { Id = paragraph.Book_Id, headCommentId = comm.HeadCommentId }, null, true);
         }
         
      </div>

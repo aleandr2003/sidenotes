@@ -12,7 +12,7 @@
 {
     <tr class="bookmarkRow">
         <td>
-            @Html.ActionLink(bookmark.Name, "View", "Book", new { Id = Model.Item1.Id, skip = bookmark.Paragraph.OrderNumber - 1 }, null)
+            @Html.ActionLink(bookmark.Name, "View", "Book", new { Id = Model.Item1.Id, skip = bookmark.Paragraph.OrderNumber - 1 }, null, true)
         </td>
         <td>
             <form method="post" action="@Url.Action("RemoveBookmark", "Book")" class="ajaxForm removeBookmarkForm">

@@ -53,8 +53,8 @@ namespace SideNotes.Services
 
             var urlHelper = UrlHelperExtensions.GetUrlHelper();
             avatarUrl = urlHelper.Absolute(avatarUrl).ToString();
-            string linkTitle = urlHelper.ActionAbsolute("View", "Book", new { Id = paragraph.Book_Id }).ToString();
-            string linkUrl = urlHelper.ActionAbsolute("View", "Book", new { Id = paragraph.Book_Id, skip = paragraph.OrderNumber - 1, expanded ="on" }).ToString();
+            string linkTitle = urlHelper.Action("View", "Book", new { Id = paragraph.Book_Id }, true).ToString();
+            string linkUrl = urlHelper.Action("View", "Book", new { Id = paragraph.Book_Id, skip = paragraph.OrderNumber - 1, expanded ="on" }, true).ToString();
             var data = String.Format("message={0}&picture={1}&link={2}&name={3}&caption={4}&description={5}",
                 message, avatarUrl, linkUrl, linkName, linkTitle, bookText);
 
@@ -83,8 +83,8 @@ namespace SideNotes.Services
 
             var urlHelper = UrlHelperExtensions.GetUrlHelper();
             avatarUrl = urlHelper.Absolute(avatarUrl).ToString();
-            string linkTitle = urlHelper.ActionAbsolute("Annotation", "Book", new { Id = book.Id }).ToString();
-            string linkUrl = urlHelper.ActionAbsolute("Annotation", "Book", new { Id = book.Id}).ToString();
+            string linkTitle = urlHelper.Action("Annotation", "Book", new { Id = book.Id },true).ToString();
+            string linkUrl = urlHelper.Action("Annotation", "Book", new { Id = book.Id}, true).ToString();
             var data = String.Format("message={0}&picture={1}&link={2}&name={3}&caption={4}&description={5}",
                 message, avatarUrl, linkUrl, linkName, linkTitle, bookText);
 

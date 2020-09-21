@@ -7,7 +7,7 @@
 {
     @Html.ActionLink(SideNotes.Resources.Book.RootChapterBeginningLinkText, "View", "Book",
         new { id = Model.Book_Id, skip = Model.TopParagraph.OrderNumber - 1 },
-            new { @class = "chapterTreeLink rootChapterLink" })
+            new { @class = "chapterTreeLink rootChapterLink" }, true)
     if (Model.HeadCommentsCount > 0)
     {
         <div class="commentCounter_counter">@Model.HeadCommentsCount</div>

@@ -4,7 +4,7 @@
 }
 <div id="main">
 @Abzats.Render(Model)
-@Html.ActionLink(SideNotes.Resources.Book.CommentsToStartLinkText, "Start", "Book", new { id = Model.Book_Id}, null)
+@Html.ActionLink(SideNotes.Resources.Book.CommentsToStartLinkText, "Start", "Book", new { id = Model.Book_Id}, null, true)
 
 @{
     var parameters = new { 

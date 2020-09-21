@@ -11,7 +11,7 @@
     @Abzats.Render(Model)
 </div>
 @Html.ActionLink(SideNotes.Resources.Book.CommentsThreadReadFromHereLinkText, "View", "Book",
-            new { id = Model.Book_Id, skip = Model.OrderNumber - 1 }, new { @class = "toTextButtonLink" })
+            new { id = Model.Book_Id, skip = Model.OrderNumber - 1 }, new { @class = "toTextButtonLink" }, true)
 
 @Html.Action("HeadIndex", "Comment", new { headCommentId = ViewBag.HeadCommentId })
 </div>
