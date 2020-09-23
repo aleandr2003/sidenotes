@@ -104,7 +104,7 @@ namespace SideNotes.Controllers
 
         public ActionResult Start(int id)
         {
-            return RedirectToAction("View", "Book", new { id = id, skip = GetAutoSave(id) });
+            return Redirect(Url.Action("View", "Book", new { id = id, skip = GetAutoSave(id) }, true));
         }
 
         public ActionResult View(int id, int? skip, string expanded)
@@ -334,7 +334,7 @@ namespace SideNotes.Controllers
                 context.SaveChanges();
             }
             if (json == true) return Json(new { });
-            return RedirectToAction("View", "Book", new { Id = paragraph.Book_Id, skip = paragraph.OrderNumber - 1});
+            return Redirect(Url.Action("View", "Book", new { Id = paragraph.Book_Id, skip = paragraph.OrderNumber - 1}, true));
         }
 
         [HttpPost]
@@ -353,7 +353,7 @@ namespace SideNotes.Controllers
                 context.SaveChanges();
             }
             if (json == true) return Json(new { });
-            return RedirectToAction("Annotation", "Book", new { Id = BookId });
+            return Redirect(Url.Action("Annotation", "Book", new { Id = BookId }, true));
         }
 
         public ActionResult CommentParagraph(int paragraphId)
@@ -663,9 +663,9 @@ namespace SideNotes.Controllers
                                      select p).FirstOrDefault();
                 if (nextParagraph != null)
                 {
-                    return RedirectToAction("View", "Book", new { Id = Id, skip = nextParagraph.OrderNumber - 1, expanded="on" });
+                    return Redirect(Url.Action("View", "Book", new { Id = Id, skip = nextParagraph.OrderNumber - 1, expanded="on" }, true));
                 }
-                return RedirectToAction("View", "Book", new { Id = Id, skip = 0, expanded = "on" });
+                return Redirect(Url.Action("View", "Book", new { Id = Id, skip = 0, expanded = "on" },true));
             }
         }
 
@@ -686,9 +686,9 @@ namespace SideNotes.Controllers
                                      select p).FirstOrDefault();
                 if (nextParagraph != null)
                 {
-                    return RedirectToAction("View", "Book", new { Id = Id, skip = nextParagraph.OrderNumber - 1, expanded = "on" });
+                    return Redirect(Url.Action("View", "Book", new { Id = Id, skip = nextParagraph.OrderNumber - 1, expanded = "on" },true));
                 }
-                return RedirectToAction("View", "Book", new { Id = Id, skip = currentNumber - 1, expanded = "on" });
+                return Redirect(Url.Action("View", "Book", new { Id = Id, skip = currentNumber - 1, expanded = "on" },true));
             }
         }
 

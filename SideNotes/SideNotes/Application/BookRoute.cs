@@ -24,7 +24,17 @@ namespace SideNotes.Application
         {
             var books = repository.GetBooksWithDomainData();
             bookIndex.Clear();
-            books.ForEach(book =>
+
+            var booksWithoutAnnotators = books.Where(b => String.IsNullOrEmpty(b.AnnotatorUrlName)).ToList();
+            var booksWithAnnotators = books.Where(b => !String.IsNullOrEmpty(b.AnnotatorUrlName)).ToList();
+
+            booksWithoutAnnotators.ForEach(book =>
+            {
+                bookIndex.TryAdd(CreateKey(book.UrlName, String.Empty), book.Id);
+                bookDataIndex.TryAdd(book.Id, new Tuple<string, string>(book.UrlName, book.AnnotatorUrlName));
+            });
+
+            booksWithAnnotators.ForEach(book =>
             {
                 bookIndex.TryAdd(CreateKey(book.UrlName, book.AnnotatorUrlName), book.Id);
                 bookIndex.TryAdd(CreateKey(book.UrlName, String.Empty), book.Id);
@@ -63,10 +73,22 @@ namespace SideNotes.Application
             if (!bookId.HasValue) return null;
             if (bookDataIndex.TryGetValue(bookId.Value, out var bookData))
             {
-                VirtualPathData basePath = base.GetVirtualPath(requestContext, values);
+                VirtualPathData basePath = base.GetVirtualPath(requestContext, RemoveTokens(values, "controller", "id"));
                 return basePath;
             }
             return null;
+        }
+
+        private RouteValueDictionary RemoveTokens(RouteValueDictionary allTokens, params string[] tokens)
+        {
+            RouteValueDictionary remainingTokens = new RouteValueDictionary();
+            var tokensLowerCase = tokens.Select(t => t.ToLower()).ToHashSet();
+            foreach (var token in allTokens)
+            {
+                if (tokensLowerCase.Contains(token.Key.ToLower())) continue;
+                remainingTokens.Add(token.Key, token.Value);
+            }
+            return remainingTokens;
         }
 
         public RouteData GetBookRouteData(HttpContextBase httpContext)

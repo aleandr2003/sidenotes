@@ -152,19 +152,23 @@ namespace SideNotes.Controllers
         [HttpPost]
         public ActionResult AddHead(int entityId, int entityType, string commentText, string isPrivate, bool? json)
         {
+            int? bookId = null;
             try
             {
                 if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.Comment.ControllerNeedLogin);
                 commentManager.AddHeadComment(userSession.CurrentUser.Id, entityId, entityType, commentText, isPrivate == isChecked);
+                using (var context = new SideNotesEntities())
+                {
+                    bookId = context.Paragraphs.Where(p => p.Id == entityId).Select(p => (int?)p.Book_Id).FirstOrDefault();
+                }
             }
             catch (InvalidOperationException ex)
             {
                 if (json == true) return Json(new { ErrorMessage = ex.Message });
                 else throw;
             }
-            //return RedirectToAction("Index", "Comment", new { entityId = entityId, entityType = entityType });
             if (json == true) return Json(new { RedirectUrl = Url.Action("Index", "Comment", new { entityId = entityId, entityType = entityType })});//IndexAll(entityType, entityId);
-            return RedirectToAction("Comments", "Book", new { paragraphId = entityId });
+            return Redirect(Url.Action("Comments", "Book", new { id = bookId, paragraphId = entityId }, true));
         }
 
         [HttpPost]
@@ -173,6 +177,7 @@ namespace SideNotes.Controllers
             int entityId = 0;
             using (var context = new SideNotesEntities())
             {
+                int? bookId = null;
                 try
                 {
                     var comment = context.HeadComments.FirstOrDefault(c => c.Id == Id);
@@ -180,6 +185,7 @@ namespace SideNotes.Controllers
                     if (!authz.Authorize(Operation.DeleteHeadComment, comment))
                         throw new UnauthorizedAccessException(Resources.Comment.ControllerNoPermissionToDeleteComment);
                     entityId = comment.EntityId;
+                    bookId = context.Paragraphs.Where(p => p.Id == entityId).Select(p => (int?)p.Book_Id).FirstOrDefault();
                     //int entityType = comment.EntityType;
                     using (var scope = new TransactionScope())
                     {
@@ -207,7 +213,7 @@ namespace SideNotes.Controllers
                     else throw;
                 }
                 if (json == true) return Json(new { });
-                return RedirectToAction("Comments", "Book", new { paragraphId = entityId });
+                return Redirect(Url.Action("Comments", "Book", new {id = bookId, paragraphId = entityId }, true));
             }
         }
 
@@ -225,10 +231,15 @@ namespace SideNotes.Controllers
         [HttpPost]
         public ActionResult AddComment(int? parentCommentId, int headCommentId, string commentText, bool? json)
         {
+            int? bookId = null;
             try
             {
                 if (!userSession.IsAuthenticated) throw new InvalidOperationException(Resources.Comment.ControllerNeedLogin);
                 commentManager.AddComment(userSession.CurrentUser.Id, parentCommentId, headCommentId, commentText);
+                using (var context = new SideNotesEntities())
+                {
+                    bookId = context.Paragraphs.Where(p => p.Id == headCommentId).Select(p => (int?)p.Book_Id).FirstOrDefault();
+                }
             }
             catch (InvalidOperationException ex)
             {
@@ -236,14 +247,14 @@ namespace SideNotes.Controllers
                 else throw;
             }
             if (json == true) return Json(new { RedirectUrl = Url.Action("CommentsThread", "Book", new { headCommentId = headCommentId }, true) });
-            //return RedirectToAction("HeadIndex", "Comment", new { headCommentId = headCommentId });
-            return RedirectToAction("CommentsThread", "Book", new { headCommentId = headCommentId });
+            return Redirect(Url.Action("CommentsThread", "Book", new { id = bookId, headCommentId = headCommentId }, true));
         }
 
         [HttpPost]
         public ActionResult DeleteComment(int Id, bool? json)
         {
             HeadComment headComment = null;
+            int? bookId = null;
             using (var context = new SideNotesEntities())
             {
                 try
@@ -268,6 +279,7 @@ namespace SideNotes.Controllers
                         context.SaveChanges();
                         scope.Complete();
                     }
+                    bookId = context.Paragraphs.Where(p => p.Id == headComment.EntityId).Select(p => (int?)p.Book_Id).FirstOrDefault();
                 }
                 catch (ArgumentException ex)
                 {
@@ -280,7 +292,7 @@ namespace SideNotes.Controllers
                     else throw;
                 }
                 if (json == true) return Json(new { });
-                return RedirectToAction("CommentsThread", "Book", new { headCommentId = headComment.Id});
+                return Redirect(Url.Action("CommentsThread", "Book", new {id = bookId, headCommentId = headComment.Id}, true));
             }
         }
 
@@ -292,6 +304,7 @@ namespace SideNotes.Controllers
                 throw new NotSupportedException(Resources.Comment.ControllerCantAddMark);
             if (!Enum.IsDefined(typeof(BuiltInCommentEnum), commentType)) 
                 throw new ArgumentException(Resources.Comment.ControllerUnknownMarkType);
+            int? bookId = null;
             using (var context = new SideNotesEntities())
             {
                 bool exists = context.BuiltInComments.Any(b => 
@@ -319,7 +332,8 @@ namespace SideNotes.Controllers
                        && b.EntityId == entityId);
                     return Json(new { Count = count });
                 }
-                return RedirectToAction("Comments", "Book", new { paragraphId = entityId });
+                bookId = context.Paragraphs.Where(p => p.Id == entityId).Select(p => (int?)p.Book_Id).FirstOrDefault();
+                return Redirect(Url.Action("Comments", "Book", new { id = bookId, paragraphId = entityId }, true));
             }
         }
 
@@ -351,7 +365,8 @@ namespace SideNotes.Controllers
                     && b.EntityId == entityId);
                     return Json(new { Count = count });
                 }
-                return RedirectToAction("Comments", "Book", new { paragraphId = entityId });
+                int? bookId = context.Paragraphs.Where(p => p.Id == entityId).Select(p => (int?)p.Book_Id).FirstOrDefault();
+                return Redirect(Url.Action("Comments", "Book", new { id = bookId, paragraphId = entityId }, true));
             }
         }
 

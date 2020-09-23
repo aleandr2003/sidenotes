@@ -35,6 +35,10 @@ namespace SideNotes.Extensions
                 if (bookData != null)
                 {
                     routeValues.Remove("id");
+                    if (String.IsNullOrEmpty(bookData.Annotator))
+                    {
+                        return htmlHelper.ActionLink(linkText, String.Empty, actionName, bookData.Protocol, bookData.HostName, null, routeValues, htmlAttributes);
+                    }
                     return htmlHelper.ActionLink(linkText, actionName, bookData.Annotator, bookData.Protocol, bookData.HostName, null, routeValues, htmlAttributes);
                 }
             }

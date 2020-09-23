@@ -32,6 +32,12 @@ namespace SideNotes.Application
                 new { booktitle = "", action = "Start", annotator = "" }  // Parameter defaults
             ));
 
+            routes.Add("BookRouteNoAnnotator", new BookRoute(
+                "{booktitle}.annotated.by",     // Domain with parameters
+                "{action}",    // URL with parameters
+                new { booktitle = "", action = "Start", annotator = "" }  // Parameter defaults
+            ));
+
             routes.MapRoute(
                 "CommentsByUser", // Route name
                 "Book/CommentsByUser/{UserId}/{BookId}", // URL with parameters
