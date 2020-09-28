@@ -1,8 +1,10 @@
-﻿using SideNotes.Repositories;
+﻿using SideNotes.Controllers;
+using SideNotes.Repositories;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -13,11 +15,31 @@ namespace SideNotes.Application
     {
         private static ConcurrentDictionary<string, int> bookIndex;
         private static ConcurrentDictionary<int, Tuple<string, string>> bookDataIndex;
+        private static HashSet<string> controllers;
+        private static HashSet<string> bookActions;
 
         static BookRoute()
         {
             bookIndex = new ConcurrentDictionary<string, int>();
             bookDataIndex = new ConcurrentDictionary<int, Tuple<string, string>>();
+
+            Assembly asm = Assembly.GetExecutingAssembly();
+            var controllerNames = asm.GetTypes()
+                .Where(type => typeof(Controller).IsAssignableFrom(type))
+                .Select(type => type.Name.EndsWith("Controller") ? type.Name.Substring(0, type.Name.Length - "Controller".Length) : type.Name);
+
+            var bookActionNames = asm.GetTypes()
+                .Where(type => typeof(BookController).IsAssignableFrom(type))
+                .SelectMany(type => type.GetMethods())
+                .Where(method => method.IsPublic && !method.IsDefined(typeof(NonActionAttribute)))
+                .Select(method => method.Name);
+
+            controllers = new HashSet<string>(controllerNames);
+            bookActions = new HashSet<string>(bookActionNames);
+            if (controllers.Intersect(bookActions).Any())
+            {
+                throw new Exception("Inconclusive routing");
+            }
         }
 
         public static void Init(IBookRepository repository)
@@ -106,6 +128,10 @@ namespace SideNotes.Application
             string booktitle = data.Values["booktitle"].ToString();
             string annotator = data.Values.ContainsKey("annotator") ? data.Values["annotator"].ToString() : String.Empty;
             string bookKey = CreateKey(booktitle, annotator);
+
+            if (data.Values.ContainsKey("action") && controllers.Contains(data.Values["action"]))
+                return null;
+
             if(bookIndex.TryGetValue(bookKey, out int bookId))
             {
                 data.Values["controller"] = "Book";
